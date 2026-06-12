@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades | RVC Studio</title>
+    <link rel="icon" type="image/png" href="https://rvcstudio.lat/wp-content/uploads/2026/06/1781025371768-1.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #0b0b0b;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            color: #ffffff;
+            padding-bottom: 60px;
+        }
+
+        /* CABECERA SIMPLE PARA VOLVER */
+        .cabecera-novedades {
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1a1a1a;
+            background-color: #070707;
+        }
+        .logo-nav img { max-height: 50px; }
+        .btn-volver {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid #ff0055;
+            padding: 10px 20px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .btn-volver:hover {
+            background-color: #ff0055;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+        }
+
+        /* CONTENEDOR DEL BLOG */
+        .contenedor-blog {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        .titulo-principal {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .titulo-principal span { color: #ff0055; }
+
+        /* TARJETA DE ARTÍCULO / PUBLICACIÓN */
+        .post-noticia {
+            background-color: #141414;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 40px;
+            transition: border-color 0.3s ease;
+        }
+        .post-noticia:hover { border-color: #333; }
+        .fecha-post {
+            color: #ff0055;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .post-noticia h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .post-noticia p {
+            color: #cccccc;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .cabecera-novedades { padding: 15px 20px; }
+            .titulo-principal { font-size: 2rem; }
+            .post-noticia { padding: 25px; }
+            .post-noticia h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header class="cabecera-novedades">
+        <div class="logo-nav">
+            <img src="https://rvcstudio.lat/wp-content/uploads/2026/06/1781025371768-1.png" alt="RVC Studio Logo">
+        </div>
+        <a href="index.html" class="btn-volver">← Volver al Inicio</a>
+    </header>
+
+    <!-- CONTENIDO DEL BLOG -->
+    <main class="contenedor-blog">
+        <h1 class="titulo-principal">Novedades <span>Studio</span></h1>
+
+        <!-- PUBLICACIÓN 1 (Ejemplo, puedes duplicar este bloque para añadir más) -->
+        <article class="post-noticia">
+            <div class="fecha-post">12 Junio, 2026</div>
+            <h2>¡Lanzamiento Oficial de la Nueva Web de RVC Studio!</h2>
+            <p>
+                Hoy damos un paso gigante en el crecimiento de nuestro estudio de producción. Estrenamos nuestra plataforma web oficial totalmente limpia y optimizada desde cero. A partir de ahora, todos los artistas emergentes y consolidados podrán revisar nuestros servicios de Producción Musical, Grabación de Voces, Mezcla y Masterización Profesional con un acceso directo a nuestro equipo. 
+                <br><br>
+                Estén atentos a esta sección, ya que semanalmente estaremos subiendo noticias, tips técnicos sobre audio urbano y regional, y lanzamientos exclusivos trabajados en nuestras salas. ¡Gracias por confiar en nuestro sonido!
+            </p>
+        </article>
+
+        <!-- PUBLICACIÓN 2 (Ejemplo vacío para tu próximo cambio) -->
+        <article class="post-noticia">
+            <div class="fecha-post">Próxima Semana</div>
+            <h2>Próximamente: Tips de Mezcla para Voces Urbanas</h2>
+            <p>
+                En nuestra próxima entrada de Novedades revelaremos las técnicas de compresión y ecualización que utilizamos en RVC Studio para lograr que las voces se sientan al frente, con pegada competitiva y una claridad impecable en el género urbano. ¡No te lo pierdas!
+            </p>
+        </article>
+
+    </main>
+
+</body>
+</html>
