@@ -32,16 +32,59 @@
             scroll-behavior: smooth;
         }
 
+        /* 1. CABEZAL SUPERIOR DE NAVEGACIÓN (NUEVO) */
+        .cabezal-superior {
+            width: 100%;
+            background-color: #070707;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 12px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .links-paginas {
+            display: flex;
+            gap: 25px;
+        }
+
+        .links-paginas a {
+            color: #aaaaaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .links-paginas a:hover {
+            color: #ff0055;
+        }
+
+        /* 2. BARRA DE ANUNCIOS / OFERTAS (NUEVA) */
+        .barra-promocional {
+            width: 100%;
+            background-color: #ff0055;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 10px rgba(255, 0, 85, 0.2);
+        }
+
         /* ANIMACIÓN DE DIFUSIÓN (FADE IN) */
         @keyframes fadeIn {
             from { opacity: 0; transform: translate(-50%, -40%); }
             to { opacity: 1; transform: translate(-50%, -50%); }
         }
 
-        /* BANNER HORIZONTAL (PORTADA) */
+        /* BANNER HORIZONTAL (PORTADA AJUSTADA) */
         .banner-horizontal {
             width: 100%;
-            height: 450px;
+            height: 400px;
             background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
                               url('https://rvcstudio.lat/wp-content/uploads/2026/06/photo_4999250759438240812_y.jpg');
             background-size: cover;
@@ -59,7 +102,7 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            padding: 25px 50px;
+            padding: 20px 50px;
             z-index: 10;
         }
 
@@ -67,44 +110,6 @@
             max-height: 70px;
             width: auto;
             display: block;
-        }
-
-        /* CABECERA: MENÚ DE NAVEGACIÓN */
-        .menu-cabecera {
-            display: flex;
-            align-items: center;
-            gap: 35px;
-        }
-
-        .menu-cabecera a.link-seccion {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        .menu-cabecera a.link-seccion::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #ff0055;
-            transition: width 0.3s ease;
-        }
-
-        .menu-cabecera a.link-seccion:hover::after {
-            width: 100%;
-        }
-
-        .menu-cabecera a.link-seccion:hover {
-            color: #ff0055;
         }
 
         .bloque-redes {
@@ -258,7 +263,7 @@
 
         .links-legales a:hover { color: #ff0055; }
 
-        /* AVISO DE COOKIES VISIBLE */
+        /* AVISO DE COOKIES */
         .banner-cookies {
             position: fixed;
             bottom: 0;
@@ -277,10 +282,8 @@
         }
 
         .banner-cookies.activo { transform: translateY(0); }
-
         .texto-cookies { font-size: 0.9rem; color: #cccccc; max-width: 80%; line-height: 1.4; }
         .texto-cookies a { color: #ff0055; text-decoration: none; }
-
         .btn-cookies {
             background-color: #ff0055;
             color: white;
@@ -292,10 +295,9 @@
             transition: background 0.3s ease;
             white-space: nowrap;
         }
-
         .btn-cookies:hover { background-color: #d60048; }
 
-        /* VENTANAS EMERGENTES (MODALES PARA TEXTO LEGAL) */
+        /* MODALES LEGALES */
         .modal-legal {
             position: fixed;
             top: 0;
@@ -311,9 +313,7 @@
             pointer-events: none;
             transition: opacity 0.3s ease;
         }
-
         .modal-legal.abierto { opacity: 1; pointer-events: auto; }
-
         .contenido-modal {
             background-color: #141414;
             border: 1px solid #333;
@@ -326,7 +326,6 @@
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
         }
-
         .cerrar-modal {
             position: absolute;
             top: 20px;
@@ -336,7 +335,6 @@
             cursor: pointer;
             transition: color 0.3s ease;
         }
-
         .cerrar-modal:hover { color: #ff0055; }
         .contenido-modal h2 { margin-bottom: 20px; color: #ff0055; font-size: 1.8rem; }
         .contenido-modal h3 { margin: 20px 0 10px 0; color: #ffffff; font-size: 1.1rem; }
@@ -344,12 +342,15 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .banner-horizontal { height: 380px; }
-            .fila-superior { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .menu-cabecera { gap: 20px; }
+            .cabezal-superior { padding: 12px 20px; flex-direction: column; gap: 8px; text-align: center; }
+            .links-paginas { gap: 15px; }
+            .links-paginas a { font-size: 0.8rem; }
+            .barra-promocional { font-size: 0.85rem; padding: 8px 15px; }
+            .banner-horizontal { height: 350px; }
+            .fila-superior { padding: 15px 20px; flex-direction: column; gap: 10px; }
             .bloque-logo img { max-height: 50px; }
-            .bloque-eslogan { top: 65%; }
-            .bloque-eslogan h1 { font-size: 1.4rem; }
+            .bloque-eslogan { top: 60%; }
+            .bloque-eslogan h1 { font-size: 1.3rem; }
             .seccion-servicios { padding: 50px 20px; }
             .tarjeta-servicio { width: 100%; min-height: auto; }
             .btn-whatsapp { bottom: 20px; right: 20px; width: 55px; height: 55px; }
@@ -360,25 +361,35 @@
 </head>
 <body>
 
-    <!-- PORTADA -->
+    <!-- 1. CABEZAL SUPERIOR DE NAVEGACIÓN -->
+    <div class="cabezal-superior">
+        <div class="links-paginas">
+            <a href="novedades.html">Novedades</a>
+            <a href="plugins.html">Plugins</a>
+            <a href="tutoriales.html">Tutoriales</a>
+        </div>
+    </div>
+
+    <!-- 2. BARRA DE OFERTAS EXCLUSIVAS -->
+    <div class="barra-promocional">
+        Contrata nuestro servicio y accede a nuestras ofertas exclusivas
+    </div>
+
+    <!-- PORTADA PRINCIPAL -->
     <div class="banner-horizontal">
         <header class="fila-superior">
             <div class="bloque-logo">
                 <img src="https://rvcstudio.lat/wp-content/uploads/2026/06/1781025371768-1.png" alt="RVC Studio Logo">
             </div>
             
-            <!-- NUEVO MENÚ DE NAVEGACIÓN -->
-            <nav class="menu-cabecera">
-                <a href="novedades.html" class="link-seccion">Novedades</a>
-                <div class="bloque-redes">
-                    <a href="https://www.youtube.com/@rvc_studio" target="_blank" rel="noopener">
-                        <img src="https://rvcstudio.lat/wp-content/uploads/2026/06/descarga-2.jpg" alt="YouTube">
-                    </a>
-                    <a href="https://www.instagram.com/r.v.c_studio?igsh=YWs4N2RkMGFqNnJu" target="_blank" rel="noopener">
-                        <img src="https://rvcstudio.lat/wp-content/uploads/2026/06/images-3.jpg" alt="Instagram">
-                    </a>
-                </div>
-            </nav>
+            <div class="bloque-redes">
+                <a href="https://www.youtube.com/@rvc_studio" target="_blank" rel="noopener">
+                    <img src="https://rvcstudio.lat/wp-content/uploads/2026/06/descarga-2.jpg" alt="YouTube">
+                </a>
+                <a href="https://www.instagram.com/r.v.c_studio?igsh=YWs4N2RkMGFqNnJu" target="_blank" rel="noopener">
+                    <img src="https://rvcstudio.lat/wp-content/uploads/2026/06/images-3.jpg" alt="Instagram">
+                </a>
+            </div>
         </header>
 
         <div class="bloque-eslogan">
@@ -403,7 +414,7 @@
             <div class="tarjeta-servicio">
                 <div class="icono-servicio">🔊</div>
                 <h3>Mezcla & Mastering</h3>
-                <p>Balance de frecuencias, dinámica y pegada competitiva para que tus canciones su sean perfectas en cualquier plataforma de streaming.</p>
+                <p>Balance de frecuencias, dinámica y pegada competitiva para que tus canciones suenen perfectas en cualquier plataforma de streaming.</p>
             </div>
         </div>
     </section>
