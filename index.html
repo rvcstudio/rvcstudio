@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-04WYB34N23"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -16,10 +15,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Record Very Clean Music | RVC Studio - Tus canciones, nuestro sonido</title>
 
-    <!-- ICONO DE LA PÁGINA (FAVICON) -->
     <link rel="icon" type="favicon.png" href="imagenes/favicon.png">
 
-    <!-- META TAGS PARA REDES SOCIALES -->
     <meta property="og:title" content="Record Very Clean Music | RVC Studio">
     <meta property="og:description" content="Tus canciones, nuestro sonido. Nuestra tarea: tu mejor calidad.">
     <meta property="og:image" content="https://rvcstudio.lat/wp-content/uploads/2026/06/1781025371768-1.png">
@@ -43,7 +40,7 @@
             scroll-behavior: smooth;
         }
 
-        /* 1. CABEZAL SUPERIOR DE NAVEGACIÓN (NUEVO) */
+        /* 1. CABEZAL SUPERIOR DE NAVEGACIÓN */
         .cabezal-superior {
             width: 100%;
             background-color: #070707;
@@ -73,7 +70,7 @@
             color: #ff0055;
         }
 
-        /* 2. BARRA DE ANUNCIOS / OFERTAS (NUEVA) */
+        /* 2. BARRA DE ANUNCIOS / OFERTAS */
         .barra-promocional {
             width: 100%;
             background-color: #ff0055;
@@ -343,49 +340,6 @@
         }
         .btn-cookies:hover { background-color: #d60048; }
 
-        /* MODALES LEGALES */
-        .modal-legal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 20000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-        .modal-legal.abierto { opacity: 1; pointer-events: auto; }
-        .contenido-modal {
-            background-color: #141414;
-            border: 1px solid #333;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 700px;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 40px 30px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-        }
-        .cerrar-modal {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 1.8rem;
-            color: #666;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .cerrar-modal:hover { color: #ff0055; }
-        .contenido-modal h2 { margin-bottom: 20px; color: #ff0055; font-size: 1.8rem; }
-        .contenido-modal h3 { margin: 20px 0 10px 0; color: #ffffff; font-size: 1.1rem; }
-        .contenido-modal p { color: #b3b3b3; font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px; }
-
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .cabezal-superior { padding: 12px 20px; flex-direction: column; gap: 8px; text-align: center; }
@@ -408,7 +362,6 @@
 </head>
 <body>
 
-    <!-- 1. CABEZAL SUPERIOR DE NAVEGACIÓN -->
     <div class="cabezal-superior">
         <div class="links-paginas">
             <a href="novedades.html">Novedades</a>
@@ -417,16 +370,13 @@
         </div>
     </div>
 
-    <!-- 2. BARRA DE OFERTAS EXCLUSIVAS -->
     <div class="barra-promocional">
         Contrata nuestro servicio y accede a nuestras ofertas exclusivas
     </div>
 
-    <!-- PORTADA PRINCIPAL -->
     <div class="banner-horizontal">
         <header class="fila-superior">
             <div class="bloque-logo">
-                <!-- Se actualiza la ruta al nuevo logo en tu carpeta imagenes de GitHub -->
                 <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
             </div>
             
@@ -441,12 +391,10 @@
         </header>
 
         <div class="bloque-eslogan">
-            <!-- Cambio de identidad: RVC Studio pasa a RECORD VERY CLEAN -->
             <h1>RECORD VERY CLEAN<br>Tus canciones, nuestro sonido.<br>Nuestra tarea: tu mejor calidad.</h1>
         </div>
     </div>
 
-    <!-- ARGUMENTO NARRATIVO SONORO (OPTIMIZADO PARA GOOGLE) -->
     <section class="seccion-narrativa">
         <h2><span>El Sonido Detrás de la Identidad Urbana y Regional</span></h2>
         
@@ -463,7 +411,6 @@
         </p>
     </section>
 
-    <!-- SECCIÓN DE SERVICIOS -->
     <section class="seccion-servicios">
         <h2 class="titulo-seccion">Nuestros Servicios</h2>
         <div class="grid-servicios">
@@ -485,71 +432,28 @@
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA (FOOTER) -->
     <footer class="footer-legal">
         <div class="links-legales">
-            <a onclick="abrirModal('modal-aviso')">Aviso Legal</a>
-            <a onclick="abrirModal('modal-privacidad')">Política de Privacidad</a>
-            <a onclick="abrirModal('modal-terminos')">Términos y Condiciones</a>
+            <a href="aviso-legal.html">Aviso Legal</a>
+            <a href="politica-privacidad.html">Política de Privacidad</a>
+            <a href="terminos-condiciones.html">Términos y Condiciones</a>
         </div>
         <p>&copy; 2026 RVC Studio. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- AVISO DE COOKIES -->
     <div id="cookies-banner" class="banner-cookies">
         <p class="texto-cookies">
-            Utilizamos cookies propias para mejorar tu experience de navegación y mostrarte contenido personalizado relacionado con nuestras producciones musicales. Puedes leer más en nuestra <a onclick="abrirModal('modal-privacidad')">Política de Privacidad</a>.
+            Utilizamos cookies propias para mejorar tu experiencia de navegación y mostrarte contenido personalizado relacionado con nuestras producciones musicales. Puedes leer más en nuestra <a href="politica-privacidad.html">Política de Privacidad</a>.
         </p>
         <button class="btn-cookies" onclick="aceptarCookies()">Aceptar Cookies</button>
     </div>
 
-    <!-- MODAL: AVISO LEGAL -->
-    <div id="modal-aviso" class="modal-legal">
-        <div class="contenido-modal">
-            <span class="cerrar-modal" onclick="cerrarModal('modal-aviso')">&times;</span>
-            <h2>Aviso Legal</h2>
-            <p>En cumplimiento de las normativas de comercio electrónico y protección de datos, se informa que este sitio web (rvcstudio.lat) es propiedad y está administrado por los co-propietarios de RVC Studio.</p>
-            <h3>1. Propiedad Intelectual</h3>
-            <p>Todo el contenido audiovisual, beats, samples, logos, designs y textos expuestos en esta web son propiedad exclusiva de RVC Studio o cuentan con los derechos de uso correspondientes. Queda prohibida su reproducción o distribución sin autorización expresa.</p>
-            <h3>2. Responsabilidad</h3>
-            <p>RVC Studio no se responsabiliza del mal uso que los usuarios puedan dar a la información o al material musical descargado o escuchado a través del sitio web.</p>
-        </div>
-    </div>
-
-    <!-- MODAL: POLÍTICA DE PRIVACIDAD -->
-    <div id="modal-privacidad" class="modal-legal">
-        <div class="contenido-modal">
-            <span class="cerrar-modal" onclick="cerrarModal('modal-privacidad')">&times;</span>
-            <h2>Política de Privacidad</h2>
-            <p>En RVC Studio nos tomamos muy en serio la privacidad de los artistas y productores que confían en nuestro sonido.</p>
-            <h3>1. Recopilación de Datos</h3>
-            <p>Este sitio web no almacena de forma forzosa datos personales de los usuarios que solo navegan por la página. Los datos de contacto compartidos mediante enlaces de redirección externa (como WhatsApp o Instagram) se utilizan única y exclusivamente para agendar sesiones o brindar cotizaciones de servicios musicales.</p>
-            <h3>2. Cookies</h3>
-            <p>Utilizamos cookies analíticas estándar para entender cómo interactúan los usuarios con nuestra web con el fin de optimizar el rendimiento técnico y la velocidad del sitio.</p>
-        </div>
-    </div>
-
-    <!-- MODAL: TÉRMINOS Y CONDICIONES -->
-    <div id="modal-terminos" class="modal-legal">
-        <div class="contenido-modal">
-            <span class="cerrar-modal" onclick="cerrarModal('modal-terminos')">&times;</span>
-            <h2>Términos y Condiciones</h2>
-            <p>Al navegar por rvcstudio.lat and contratar nuestros servicios de producción, mezcla o masterización, aceptas las siguientes pautas de trabajo:</p>
-            <h3>1. Contratación de Servicios Musicales</h3>
-            <p>Toda cotización o acuerdo de producción musical se cerrará formalmente de mutuo acuerdo a través de nuestros canales oficiales de contacto (WhatsApp/Instagram). Los plazos de entrega y revisiones de mezcla se pactarán de manera individual con cada artista antes de iniciar los proyectos.</p>
-            <h3>2. Modificaciones de los Términos</h3>
-            <p>RVC Studio se reserva el derecho de actualizar o modificar estas condiciones de uso para adaptarlas a nuevas normativas o necesidades del estudio en cualquier momento.</p>
-        </div>
-    </div>
-
-    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
     <a href="https://wa.me/573234739393?text=Hola%20RVC%20Studio!%20Me%20interesa%20obtener%20información%20sobre%20sus%20servicios%20musicales." class="btn-whatsapp" target="_blank" rel="noopener" title="Contáctanos por WhatsApp">
         <svg viewBox="0 0 448 512">
             <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
         </svg>
     </a>
 
-    <!-- LÓGICA EN JAVASCRIPT -->
     <script>
         window.onload = function() {
             if (!localStorage.getItem('cookiesAceptadas')) {
@@ -562,23 +466,6 @@
         function aceptarCookies() {
             document.getElementById('cookies-banner').classList.remove('activo');
             localStorage.setItem('cookiesAceptadas', 'true');
-        }
-
-        function abrirModal(idModal) {
-            document.getElementById(idModal).classList.add('abierto');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function cerrarModal(idModal) {
-            document.getElementById(idModal).classList.remove('abierto');
-            document.body.style.overflow = 'auto';
-        }
-
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal-legal')) {
-                event.target.classList.remove('abierto');
-                document.body.style.overflow = 'auto';
-            }
         }
     </script>
 
