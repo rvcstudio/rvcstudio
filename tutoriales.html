@@ -20,7 +20,9 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415" crossorigin="anonymous"></script>
     <!-- ESTILOS DE LA CABECERA -->
+<!-- ESTILOS DE LA PÁGINA (CABECERA Y PIE DE PÁGINA) -->
     <style>
+        /* --- ESTILOS DE LA CABECERA --- */
         .cabecera-novedades {
             width: 100%;
             padding: 20px 50px;
@@ -54,8 +56,46 @@
             box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
         }
 
+        /* --- ESTILOS DEL PIE DE PÁGINA (FOOTER CENTRADO) --- */
+        .footer-legal {
+            width: 100%;
+            background-color: #070707;
+            border-top: 1px solid #1a1a1a;
+            padding: 40px 20px;
+            text-align: center; /* Esto centra los textos y derechos reservados */
+            margin-top: 40px;
+        }
+
+        .links-legales {
+            display: flex;
+            justify-content: center; /* Esto centra los enlaces horizontalmente */
+            gap: 20px; /* Espacio entre cada enlace */
+            margin-bottom: 15px;
+            flex-wrap: wrap; /* Por si se ve en celular, se acomodan abajo */
+        }
+
+        .links-legales a {
+            color: #888888;
+            text-decoration: none;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .links-legales a:hover {
+            color: #ff0055; /* Cambia a tu color rosa/rojo al pasar el mouse */
+        }
+
+        .footer-legal p {
+            color: #555555;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        /* --- AJUSTE PARA CELULARES --- */
         @media (max-width: 768px) {
             .cabecera-novedades { padding: 15px 20px; }
+            .links-legales { gap: 15px; }
         }
     </style>
 </head>
