@@ -2,16 +2,29 @@
 <html lang="es">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-04WYB34N23"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-04WYB34N23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-04WYB34N23');
-</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415"
-     crossorigin="anonymous"></script>
+      gtag('config', 'G-04WYB34N23');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415" crossorigin="anonymous"></script>
+    
+    <!-- CTA PERSONALIZADO DE GOOGLE PUBLISHER CENTER -->
+    <script async type="application/javascript" src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+    <script>
+      (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+        basicSubscriptions.init({
+          type: "NewsArticle",
+          isPartOfType: ["Product"],
+          isPartOfProductId: "CAowv9vgCw:openaccess",
+          clientOptions: { theme: "dark", lang: "es-419" },
+        });
+      });
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -37,7 +50,7 @@
     <meta name="twitter:image" content="https://rvcstudio.lat/imagenes/Behringer-Model-D-Soul@2000x1500.jpg">
 
     <!-- FAVICON -->
-    <link rel="icon" type="Favicon.png" href="imagenes/favicon.png">
+    <link rel="icon" type="image/png" href="imagenes/favicon.png">
     
     <style>
         /* RESET BÁSICO */
@@ -54,7 +67,7 @@
             padding-bottom: 80px;
         }
 
-        /* CABECERA SIMPLE PARA VOLVER */
+        /* CABECERA SIMPLE */
         .cabecera-novedades {
             width: 100%;
             padding: 20px 50px;
@@ -97,7 +110,7 @@
         }
         .titulo-principal span { color: #ff0055; }
 
-        /* TARJETA DE ARTÍCULO / PUBLICACIÓN */
+        /* ARQUITECTURA DEL ARTÍCULO */
         .post-noticia {
             background-color: #141414;
             border: 1px solid #222;
@@ -136,7 +149,7 @@
             color: #ffffff;
         }
 
-        /* ESTILOS DE IMÁGENES PROFESIONALES */
+        /* ESTILOS DE IMÁGENES */
         .contenedor-foto-art {
             width: 100%;
             margin: 35px 0;
@@ -157,7 +170,7 @@
             font-style: italic;
         }
 
-        /* CONTENEDOR RESPONSIVO PARA VIDEO DE YOUTUBE */
+        /* CONTENEDOR RESPONSIVO VIDEO DE YOUTUBE */
         .contenedor-video-yt {
             position: relative;
             width: 100%;
@@ -177,12 +190,62 @@
             height: 100%;
         }
 
+        /* ESTILOS DEL BLOQUE CTA DE GOOGLE NEWS */
+        .cta-google-news {
+            background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+            border-left: 4px solid #ff0055;
+            border-top: 1px solid #222;
+            border-right: 1px solid #222;
+            border-bottom: 1px solid #222;
+            padding: 25px;
+            border-radius: 0 8px 8px 0;
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .cta-texto h5 {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .cta-texto p {
+            font-size: 0.9rem !important;
+            color: #aaaaaa !important;
+            margin-bottom: 0 !important;
+            line-height: 1.5 !important;
+        }
+        .btn-cta-news {
+            background-color: #ff0055;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        .btn-cta-news:hover {
+            background-color: #d60048;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+            transform: translateY(-1px);
+        }
+
         @media (max-width: 768px) {
             .cabecera-novedades { padding: 15px 20px; }
             .titulo-principal { font-size: 2rem; }
             .post-noticia { padding: 25px; }
             .post-noticia h2 { font-size: 1.6rem; }
             .post-noticia h3 { font-size: 1.2rem; }
+            .cta-google-news { flex-direction: column; align-items: flex-start; }
+            .btn-cta-news { width: 100%; justify-content: center; }
         }
 
         /* FOOTER CENTRADO */
@@ -194,7 +257,6 @@
             text-align: center;
             margin-top: 60px;
         }
-
         .links-legales {
             display: flex;
             justify-content: center;
@@ -202,19 +264,15 @@
             margin-bottom: 15px;
             flex-wrap: wrap;
         }
-
         .links-legales a {
             color: #888888;
             text-decoration: none;
             font-size: 0.85rem;
-            cursor: pointer;
             transition: color 0.3s ease;
         }
-
         .links-legales a:hover {
             color: #ff0055;
         }
-
         .footer-legal p {
             color: #555555;
             font-size: 0.8rem;
@@ -330,11 +388,24 @@
             <p style="border-left: 3px solid #ff0055; padding-left: 15px; font-style: italic; color: #aaaaaa; margin-top: 30px;">
                 <strong>Actualización del 10 de junio de 2026:</strong> Thomann ya ha verificado el precio en la cantidad esperada: una etiqueta muy atractiva.
             </p>
-        </article>
 
+            <!-- MÓDULO CTA SEGUIR EN GOOGLE NEWS -->
+            <div class="cta-google-news">
+                <div class="cta-texto">
+                    <h5>Sigue a RVC Studio</h5>
+                    <p>Únete gratis en Google News para no perderte ninguna de nuestras novedades y análisis técnicos de hardware.</p>
+                </div>
+                <button class="btn-cta-news" onclick="self.SWG_BASIC.push(b=>b.showOffers())">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle; margin-right:4px;">
+                        <path d="M12 2L2 22H22L12 2Z" fill="#ffffff"/>
+                    </svg>
+                    Seguir en Google News
+                </button>
+            </div>
+        </article>
     </main>
 
-    <!-- FOOTER ACTUALIZADO CON RUTAS LIMPIAS -->
+    <!-- FOOTER -->
     <footer class="footer-legal">
         <div class="links-legales">
             <a href="aviso-legal.html">Aviso Legal</a>
