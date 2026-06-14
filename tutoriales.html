@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutoriales de Producción Musical | Record Very Clean Music</title>
+    <title>Tutoriales de Production Musical | Record Very Clean Music</title>
     
     <link rel="icon" type="image/png" href="imagenes/favicon.png">
 
+    <!-- GOOGLE ANALYTICS -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-04WYB34N23"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -15,8 +16,22 @@
       gtag('config', 'G-04WYB34N23');
     </script>
 
+    <!-- GOOGLE ADSENSE -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415" crossorigin="anonymous"></script>
     
+    <!-- SCRIPT OFICIAL GOOGLE PUBLISHER CENTER (SUBSCRIBE WITH GOOGLE) -->
+    <script async type="application/javascript" src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
+    <script>
+      (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+        basicSubscriptions.init({
+          type: "NewsArticle",
+          isPartOfType: ["Product"],
+          isPartOfProductId: "CAowv9vgCw:openaccess",
+          clientOptions: { theme: "dark", lang: "es-419" }, /* Cambiado a "dark" para hacer match con tu web */
+        });
+      });
+    </script>
+
     <style>
         /* --- ESTILOS GENERALES Y RESET --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,6 +132,8 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            cursor: pointer;
+            border: none;
             transition: all 0.2s ease;
         }
         .btn-cta-news:hover {
@@ -198,7 +215,7 @@
                 imagenCover: "imagenes/cover.jpg",
                 htmlCompleto: `
                     <h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">Multiplica tu velocidad en FL Studio: Los atajos de teclado que cambiarán tu flujo de trabajo</h2>
-                    <p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Producción Musical & Workflow | Por: RVC Studio</p>
+                    <p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Production Musical & Workflow | Por: RVC Studio</p>
                     
                     <div style="margin: 25px 0; text-align: center;">
                         <img src="imagenes/cover.jpg" alt="Atajos FL Studio" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #222;">
@@ -277,7 +294,7 @@
                         Si vienes de usar otro secuenciador de audio o simplemente encuentras incómodas las combinaciones que vienen configuradas por defecto, no te preocupes. FL Studio te ofrece la libertad de moldear la interfaz a tu gusto.
                     </p>
                     <p style="margin-bottom: 25px;">
-                        Para hacerlo, dirígete al menú superior en <strong>Options</strong>, luego ingresa a <strong>General Settings</strong> y localiza la sección exclusiva dedicada a los atajos de teclado. Desde allí podrás reasignar las combinaciones de teclas según tus preferencias personales y llevar la personalización al máximo nivel.
+                        Para hacerlo, dirígete al menú superior en <strong>Options</strong>, luego ingresa a <strong>General Settings</strong> and localiza la sección exclusiva dedicada a los atajos de teclado. Desde allí podrás reasignar las combinaciones de teclas según tus preferencias personales y llevar la personalización al máximo nivel.
                     </p>
 
                     <div class="box-tip blue">
@@ -291,16 +308,17 @@
                         Si te ha servido esta guía, no olvides guardar este artículo en tus marcadores y compartirlo con otros productores que necesiten acelerar su ritmo de trabajo. ¡Nos vemos en el próximo tutorial!
                     </p>
 
-                    <!-- CAJA DE CTA REQUISITO GOOGLE PUBLISHER CENTER -->
+                    <!-- CAJA DE CTA ENLAZADA AL SCRIPT DE GOOGLE PUBLISHER CENTER -->
                     <div class="cta-google-news">
                         <div class="cta-texto">
                             <h5>¿Te gusta nuestro contenido técnico?</h5>
                             <p>Sigue a <strong>RVC Studio</strong> en Google News para no perderte ningún tutorial de producción musical.</p>
                         </div>
-                        <a href="AQUÍ_VA_EL_LINK_DE_TU_FICHA_DE_GOOGLE_NEWS" target="_blank" class="btn-cta-news">
+                        <!-- Modificado: de enlace <a> a botón <button> nativo con evento onclick de Google -->
+                        <button class="btn-cta-news" onclick="self.SWG_BASIC.push(b=>b.showOffers())">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M12 2L2 22H22L12 2Z" fill="#4285F4"/></svg>
                             Seguir en Google News
-                        </a>
+                        </button>
                     </div>
 
                     <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 45px; border-bottom: 1px solid #333; padding-bottom: 8px;">Video Tutorial: Del Mapa Mental a la Estructura de Contenido</h3>
