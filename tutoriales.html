@@ -171,7 +171,6 @@
             
             <!-- SECCIÓN INFERIOR: OTROS TUTORIALES DISPONIBLES -->
             <div id="modulo-recomendados" class="seccion-recomendados">
-                <!-- Se cambió dinámicamente a "Otros" -->
                 <h4>Otros tutoriales que te pueden interesar</h4>
                 <div id="contenedor-lista-recomendados" class="lista-tutoriales">
                     <!-- Aquí se inyectarán los demás tutoriales dinámicamente -->
@@ -193,7 +192,7 @@
 
     <!-- SCRIPT DEL MOTOR DINÁMICO DEL BLOG -->
     <script>
-        // BASE DE DATOS DE TUTORIALES INTERNOS
+        // BASE DE DATOS DE TUTORIALES INTERNOS (El último elemento de esta lista siempre cargará por defecto)
         const tutoriales = [
             {
                 id: "shortcuts-flstudio",
@@ -245,8 +244,7 @@
                     <div class="grid-shortcuts">
                         <img src="imagenes/ctrl-b.jpg" alt="Comando CTRL+B en FL Studio">
                         <img src="imagenes/ctrl.q.jpg" alt="Comando CTRL+Q">
-                        <img src="imagenes/ctrl-l%20%282%29.jpg" alt="Comando CTRL+L Canales">
-                        <img src="imagenes/alt-click-derecho.jpg" alt="Comando ALT Click Derecho">
+                        <img src="imagenes/ctrl-l%20%282%29.jpg" alt="Comando ALT Click Derecho">
                     </div>
 
                     <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Fluidez Absoluta en el Playlist</h3>
@@ -383,8 +381,9 @@
                 resumen: "Descubre cómo organizar tus maquetas de audio de manera limpia y profesional antes de enviarlas a mezcla. Optimizando tus bloques de voces e instrumentos.",
                 imagenCover: "imagenes/tu-nueva-imagen-cover.jpg",
                 esExterno: true,
-                archivoUrl: "tutorial-4.html" // Ruta al archivo externo
+                archivoUrl: "tutorial-4.html"
             }
+            // <-- CUANDO SUBAS EL TUTORIAL 5, SOLO DEBES PEGARLO AQUÍ ABAJO, AL FINAL.
         ];
 
         // FUNCIÓN QUE RENDERIZA EL ARTÍCULO Y SUS RECOMENDADOS
@@ -433,11 +432,12 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // INICIALIZADOR COMPORTAMIENTO AUTOMÁTICO
+        // LÓGICA AUTOMÁTICA EN LA CARGA de la PÁGINA
         window.onload = function() {
             if (tutoriales.length > 0) {
-                // Ahora fuerza a que cargue por defecto el primer elemento ('shortcuts-flstudio')
-                mostrarTutorial(tutoriales[0].id);
+                // Busca automáticamente el último elemento del array 'tutoriales' para cargarlo de primero
+                const ultimoTutorial = tutoriales[tutoriales.length - 1];
+                mostrarTutorial(ultimoTutorial.id);
             }
         };
     </script>
