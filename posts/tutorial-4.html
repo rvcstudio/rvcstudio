@@ -1,21 +1,171 @@
-<h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">Aquí va el Título del Cuarto Tutorial</h2>
-<p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Género o Flujo | Por: RVC Studio</p>
- 
+<h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">Cómo Crear una Plantilla Profesional para Grabar Maquetas en FL Studio Utilizando Plugins Nativos</h2>
+<p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Producción Musical & Workflow | Por: RVC Studio</p>
+
 <div style="margin: 25px 0; text-align: center;">
-    <img src="imagenes/tu-nueva-imagen-cover.jpg" alt="Portada Tutorial 4" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #222;">
+    <img src="imagenes/tutorial-4.img/portada.jpg" alt="Plantilla Profesional FL Studio" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #222;">
 </div>
 
 <p style="font-size: 1.1em; color: #cccccc; margin-bottom: 20px;">
-    Este es el texto de introducción para tu nuevo tutorial cargado dinámicamente desde un archivo independiente.
+    Si buscas agilizar tu flujo de trabajo al grabar voces en FL Studio, contar con una plantilla bien organizada puede marcar una gran diferencia. En este artículo te mostraré cómo configurar una plantilla completa para grabar y mezclar maquetas utilizando únicamente herramientas nativas de FL Studio, logrando un resultado limpio, profesional y eficiente.
 </p>
 
-<!-- Puedes meter cajas de tips o videos usando tus mismas clases CSS -->
-<div class="box-tip blue">
-    <p style="margin: 0; font-weight: bold; color: #ffffff;">💡 Tip Destacado:</p>
-    <p style="margin: 10px 0 0 0; color: #cccccc;">Cualquier consejo extra que quieras dar va aquí.</p>
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Organización Inicial de las Pistas</h3>
+<p style="margin-top: 15px;">
+    Lo primero que debemos hacer es configurar correctamente nuestras pistas de audio dentro del proyecto. Comenzamos en el Track 1. Hacemos clic derecho sobre el canal de audio, seleccionamos <strong>Track Mode > Audio Track</strong> y lo asignamos al primer canal de la Mixer.
+</p>
+
+<div class="grid-shortcuts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 25px 0;">
+    <img src="imagenes/tutorial-4.img/track-mode.jpg" alt="Track Mode Audio Track">
+    <img src="imagenes/tutorial-4.img/audio-track.jpg" alt="Asignación Audio Track">
 </div>
 
-<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 45px; border-bottom: 1px solid #333; padding-bottom: 8px;">Video Tutorial</h3>
+<p>
+    Una vez asignado, renombramos el canal como <strong>Beat</strong>. Después, manteniendo presionada la tecla Ctrl, seleccionamos dos canales adicionales y los agrupamos debajo del Beat. Estos canales extra nos servirán para realizar posibles arreglos o procesamientos adicionales durante la producción.
+</p>
+<p style="margin-top: 15px;">
+    A continuación, repetimos este mismo proceso con el resto de las pistas vocales hasta tener una estructura organizada y fácil de manejar. Al finalizar, tendremos todas nuestras pistas correctamente identificadas y ruteadas a sus respectivos canales de la Mixer:
+</p>
+
+<ul style="padding-left: 20px; margin: 15px 0; color: #cccccc;">
+    <li>Beat</li>
+    <li>Lead</li>
+    <li>Adlibs</li>
+    <li>Doubles</li>
+    <li>Armónicos</li>
+</ul>
+
+<div style="margin: 25px 0; text-align: center;">
+    <img src="imagenes/tutorial-4.img/track-ruteados.jpg" alt="Pistas organizadas y ruteadas" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
+</div>
+
+<p>Con la organización lista, podemos comenzar el proceso de mezcla.</p>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Procesamiento del Canal Lead</h3>
+<p style="margin-top: 15px;">
+    La voz principal es el elemento más importante de la mezcla, por lo que requiere un procesamiento básico pero efectivo.
+</p>
+
+<h4 style="color: #ffffff; margin-top: 20px;">1. Puerta de Ruido</h4>
+<p>
+    El primer plugin que agregamos es una puerta de ruido para eliminar el ruido de fondo cuando no estamos cantando o hablando. Una excelente alternativa nativa en FL Studio es <strong>Fruity Limiter</strong> utilizando el preset <em>Noise Gate</em>.
+</p>
+<div style="margin: 25px 0; text-align: center;">
+    <img src="imagenes/tutorial-4.img/fruity-limiter.jpg" alt="Fruity Limiter Noise Gate" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
+</div>
+
+<h4 style="color: #ffffff; margin-top: 20px;">2. Ecualización</h4>
+<p>
+    Luego agregamos <strong>Parametric EQ 2</strong> para limpiar la señal. Aquí realizamos un corte de las frecuencias graves innecesarias y aplicamos un ligero realce en las frecuencias altas para aportar mayor claridad y presencia a la voz.
+</p>
+<div style="margin: 25px 0; text-align: center;">
+    <img src="imagenes/tutorial-4.img/parametric-eq-2.jpg" alt="Fruity Parametric EQ 2" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
+</div>
+
+<h4 style="color: #ffffff; margin-top: 20px;">3. Corrección de Afinación</h4>
+<p>
+    El siguiente paso es añadir <strong>Pitcher</strong>, el sistema de correction de tono incluido en FL Studio, equivalente a un Auto-Tune básico.
+</p>
+<div style="margin: 25px 0; text-align: center;">
+    <img src="imagenes/tutorial-4.img/pitcher.jpg" alt="Plugin Pitcher FL Studio" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
+</div>
+
+<h4 style="color: #ffffff; margin-top: 20px;">4. Compresión</h4>
+<p>
+    Para finalizar el procesamiento de este canal, añadimos <strong>Fruity Compressor</strong> utilizando el preset <em>Brickwall</em>. Este preset ayuda a mantener la voz más estable, controlada y consistente dentro de la mezcla, facilitando que destaque sin perder naturalidad.
+</p>
+<div style="margin: 25px 0; text-align: center;">
+    <img src="imagenes/tutorial-4.img/fruity-compresor.jpg" alt="Fruity Compressor" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
+</div>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Procesamiento de los Adlibs</h3>
+<p style="margin-top: 15px;">
+    Los adlibs suelen utilizarse para complementar la voz principal y aportar movimiento a la canción. Para este canal agregamos <strong>Fruity PanOMatic</strong>, el plugin de autopan nativo de FL Studio. Esto permite desplazar automáticamente los adlibs dentro del campo estéreo, creando una sensación de amplitud y dinamismo.
+</p>
+<div style="margin: 25px 0; text-align: center;">
+    <img src="imagenes/tutorial-4.img/autopan.jpg" alt="Fruity PanOMatic Autopan" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
+</div>
+<p>
+    También añadimos <strong>Fruity Stereo Shaper</strong> para ensanchar la señal y evitar que compita directamente con la voz principal ubicada en el centro de la mezcla.
+</p>
+<div style="margin: 25px 0; text-align: center;">
+    <img src="imagenes/tutorial-4.img/stereo-shaper.jpg" alt="Fruity Stereo Shaper" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
+</div>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Configuración de los Doubles</h3>
+<p style="margin-top: 15px;">
+    Para configurar los doubles utilizando herramientas nativas, el procedimiento consiste en emplear dos canales en nuestra Mixer:
+</p>
+<ol style="padding-left: 20px; margin: 15px 0; color: #cccccc;">
+    <li>Panea un canal completamente hacia la izquierda.</li>
+    <li>Panea el otro completamente hacia la derecha.</li>
+    <li>Desde el canal original llamado Doubles, crea un envío hacia cada uno de estos canales.</li>
+    <li>Desactiva el envío directo al Master del canal original.</li>
+</ol>
+<div class="grid-shortcuts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 25px 0;">
+    <img src="imagenes/tutorial-4.img/left-right.jpg" alt="Paneo Left y Right">
+    <img src="imagenes/tutorial-4.img/agrupacion.jpg" alt="Configuración Doubles">
+</div>
+<p>De esta manera, únicamente escucharemos la señal procesada a través de los canales paneados, obteniendo un efecto estéreo amplio y natural.</p>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Procesamiento de los Armónicos</h3>
+<p style="margin-top: 15px;">
+    Los armónicos cumplen una función de refuerzo tonal y suelen ocupar frecuencias más agudas dentro de la mezcla. En este canal agregamos de nuevo: <em>Pitcher</em>, <em>Parametric EQ 2</em> y <em>Fruity Compressor</em> (preset Brickwall).
+</p>
+<p>
+    Dentro de la ecualización eliminamos las frecuencias graves y reducimos parte de las frecuencias medias para dejar espacio a la voz principal y permitir que los armónicos destaquen únicamente en las zonas donde aportan riqueza y brillo. Finalmente, aplicamos de nuevo la compresión para unificar la dinámica.
+</p>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Creación del Bus de Voces</h3>
+<p style="margin-top: 15px;">
+    Una vez configurados todos los canales vocales, el siguiente paso es crear un Bus de Voces. Seleccionamos todos los canales vocales, excepto el Beat, y utilizamos la opción <strong>Route to this track only</strong> para enviarlos al bus. Esto nos permitirá controlar y procesar todas las voces unificadas.
+</p>
+<div style="margin: 25px 0; text-align: center;">
+    <img src="imagenes/tutorial-4.img/route-to-this-track-only.jpg" alt="Route to this track only" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
+</div>
+
+<div class="box-tip pink">
+    <p style="margin: 0; font-weight: bold; color: #ffffff;">⚠️ Configuración Especial para los Doubles:</p>
+    <p style="margin: 10px 0 0 0; color: #cccccc;">
+        En el caso del canal Doubles, debemos desactivar su envío directo al Bus de Voces. Esto se debe a que los canales paneados a izquierda y derecha serán los encargados de enviar la señal al bus. De esta forma evitamos que una copia centrada de la voz interfiera con el efecto estéreo que estamos creando.
+    </p>
+</div>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Reverb y Delay por Envío</h3>
+<p style="margin-top: 15px;">
+    Para obtener una mezcla más limpia y profesional, es recomendable utilizar efectos por envío en lugar de insertarlos directamente en cada canal. Desde el Bus de Voces creamos dos canales auxiliares: <strong>Reverb</strong> y <strong>Delay</strong>.
+</p>
+<div style="margin: 25px 0; text-align: center;">
+    <img src="imagenes/tutorial-4.img/reverb-delay.jpg" alt="Efectos Reverb y Delay por Envío" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
+</div>
+<p>
+    Posteriormente enviamos la cantidad necesaria de señal desde cada pista vocal hacia estos efectos según las necesidades de la canción. Este método proporciona mayor control, reduce el consumo de CPU y genera una sensación de cohesión espacial entre todas las voces.
+</p>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Conclusión</h3>
+<p style="margin-top: 15px;">
+    Esta plantilla está diseñada para grabar y mezclar maquetas de forma rápida utilizando exclusivamente plugins nativos de FL Studio. Gracias a una correcta organización de las pistas, un procesamiento básico bien aplicado y una estructura eficiente de buses y envíos, podrás obtener resultados mucho más profesionales sin necesidad de plugins de terceros.
+</p>
+
+<div class="box-tip blue">
+    <p style="margin: 0; font-weight: bold; color: #ffffff;">💡 Guarda tu proyecto como Plantilla (Template):</p>
+    <p style="margin: 10px 0 0 0; color: #cccccc;">
+        Una vez que dejes todo esto configurado, ve a <strong>File > Save as</strong> y guárdalo dentro de la carpeta de Templates de FL Studio. Así, cada vez que abras el programa para una nueva sesión, podrás cargar este esqueleto al instante.
+    </p>
+</div>
+
+<!-- CAJA DE CTA ENLAZADA AL SCRIPT DE GOOGLE PUBLISHER CENTER -->
+<div class="cta-google-news">
+    <div class="cta-texto">
+        <h5>¿Te gusta nuestro contenido técnico?</h5>
+        <p>Sigue a <strong>RVC Studio</strong> en Google News para no perderte ningún tutorial de producción musical.</p>
+    </div>
+    <button class="btn-cta-news" onclick="self.SWG_BASIC.push(b=>b.showOffers())">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M12 2L2 22H22L12 2Z" fill="#4285F4"/></svg>
+        Seguir en Google News
+    </button>
+</div>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 45px; border-bottom: 1px solid #333; padding-bottom: 8px;">Video Tutorial Completo</h3>
 <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/TU_ID_DE_YOUTUBE" title="Video Tutorial 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/V-5lHlyWyXk" title="Cómo Crear una Plantilla Profesional para Grabar Maquetas en FL Studio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
