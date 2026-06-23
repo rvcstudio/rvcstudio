@@ -171,6 +171,7 @@
             
             <!-- SECCIÓN INFERIOR: OTROS TUTORIALES DISPONIBLES -->
             <div id="modulo-recomendados" class="seccion-recomendados">
+                <!-- Se cambió dinámicamente a "Otros" -->
                 <h4>Otros tutoriales que te pueden interesar</h4>
                 <div id="contenedor-lista-recomendados" class="lista-tutoriales">
                     <!-- Aquí se inyectarán los demás tutoriales dinámicamente -->
@@ -194,15 +195,6 @@
     <script>
         // BASE DE DATOS DE TUTORIALES INTERNOS
         const tutoriales = [
-            {
-                id: "tutorial-4",
-                titulo: "Estructura de Maquetas y Flujo de Trabajo Moderno",
-                categoria: "Producción Musical & Workflow | Por: RVC Studio",
-                resumen: "Descubre cómo organizar tus maquetas de audio de manera limpia y profesional antes de enviarlas a mezcla. Optimizando tus bloques de voces e instrumentos.",
-                imagenCover: "imagenes/tu-nueva-imagen-cover.jpg",
-                esExterno: true,
-                archivoUrl: "tutorial-4.html" // Ruta al archivo externo
-            },
             {
                 id: "shortcuts-flstudio",
                 titulo: "Multiplica tu velocidad en FL Studio: Los atajos de teclado que cambiarán tu flujo de trabajo",
@@ -259,7 +251,7 @@
 
                     <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Fluidez Absoluta en el Playlist</h3>
                     <p style="margin-top: 15px;">
-                        Aunque las funciones tradicionales de copiar y pegar operan de forma correcta en el Playlist, existe una alternativa mucho más inteligente para estructurar tus canciones de forma rápida.
+                        Aunque las funciones tradicionales de copiar y pegar operan de forma correcta en el Playlist, existe una alternativa mucho más inteligente para explicar tus canciones de forma rápida.
                     </p>
                     <p>
                         Al usar <strong>Control + B</strong> en el Playlist, FL Studio pegará el clip seleccionado exactamente al final del original, garantizando que no existan solapamientos incómodos ni desfases en el tiempo. Asimismo, si te encuentras estructurando y quieres realizar una escucha rápida de un sample individual sin la molestia de mutear el resto de los canales, mantén presionado <strong>Alt + Clic derecho</strong> sobre el archivo para reproducirlo en solitario al instante.
@@ -383,6 +375,15 @@
                         <iframe src="https://www.youtube.com/embed/NGVofZGkvbA" title="Como comenzar y terminar un proyecto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 `
+            },
+            {
+                id: "tutorial-4",
+                titulo: "Estructura de Maquetas y Flujo de Trabajo Moderno",
+                categoria: "Producción Musical & Workflow | Por: RVC Studio",
+                resumen: "Descubre cómo organizar tus maquetas de audio de manera limpia y profesional antes de enviarlas a mezcla. Optimizando tus bloques de voces e instrumentos.",
+                imagenCover: "imagenes/tu-nueva-imagen-cover.jpg",
+                esExterno: true,
+                archivoUrl: "tutorial-4.html" // Ruta al archivo externo
             }
         ];
 
@@ -435,7 +436,7 @@
         // INICIALIZADOR COMPORTAMIENTO AUTOMÁTICO
         window.onload = function() {
             if (tutoriales.length > 0) {
-                // Muestra siempre el primer elemento del array (en este caso tutorial-4)
+                // Ahora fuerza a que cargue por defecto el primer elemento ('shortcuts-flstudio')
                 mostrarTutorial(tutoriales[0].id);
             }
         };
