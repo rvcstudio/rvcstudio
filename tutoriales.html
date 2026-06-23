@@ -1,472 +1,828 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutoriales de Producción Musical | Record Very Clean Music</title>
+
+    <title>Tutoriales de Production Musical | Record Very Clean Music</title>
+
     
+
     <link rel="icon" type="image/png" href="imagenes/favicon.png">
 
+
+
+    <!-- GOOGLE ANALYTICS -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-04WYB34N23"></script>
+
     <script>
+
       window.dataLayer = window.dataLayer || [];
+
       function gtag(){dataLayer.push(arguments);}
+
       gtag('js', new Date());
+
       gtag('config', 'G-04WYB34N23');
+
     </script>
 
+
+
+    <!-- GOOGLE ADSENSE -->
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415" crossorigin="anonymous"></script>
+
     
+
+    <!-- SCRIPT OFICIAL GOOGLE PUBLISHER CENTER (SUBSCRIBE WITH GOOGLE) -->
+
+   
+
     <style>
+
         /* --- ESTILOS GENERALES Y RESET --- */
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body { background-color: #121212; color: #e0e0e0; font-family: sans-serif; line-height: 1.6; }
+
         
+
         /* --- ESTILOS DE LA CABECERA --- */
+
         .cabecera-novedades {
+
             width: 100%;
+
             padding: 20px 50px;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
             border-bottom: 1px solid #1a1a1a;
+
             background-color: #070707;
+
             position: sticky;
+
             top: 0;
+
             z-index: 100;
+
         }
+
         .logo-nav img { max-height: 50px; width: auto; }
+
         .btn-volver {
+
             color: #ffffff;
+
             text-decoration: none;
+
             font-weight: 600;
+
             font-size: 0.9rem;
+
             text-transform: uppercase;
+
             letter-spacing: 1px;
+
             border: 1px solid #ff0055;
+
             padding: 10px 20px;
+
             border-radius: 6px;
+
             transition: all 0.3s ease;
+
         }
+
         .btn-volver:hover {
+
             background-color: #ff0055;
+
             box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+
         }
+
+
 
         /* --- CONTENEDOR PRINCIPAL --- */
+
         .contenedor-blog { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
 
+
+
         /* --- ESTILOS DE LAS TARJETAS / FRANJAS DE LISTADO --- */
+
         .lista-tutoriales { display: flex; flex-direction: column; gap: 20px; }
+
         
+
         .tarjeta-tutorial {
+
             display: flex;
+
             background-color: #1a1a1a;
+
             border: 1px solid #252525;
+
             border-radius: 8px;
+
             overflow: hidden;
+
             cursor: pointer;
+
             transition: transform 0.2s ease, border-color 0.2s ease;
+
             text-decoration: none;
+
             color: inherit;
+
         }
+
         .tarjeta-tutorial:hover {
+
             transform: translateY(-2px);
+
             border-color: #ff0055;
+
         }
+
         .info-tarjeta { flex: 1; padding: 15px 20px; display: flex; flex-direction: column; justify-content: center; }
+
         .info-tarjeta h3 { color: #ffffff; font-size: 1.1rem; margin-bottom: 5px; transition: color 0.2s; }
+
         .tarjeta-tutorial:hover .info-tarjeta h3 { color: #ff0055; }
+
         .info-tarjeta p { color: #aaaaaa; font-size: 0.85rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
         .img-tarjeta { width: 20%; min-width: 120px; background-size: cover; background-position: center; }
 
+
+
         /* --- CONTENEDOR DE ARTÍCULO ABIERTO --- */
+
         .articulo-completo { margin-bottom: 40px; }
 
+
+
         /* --- ELEMENTOS INTERNOS DE LOS TUTORIALES --- */
+
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px; margin: 30px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.7); }
+
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
         .grid-shortcuts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 35px 0; }
+
         .grid-shortcuts img { width: 100%; height: auto; border-radius: 6px; border: 1px solid #222; }
+
         .box-tip { padding: 20px; margin: 30px 0; border-radius: 0 8px 8px 0; }
+
         .box-tip.blue { background-color: #1e1e1e; border-left: 4px solid #0076ff; }
+
         .box-tip.pink { background-color: #1e1e1e; border-left: 4px solid #ff0055; }
 
+
+
         /* --- BOTÓN CTA GOOGLE NEWS --- */
+
         .cta-google-news {
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             background: linear-gradient(135deg, #1e1e1e 0%, #151515 100%);
+
             border: 1px solid #333;
+
             border-left: 4px solid #4285F4;
+
             padding: 20px;
+
             border-radius: 6px;
+
             margin: 35px 0;
+
         }
+
         .cta-texto h5 { color: #ffffff; font-size: 1.1rem; margin-bottom: 4px; }
+
         .cta-texto p { color: #aaaaaa; font-size: 0.85rem; }
+
         .btn-cta-news {
+
             background-color: #ffffff;
+
             color: #121212;
+
             text-decoration: none;
+
             font-weight: bold;
+
             font-size: 0.85rem;
+
             padding: 10px 18px;
+
             border-radius: 4px;
+
             display: flex;
+
             align-items: center;
+
             gap: 8px;
+
             cursor: pointer;
+
             border: none;
+
             transition: all 0.2s ease;
+
         }
+
         .btn-cta-news:hover {
+
             background-color: #4285F4;
+
             color: #ffffff;
+
             box-shadow: 0 0 10px rgba(66, 133, 244, 0.4);
+
         }
+
+
 
         /* --- SECCIÓN RECOMENDADOS (DEBAJO DEL POST) --- */
+
         .seccion-recomendados { margin-top: 50px; border-top: 2px solid #252525; padding-top: 35px; }
+
         .seccion-recomendados h4 { font-size: 1.4rem; color: #ffffff; margin-bottom: 25px; border-left: 4px solid #ff0055; padding-left: 12px; }
 
+
+
         /* --- FOOTER CENTRADO --- */
+
         .footer-legal { width: 100%; background-color: #070707; border-top: 1px solid #1a1a1a; padding: 40px 20px; text-align: center; margin-top: 60px; }
+
         .links-legales { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; }
+
         .links-legales a { color: #888888; text-decoration: none; font-size: 0.85rem; cursor: pointer; transition: color 0.3s ease; }
+
         .links-legales a:hover { color: #ff0055; }
+
         .footer-legal p { color: #555555; font-size: 0.8rem; margin: 0; }
 
+
+
         /* --- ADAPTABILIDAD SMARTPHONES --- */
+
         @media (max-width: 768px) {
+
             .cabecera-novedades { padding: 15px 20px; }
+
             .tarjeta-tutorial { flex-direction: column-reverse; }
+
             .img-tarjeta { width: 100%; height: 120px; }
+
             .links-legales { gap: 15px; }
+
             .cta-google-news { flex-direction: column; text-align: center; gap: 15px; }
+
         }
+
     </style>
+
 </head>
+
 <body>
 
+
+
+    <!-- CABECERA -->
+
     <header class="cabecera-novedades">
+
         <div class="logo-nav">
+
             <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
+
         </div>
+
         <a href="index.html" class="btn-volver">← Volver al Inicio</a>
+
     </header>
 
+
+
+    <!-- CONTENEDOR DINÁMICO DEL BLOG -->
+
     <main class="contenedor-blog">
+
         
+
+        <!-- NÚCLEO LECTOR (Muestra el tutorial activo) -->
+
         <section id="vista-lector-articulo" class="articulo-completo">
+
             <div id="contenido-del-tutorial">
-                </div>
-            
-            <div id="modulo-recomendados" class="seccion-recomendados">
-                <h4>Otros tutoriales que te pueden interesar</h4>
-                <div id="contenedor-lista-recomendados" class="lista-tutoriales">
-                    </div>
+
+                <!-- El script inyectará aquí el tutorial más reciente o el seleccionado -->
+
             </div>
+
+            
+
+            <!-- SECCIÓN INFERIOR: OTROS TUTORIALES DISPONIBLES -->
+
+            <div id="modulo-recomendados" class="seccion-recomendados">
+
+                <h4>Otros tutoriales que te pueden interesar</h4>
+
+                <div id="contenedor-lista-recomendados" class="lista-tutoriales">
+
+                    <!-- Aquí se inyectarán los demás tutoriales dinámicamente -->
+
+                </div>
+
+            </div>
+
         </section>
+
+
 
     </main>
 
+
+
+    <!-- PIE DE PÁGINA -->
+
     <footer class="footer-legal">
+
         <div class="links-legales">
+
             <a href="terminos-condiciones.html">Terminos y Condiciones</a>
+
             <a href="politica-privacidad.html">Política de Privacidad</a>
+
             <a href="aviso-legal.html">Aviso Legal</a>
+
         </div>
+
         <p>© 2026 Record Very Clean Music. Todos los derechos reservados.</p>
+
     </footer>
 
+
+
+    <!-- SCRIPT DEL MOTOR DINÁMICO DEL BLOG -->
+
     <script>
+
         // BASE DE DATOS DE TUTORIALES
+
         const tutoriales = [
+
             {
-                id: "plantilla-maquetas-flstudio",
-                titulo: "Cómo Crear una Plantilla Profesional para Grabar Maquetas en FL Studio Utilizando Plugins Nativos",
-                categoria: "Producción Musical & Workflow | Por: RVC Studio",
-                resumen: "Si buscas agilizar tu flujo de trabajo al grabar voces en FL Studio, contar con una plantilla bien organizada puede marcar una gran diferencia. Configura una estructura completa para tus proyectos utilizando únicamente herramientas nativas.",
-                imagenCover: "imagenes/portada.jpg",
-                htmlCompleto: `
-                    <h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">Cómo Crear una Plantilla Profesional para Grabar Maquetas en FL Studio Utilizando Plugins Nativos</h2>
-                    <p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Producción Musical & Workflow | Por: RVC Studio</p>
-                    
-                    <div style="margin: 25px 0; text-align: center;">
-                        <img src="imagenes/portada.jpg" alt="Plantilla Profesional FL Studio" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #222;">
-                    </div>
 
-                    <p style="font-size: 1.1em; color: #cccccc; margin-bottom: 20px;">
-                        Si buscas agilizar tu flujo de trabajo al grabar voces en FL Studio, contar con una plantilla bien organizada puede marcar una gran diferencia. En este artículo te mostraré cómo configurar una plantilla completa para grabar y mezclar maquetas utilizando únicamente herramientas nativas de FL Studio, logrando un resultado limpio, profesional y eficiente.
-                    </p>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Organización Inicial de las Pistas</h3>
-                    <p style="margin-top: 15px;">
-                        Lo primero que debemos hacer es configurar correctamente nuestras pistas de audio dentro del proyecto. Comenzamos en el Track 1. Hacemos clic derecho sobre el canal de audio, seleccionamos <strong>Track Mode > Audio Track</strong> y lo asignamos al primer canal de la Mixer.
-                    </p>
-                    
-                    <div class="grid-shortcuts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 25px 0;">
-                        <img src="imagenes/track-mode.jpg" alt="Track Mode Audio Track">
-                        <img src="imagenes/audio-track.jpg" alt="Asignación Audio Track">
-                    </div>
-
-                    <p>
-                        Una vez asignado, renombramos el canal como <strong>Beat</strong>. Después, manteniendo presionada la tecla Ctrl, seleccionamos dos canales adicionales y los agrupamos debajo del Beat. Estos canales extra nos servirán para realizar posibles arreglos o procesamientos adicionales durante la producción.
-                    </p>
-                    <p style="margin-top: 15px;">
-                        A continuación, repetimos este mismo proceso con el resto de las pistas vocales hasta tener una estructura organizada y fácil de manejar. Al finalizar, tendremos todas nuestras pistas correctamente identificadas y ruteadas a sus respectivos canales de la Mixer:
-                    </p>
-                    
-                    <ul style="padding-left: 20px; margin: 15px 0; color: #cccccc;">
-                        <li>Beat</li>
-                        <li>Lead</li>
-                        <li>Adlibs</li>
-                        <li>Doubles</li>
-                        <li>Armónicos</li>
-                    </ul>
-
-                    <div style="margin: 25px 0; text-align: center;">
-                        <img src="imagenes/track-ruteados.jpg" alt="Pistas organizadas y ruteadas" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
-                    </div>
-
-                    <p>Con la organización lista, podemos comenzar el proceso de mezcla.</p>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Procesamiento del Canal Lead</h3>
-                    <p style="margin-top: 15px;">
-                        La voz principal es el elemento más importante de la mezcla, por lo que requiere un procesamiento básico pero efectivo.
-                    </p>
-                    
-                    <h4 style="color: #ffffff; margin-top: 20px;">1. Puerta de Ruido</h4>
-                    <p>
-                        El primer plugin que agregamos es una puerta de ruido para eliminar el ruido de fondo cuando no estamos cantando o hablando. Si dispones de plugins de Waves, puedes utilizar NS1. Sin embargo, una excelente alternativa nativa es <strong>Fruity Limiter</strong> utilizando el preset <em>Noise Gate</em>.
-                    </p>
-                    <div style="margin: 25px 0; text-align: center;">
-                        <img src="imagenes/fruity-limiter.jpg" alt="Fruity Limiter Noise Gate" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
-                    </div>
-
-                    <h4 style="color: #ffffff; margin-top: 20px;">2. Ecualización</h4>
-                    <p>
-                        Luego agregamos <strong>Parametric EQ 2</strong> para limpiar la señal. Aquí realizamos un corte de las frecuencias graves innecesarias y aplicamos un ligero realce en las frecuencias altas para aportar mayor claridad y presencia a la voz.
-                    </p>
-                    <div style="margin: 25px 0; text-align: center;">
-                        <img src="imagenes/parametric-eq-2.jpg" alt="Fruity Parametric EQ 2" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
-                    </div>
-
-                    <h4 style="color: #ffffff; margin-top: 20px;">3. Corrección de Afinación</h4>
-                    <p>
-                        El siguiente paso es añadir <strong>Pitcher</strong>, el sistema de corrección de tono incluido en FL Studio, equivalente a un Auto-Tune básico.
-                    </p>
-                    <div style="margin: 25px 0; text-align: center;">
-                        <img src="imagenes/pitcher.jpg" alt="Plugin Pitcher FL Studio" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
-                    </div>
-
-                    <h4 style="color: #ffffff; margin-top: 20px;">4. Compresión</h4>
-                    <p>
-                        Para finalizar el procesamiento de este canal, añadimos <strong>Fruity Compressor</strong> utilizando el preset <em>Brickwall</em>. Este preset ayuda a mantener la voz más estable, controlada y consistente dentro de la mezcla, facilitando que destaque sin perder naturalidad.
-                    </p>
-                    <div style="margin: 25px 0; text-align: center;">
-                        <img src="imagenes/fruity-compresor.jpg" alt="Fruity Compressor" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
-                    </div>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Procesamiento de los Adlibs</h3>
-                    <p style="margin-top: 15px;">
-                        Los adlibs suelen utilizarse para complementar la voz principal y aportar movimiento a la canción. Para este canal agregamos <strong>Fruity PanOMatic</strong>, el plugin de autopan nativo de FL Studio. Esto permite desplazar automáticamente los adlibs dentro del campo estéreo, creando una sensación de amplitud y dinamismo.
-                    </p>
-                    <div style="margin: 25px 0; text-align: center;">
-                        <img src="imagenes/autopan.jpg" alt="Fruity PanOMatic Autopan" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
-                    </div>
-                    <p>
-                        También añadimos <strong>Fruity Stereo Shaper</strong> para ensanchar la señal y evitar que compita directamente con la voz principal ubicada en el centro de la mezcla.
-                    </p>
-                    <div style="margin: 25px 0; text-align: center;">
-                        <img src="imagenes/stereo-shaper.jpg" alt="Fruity Stereo Shaper" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
-                    </div>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Configuración de los Doubles</h3>
-                    <p style="margin-top: 15px;">
-                        Para los doubles normalmente utilizo Doubler 4 de Waves, pero si no dispones de este plugin puedes obtener un resultado similar utilizando herramientas nativas. El procedimiento consiste en utilizar dos canales de la Mixer:
-                    </p>
-                    <ol style="padding-left: 20px; margin: 15px 0; color: #cccccc;">
-                        <li>Panea un canal completamente hacia la izquierda.</li>
-                        <li>Panea el otro completamente hacia la derecha.</li>
-                        <li>Desde el canal llamado Doubles, crea un envío hacia cada uno de estos canales.</li>
-                        <li>Desactiva el envío directo al Master.</li>
-                    </ol>
-                    <div class="grid-shortcuts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 25px 0;">
-                        <img src="imagenes/left-right.jpg" alt="Paneo Left y Right">
-                        <img src="imagenes/agrupacion.jpg" alt="Configuración Doubles">
-                    </div>
-                    <p>De esta manera, únicamente escucharemos la señal procesada a través de los canales paneados, obteniendo un efecto estéreo amplio y natural.</p>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Procesamiento de los Armónicos</h3>
-                    <p style="margin-top: 15px;">
-                        Los armónicos cumplen una función de refuerzo tonal y suelen ocupar frecuencias más agudas dentro de la mezcla. En este canal agregamos de nuevo: <em>Pitcher</em>, <em>Parametric EQ 2</em> y <em>Fruity Compressor</em> (preset Brickwall).
-                    </p>
-                    <p>
-                        Dentro de la ecualización eliminamos las frecuencias graves y reducimos parte de las frecuencias medias para dejar espacio a la voz principal y permitir que los armónicos destaquen únicamente en las zonas donde aportan riqueza y brillo. Finalmente, aplicamos nuevamente la compresión con el preset Brickwall para mantener una dinámica uniforme.
-                    </p>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Creación del Bus de Voces</h3>
-                    <p style="margin-top: 15px;">
-                        Una vez configurados todos los canales vocales, el siguiente paso es crear un Bus de Voces. Seleccionamos todos los canales vocales, excepto el Beat, y utilizamos la opción <strong>Route to this track only</strong> para enviarlos al bus. Esto nos permitirá controlar y procesar todas las voces desde un único punto dentro de la mezcla.
-                    </p>
-                    <div style="margin: 25px 0; text-align: center;">
-                        <img src="imagenes/route-to-this-track-only.jpg" alt="Route to this track only" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
-                    </div>
-
-                    <div class="box-tip pink">
-                        <p style="margin: 0; font-weight: bold; color: #ffffff;">⚠️ Configuración Especial para los Doubles:</p>
-                        <p style="margin: 10px 0 0 0; color: #cccccc;">
-                            En el caso del canal Doubles, debemos desactivar su envío directo al Bus de Voces. Esto se debe a que los canales paneados a izquierda y derecha serán los encargados de enviar la señal al bus. De esta forma evitamos que una copia centrada de la voz interfiera con el efecto estéreo que estamos creando.
-                        </p>
-                    </div>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Reverb y Delay por Envío</h3>
-                    <p style="margin-top: 15px;">
-                        Para obtener una mezcla más limpia y profesional, es recomendable utilizar efectos por envío en lugar de insertarlos directamente en cada canal. Desde el Bus de Voces creamos dos canales auxiliares: <strong>Reverb</strong> y <strong>Delay</strong>.
-                    </p>
-                    <div style="margin: 25px 0; text-align: center;">
-                        <img src="imagenes/reverb-delay.jpg" alt="Efectos Reverb y Delay por Envío" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #222;">
-                    </div>
-                    <p>
-                        Posteriormente enviamos la cantidad necesaria de señal desde cada pista vocal hacia estos efectos según las necesidades de la canción. Este método proporciona mayor control, reduce el consumo de recursos y genera una sensación de cohesión entre todas las voces.
-                    </p>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Conclusión</h3>
-                    <p style="margin-top: 15px;">
-                        Esta plantilla está diseñada para grabar y mezclar maquetas de forma rápida utilizando exclusivamente plugins nativos de FL Studio. Gracias a una correcta organización de las pistas, un procesamiento básico bien aplicado y una estructura eficiente de buses y envíos, podrás obtener resultados mucho más profesionales sin necesidad de plugins externos.
-                    </p>
-                    <p>
-                        Lo mejor de todo es que esta configuración puede servir como punto de partida para cualquier género musical, permitiéndote concentrarte más en la interpretación y menos en la configuración técnica. Si utiliza esta plantilla como base, tendrás un flujo de trabajo más rápido, ordenado y preparado para producir maquetas con una calidad superior.
-                    </p>
-
-                    <div class="box-tip blue">
-                        <p style="margin: 0; font-weight: bold; color: #ffffff;">💡 Guarda tu proyecto como Plantilla (Template):</p>
-                        <p style="margin: 10px 0 0 0; color: #cccccc;">
-                            Una vez que dejes todo esto configurado, ve a <strong>File > Save as</strong> y guárdalo dentro de la carpeta de Templates de FL Studio. Así, cada vez que abras el programa para una nueva sesión, podrás cargar este esqueleto al instante en un segundo y ponerte a grabar de inmediato.
-                        </p>
-                    </div>
-
-                    <div class="cta-google-news">
-                        <div class="cta-texto">
-                            <h5>¿Te gusta nuestro contenido técnico?</h5>
-                            <p>Sigue a <strong>RVC Studio</strong> en Google News para no perderte ningún tutorial de producción musical.</p>
-                        </div>
-                        <button class="btn-cta-news" onclick="self.SWG_BASIC.push(b=>b.showOffers())">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M12 2L2 22H22L12 2Z" fill="#4285F4"/></svg>
-                            Seguir en Google News
-                        </button>
-                    </div>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 45px; border-bottom: 1px solid #333; padding-bottom: 8px;">Video Tutorial Completo</h3>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/V-5lHlyWyXk" title="Cómo Crear una Plantilla Profesional para Grabar Maquetas en FL Studio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                `
-            },
-            {
                 id: "shortcuts-flstudio",
+
                 titulo: "Multiplica tu velocidad en FL Studio: Los atajos de teclado que cambiarán tu flujo de trabajo",
+
                 categoria: "Producción Musical & Workflow | Por: RVC Studio",
+
                 resumen: "¿Cansado de estar haciendo clic en el menú de herramientas cada dos segundos? Si sientes que tu flujo creativo se frena drásticamente porque pierdes el ritmo buscando la herramienta de cortar o navegando para abrir el Piano Roll, el formato de comandos es la solución ideal.",
+
                 imagenCover: "imagenes/cover.jpg",
+
                 htmlCompleto: `
+
                     <h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">Multiplica tu velocidad en FL Studio: Los atajos de teclado que cambiarán tu flujo de trabajo</h2>
+
                     <p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Production Musical & Workflow | Por: RVC Studio</p>
+
                     
+
                     <div style="margin: 25px 0; text-align: center;">
+
                         <img src="imagenes/cover.jpg" alt="Atajos FL Studio" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #222;">
+
                     </div>
 
+
+
                     <p style="font-size: 1.1em; color: #cccccc; margin-bottom: 20px;">
+
                         ¿Cansado de estar haciendo clic en el menú de herramientas cada dos segundos? Si sientes que tu flujo creativo se frena drásticamente porque pierdes el ritmo buscando la herramienta de cortar o navegando para abrir el Piano Roll, no estás solo. Ese constante "ir y venir" con el ratón destruye la inspiración. Por suerte, existe una solución sencilla: dominar los comandos de teclado que transformarán por completo tu dinámica de trabajo.
+
                     </p>
+
                     <p style="margin-bottom: 20px;">
+
                         A continuación, te presentamos una selección de los atajos indispensables que los productores profesionales utilizan a diario para producir hasta el triple de rápido. Memorizar estas combinaciones te permitirá mantener la vista en tu música y las manos en el teclado, eliminando cientos de clics innecesarios por sesión.
+
                     </p>
+
+
 
                     <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">El Centro de Control: Las Teclas de Función</h3>
+
                     <p style="margin-top: 15px;">
+
                         Olvídate para siempre de arrastrar el puntero hacia la barra superior de FL Studio. Las teclas de función son tus accesos directos directos a las ventanas principales de tu proyecto. Memoriza esta secuencia y verás cómo fluyes al instante:
+
                     </p>
+
                     <ul style="padding-left: 20px; margin: 15px 0; color: #cccccc;">
+
                         <li style="margin-bottom: 8px;"><strong>F5:</strong> Abre y cierra el Playlist de forma inmediata.</li>
+
                         <li style="margin-bottom: 8px;"><strong>F6:</strong> Despliega el Channel Rack para gestionar tus generadores y samples.</li>
+
                         <li style="margin-bottom: 8px;"><strong>F7:</strong> Accede directamente al Piano Roll para editar tus melodías y acordes.</li>
+
                         <li style="margin-bottom: 8px;"><strong>F9:</strong> Llama al Mixer para ajustar niveles, paneos y efectos sobre la marcha.</li>
+
                     </ul>
+
                     <p style="margin-bottom: 20px;">
+
                         <em>Mi favorito personal:</em> Si tu pantalla se ha convertido en un caos absoluto con más de mil ventanas superpuestas, presiona <strong>F12</strong>. Esta tecla mágica las cerrará todas al instante, devolviéndote un espacio de trabajo limpio y despejado.
+
                     </p>
+
+
 
                     <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Dominando el Piano Roll y la Secuenciación</h3>
+
                     <p style="margin-top: 15px;">
-                        La edición de notas puede consumir la mayor parte de tu tiempo si dependes del ratón. Al implementar estos tres comandos en tus sesiones de composición, la velocidad de tu flujo de notas cambiará radicalmente.
+
+                        La edición de notas puede consumir la mayor parte of tu tiempo si dependes del ratón. Al implementar estos tres comandos en tus sesiones de composición, la velocidad de tu flujo de notas cambiará radicalmente.
+
                     </p>
+
                     <p>
+
                         Cuando encuentres un patrón o un acorde que te encante, no pierdas tiempo copiando y pegando de la forma tradicional. La combinación <strong>Control + B</strong> es pura magia: duplicará cualquier selección de manera exacta y automática justo al lado.
+
                     </p>
+
                     <p>
+
                         Por otra parte, si grabaste una melodía en vivo y notas que algunas notas quedaron ligeramente fuera de tiempo, selecciónalas todas y dale a <strong>Control + Q</strong> para aplicar una cuantización rápida que ajuste el ritmo de inmediato a la rejilla. Además, si necesitas experimentar con las frecuencias o cambiar el rango de una melodía, presionar <strong>Control + Flecha arriba</strong> subirá todas las notas seleccionadas una octava completa en un solo segundo.
+
                     </p>
+
+
 
                     <div class="grid-shortcuts">
+
                         <img src="imagenes/ctrl-b.jpg" alt="Comando CTRL+B en FL Studio">
+
                         <img src="imagenes/ctrl.q.jpg" alt="Comando CTRL+Q">
+
                         <img src="imagenes/ctrl-l%20%282%29.jpg" alt="Comando CTRL+L Canales">
+
                         <img src="imagenes/alt-click-derecho.jpg" alt="Comando ALT Click Derecho">
+
                     </div>
+
+
 
                     <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Fluidez Absoluta en el Playlist</h3>
+
                     <p style="margin-top: 15px;">
+
                         Aunque las funciones tradicionales de copiar y pegar operan de forma correcta en el Playlist, existe una alternativa mucho más inteligente para estructurar tus canciones de forma rápida.
+
                     </p>
+
                     <p>
-                        Al usar <strong>Control + B</strong> en el Playlist, FL Studio pegará el clip seleccionado exactamente al final del original, garantizando que no existan solapamientos incómodos ni desfases en el tiempo. Asimismo, si te encuentras estructurando y quieres realizar una escucha rápida de un sample individual sin la molestia de mutear el resto de los canales, mantén presionado <strong>Alt + Clic derecho</strong> sobre el archivo para reproducirlo en solitario.
+
+                        Al usar <strong>Control + B</strong> en el Playlist, FL Studio pegará el clip seleccionado exactamente al final del original, garantizando que no existan solapamientos incómodos ni desfases en el tiempo. Asimismo, si te encuentras estructurando y quieres realizar una escucha rápida de un sample individual sin la molestia de mutear el resto de los canales, mantén presionado <strong>Alt + Clic derecho</strong> sobre el archivo para reproducirlo en solitario al instante.
+
                     </p>
+
+
+
+                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Gestión Eficiente del Canal y Mezcla</h3>
+
+                    <p style="margin-top: 15px;">
+
+                        Mantener la sesión organizada desde el principio evita dolores de cabeza en las etapas finales de la producción. Un proceso clave es el enrutamiento al Mixer. Si tienes seleccionado un canal en el Channel Rack, simplemente presiona <strong>Control + L</strong> y el software lo asignará automáticamente al primer canal libre que encuentre en el mezclador, ahorrándote la tarea de asignarlo manualmente.
+
+                    </p>
+
+                    <p style="margin-bottom: 20px;">
+
+                        Una vez que estés trabajando directamente dentro del Mixer, puedes aprovechar la tecla <strong>S</strong> de forma individual para poner en "Solo" el track en el que te encuentras posicionado. Si necesitas consolidar tu trabajo, la combinación <strong>Alt + R</strong> ejecutará la función de renderizado, exportando rápidamente todos los tracks que tengas armados en la sesión.
+
+                    </p>
+
+
+
+                    <div class="grid-shortcuts">
+
+                        <img src="imagenes/ctrl-l.jpg" alt="Comando CTRL+L Enrutamiento">
+
+                        <img src="imagenes/tecla-s.jpg" alt="Tecla S Solo Mixer">
+
+                        <img src="imagenes/alt-shift.-.jpg" alt="Comando Adicional">
+
+                    </div>
+
+
+
+                    <div class="box-tip pink">
+
+                        <p style="margin: 0; font-weight: bold; color: #ffffff;">🚨 El botón de emergencia (Panic Button):</p>
+
+                        <p style="margin: 10px 0 0 0; color: #cccccc;">
+
+                            ¿Alguna vez se te ha quedado un sonido de sintetizador o un efecto atascado sonando en un bucle infinito que no se detiene con nada? No entres en pánico. Presiona <strong>Control + H</strong>. Esta combinación activa la función de pánico del sistema, cortando absolutamente todo el audio en el acto. Es, literalmente, el botón de respiración artificial para tus proyectos.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Bonus Track: Personalización Total de tus Atajos</h3>
+
+                    <p style="margin-top: 15px;">
+
+                        Si vienes de usar otro secuenciador de audio o simplemente encuentras incómodas las combinaciones que vienen configuradas por defecto, no te preocupes. FL Studio te ofrece la libertad de moldear la interfaz a tu gusto.
+
+                    </p>
+
+                    <p style="margin-bottom: 25px;">
+
+                        Para hacerlo, dirígete al menú superior en <strong>Options</strong>, luego ingresa a <strong>General Settings</strong> and localiza la sección exclusiva dedicada a los atajos de teclado. Desde allí podrás reasignar las combinaciones de teclas según tus preferencias personales y llevar la personalización al máximo nivel.
+
+                    </p>
+
+
+
+                    <div class="box-tip blue">
+
+                        <p style="margin: 0; font-weight: bold; color: #ffffff;">💡 Consejo Final para el Éxito:</p>
+
+                        <p style="margin: 10px 0 0 0; color: #cccccc;">
+
+                            Implementar estos comandos va a ahorrarte cientos (e incluso miles) de clics en cada sesión de producción. Al principio puede resultar un poco difícil recordar cada combinación y tu memoria muscular intentará guiarte de vuelta al ratón de manera automática. El secreto está en forzarte: en tu próximo proyecto, proponte firmemente no tocar el mouse para abrir las herramientas principales. Con un par de días de práctica notarás que tus manos vuelan solas.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <p style="margin-top: 25px; font-style: italic; color: #aaaaaa;">
+
+                        Si te ha servido esta guía, no olvides guardar este artículo en tus marcadores y compartirlo con otros productores que necesiten acelerar su ritmo de trabajo. ¡Nos vemos en el próximo tutorial!
+
+                    </p>
+
+
+
+                    <!-- CAJA DE CTA ENLAZADA AL SCRIPT DE GOOGLE PUBLISHER CENTER -->
+
+                    <div class="cta-google-news">
+
+                        <div class="cta-texto">
+
+                            <h5>¿Te gusta nuestro contenido técnico?</h5>
+
+                            <p>Sigue a <strong>RVC Studio</strong> en Google News para no perderte ningún tutorial de producción musical.</p>
+
+                        </div>
+
+                        <!-- Modificado: de enlace <a> a botón <button> nativo con evento onclick de Google -->
+
+                        <button class="btn-cta-news" onclick="self.SWG_BASIC.push(b=>b.showOffers())">
+
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M12 2L2 22H22L12 2Z" fill="#4285F4"/></svg>
+
+                            Seguir en Google News
+
+                        </button>
+
+                    </div>
+
+
+
+                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 45px; border-bottom: 1px solid #333; padding-bottom: 8px;">Video Tutorial: Del Mapa Mental a la Estructura de Contenido</h3>
+
+                    <div class="video-container">
+
+                        <iframe src="https://www.youtube.com/embed/hEquOaPtTHQ" title="Multiplica tu velocidad en FL Studio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+                    </div>
+
                 `
+
+            },
+
+            {
+
+                id: "configuracion-audio",
+
+                titulo: "Guía Paso a Paso: Configuración de Audio desde Cero en Ableton Live",
+
+                categoria: "Configuración & Audio Engineering | Por: RVC Studio",
+
+                resumen: "Configurar Ableton Live para grabar audio de forma óptima es un proceso universal. No importa si el objetivo es capturar la voz para una producción de reggaetón o una línea de guitarra acústica; los fundamentos técnicos de la interfaz, los canales y el monitoreo siguen las mismas reglas.",
+
+                imagenCover: "imagenes/hardware config.JPG",
+
+                htmlCompleto: `
+
+                    <h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">Guía Paso a Paso: Configuración de Audio desde Cero en Ableton Live</h2>
+
+                    <p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Configuración & Audio Engineering | Por: RVC Studio</p>
+
+                    <p style="font-size: 1.1em; color: #cccccc; margin-bottom: 20px;">
+
+                        Configurar Ableton Live para grabar audio de forma óptima es un proceso universal. No importa si el objetivo es capturar la voz para una producción de reggaetón o una línea de guitarra acústica; los fundamentos técnicos de la interfaz, los canales y el monitoreo siguen las mismas reglas.
+
+                    </p>
+
+                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">1. Configuración de la Interfaz de Audio</h3>
+
+                    <p style="margin-top: 15px;">El primer paso consiste en acceder al menú de preferencias del programa presionando el atajo de teclado <strong>Control + Coma</strong> (en Windows).</p>
+
+                    <p><strong>Tipo de Driver:</strong> Selecciona siempre <strong>ASIO</strong> en Windows para garantizar la menor latencia de sonido posible.</p>
+
+                    <div style="margin: 35px 0; text-align: center;">
+
+                        <img src="imagenes/hardware config.JPG" alt="Configuración Hardware" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #222;">
+
+                    </div>
+
+                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">2. Ajustes Técnicos: Sample Rate y Buffer Size</h3>
+
+                    <p style="margin-top: 15px;"><strong>Sample Rate:</strong> Se recomienda mantener un valor estándar balanceado de <strong>44.1 kHz o 48 kHz</strong> para capturar audio profesional sin liquidar los recursos de tu CPU.</p>
+
+                    <div style="margin: 35px 0; text-align: center;">
+
+                        <img src="imagenes/sample rate.jpg" alt="Sample Rate" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #222;">
+
+                    </div>
+
+                    <div class="box-tip blue">
+
+                        <p style="margin-top: 0; font-weight: bold; color: #ffffff;">📋 Reglas para ajustar el Buffer Size:</p>
+
+                        <ul style="margin-bottom: 0; padding-left: 20px; color: #cccccc;">
+
+                            <li style="margin-bottom: 5px;"><strong>Para Grabación:</strong> Ajusta entre <strong>128 o 256 samples</strong> para cantar o tocar sin latencia en tiempo real.</li>
+
+                            <li style="margin-bottom: 5px;"><strong>Para Mezcla:</strong> Sube a <strong>512 o 1024 samples</strong> para darle aire a la computadora y usar todos tus plugins favoritos.</li>
+
+                        </ul>
+
+                    </div>
+
+                `
+
+            },
+
+            {
+
+                id: "orden-maqueta",
+
+                titulo: "La Importancia del Orden al Hacer una Maqueta: Guía Paso a Paso",
+
+                categoria: "Producción Musical & Audio | Por: RVC Studio",
+
+                resumen: "El orden al momento de hacer una maqueta es un factor crucial que suele pasarse por alto. El desorden en las primeras etapas de producción afecta negativamente el resultado final, complicando el cierre del proyecto y retrasando la transición hacia la etapa de mezcla.",
+
+                imagenCover: "imagenes/tutorial 1 img 1.jpg",
+
+                htmlCompleto: `
+
+                    <h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">La Importancia del Orden al Hacer una Maqueta: Guía Paso a Paso</h2>
+
+                    <p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Producción Musical & Audio | Por: RVC Studio</p>
+
+                    <p style="font-size: 1.1em; color: #cccccc; margin-bottom: 20px;">
+
+                        El orden al momento de hacer una maqueta es un factor crucial que suele pasarse por alto. El desorden en las primeras etapas de producción afecta negativamente el resultado final, complicando el cierre del proyecto y retrasando la transición hacia la etapa de mezcla.
+
+                    </p>
+
+                    <div style="margin: 35px 0; text-align: center;">
+
+                        <img src="imagenes/tutorial 1 img 1.jpg" alt="Orden Maqueta" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #222;">
+
+                    </div>
+
+                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Uso Eficiente de Plantillas</h3>
+
+                    <p style="margin-top: 15px;">Contar con canales pre-configurados para tu voz principal (Lead), Voces Secundarias (Adlibs) y Dobles te ahorrará horas muertas en el estudio y mantendrá al artista enfocado y con el ritmo de trabajo a tope.</p>
+
+                    <div class="box-tip blue">
+
+                        <p style="margin-top: 0; font-weight: bold; color: #ffffff;">🚀 Tip de Production en Ableton:</p>
+
+                        <p style="margin: 0; color: #cccccc;">Agrupa canales con <strong>Control + G</strong> y nombra tus bloques para aplicar compresión o ecualización conjunta, ahorrando procesos a tu procesador.</p>
+
+                    </div>
+
+                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 45px; border-bottom: 1px solid #333; padding-bottom: 8px;">Video Tutorial: Flujo de Trabajo Completo</h3>
+
+                    <div class="video-container">
+
+                        <iframe src="https://www.youtube.com/embed/NGVofZGkvbA" title="Como comenzar y terminar un proyecto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+                    </div>
+
+                `
+
             }
+
         ];
 
-        // FUNCIÓN PARA RENDERIZAR UN TUTORIAL ESPECÍFICO
-        function mostrarTutorial(idTarget) {
-            const articulo = tutoriales.find(t => t.id === idTarget);
-            if (!articulo) return;
 
-            // Inyectar el cuerpo del tutorial
-            document.getElementById('contenido-del-tutorial').innerHTML = articulo.htmlCompleto;
-            window.scrollTo(0, 0);
 
-            // Generar la lista de otros recomendados (excluyendo el actual)
-            const recomendados = tutoriales.filter(t => t.id !== idTarget);
-            const contenedorListado = document.getElementById('contenedor-lista-recomendados');
-            contenedorListado.innerHTML = '';
+        // FUNCIÓN QUE RENDERIZA EL ARTÍCULO Y SUS RECOMENDADOS
 
-            recomendados.forEach(rec => {
-                const tarjeta = document.createElement('div');
-                tarjeta.className = 'tarjeta-tutorial';
-                tarjeta.innerHTML = `
-                    <div class="info-tarjeta">
-                        <h3>${rec.titulo}</h3>
-                        <p>${rec.resumen}</p>
+        function mostrarTutorial(id) {
+
+            const postSeleccionado = tutoriales.find(p => p.id === id);
+
+            if (!postSeleccionado) return;
+
+
+
+            document.getElementById("contenido-del-tutorial").innerHTML = postSeleccionado.htmlCompleto;
+
+
+
+            const restantes = tutoriales.filter(p => p.id !== id);
+
+            const contenedorRestantes = document.getElementById("contenedor-lista-recomendados");
+
+            contenedorRestantes.innerHTML = "";
+
+
+
+            restantes.forEach(post => {
+
+                contenedorRestantes.innerHTML += `
+
+                    <div class="tarjeta-tutorial" onclick="mostrarTutorial('${post.id}')">
+
+                        <div class="info-tarjeta">
+
+                            <h3>${post.titulo}</h3>
+
+                            <p>${post.resumen}</p>
+
+                        </div>
+
+                        <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
+
                     </div>
-                    <div class="img-tarjeta" style="background-image: url('${rec.imagenCover}');"></div>
+
                 `;
-                tarjeta.onclick = function() {
-                    mostrarTutorial(rec.id);
-                };
-                contenedorListado.appendChild(tarjeta);
+
             });
+
+
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
         }
 
+
+
         // INICIALIZADOR COMPORTAMIENTO AUTOMÁTICO
+
         window.onload = function() {
+
             if (tutoriales.length > 0) {
+
                 mostrarTutorial(tutoriales[0].id);
+
             }
+
         };
+
     </script>
+
 </body>
-</html>
+
+</html> 
+
