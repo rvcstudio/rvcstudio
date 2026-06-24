@@ -183,6 +183,55 @@
             0%, 100% { opacity: 0.3; }
             50% { opacity: 1; }
         }
+
+        /* Error styling */
+        .error-container {
+            padding: 40px;
+            text-align: center;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+        }
+        .error-container h2 {
+            color: #ff0055;
+            margin-bottom: 15px;
+        }
+        .error-container p {
+            color: #aaaaaa;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .error-container code {
+            color: #ff0055;
+            background: #222;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        .error-container .debug-info {
+            color: #cccccc;
+            font-size: 0.9em;
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto;
+            background: #222;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .btn-retry {
+            margin-top: 20px;
+            padding: 10px 30px;
+            background: #ff0055;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-retry:hover {
+            background: #cc0044;
+        }
     </style>
 </head>
 <body>
@@ -235,7 +284,7 @@
 
     <!-- SCRIPT DEL MOTOR DINÁMICO DEL BLOG -->
     <script>
-        // BASE DE DATOS DE NOVEDADES INTERNAS (El último elemento de esta lista siempre cargará por defecto)
+        // BASE DE DATOS DE NOVEDADES INTERNAS
         const novedades = [
             {
                 id: "d-mini-behringer",
@@ -245,157 +294,137 @@
                 imagenCover: "imagenes/Behringer-Model-D-Soul@2000x1500.jpg",
                 archivoUrl: "posts/d-mini-behringer.html",
                 esExterno: true
-            }
-            
-           {
+            },
+            // ✅ CORREGIDO: AÑADIDA LA COMA FALTANTE
+            {
                 id: "abletonlive-live-12-4",
                 titulo: "Ableton Live 12.4: Revolución en Workflow, Plugins y Separación de Stems",
                 categoria: "Categoría: Novedades & Software Update | Por: RVC Studio",
-                resumen: "La llegada de Ableton Live 12.4 marca un paso adelante decisivo en la optimización del flujo de trabajo y el procesamiento nativo..",
+                resumen: "La llegada de Ableton Live 12.4 marca un paso adelante decisivo en la optimización del flujo de trabajo y el procesamiento nativo.",
                 imagenCover: "imagenes/Ableton-live-12-4-imagenes/stem-seperation-in-live.jpg",
                 esExterno: true,
                 archivoUrl: "posts/ableton-live-12-4.html"
             }
-            
-            // Aquí puedes agregar más novedades siguiendo este formato
-            // {
-            //     id: "otra-novedad",
-            //     titulo: "Título de la novedad",
-            //     categoria: "Categoría",
-            //     resumen: "Resumen breve...",
-            //     imagenCover: "imagenes/cover.jpg",
-            //     archivoUrl: "posts/otra-novedad.html",
-            //     esExterno: true
-            // }
+            // Puedes agregar más novedades aquí
         ];
+
+        // Función mejorada para cargar contenido con más opciones de ruta
+        async function cargarContenido(post) {
+            const contenedor = document.getElementById("contenido-del-tutorial");
+            
+            // Si no hay archivo externo, mostrar mensaje
+            if (!post.esExterno || !post.archivoUrl) {
+                contenedor.innerHTML = `
+                    <div class="error-container">
+                        <h2>⚠️ Contenido no disponible</h2>
+                        <p>Este artículo no tiene contenido asociado.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Definir rutas a probar (priorizando la ruta configurada)
+            const rutas = [
+                post.archivoUrl,  // "posts/novedad.html"
+                post.archivoUrl.replace('posts/', ''),  // "novedad.html"
+                './' + post.archivoUrl,
+                'posts/' + post.id + '.html',
+                post.id + '.html'
+            ];
+
+            // Intentar cargar desde las diferentes rutas
+            for (const ruta of rutas) {
+                try {
+                    console.log(`🔄 Intentando cargar: ${ruta}`);
+                    const response = await fetch(ruta);
+                    
+                    if (response.ok) {
+                        const html = await response.text();
+                        contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
+                        console.log(`✅ Cargado exitosamente desde: ${ruta}`);
+                        return;
+                    }
+                } catch (error) {
+                    console.warn(`❌ Falló ruta: ${ruta}`, error.message);
+                }
+            }
+
+            // Si todas las rutas fallaron, mostrar error detallado
+            contenedor.innerHTML = `
+                <div class="error-container">
+                    <h2>❌ Error al cargar el artículo</h2>
+                    <p>No hemos podido localizar el archivo del artículo en tu repositorio.</p>
+                    <div class="debug-info">
+                        <strong>🔍 Verifica en tu GitHub:</strong><br>
+                        1. Que creaste una carpeta llamada <code>posts</code> en tu repositorio principal.<br>
+                        2. Que dentro de esa carpeta subiste el archivo <code>${post.id}.html</code>.<br>
+                        3. Que el nombre del archivo coincide exactamente (incluye mayúsculas/minúsculas).<br>
+                        4. Rutas intentadas:
+                        <ul style="margin-top: 10px; list-style: none; padding: 0;">
+                            ${rutas.map(r => `<li style="padding: 4px 0; color: #888;">• ${r}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <button class="btn-retry" onclick="location.reload()">🔄 Intentar de nuevo</button>
+                </div>
+            `;
+        }
 
         // FUNCIÓN QUE RENDERIZA EL ARTÍCULO Y SUS RECOMENDADOS
         function mostrarNovedad(id) {
             const postSeleccionado = novedades.find(p => p.id === id);
             if (!postSeleccionado) {
-                console.error("Novedad no encontrada con ID:", id);
+                console.error("❌ Novedad no encontrada con ID:", id);
                 return;
             }
-
-            const contenedorContenido = document.getElementById("contenido-del-tutorial");
-            
-            // Mostrar spinner de carga
-            contenedorContenido.innerHTML = `<div class="loading-spinner">Cargando artículo...</div>`;
 
             // Actualizar título de la página
             document.title = postSeleccionado.titulo + " | Record Very Clean";
 
-            // Si el post está configurado como externo, hace fetch inteligente con fallbacks
-            if (postSeleccionado.esExterno) {
-                
-                // Definimos un conjunto de rutas probables por si hay un error tipográfico
-                const rutasAProbar = [
-                    postSeleccionado.archivoUrl,      // "posts/d-mini-behringer.html"
-                    "post/" + postSeleccionado.id + ".html",  // "post/d-mini-behringer.html"
-                    postSeleccionado.id + ".html",      // "d-mini-behringer.html"
-                    "./" + postSeleccionado.id + ".html",
-                    "posts/" + postSeleccionado.id + ".html"
-                ];
+            // Cargar el contenido del artículo
+            cargarContenido(postSeleccionado);
 
-                // Función interna recursiva para intentar una ruta tras otra
-                function probarFetch(index) {
-                    if (index >= rutasAProbar.length) {
-                        // Si todas las rutas fallaron, mostramos el error final explicativo
-                        contenedorContenido.innerHTML = `
-                            <div style="padding: 40px; text-align: center; background: #1a1a1a; border: 1px solid #333; border-radius: 8px;">
-                                <h2 style="color: #ff0055; margin-bottom: 15px;">Error al cargar el artículo</h2>
-                                <p style="color: #aaaaaa; max-width: 500px; margin: 0 auto; line-height: 1.6; margin-bottom: 15px;">
-                                    No hemos podido localizar el archivo del artículo en tu repositorio.
-                                </p>
-                                <p style="color: #cccccc; font-size: 0.9em; text-align: left; max-width: 500px; margin: 0 auto; background: #222; padding: 15px; border-radius: 6px;">
-                                    <strong>Verifica en tu GitHub:</strong><br>
-                                    1. Que creaste una carpeta llamada <code style="color:#ff0055;">posts</code> en tu repositorio principal.<br>
-                                    2. Que dentro de esa carpeta subiste el archivo <code style="color:#ff0055;">${postSeleccionado.id}.html</code>.<br>
-                                    3. Que el nombre del archivo coincide exactamente (incluye mayúsculas/minúsculas).
-                                </p>
-                                <button onclick="location.reload()" style="margin-top:20px; padding:10px 30px; background:#ff0055; color:white; border:none; border-radius:4px; cursor:pointer;">
-                                    🔄 Intentar de nuevo
-                                </button>
-                            </div>
-                        `;
-                        return;
-                    }
-
-                    const rutaActual = rutasAProbar[index];
-                    console.log("Intentando cargar desde:", rutaActual);
-                    
-                    fetch(rutaActual)
-                        .then(response => {
-                            if (!response.ok) throw new Error("No encontrado (HTTP " + response.status + ")");
-                            return response.text();
-                        })
-                        .then(data => {
-                            // Si lo carga correctamente, inyectamos el HTML y paramos la búsqueda
-                            contenedorContenido.innerHTML = `<div class="articulo-cargado">${data}</div>`;
-                            
-                            // Añadir clase al body para estilos específicos si es necesario
-                            document.body.classList.add('articulo-cargado-body');
-                            
-                            // Disparar evento para analytics si lo deseas
-                            if (typeof gtag !== 'undefined') {
-                                gtag('event', 'view_item', {
-                                    'items': [{
-                                        'id': postSeleccionado.id,
-                                        'name': postSeleccionado.titulo,
-                                        'category': postSeleccionado.categoria
-                                    }]
-                                });
-                            }
-                        })
-                        .catch(error => {
-                            console.warn("Error en ruta:", rutaActual, error.message);
-                            // Si falla esta ruta, intentamos automáticamente la siguiente
-                            probarFetch(index + 1);
-                        });
-                }
-
-                // Iniciamos la prueba secuencial en la ruta index 0
-                probarFetch(0);
-
-            } else {
-                // Si es un post interno clásico, lo renderiza directo
-                contenedorContenido.innerHTML = `<div class="articulo-cargado">${postSeleccionado.htmlCompleto || 'Contenido no disponible'}</div>`;
-            }
-
-            // Renderizar la sección de recomendados (todos menos el activo)
-            const restantes = novedades.filter(p => p.id !== id);
-            const contenedorRestantes = document.getElementById("contenedor-lista-recomendados");
-            contenedorRestantes.innerHTML = "";
-
-            if (restantes.length === 0) {
-                contenedorRestantes.innerHTML = `
-                    <div style="text-align: center; padding: 30px; color: #666;">
-                        <p>No hay más novedades disponibles en este momento.</p>
-                        <p style="font-size: 0.8rem; margin-top: 10px;">Vuelve pronto para más contenido.</p>
-                    </div>
-                `;
-            } else {
-                restantes.forEach(post => {
-                    contenedorRestantes.innerHTML += `
-                        <div class="tarjeta-tutorial" onclick="mostrarNovedad('${post.id}')">
-                            <div class="info-tarjeta">
-                                <h3>${post.titulo}</h3>
-                                <p>${post.resumen}</p>
-                            </div>
-                            <div class="img-tarjeta" style="background-image: url('${post.imagenCover}'); background-size: cover; background-position: center;"></div>
-                        </div>
-                    `;
-                });
-            }
+            // Renderizar la sección de recomendados
+            renderizarRecomendados(id);
 
             // Scroll suave al inicio
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // LÓGICA AUTOMÁTICA EN LA CARGA de la PÁGINA
+        // Función para renderizar los artículos recomendados
+        function renderizarRecomendados(idActual) {
+            const restantes = novedades.filter(p => p.id !== idActual);
+            const contenedor = document.getElementById("contenedor-lista-recomendados");
+            contenedor.innerHTML = "";
+
+            if (restantes.length === 0) {
+                contenedor.innerHTML = `
+                    <div style="text-align: center; padding: 30px; color: #666;">
+                        <p>No hay más novedades disponibles en este momento.</p>
+                        <p style="font-size: 0.8rem; margin-top: 10px;">Vuelve pronto para más contenido.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            restantes.forEach(post => {
+                const tarjeta = document.createElement('div');
+                tarjeta.className = 'tarjeta-tutorial';
+                tarjeta.onclick = () => mostrarNovedad(post.id);
+                tarjeta.innerHTML = `
+                    <div class="info-tarjeta">
+                        <h3>${post.titulo}</h3>
+                        <p>${post.resumen}</p>
+                    </div>
+                    <div class="img-tarjeta" style="background-image: url('${post.imagenCover}'); background-size: cover; background-position: center;"></div>
+                `;
+                contenedor.appendChild(tarjeta);
+            });
+        }
+
+        // LÓGICA AUTOMÁTICA EN LA CARGA DE LA PÁGINA
         window.onload = function() {
             if (novedades.length > 0) {
-                // Busca automáticamente el último elemento del array 'novedades' para cargarlo de primero
+                // Carga el último elemento del array
                 const ultimaNovedad = novedades[novedades.length - 1];
                 mostrarNovedad(ultimaNovedad.id);
             } else {
@@ -408,11 +437,12 @@
             }
         };
 
-        // Exponer la función globalmente para que funcione desde onclick en HTML
+        // Exponer la función globalmente
         window.mostrarNovedad = mostrarNovedad;
 
         console.log("🚀 Motor de novedades cargado correctamente");
-        console.log("📰 Novedades disponibles:", novedades.length);
+        console.log(`📰 Novedades disponibles: ${novedades.length}`);
+        console.log("📋 Lista de novedades:", novedades.map(n => n.id).join(', '));
     </script>
 </body>
 </html>
