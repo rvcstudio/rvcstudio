@@ -188,7 +188,7 @@
     <!-- SCRIPT DEL MOTOR DINÁMICO DEL BLOG -->
     <script>
         // BASE DE DATOS DE TUTORIALES INTERNOS (El último elemento de esta lista siempre cargará por defecto)
-        const tutoriales = [
+        const novedades = [
             {
                 id: "d-mini-behringer.html",
                 titulo: "D MINI de Behringer: Minimoog de bolsillo con un secuenciador, filtro ladder y tres osciladores analógicos",
@@ -201,11 +201,11 @@
         ];
 
         // FUNCIÓN QUE RENDERIZA EL ARTÍCULO Y SUS RECOMENDADOS
-        function mostrarTutorial(id) {
-            const postSeleccionado = tutoriales.find(p => p.id === id);
+        function mostrarNovedades(id) {
+            const postSeleccionado = novedades.find(p => p.id === id);
             if (!postSeleccionado) return;
 
-            const contenedorContenido = document.getElementById("contenido-del-tutorial");
+            const contenedorContenido = document.getElementById("contenido-del-novedades");
 
             // Si el post está configurado como externo, hace fetch inteligente con fallbacks
             if (postSeleccionado.esExterno) {
@@ -213,9 +213,9 @@
                 // Definimos un conjunto de rutas probables por si hay un error tipográfico en el nombre de la carpeta en GitHub (post vs posts)
                 const rutasAProbar = [
                     postSeleccionado.archivoUrl,   // 1. "posts/tutorial-4.html"
-                    "post/tutorial-4.html",        // 2. "post/tutorial-4.html" (Singular)
-                    "tutorial-4.html",             // 3. En la raíz principal
-                    "./posts/tutorial-4.html"
+                    "post/d-mini-behringer.html",        // 2. "post/tutorial-4.html" (Singular)
+                    "d-mini-behringer.html",             // 3. En la raíz principal
+                    "./posts/d-mini-behringer.html"
                 ];
 
                 // Función interna recursiva para intentar una ruta tras otra
