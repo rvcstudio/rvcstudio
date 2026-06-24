@@ -136,6 +136,53 @@
             .links-legales { gap: 15px; }
             .cta-google-news { flex-direction: column; text-align: center; gap: 15px; }
         }
+
+        /* Estilos para el contenido del artículo cargado */
+        .articulo-cargado img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .articulo-cargado h1 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .articulo-cargado h2 {
+            color: #ff0055;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .articulo-cargado p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        .articulo-cargado ul, .articulo-cargado ol {
+            color: #cccccc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .articulo-cargado li {
+            margin-bottom: 8px;
+        }
+        .loading-spinner {
+            text-align: center;
+            padding: 60px 20px;
+            color: #888888;
+        }
+        .loading-spinner::after {
+            content: "⏳";
+            display: block;
+            font-size: 3rem;
+            margin-top: 10px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -144,8 +191,8 @@
     <header class="cabecera-novedades">
         <div class="logo-nav">
             <a href="index.html">
-        <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
-    </a>
+                <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
+            </a>
         </div>
 
         <nav class="nav-menu">
@@ -162,6 +209,7 @@
         <section id="vista-lector-articulo" class="articulo-completo">
             <div id="contenido-del-tutorial">
                 <!-- El script inyectará aquí la novedad activa -->
+                <div class="loading-spinner">Cargando novedad...</div>
             </div>
             
             <!-- SECCIÓN INFERIOR: OTRAS NOVEDADES DISPONIBLES -->
@@ -193,29 +241,49 @@
                 id: "d-mini-behringer",
                 titulo: "D MINI de Behringer: Minimoog de bolsillo con un secuenciador, filtro ladder y tres osciladores analógicos",
                 categoria: "Ultimas noticias en el mundo del audio y la produccion musical",
-                resumen: " Behringer inicia la preventa de su D MINI, una versión compacta del Model D que cuenta con tres osciladores analógicos, un filtro escalera paso-bajo, un secuenciador de 16 pasos y 27 teclas táctiles. Se espera que esté disponible en agosto de 2026 a un precio estimado de 99€ o 99$.",
+                resumen: "Behringer inicia la preventa de su D MINI, una versión compacta del Model D que cuenta con tres osciladores analógicos, un filtro escalera paso-bajo, un secuenciador de 16 pasos y 27 teclas táctiles. Se espera que esté disponible en agosto de 2026 a un precio estimado de 99€ o 99$.",
                 imagenCover: "imagenes/Behringer-Model-D-Soul@2000x1500.jpg",
-                esExterno: true,
-                archivoUrl: "posts/d-mini-behringer.html"
+                archivoUrl: "posts/d-mini-behringer.html",
+                esExterno: true
             }
+            // Aquí puedes agregar más novedades siguiendo este formato
+            // {
+            //     id: "otra-novedad",
+            //     titulo: "Título de la novedad",
+            //     categoria: "Categoría",
+            //     resumen: "Resumen breve...",
+            //     imagenCover: "imagenes/cover.jpg",
+            //     archivoUrl: "posts/otra-novedad.html",
+            //     esExterno: true
+            // }
         ];
 
         // FUNCIÓN QUE RENDERIZA EL ARTÍCULO Y SUS RECOMENDADOS
-        function mostrarNovedades(id) {
+        function mostrarNovedad(id) {
             const postSeleccionado = novedades.find(p => p.id === id);
-            if (!postSeleccionado) return;
+            if (!postSeleccionado) {
+                console.error("Novedad no encontrada con ID:", id);
+                return;
+            }
 
-            const contenedorContenido = document.getElementById("contenido-del-novedades");
+            const contenedorContenido = document.getElementById("contenido-del-tutorial");
+            
+            // Mostrar spinner de carga
+            contenedorContenido.innerHTML = `<div class="loading-spinner">Cargando artículo...</div>`;
+
+            // Actualizar título de la página
+            document.title = postSeleccionado.titulo + " | Record Very Clean";
 
             // Si el post está configurado como externo, hace fetch inteligente con fallbacks
             if (postSeleccionado.esExterno) {
                 
-                // Definimos un conjunto de rutas probables por si hay un error tipográfico en el nombre de la carpeta en GitHub (post vs posts)
+                // Definimos un conjunto de rutas probables por si hay un error tipográfico
                 const rutasAProbar = [
-                    postSeleccionado.archivoUrl,   // 1. "posts/tutorial-4.html"
-                    "post/d-mini-behringer.html",        // 2. "post/tutorial-4.html" (Singular)
-                    "d-mini-behringer.html",             // 3. En la raíz principal
-                    "./posts/d-mini-behringer.html"
+                    postSeleccionado.archivoUrl,      // "posts/d-mini-behringer.html"
+                    "post/" + postSeleccionado.id + ".html",  // "post/d-mini-behringer.html"
+                    postSeleccionado.id + ".html",      // "d-mini-behringer.html"
+                    "./" + postSeleccionado.id + ".html",
+                    "posts/" + postSeleccionado.id + ".html"
                 ];
 
                 // Función interna recursiva para intentar una ruta tras otra
@@ -224,33 +292,53 @@
                         // Si todas las rutas fallaron, mostramos el error final explicativo
                         contenedorContenido.innerHTML = `
                             <div style="padding: 40px; text-align: center; background: #1a1a1a; border: 1px solid #333; border-radius: 8px;">
-                                <h2 style="color: #ff0055; margin-bottom: 15px;">Error al cargar el tutorial</h2>
+                                <h2 style="color: #ff0055; margin-bottom: 15px;">Error al cargar el artículo</h2>
                                 <p style="color: #aaaaaa; max-width: 500px; margin: 0 auto; line-height: 1.6; margin-bottom: 15px;">
-                                    No hemos podido localizar el archivo del tutorial en tu repositorio de GitHub.
+                                    No hemos podido localizar el archivo del artículo en tu repositorio.
                                 </p>
                                 <p style="color: #cccccc; font-size: 0.9em; text-align: left; max-width: 500px; margin: 0 auto; background: #222; padding: 15px; border-radius: 6px;">
-                                    <strong>Por favor revisa en tu GitHub:</strong><br>
-                                    1. Que creaste una carpeta llamada exactamente <code style="color:#ff0055;">posts</code> (o <code style="color:#ff0055;">post</code>) en tu repositorio principal.<br>
-                                    2. Que dentro de esa carpeta subiste el archivo llamado exactamente <code style="color:#ff0055;">tutorial-4.html</code> (todo en minúsculas).
+                                    <strong>Verifica en tu GitHub:</strong><br>
+                                    1. Que creaste una carpeta llamada <code style="color:#ff0055;">posts</code> en tu repositorio principal.<br>
+                                    2. Que dentro de esa carpeta subiste el archivo <code style="color:#ff0055;">${postSeleccionado.id}.html</code>.<br>
+                                    3. Que el nombre del archivo coincide exactamente (incluye mayúsculas/minúsculas).
                                 </p>
+                                <button onclick="location.reload()" style="margin-top:20px; padding:10px 30px; background:#ff0055; color:white; border:none; border-radius:4px; cursor:pointer;">
+                                    🔄 Intentar de nuevo
+                                </button>
                             </div>
                         `;
                         return;
                     }
 
                     const rutaActual = rutasAProbar[index];
+                    console.log("Intentando cargar desde:", rutaActual);
                     
                     fetch(rutaActual)
                         .then(response => {
-                            if (!response.ok) throw new Error("No encontrado");
+                            if (!response.ok) throw new Error("No encontrado (HTTP " + response.status + ")");
                             return response.text();
                         })
                         .then(data => {
                             // Si lo carga correctamente, inyectamos el HTML y paramos la búsqueda
-                            contenedorContenido.innerHTML = data;
+                            contenedorContenido.innerHTML = `<div class="articulo-cargado">${data}</div>`;
+                            
+                            // Añadir clase al body para estilos específicos si es necesario
+                            document.body.classList.add('articulo-cargado-body');
+                            
+                            // Disparar evento para analytics si lo deseas
+                            if (typeof gtag !== 'undefined') {
+                                gtag('event', 'view_item', {
+                                    'items': [{
+                                        'id': postSeleccionado.id,
+                                        'name': postSeleccionado.titulo,
+                                        'category': postSeleccionado.categoria
+                                    }]
+                                });
+                            }
                         })
-                        .catch(() => {
-                            // Si falla esta ruta, intentamos automáticamente la siguiente en la lista
+                        .catch(error => {
+                            console.warn("Error en ruta:", rutaActual, error.message);
+                            // Si falla esta ruta, intentamos automáticamente la siguiente
                             probarFetch(index + 1);
                         });
                 }
@@ -260,7 +348,7 @@
 
             } else {
                 // Si es un post interno clásico, lo renderiza directo
-                contenedorContenido.innerHTML = postSeleccionado.htmlCompleto;
+                contenedorContenido.innerHTML = `<div class="articulo-cargado">${postSeleccionado.htmlCompleto || 'Contenido no disponible'}</div>`;
             }
 
             // Renderizar la sección de recomendados (todos menos el activo)
@@ -268,18 +356,28 @@
             const contenedorRestantes = document.getElementById("contenedor-lista-recomendados");
             contenedorRestantes.innerHTML = "";
 
-            restantes.forEach(post => {
-                contenedorRestantes.innerHTML += `
-                    <div class="tarjeta-tutorial" onclick="mostrarTutorial('${post.id}')">
-                        <div class="info-tarjeta">
-                            <h3>${post.titulo}</h3>
-                            <p>${post.resumen}</p>
-                        </div>
-                        <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
+            if (restantes.length === 0) {
+                contenedorRestantes.innerHTML = `
+                    <div style="text-align: center; padding: 30px; color: #666;">
+                        <p>No hay más novedades disponibles en este momento.</p>
+                        <p style="font-size: 0.8rem; margin-top: 10px;">Vuelve pronto para más contenido.</p>
                     </div>
                 `;
-            });
+            } else {
+                restantes.forEach(post => {
+                    contenedorRestantes.innerHTML += `
+                        <div class="tarjeta-tutorial" onclick="mostrarNovedad('${post.id}')">
+                            <div class="info-tarjeta">
+                                <h3>${post.titulo}</h3>
+                                <p>${post.resumen}</p>
+                            </div>
+                            <div class="img-tarjeta" style="background-image: url('${post.imagenCover}'); background-size: cover; background-position: center;"></div>
+                        </div>
+                    `;
+                });
+            }
 
+            // Scroll suave al inicio
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -289,8 +387,21 @@
                 // Busca automáticamente el último elemento del array 'novedades' para cargarlo de primero
                 const ultimaNovedad = novedades[novedades.length - 1];
                 mostrarNovedad(ultimaNovedad.id);
+            } else {
+                document.getElementById("contenido-del-tutorial").innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px;">
+                        <h2 style="color: #ff0055;">No hay novedades disponibles</h2>
+                        <p style="color: #888; margin-top: 15px;">Pronto añadiremos nuevo contenido.</p>
+                    </div>
+                `;
             }
         };
+
+        // Exponer la función globalmente para que funcione desde onclick en HTML
+        window.mostrarNovedad = mostrarNovedad;
+
+        console.log("🚀 Motor de novedades cargado correctamente");
+        console.log("📰 Novedades disponibles:", novedades.length);
     </script>
 </body>
 </html>
