@@ -1,1 +1,116 @@
+<h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">Guía Paso a Paso: Configuración de Audio desde Cero en Ableton Live</h2>
+<p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Configuración & Audio Engineering | Por: RVC Studio</p>
 
+<!-- PORTADA -->
+<div style="margin: 25px 0; text-align: center;">
+    <img src="imagenes/hardware config.JPG" alt="Configuración Hardware en Ableton" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #222;" onerror="this.style.border='2px red solid';">
+</div>
+
+<p style="font-size: 1.1em; color: #cccccc; margin-bottom: 20px;">
+    Configurar tu entorno de audio correctamente es el pilar invisible sobre el que se apoya toda producción profesional. Si experimentas chasquidos (pops/clicks), retardos incómodos al grabar o desajustes de tiempo, el problema radica en la configuración del motor de audio de tu secuenciador. En esta guía completa aprenderás a calibrar Ableton Live desde cero para lograr la menor latencia y la mayor estabilidad posibles.
+</p>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">1. Acceso a Preferencias y Selección de Driver</h3>
+<p style="margin-top: 15px;">
+    El primer paso lógico es abrir el panel de control del software. Utiliza el atajo rápido <kbd style="background: #222; border: 1px solid #44; padding: 2px 6px; border-radius: 3px; font-family: monospace;">Ctrl + ,</kbd> (Windows) o <kbd style="background: #222; border: 1px solid #44; padding: 2px 6px; border-radius: 3px; font-family: monospace;">Cmd + ,</kbd> (macOS) y navega a la pestaña de <strong>Audio</strong>.
+</p>
+
+<div class="box-tip blue" style="background-color: #1e1e1e; border-left: 4px solid #0076ff; padding: 20px; border-radius: 0 8px 8px 0; margin: 25px 0;">
+    <p style="margin: 0; font-weight: bold; color: #ffffff;">📌 Selección Crucial del Tipo de Controlador (Driver Type):</p>
+    <ul style="margin: 10px 0 0 0; padding-left: 20px; color: #cccccc; line-height: 1.6;">
+        <li><strong>En Windows:</strong> Elige siempre <strong>ASIO</strong>. Nunca utilices "MME/DirectX", ya que este último genera una latencia masiva superior a los 100 milisegundos, haciendo imposible la grabación en tiempo real.</li>
+        <li><strong>En macOS:</strong> Elige <strong>CoreAudio</strong>. Este driver nativo de Apple está altamente optimizado y ofrece un rendimiento excelente por defecto sin necesidad de software de terceros.</li>
+    </ul>
+</div>
+
+<p>
+    Si usas Windows y tu tarjeta de audio no tiene un driver ASIO propietario, puedes instalar el driver genérico gratuito <strong style="color: #0076ff;">ASIO4ALL</strong> o utilizar el driver oficial de tu interfaz (por ejemplo, Focusrite USB ASIO, Universal Audio ASIO, etc.).
+</p>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">2. Frecuencia de Muestreo (Sample Rate)</h3>
+<p style="margin-top: 15px;">
+    La frecuencia de muestreo define cuántas veces por segundo se digitaliza la señal analógica. Para producciones musicales modernas y distribución en plataformas digitales como Spotify o Apple Music, mantén estos parámetros de referencia:
+</p>
+
+<div style="margin: 25px 0; text-align: center;">
+    <img src="imagenes/sample rate.jpg" alt="Ajuste de Sample Rate en Ableton" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #222;" onerror="this.style.border='2px red solid';">
+</div>
+
+<ul style="padding-left: 20px; margin: 15px 0; color: #cccccc;">
+    <li style="margin-bottom: 10px;"><strong>44,100 Hz (44.1 kHz):</strong> Es el estándar clásico para audio en formato CD y excelente opción si tu procesador tiene recursos limitados.</li>
+    <li><strong>48,000 Hz (48 kHz):</strong> El estándar actual para producción audiovisual, televisión, videojuegos y la frecuencia óptima de trabajo recomendada en estudios modernos.</li>
+</ul>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">3. Calibración del Tamaño del Buffer (Buffer Size)</h3>
+<p style="margin-top: 15px;">
+    El Buffer es un bloque temporal de memoria asignado para que tu procesador calcule y procese el audio antes de reproducirlo. Ajustar este parámetro requiere un juego de balance técnico según la etapa de producción en la que te encuentres:
+</p>
+
+<div class="grid-shortcuts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 25px 0;">
+    <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333;">
+        <h4 style="color: #ff0055; margin-bottom: 10px; font-size: 1.2rem;">🎙️ Modo Grabación (Baja Latencia)</h4>
+        <p style="color: #cccccc; font-size: 0.9rem; line-height: 1.6;">
+            Ajusta el buffer a <strong>128 o 256 muestras (samples)</strong>. Esto reducirá el retardo (latencia) entre lo que cantas o tocas y lo que escuchas por tus auriculares, permitiendo una interpretación natural.
+        </p>
+    </div>
+    <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; border: 1px solid #333;">
+        <h4 style="color: #0076ff; margin-bottom: 10px; font-size: 1.2rem;">🎛️ Modo Mezcla / Mastering (Alta Estabilidad)</h4>
+        <p style="color: #cccccc; font-size: 0.9rem; line-height: 1.6;">
+            Sube el buffer a <strong>512 o 1024 muestras</strong>. Esto le dará tiempo de procesamiento extra a tu CPU para poder correr múltiples plugins pesados (compresores de fase lineal, reverbs de convolución, etc.) sin sufrir sobrecarga.
+        </p>
+    </div>
+</div>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">4. Configuración de Entradas y Salidas Físicas (I/O Config)</h3>
+<p style="margin-top: 15px;">
+    Ableton Live desactiva la mayoría de los canales de tu interfaz de manera predeterminada para conservar recursos del sistema. Para utilizarlos, haz clic en los botones de <strong>Input Config</strong> (Configurar Entradas) y <strong>Output Config</strong> (Configurar Salidas).
+</p>
+
+<ul style="padding-left: 20px; margin: 15px 0; color: #cccccc; line-height: 1.8;">
+    <li>Activa las entradas en <strong>Mono (1, 2, etc.)</strong> para capturar micrófonos individuales o instrumentos de línea como guitarras y bajos.</li>
+    <li>Activa las entradas en <strong>Estéreo (1/2, 3/4, etc.)</strong> únicamente cuando conectes sintetizadores de hardware externos o reproductores de audio estéreo.</li>
+    <li>Configura las salidas principales en estéreo <strong>(1/2)</strong> para enviar la señal directamente hacia tus monitores de estudio de referencia.</li>
+</ul>
+
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">5. Modos de Monitoreo: In, Auto y Off</h3>
+<p style="margin-top: 15px;">
+    En cada canal de audio en tu ventana de arreglos verás la sección <strong>Monitor</strong>. Es indispensable entender cómo operan estos tres estados para evitar problemas de eco o duplicación de fase:
+</p>
+
+<table style="width: 100%; border-collapse: collapse; margin: 25px 0; background: #141414; border-radius: 8px; overflow: hidden; font-size: 0.95rem;">
+    <thead>
+        <tr style="background: #222; text-align: left; color: #ffffff;">
+            <th style="padding: 12px 15px; border-bottom: 1px solid #333;">Modo</th>
+            <th style="padding: 12px 15px; border-bottom: 1px solid #333;">Comportamiento</th>
+            <th style="padding: 12px 15px; border-bottom: 1px solid #333;">Caso de Uso Recomendado</th>
+        </tr>
+    </thead>
+    <tbody style="color: #cccccc;">
+        <tr style="border-bottom: 1px solid #222;">
+            <td style="padding: 12px 15px; font-weight: bold; color: #ff0055;">In</td>
+            <td style="padding: 12px 15px;">Escuchas la entrada del canal constantemente, sin importar si el canal está armado o si hay clips de audio reproduciéndose.</td>
+            <td style="padding: 12px 15px;">Monitorear una señal externa directamente antes de configurar la sesión.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #222;">
+            <td style="padding: 12px 15px; font-weight: bold; color: #0076ff;">Auto</td>
+            <td style="padding: 12px 15px;">Escuchas la señal entrante solo cuando el canal está armado para grabar. Si no está armado, escuchas el audio ya grabado.</td>
+            <td style="padding: 12px 15px;">El estándar para flujos de grabación tradicionales y punch-ins rápidos.</td>
+        </tr>
+        <tr>
+            <td style="padding: 12px 15px; font-weight: bold; color: #888;">Off</td>
+            <td style="padding: 12px 15px;">Ableton apaga el monitoreo a través del software. No escucharás retardos artificiales.</td>
+            <td style="padding: 12px 15px;">Recomendado si estás usando el monitoreo directo (Direct Monitor) sin latencia físico de tu interfaz.</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="box-tip pink" style="background-color: #1e1e1e; border-left: 4px solid #ff0055; padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0;">
+    <p style="margin: 0; font-weight: bold; color: #ffffff;">🚨 Solución de Errores Comunes (Clipped Audio & Dropouts):</p>
+    <p style="margin: 10px 0 0 0; color: #cccccc; line-height: 1.6;">
+        Si durante tus sesiones escuchas chasquidos constantes similares a lluvia estática, abre el indicador de uso de CPU situado en la esquina superior derecha de Ableton. Si este supera el 80% continuamente, la solución inmediata no es cambiar de hardware, sino <strong>congelar pistas (Freeze Track)</strong> que usen sintetizadores pesados o incrementar el <strong>Buffer Size</strong> a una escala superior.
+    </p>
+</div>
+
+<p style="margin-top: 25px; font-style: italic; color: #aaaaaa;">
+    Configurar de manera ordenada tu interfaz asegura el flujo de tu creatividad. Guarda este artículo para tener a la mano las reglas del buffer en tus sesiones diarias de producción. ¡A producir!
+</p>
