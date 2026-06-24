@@ -158,17 +158,17 @@
     <!-- CONTENEDOR DINÁMICO DEL BLOG -->
     <main class="contenedor-blog">
         
-        <!-- NÚCLEO LECTOR (Muestra el tutorial activo) -->
+        <!-- NÚCLEO LECTOR (Muestra novedades activas) -->
         <section id="vista-lector-articulo" class="articulo-completo">
             <div id="contenido-del-tutorial">
-                <!-- El script inyectará aquí el tutorial activo -->
+                <!-- El script inyectará aquí la novedad activa -->
             </div>
             
-            <!-- SECCIÓN INFERIOR: OTROS TUTORIALES DISPONIBLES -->
+            <!-- SECCIÓN INFERIOR: OTRAS NOVEDADES DISPONIBLES -->
             <div id="modulo-recomendados" class="seccion-recomendados">
-                <h4>Otros tutoriales que te pueden interesar</h4>
+                <h4>Otras Novedades que te pueden interesar</h4>
                 <div id="contenedor-lista-recomendados" class="lista-tutoriales">
-                    <!-- Aquí se inyectarán los demás tutoriales dinámicamente -->
+                    <!-- Aquí se inyectarán las demas novedades dinámicamente -->
                 </div>
             </div>
         </section>
@@ -187,7 +187,7 @@
 
     <!-- SCRIPT DEL MOTOR DINÁMICO DEL BLOG -->
     <script>
-        // BASE DE DATOS DE TUTORIALES INTERNOS (El último elemento de esta lista siempre cargará por defecto)
+        // BASE DE DATOS DE NOVEDADES INTERNAS (El último elemento de esta lista siempre cargará por defecto)
         const novedades = [
             {
                 id: "d-mini-behringer.html",
@@ -286,7 +286,7 @@
         // LÓGICA AUTOMÁTICA EN LA CARGA de la PÁGINA
         window.onload = function() {
             if (novedades.length > 0) {
-                // Busca automáticamente el último elemento del array 'tutoriales' para cargarlo de primero
+                // Busca automáticamente el último elemento del array 'novedades' para cargarlo de primero
                 const ultimaNovedad = novedades[novedades.length - 1];
                 mostrarNovedad(ultimaNovedad.id);
             }
