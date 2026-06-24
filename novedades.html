@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novedades y Tutoriales | RVC Studio</title>
+    <title>Tutoriales de Production Musical | Record Very Clean Music</title>
+    
+    <link rel="icon" type="image/png" href="imagenes/favicon.png">
 
-    <!-- Google Config Snippet -->
-    <meta name="google-site-verification" content="TU_CODIGO_DE_VERIFICACION_GSC_AQUI" />
+    <!-- GOOGLE ANALYTICS -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-04WYB34N23"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -14,9 +15,11 @@
       gtag('js', new Date());
       gtag('config', 'G-04WYB34N23');
     </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415" crossorigin="anonymous"></script>
 
-  <style>
+    <!-- GOOGLE ADSENSE -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415" crossorigin="anonymous"></script>
+   
+    <style>
         /* --- ESTILOS GENERALES Y RESET --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #121212; color: #e0e0e0; font-family: sans-serif; line-height: 1.6; }
@@ -134,58 +137,160 @@
             .cta-google-news { flex-direction: column; text-align: center; gap: 15px; }
         }
     </style>
-    
 </head>
 <body>
 
-    <div class="container">
-        <h1>Novedades</h1>
-        <div id="main-view">
-            <div id="post-list" class="post-list"></div>
+    <!-- CABECERA -->
+    <header class="cabecera-novedades">
+        <div class="logo-nav">
+            <a href="index.html">
+        <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
+    </a>
         </div>
-        <div id="content-area"></div>
-    </div>
 
+        <nav class="nav-menu">
+            <a href="index.html">Novedades</a>
+            <a href="arsenal.html">Arsenal</a>
+            <a href="tutoriales.html">Tutoriales</a>
+        </nav>
+    </header>
+
+    <!-- CONTENEDOR DINÁMICO DEL BLOG -->
+    <main class="contenedor-blog">
+        
+        <!-- NÚCLEO LECTOR (Muestra el tutorial activo) -->
+        <section id="vista-lector-articulo" class="articulo-completo">
+            <div id="contenido-del-tutorial">
+                <!-- El script inyectará aquí el tutorial activo -->
+            </div>
+            
+            <!-- SECCIÓN INFERIOR: OTROS TUTORIALES DISPONIBLES -->
+            <div id="modulo-recomendados" class="seccion-recomendados">
+                <h4>Otros tutoriales que te pueden interesar</h4>
+                <div id="contenedor-lista-recomendados" class="lista-tutoriales">
+                    <!-- Aquí se inyectarán los demás tutoriales dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer-legal">
+        <div class="links-legales">
+            <a href="terminos-condiciones.html">Terminos y Condiciones</a>
+            <a href="politica-privacidad.html">Política de Privacidad</a>
+            <a href="aviso-legal.html">Aviso Legal</a>
+        </div>
+        <p>© 2026 Record Very Clean Music. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT DEL MOTOR DINÁMICO DEL BLOG -->
     <script>
-        // 1. Aquí defines tu lista de artículos
-        const posts = [
-            { id: "posts/d-mini-behringer.html", titulo: "D MINI Behringer", descripcion: "Minimoog de bolsillo con un secuenciador, filtro ladder y tres osciladores analógicos.", imagen: "imagenes/Behringer-Model-D-Soul@2000x1500.jpg" }
+        // BASE DE DATOS DE TUTORIALES INTERNOS (El último elemento de esta lista siempre cargará por defecto)
+        const tutoriales = [
+            {
+                id: "tutorial-4",
+                titulo: "D MINI de Behringer: Minimoog de bolsillo con un secuenciador, filtro ladder y tres osciladores analógicos",
+                categoria: "Ultimas noticias en el mundo del audio y la produccion musical",
+                resumen: " Behringer inicia la preventa de su D MINI, una versión compacta del Model D que cuenta con tres osciladores analógicos, un filtro escalera paso-bajo, un secuenciador de 16 pasos y 27 teclas táctiles. Se espera que esté disponible en agosto de 2026 a un precio estimado de 99€ o 99$.",
+                imagenCover: "imagenes/Behringer-Model-D-Soul@2000x1500.jpg",
+                esExterno: true,
+                archivoUrl: "posts/d-mini-behringer.html"
+            }
         ];
 
-        const listContainer = document.getElementById('post-list');
-        const mainView = document.getElementById('main-view');
-        const contentArea = document.getElementById('content-area');
+        // FUNCIÓN QUE RENDERIZA EL ARTÍCULO Y SUS RECOMENDADOS
+        function mostrarTutorial(id) {
+            const postSeleccionado = tutoriales.find(p => p.id === id);
+            if (!postSeleccionado) return;
 
-        // 2. Renderizar lista y asignar el evento click
-        posts.forEach(post => {
-            const item = document.createElement('div');
-            item.className = 'post-item';
-            item.innerHTML = `
-                <img src="${post.imagen}" alt="${post.titulo}" onerror="this.src='https://via.placeholder.com/120x80?text=No+Img'">
-                <div><h3>${post.titulo}</h3><p>${post.descripcion}</p></div>
-            `;
-            // AQUÍ ESTÁ LA MAGIA: Al hacer clic, llama a loadPost con el ID
-            item.onclick = () => loadPost(post.id);
-            listContainer.appendChild(item);
-        });
+            const contenedorContenido = document.getElementById("contenido-del-tutorial");
 
-        // 3. Función loadPost que trae el contenido
-        async function loadPost(id) {
-            try {
-                // Esto busca el archivo en la carpeta /posts/
-                const response = await fetch(`posts/${id}.html`);
-                const html = await response.text();
+            // Si el post está configurado como externo, hace fetch inteligente con fallbacks
+            if (postSeleccionado.esExterno) {
                 
-                // Ocultamos la lista y mostramos el contenido
-                mainView.style.display = 'none';
-                contentArea.innerHTML = `
-                    <div class="back-btn" onclick="location.reload()">← Volver a Novedades</div>
-                    <div class="post-content">${html}</div>
-                `;
-            } catch (e) {
-                contentArea.innerHTML = "<p>Error al cargar el artículo.</p>";
+                // Definimos un conjunto de rutas probables por si hay un error tipográfico en el nombre de la carpeta en GitHub (post vs posts)
+                const rutasAProbar = [
+                    postSeleccionado.archivoUrl,   // 1. "posts/tutorial-4.html"
+                    "post/tutorial-4.html",        // 2. "post/tutorial-4.html" (Singular)
+                    "tutorial-4.html",             // 3. En la raíz principal
+                    "./posts/tutorial-4.html"
+                ];
+
+                // Función interna recursiva para intentar una ruta tras otra
+                function probarFetch(index) {
+                    if (index >= rutasAProbar.length) {
+                        // Si todas las rutas fallaron, mostramos el error final explicativo
+                        contenedorContenido.innerHTML = `
+                            <div style="padding: 40px; text-align: center; background: #1a1a1a; border: 1px solid #333; border-radius: 8px;">
+                                <h2 style="color: #ff0055; margin-bottom: 15px;">Error al cargar el tutorial</h2>
+                                <p style="color: #aaaaaa; max-width: 500px; margin: 0 auto; line-height: 1.6; margin-bottom: 15px;">
+                                    No hemos podido localizar el archivo del tutorial en tu repositorio de GitHub.
+                                </p>
+                                <p style="color: #cccccc; font-size: 0.9em; text-align: left; max-width: 500px; margin: 0 auto; background: #222; padding: 15px; border-radius: 6px;">
+                                    <strong>Por favor revisa en tu GitHub:</strong><br>
+                                    1. Que creaste una carpeta llamada exactamente <code style="color:#ff0055;">posts</code> (o <code style="color:#ff0055;">post</code>) en tu repositorio principal.<br>
+                                    2. Que dentro de esa carpeta subiste el archivo llamado exactamente <code style="color:#ff0055;">tutorial-4.html</code> (todo en minúsculas).
+                                </p>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    const rutaActual = rutasAProbar[index];
+                    
+                    fetch(rutaActual)
+                        .then(response => {
+                            if (!response.ok) throw new Error("No encontrado");
+                            return response.text();
+                        })
+                        .then(data => {
+                            // Si lo carga correctamente, inyectamos el HTML y paramos la búsqueda
+                            contenedorContenido.innerHTML = data;
+                        })
+                        .catch(() => {
+                            // Si falla esta ruta, intentamos automáticamente la siguiente en la lista
+                            probarFetch(index + 1);
+                        });
+                }
+
+                // Iniciamos la prueba secuencial en la ruta index 0
+                probarFetch(0);
+
+            } else {
+                // Si es un post interno clásico, lo renderiza directo
+                contenedorContenido.innerHTML = postSeleccionado.htmlCompleto;
             }
+
+            // Renderizar la sección de recomendados (todos menos el activo)
+            const restantes = tutoriales.filter(p => p.id !== id);
+            const contenedorRestantes = document.getElementById("contenedor-lista-recomendados");
+            contenedorRestantes.innerHTML = "";
+
+            restantes.forEach(post => {
+                contenedorRestantes.innerHTML += `
+                    <div class="tarjeta-tutorial" onclick="mostrarTutorial('${post.id}')">
+                        <div class="info-tarjeta">
+                            <h3>${post.titulo}</h3>
+                            <p>${post.resumen}</p>
+                        </div>
+                        <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
+                    </div>
+                `;
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        // LÓGICA AUTOMÁTICA EN LA CARGA de la PÁGINA
+        window.onload = function() {
+            if (tutoriales.length > 0) {
+                // Busca automáticamente el último elemento del array 'tutoriales' para cargarlo de primero
+                const ultimoTutorial = tutoriales[tutoriales.length - 1];
+                mostrarTutorial(ultimoTutorial.id);
+            }
+        };
     </script>
 </body>
 </html>
