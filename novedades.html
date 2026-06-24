@@ -264,7 +264,7 @@
             }
 
             // Renderizar la sección de recomendados (todos menos el activo)
-            const restantes = tutoriales.filter(p => p.id !== id);
+            const restantes = novedades.filter(p => p.id !== id);
             const contenedorRestantes = document.getElementById("contenedor-lista-recomendados");
             contenedorRestantes.innerHTML = "";
 
@@ -285,10 +285,10 @@
 
         // LÓGICA AUTOMÁTICA EN LA CARGA de la PÁGINA
         window.onload = function() {
-            if (tutoriales.length > 0) {
+            if (novedades.length > 0) {
                 // Busca automáticamente el último elemento del array 'tutoriales' para cargarlo de primero
-                const ultimoTutorial = tutoriales[tutoriales.length - 1];
-                mostrarTutorial(ultimoTutorial.id);
+                const ultimaNovedad = novedades[novedades.length - 1];
+                mostrarNovedad(ultimaNovedad.id);
             }
         };
     </script>
