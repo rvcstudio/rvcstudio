@@ -1,418 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google tag (gtag.js) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades | RVC Studio</title>
+
+    <!-- Google Config -->
+    <meta name="google-site-verification" content="TU_CODIGO_DE_VERIFICACION_GSC" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-04WYB34N23"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-04WYB34N23');
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415" crossorigin="anonymous"></script>
-    
-    <!-- CTA PERSONALIZADO DE GOOGLE PUBLISHER CENTER -->
-  <script async type="application/javascript"
-        src="https://news.google.com/swg/js/v1/swg-basic.js"></script>
-<script>
-  (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
-    basicSubscriptions.init({
-      type: "NewsArticle",
-      isPartOfType: ["Product"],
-      isPartOfProductId: "CAowrN3gCw:openaccess",
-      clientOptions: { theme: "light", lang: "es-419" },
-    });
-  });
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO BÁSICO AVANZADO -->
-    <title>Behringer D MINI Preventa Oficial | Record Very Clean Music</title>
-    <meta name="description" content="Análisis detallado de la preventa del Behringer D MINI en 2026. Conoce las características del clon Minimoog Model D ultracompacto con 3 osciladores analógicos por 99€.">
-    <meta name="robots" content="index, follow">
-    <meta name="keywords" content="Behringer D MINI, Minimoog compacto, Model D Soul, sintetizador analógico, producción musical, rvc studio, precio thomann 2026">
-    <link rel="canonical" href="https://rvcstudio.lat/novedades.html">
 
-    <!-- OPEN GRAPH -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Behringer D MINI Preventa Oficial | Record Very Clean Music">
-    <meta property="og:description" content="Tres osciladores analógicos, filtro escalera y secuenciador por 99€. Analizamos el lanzamiento clave para estudios en agosto de 2026.">
-    <meta property="og:image" content="https://rvcstudio.lat/imagenes/Behringer-Model-D-Soul@2000x1500.jpg">
-    <meta property="og:url" content="https://rvcstudio.lat/novedades.html">
-    <meta property="og:site_name" content="RVC Studio">
-
-    <!-- TWITTER CARDS -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Behringer D MINI: El clon compacto de Minimoog ya tiene fecha y precio">
-    <meta name="twitter:description" content="Toda la información sobre el nuevo sintetizador portátil analógico de Behringer.">
-    <meta name="twitter:image" content="https://rvcstudio.lat/imagenes/Behringer-Model-D-Soul@2000x1500.jpg">
-
-    <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="imagenes/favicon.png">
-    
     <style>
-        /* RESET BÁSICO */
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #0b0b0b; font-family: 'Segoe UI', Roboto, sans-serif; color: #ffffff; }
         
-        body {
-            background-color: #0b0b0b;
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            color: #ffffff;
-            padding-bottom: 80px;
+        .cabecera-novedades {
+            width: 100%; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #1a1a1a; background-color: #070707;
         }
-
-        /* CABECERA SIMPLE */
-         .cabecera-novedades {
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #1a1a1a;
-            background-color: #070707;
-        }
-        .logo-nav img { max-height: 50px; display: block; }
-
-        .nav-menu { display: flex; gap: 20px; }
-        .nav-menu a {
-            color: #cccccc;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
+        .logo-nav img { max-height: 50px; }
+        .nav-menu a { color: #ffffff; text-decoration: none; margin-left: 20px; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: color 0.3s; }
         .nav-menu a:hover { color: #ff0055; }
-        /* CONTENEDOR DEL BLOG */
-        .contenedor-blog {
-            max-width: 850px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-        .titulo-principal {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+
+        .contenedor-blog { max-width: 850px; margin: 60px auto; padding: 0 20px; }
+        .titulo-principal { font-size: 2.5rem; margin-bottom: 50px; text-transform: uppercase; }
         .titulo-principal span { color: #ff0055; }
 
-        /* ARQUITECTURA DEL ARTÍCULO */
-        .post-noticia {
-            background-color: #141414;
-            border: 1px solid #222;
-            border-radius: 12px;
-            padding: 45px;
-            margin-bottom: 50px;
+        .lista-articulos { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+        .item-articulo { 
+            background-color: #141414; border: 1px solid #222; border-radius: 12px; 
+            padding: 25px; transition: transform 0.2s, border-color 0.2s;
         }
-        
-        .fecha-post {
-            color: #ff0055;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
-        }
-        .post-noticia h2 {
-            font-size: 2.2rem;
-            margin-bottom: 25px;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-        .post-noticia h3 {
-            font-size: 1.4rem;
-            color: #ff0055;
-            margin: 35px 0 15px 0;
-            font-weight: 600;
-        }
-        .post-noticia p {
-            color: #cccccc;
-            line-height: 1.8;
-            font-size: 1.05rem;
-            margin-bottom: 20px;
-        }
-        .post-noticia strong {
-            color: #ffffff;
-        }
-
-        /* ESTILOS DE IMÁGENES */
-        .contenedor-foto-art {
-            width: 100%;
-            margin: 35px 0;
-            text-align: center;
-        }
-        .contenedor-foto-art img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid #2a2a2a;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.6);
-        }
-        .pie-foto {
-            display: block;
-            font-size: 0.85rem;
-            color: #777777;
-            margin-top: 10px;
-            font-style: italic;
-        }
-
-        /* CONTENEDOR RESPONSIVO VIDEO DE YOUTUBE */
-        .contenedor-video-yt {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            height: 0;
-            margin: 40px 0;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #2a2a2a;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.6);
-        }
-        .contenedor-video-yt iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* ESTILOS DEL BLOQUE CTA DE GOOGLE NEWS */
-        .cta-google-news {
-            background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
-            border-left: 4px solid #ff0055;
-            border-top: 1px solid #222;
-            border-right: 1px solid #222;
-            border-bottom: 1px solid #222;
-            padding: 25px;
-            border-radius: 0 8px 8px 0;
-            margin: 40px 0 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-        .cta-texto h5 {
-            font-size: 1.1rem;
-            color: #ffffff;
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-        .cta-texto p {
-            font-size: 0.9rem !important;
-            color: #aaaaaa !important;
-            margin-bottom: 0 !important;
-            line-height: 1.5 !important;
-        }
-        .btn-cta-news {
-            background-color: #ff0055;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            border-radius: 6px;
-            cursor: pointer;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-        .btn-cta-news:hover {
-            background-color: #d60048;
-            box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
-            transform: translateY(-1px);
-        }
-
-        @media (max-width: 768px) {
-            .cabecera-novedades { padding: 15px 20px; }
-            .titulo-principal { font-size: 2rem; }
-            .post-noticia { padding: 25px; }
-            .post-noticia h2 { font-size: 1.6rem; }
-            .post-noticia h3 { font-size: 1.2rem; }
-            .cta-google-news { flex-direction: column; align-items: flex-start; }
-            .btn-cta-news { width: 100%; justify-content: center; }
-        }
-
-        /* FOOTER CENTRADO */
-        .footer-legal {
-            width: 100%;
-            background-color: #070707;
-            border-top: 1px solid #1a1a1a;
-            padding: 40px 20px;
-            text-align: center;
-            margin-top: 60px;
-        }
-        .links-legales {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-        .links-legales a {
-            color: #888888;
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-        .links-legales a:hover {
-            color: #ff0055;
-        }
-        .footer-legal p {
-            color: #555555;
-            font-size: 0.8rem;
-            margin: 0;
-        }
+        .item-articulo:hover { border-color: #ff0055; transform: translateX(5px); }
+        .item-articulo a { text-decoration: none; color: #ffffff; display: block; }
+        .item-articulo h3 { font-size: 1.5rem; margin-bottom: 5px; }
+        .fecha-articulo { color: #ff0055; font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 8px; }
+        .resumen-articulo { color: #888; font-size: 0.95rem; }
     </style>
 </head>
 <body>
 
-    <!-- CABECERA -->
     <header class="cabecera-novedades">
         <div class="logo-nav">
-            <a href="index.html">
-                <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
-            </a>
+            <a href="index.html"><img src="imagenes/rvc%20new%20logo.png" alt="Logo"></a>
         </div>
-
         <nav class="nav-menu">
             <a href="index.html">Inicio</a>
             <a href="novedades.html">Novedades</a>
             <a href="tutoriales.html">Tutoriales</a>
-            <a href="arsenal.html">Arsenal</a>
         </nav>
     </header>
-    <!-- CONTENIDO DEL BLOG -->
+
     <main class="contenedor-blog">
-        <h1 class="titulo-principal">Novedades <span>Studio</span></h1>
-
-        <!-- ARTÍCULO COMPLETO -->
-        <article class="post-noticia" itemscope itemtype="https://schema.org/NewsArticle">
-            <div class="fecha-post">
-                <meta itemprop="datePublished" content="2026-06-12">
-                12 Junio, 2026
-            </div>
-            <h2 itemprop="headline">D MINI de Behringer: Minimoog de bolsillo con un secuenciador, filtro ladder y tres osciladores analógicos.</h2>
-            
-            <p itemprop="description">
-                Behringer inicia la preventa de su <strong>D MINI</strong>, una versión compacta del Model D que cuenta con tres osciladores analógicos, un filtro escalera paso-bajo, un secuenciador de 16 pasos y 27 teclas táctiles. Se espera que esté disponible en agosto de 2026 a un precio estimado de 99€ o 99$.
-            </p>
-            
-            <p>
-                El sintetizador compacto de Behringer basado en el Minimoog Model D, cuyo primer anuncio fue hace cuatro años bajo el nombre de Model D Soul, finalmente llega a preventa con su nombre final: D MINI.
-            </p>
-            
-            <p>
-                La página oficial de Behringer ya tiene la hoja de producto y el instrumento fue presentado en su versión finalizada en la NAMM de enero del año 2026. Según las estimaciones de los distribuidores, la fecha de stock está prevista para el 17 de agosto de 2026.
-            </p>
-
-            <!-- IMAGEN 1 -->
-            <div class="contenedor-foto-art" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                <img src="imagenes/Behringer-Model-D-Soul@2000x1500.jpg" alt="Behringer D MINI Oficial" itemprop="url">
-                <span class="pie-foto">El aspecto finalizado del esperado Behringer D MINI tras su paso por el NAMM 2026.</span>
-            </div>
-
-            <p>
-                Behringer D MINI continúa la tendencia de miniaturización que Behringer ha estado implementando exitosamente desde el lanzamiento de JT Mini, Pro VS Mini y CZ-1 Mini: Nos referimos a herramientas de síntesis analógica o híbrida en un formato ultracompacto y, lo más destacable, con precios asequibles.
-            </p>
-            
-            <p>
-                La empresa trata por primera vez a la familia Minimoog in este formato con D MINI, aunque el modelo original Model D sigue comercializándose, pero más del doble de lo que se esperaba para su hermano menor.
-            </p>
-
-            <h3>El generador en D MINI: Fiel al original y analógico</h3>
-            
-            <p>
-                El núcleo de Behringer D MINI está constituido por <strong>tres VCOs analógicos</strong> que ofrecen cinco formas de onda distintas: sierra, triángulo, cuadrada, pulso y shark; así como un generador de ruido blanco y rosa con control independiente del volumen.
-            </p>
-            
-            <p>
-                El formato mini, que se caracteriza por su agilidad de uso, se mantiene gracias a un solo mando que controla los tres osciladores al mismo tiempo.
-            </p>
-
-            <!-- IMAGEN 2 -->
-            <div class="contenedor-foto-art">
-                <img src="imagenes/descarga%20(4).jpg" alt="Controles analógicos del D MINI">
-                <span class="pie-foto">Tres VCOs analógicos y el icónico filtro escalera controlados en un panel hiper-optimizado.</span>
-            </div>
-
-            <p>
-                El filtro escalera paso-bajo resonante (Low-pass ladder filter) es el componente más relevante de la herencia Minimoog, y aquí se encuentra con su capacidad para auto-oscilar y su tono cálido.
-            </p>
-            
-            <p>
-                La arquitectura de modulación tiene un LFO con cuatro formas de onda que se pueden asignar a tono y filtro, una envolvente ADS de tipo Moog con un interruptor de relajación y control separado para la envolvente del filtro.
-            </p>
-            
-            <p>
-                Las posibilidades expresivas del instrumento se extienden de manera significativa a través de los modos de voz: Modulación en anillo y en anillo polifónica, octavas, quintas, unísono y parafónico a tres voces. Para un instrumento de 99€ o $99, el selector de modos de voz es la característica que más distingue a D MINI del Model D original y de sus copias directas.
-            </p>
-
-            <h3>D MINI: Teclado, secuenciador y conectividad</h3>
-            
-            <p>
-                El sintetizador compacto recién creado incluye un <strong>secuenciador de 16 pasos</strong> que tiene ocho memorias y graba el movimiento de los mandos. Este diseño posibilita la automatización de cambios en el filtro, el tono o cualquier otro parámetro directamente en el patrón.
-            </p>
-
-            <!-- IMAGEN 3 -->
-            <div class="contenedor-foto-art">
-                <img src="imagenes/descarga%20(3).jpg" alt="Conectividad trasera y teclas del sintetizador">
-                <span class="pie-foto">Conexiones USB-C, MIDI TRS y entrada/salida de sincronización para integración total en el estudio.</span>
-            </div>
-
-            <p>
-                El teclado tiene 27 teclas que reaccionan a la velocidad y son táctiles. La unión de un secuenciador, la grabación de movimiento y los modos de voz polifónicos hacen que D MINI sea una herramienta mucho más versátil de lo que su tamaño y costo iniciales sugieren.
-            </p>
-
-            <!-- REPRODUCTOR DE YOUTUBE INTEGRADO -->
-            <div class="contenedor-video-yt">
-                <iframe src="https://www.youtube.com/embed/4O1K8aU8FhU" title="Behringer D MINI Review Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-            
-            <p>
-                La conectividad incluye USB-C para alimentación y posible comunicación con editor, salida de auriculares, sincronización de entrada y salida para encadenarlo con otro equipamiento, y MIDI TRS mini de cinco pines.
-            </p>
-            
-            <p>
-                Behringer aún no has confirmado el precio oficial, pero la cifra de 99€ / 99$ se ha mantenido como referencia desde que fue anunciada en 2022.
-            </p>
-            
-            <p style="border-left: 3px solid #ff0055; padding-left: 15px; font-style: italic; color: #aaaaaa; margin-top: 30px;">
-                <strong>Actualización del 10 de junio de 2026:</strong> Thomann ya ha verificado el precio en la cantidad esperada: una etiqueta muy atractiva.
-            </p>
-
-            <!-- MÓDULO CTA SEGUIR EN GOOGLE NEWS -->
-            <div class="cta-google-news">
-                <div class="cta-texto">
-                    <h5>Sigue a RVC Studio</h5>
-                    <p>Únete gratis en Google News para no perderte ninguna de nuestras novedades y análisis técnicos de hardware.</p>
-                </div>
-                <button class="btn-cta-news" onclick="self.SWG_BASIC.push(b=>b.showOffers())">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle; margin-right:4px;">
-                        <path d="M12 2L2 22H22L12 2Z" fill="#ffffff"/>
-                    </svg>
-                    Seguir en Google News
-                </button>
-            </div>
-        </article>
+        <h1 class="titulo-principal">Últimas <span>Novedades</span></h1>
+        <ul id="lista-novedades" class="lista-articulos"></ul>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="footer-legal">
-        <div class="links-legales">
-            <a href="aviso-legal.html">Aviso Legal</a>
-            <a href="politica-privacidad.html">Política de Privacidad</a>
-            <a href="terminos-condiciones.html">Terminos y Condiciones</a>
-        </div>
-        <p>&copy; 2026 RVC Studio. Todos los derechos reservados.</p>
-    </footer>
+    <script>
+        const posts = [
+            {
+                fecha: "12 JUNIO, 2026",
+                titulo: "D MINI de Behringer: Minimoog de bolsillo",
+                resumen: "Analizamos el sintetizador compacto que está dando de qué hablar.",
+                url: "posts/d-mini-behringer.html"
+            }
+            // Agrega nuevos artículos arriba de este para que aparezcan primeros
+        ];
+
+        const lista = document.getElementById("lista-novedades");
+        posts.forEach(post => {
+            const li = document.createElement("li");
+            li.className = "item-articulo";
+            li.innerHTML = `
+                <a href="${post.url}">
+                    <span class="fecha-articulo">${post.fecha}</span>
+                    <h3>${post.titulo}</h3>
+                    <p class="resumen-articulo">${post.resumen}</p>
+                </a>
+            `;
+            lista.appendChild(li);
+        });
+    </script>
 </body>
 </html>
