@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novedades | RVC Studio</title>
+    <title>Novedades y Tutoriales | RVC Studio</title>
 
-    <!-- Google Config -->
-    <meta name="google-site-verification" content="TU_CODIGO_DE_VERIFICACION_GSC" />
+    <!-- Google Config Snippet -->
+    <meta name="google-site-verification" content="TU_CODIGO_DE_VERIFICACION_GSC_AQUI" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-04WYB34N23"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -17,76 +17,71 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415" crossorigin="anonymous"></script>
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: #0b0b0b; font-family: 'Segoe UI', Roboto, sans-serif; color: #ffffff; }
+        body { background-color: #0b0b0b; color: #ffffff; font-family: sans-serif; margin: 0; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .post-list { display: flex; flex-direction: column; gap: 20px; }
+        .post-item { 
+            display: flex; align-items: center; gap: 20px; 
+            background: #1a1a1a; padding: 15px; border-radius: 8px; 
+            cursor: pointer; text-decoration: none; color: white; transition: 0.3s;
+        }
+        .post-item:hover { background: #262626; }
+        .post-item img { width: 120px; height: 80px; object-fit: cover; border-radius: 4px; }
         
-        .cabecera-novedades {
-            width: 100%; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid #1a1a1a; background-color: #070707;
-        }
-        .logo-nav img { max-height: 50px; }
-        .nav-menu a { color: #ffffff; text-decoration: none; margin-left: 20px; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: color 0.3s; }
-        .nav-menu a:hover { color: #ff0055; }
-
-        .contenedor-blog { max-width: 850px; margin: 60px auto; padding: 0 20px; }
-        .titulo-principal { font-size: 2.5rem; margin-bottom: 50px; text-transform: uppercase; }
-        .titulo-principal span { color: #ff0055; }
-
-        .lista-articulos { list-style: none; display: flex; flex-direction: column; gap: 20px; }
-        .item-articulo { 
-            background-color: #141414; border: 1px solid #222; border-radius: 12px; 
-            padding: 25px; transition: transform 0.2s, border-color 0.2s;
-        }
-        .item-articulo:hover { border-color: #ff0055; transform: translateX(5px); }
-        .item-articulo a { text-decoration: none; color: #ffffff; display: block; }
-        .item-articulo h3 { font-size: 1.5rem; margin-bottom: 5px; }
-        .fecha-articulo { color: #ff0055; font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 8px; }
-        .resumen-articulo { color: #888; font-size: 0.95rem; }
+        #content-area { margin-top: 30px; }
+        .back-btn { display: inline-block; padding: 10px 20px; background: #ff0055; color: white; border-radius: 5px; cursor: pointer; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
-    <header class="cabecera-novedades">
-        <div class="logo-nav">
-            <a href="index.html"><img src="imagenes/rvc%20new%20logo.png" alt="Logo"></a>
+    <div class="container">
+        <h1>Novedades</h1>
+        <div id="main-view">
+            <div id="post-list" class="post-list"></div>
         </div>
-        <nav class="nav-menu">
-            <a href="index.html">Inicio</a>
-            <a href="novedades.html">Novedades</a>
-            <a href="tutoriales.html">Tutoriales</a>
-        </nav>
-    </header>
-
-    <main class="contenedor-blog">
-        <h1 class="titulo-principal">Últimas <span>Novedades</span></h1>
-        <ul id="lista-novedades" class="lista-articulos"></ul>
-    </main>
+        <div id="content-area"></div>
+    </div>
 
     <script>
+        // 1. Aquí defines tu lista de artículos
         const posts = [
-            {
-                fecha: "12 JUNIO, 2026",
-                titulo: "D MINI de Behringer: Minimoog de bolsillo",
-                resumen: "Analizamos el sintetizador compacto que está dando de qué hablar.",
-                imagen: "imagenes/Behringer-Model-D-Soul@2000x1500.jpg"
-                url: "posts/d-mini-behringer.html"
-            }
-            // Agrega nuevos artículos arriba de este para que aparezcan primeros
+            { id: "tutorial-4", titulo: "Estructura de Maquetas", descripcion: "Flujo de trabajo moderno.", imagen: "imagenes/tutorial-4-img/portada.jpg" }
         ];
 
-        const lista = document.getElementById("lista-novedades");
+        const listContainer = document.getElementById('post-list');
+        const mainView = document.getElementById('main-view');
+        const contentArea = document.getElementById('content-area');
+
+        // 2. Renderizar lista y asignar el evento click
         posts.forEach(post => {
-            const li = document.createElement("li");
-            li.className = "item-articulo";
-            li.innerHTML = `
-                <a href="${post.url}">
-                    <span class="fecha-articulo">${post.fecha}</span>
-                    <h3>${post.titulo}</h3>
-                    <p class="resumen-articulo">${post.resumen}</p>
-                </a>
+            const item = document.createElement('div');
+            item.className = 'post-item';
+            item.innerHTML = `
+                <img src="${post.imagen}" alt="${post.titulo}" onerror="this.src='https://via.placeholder.com/120x80?text=No+Img'">
+                <div><h3>${post.titulo}</h3><p>${post.descripcion}</p></div>
             `;
-            lista.appendChild(li);
+            // AQUÍ ESTÁ LA MAGIA: Al hacer clic, llama a loadPost con el ID
+            item.onclick = () => loadPost(post.id);
+            listContainer.appendChild(item);
         });
+
+        // 3. Función loadPost que trae el contenido
+        async function loadPost(id) {
+            try {
+                // Esto busca el archivo en la carpeta /posts/
+                const response = await fetch(`posts/${id}.html`);
+                const html = await response.text();
+                
+                // Ocultamos la lista y mostramos el contenido
+                mainView.style.display = 'none';
+                contentArea.innerHTML = `
+                    <div class="back-btn" onclick="location.reload()">← Volver a Novedades</div>
+                    <div class="post-content">${html}</div>
+                `;
+            } catch (e) {
+                contentArea.innerHTML = "<p>Error al cargar el artículo.</p>";
+            }
+        }
     </script>
 </body>
 </html>
