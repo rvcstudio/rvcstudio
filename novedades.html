@@ -285,38 +285,36 @@
     <!-- SCRIPT DEL MOTOR DINÁMICO DEL BLOG -->
     <script>
         // BASE DE DATOS DE NOVEDADES INTERNAS
-        const novedades = [
-            {
-                id: "d-mini-behringer",
-                titulo: "D MINI de Behringer: Minimoog de bolsillo con un secuenciador, filtro ladder y tres osciladores analógicos",
-                categoria: "Ultimas noticias en el mundo del audio y la produccion musical",
-                resumen: "Behringer inicia la preventa de su D MINI, una versión compacta del Model D que cuenta con tres osciladores analógicos, un filtro escalera paso-bajo, un secuenciador de 16 pasos y 27 teclas táctiles. Se espera que esté disponible en agosto de 2026 a un precio estimado de 99€ o 99$.",
-                imagenCover: "imagenes/Behringer-Model-D-Soul@2000x1500.jpg",
-                archivoUrl: "posts/d-mini-behringer.html",
-                esExterno: true
-            },
-            // ✅ CORREGIDO: AÑADIDA LA COMA FALTANTE
-            {
-                id: "abletonlive-live-12-4",
-                titulo: "Ableton Live 12.4: Revolución en Workflow, Plugins y Separación de Stems",
-                categoria: "Categoría: Novedades & Software Update | Por: RVC Studio",
-                resumen: "La llegada de Ableton Live 12.4 marca un paso adelante decisivo en la optimización del flujo de trabajo y el procesamiento nativo.",
-                imagenCover: "imagenes/Ableton-live-12-4-imagenes/stem-seperation-in-live.jpg",
-                esExterno: true,
-                archivoUrl: "posts/ableton-live-12-4.html"
-            },
-
-            {
-                id: "compresion-de-voces",
-                titulo: "Compresion de Voces: Tecnicas Pro para Lograr Voces Al Frente en tu Mezcla<",
-                categoria: "Mezcla & Procesamiento | Por: RVC Studio",
-                resumen: "La voz es el elemento mas importante de casi cualquier produccion musical. Sin embargo, lograr que suene potente, consistente, intima y que corte a traves de una mezcla instrumental densa es uno de los mayores desafios para los ingenieros de sonido.",
-                imagenCover: "imagenes/compresion-de-voces/1176-tipo-fet.jpg",
-                esExterno: true,
-                archivoUrl: "posts/compresion-de-voces.html"
-            }
-            // Puedes agregar más novedades aquí 
-        ];
+       const novedades = [
+    {
+        id: "d-mini-behringer",
+        titulo: "D MINI de Behringer: Minimoog de bolsillo con un secuenciador, filtro ladder y tres osciladores analógicos",
+        categoria: "Ultimas noticias en el mundo del audio y la produccion musical",
+        resumen: "Behringer inicia la preventa de su D MINI, una versión compacta del Model D que cuenta con tres osciladores analógicos, un filtro escalera paso-bajo, un secuenciador de 16 pasos y 27 teclas táctiles. Se espera que esté disponible en agosto de 2026 a un precio estimado de 99€ o 99$.",
+        imagenCover: "imagenes/Behringer-Model-D-Soul@2000x1500.jpg",
+        archivoUrl: "posts/d-mini-behringer.html",
+        esExterno: true
+    },
+    {
+        id: "abletonlive-live-12-4",
+        titulo: "Ableton Live 12.4: Revolución en Workflow, Plugins y Separación de Stems",
+        categoria: "Categoría: Novedades & Software Update | Por: RVC Studio",
+        resumen: "La llegada de Ableton Live 12.4 marca un paso adelante decisivo en la optimización del flujo de trabajo y el procesamiento nativo.",
+        imagenCover: "imagenes/Ableton-live-12-4-imagenes/stem-seperation-in-live.jpg",
+        esExterno: true,
+        archivoUrl: "posts/ableton-live-12-4.html"
+    },
+    {
+        id: "compresion-de-voces",
+        titulo: "Compresion de Voces: Tecnicas Pro para Lograr Voces Al Frente en tu Mezcla", // ✅ Eliminado el "<" sobrante
+        categoria: "Mezcla & Procesamiento | Por: RVC Studio",
+        resumen: "La voz es el elemento mas importante de casi cualquier produccion musical. Sin embargo, lograr que suene potente, consistente, intima y que corte a traves de una mezcla instrumental densa es uno de los mayores desafios para los ingenieros de sonido.",
+        imagenCover: "imagenes/compresion-de-voces/1176-tipo-fet.jpg",
+        esExterno: true,
+        archivoUrl: "posts/compresion-de-voces.html"
+    }
+    // ✅ Eliminado el comentario que causaba error
+];
 
         // Función mejorada para cargar contenido con más opciones de ruta
         async function cargarContenido(post) {
