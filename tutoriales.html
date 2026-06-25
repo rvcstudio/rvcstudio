@@ -211,6 +211,37 @@
         .btn-retry:hover {
             background: #cc0044;
         }
+
+        /* Estilos para contenido cargado */
+        .articulo-cargado img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .articulo-cargado h1 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .articulo-cargado h2 {
+            color: #ff0055;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .articulo-cargado p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        .articulo-cargado ul, .articulo-cargado ol {
+            color: #cccccc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .articulo-cargado li {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
@@ -262,8 +293,11 @@
 
     <!-- SCRIPT DEL MOTOR DINÁMICO DEL BLOG -->
     <script>
-        // BASE DE DATOS DE TUTORIALES INTERNOS
+        // ============================================================
+        // BASE DE DATOS DE TUTORIALES
+        // ============================================================
         const tutoriales = [
+            // TUTORIAL 1: INTERNO (HTML completo dentro del script)
             {
                 id: "shortcuts-flstudio",
                 titulo: "Multiplica tu velocidad en FL Studio: Los atajos de teclado que cambiarán tu flujo de trabajo",
@@ -272,181 +306,104 @@
                 imagenCover: "imagenes/cover.jpg",
                 esExterno: false,
                 htmlCompleto: `
-                    <h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">Multiplica tu velocidad en FL Studio: Los atajos de teclado que cambiarán tu flujo de trabajo</h2>
+                    <h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">Multiplica tu velocidad en FL Studio</h2>
                     <p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Production Musical & Workflow | Por: RVC Studio</p>
-                    
                     <div style="margin: 25px 0; text-align: center;">
-                        <img src="imagenes/cover.jpg" alt="Atajos FL Studio" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #222;">
+                        <img src="imagenes/cover.jpg" alt="Atajos FL Studio" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #222;">
                     </div>
-
                     <p style="font-size: 1.1em; color: #cccccc; margin-bottom: 20px;">
-                        ¿Cansado de estar haciendo clic en el menú de herramientas cada dos segundos? Si sientes que tu flujo creativo se frena drásticamente porque pierdes el ritmo buscando la herramienta de cortar o navegando para abrir el Piano Roll, no estás solo. Ese constante "ir y venir" con el ratón destruye la inspiración. Por suerte, existe una solución sencilla: dominar los comandos de teclado que transformarán por completo tu dinámica de trabajo.
+                        ¿Cansado de estar haciendo clic en el menú de herramientas cada dos segundos? Si sientes que tu flujo creativo se frena drásticamente porque pierdes el ritmo buscando la herramienta de cortar o navegando para abrir el Piano Roll, no estás solo.
                     </p>
                     <p style="margin-bottom: 20px;">
-                        A continuación, te presentamos una selection de los atajos indispensables que los productores profesionales utilizan a diario para producir hasta el triple de rápido. Memorizar estas combinaciones te permitirá mantener la vista en tu música y las manos en el teclado, eliminando cientos de clics innecesarios por sesión.
+                        A continuación, te presentamos una selección de los atajos indispensables que los productores profesionales utilizan a diario.
                     </p>
-
                     <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">El Centro de Control: Las Teclas de Función</h3>
-                    <p style="margin-top: 15px;">
-                        Olvídate para siempre de arrastrar el puntero hacia la barra superior de FL Studio. Las teclas de función son tus accesos directos directos a las ventanas principales de tu proyecto. Memoriza esta secuencia y verás cómo fluyes al instante:
-                    </p>
                     <ul style="padding-left: 20px; margin: 15px 0; color: #cccccc;">
-                        <li style="margin-bottom: 8px;"><strong>F5:</strong> Abre y cierra el Playlist de forma inmediata.</li>
-                        <li style="margin-bottom: 8px;"><strong>F6:</strong> Despliega el Channel Rack para gestionar tus generadores y samples.</li>
-                        <li style="margin-bottom: 8px;"><strong>F7:</strong> Accede directamente al Piano Roll para editar tus melodías y acordes.</li>
-                        <li style="margin-bottom: 8px;"><strong>F9:</strong> Llama al Mixer para ajustar niveles, paneos y efectos sobre la marcha.</li>
+                        <li style="margin-bottom: 8px;"><strong>F5:</strong> Abre y cierra el Playlist.</li>
+                        <li style="margin-bottom: 8px;"><strong>F6:</strong> Despliega el Channel Rack.</li>
+                        <li style="margin-bottom: 8px;"><strong>F7:</strong> Accede al Piano Roll.</li>
+                        <li style="margin-bottom: 8px;"><strong>F9:</strong> Llama al Mixer.</li>
                     </ul>
-                    <p style="margin-bottom: 20px;">
-                        <em>Mi favorito personal:</em> Si tu pantalla se ha convertido en un caos absoluto con más de mil ventanas superpuestas, presiona <strong>F12</strong>. Esta tecla mágica las cerrará todas al instante, devolviéndote un espacio de trabajo limpio y despejado.
-                    </p>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Dominando el Piano Roll and la Secuenciación</h3>
-                    <p style="margin-top: 15px;">
-                        La edición de notas puede consumir la mayor parte of tu tiempo si dependes del ratón. Al implementar estos tres comandos en tus sesiones de composición, la velocidad de tu flujo de notas cambiará radicalmente.
-                    </p>
-                    <p>
-                        Cuando encuentres un patrón o un acorde que te encante, no pierdas tiempo copiando y pegando de la forma tradicional. La combinación <strong>Control + B</strong> es pura magia: duplicará cualquier selección de manera exacta y automática justo al lado.
-                    </p>
-                    <p>
-                        Por otra parte, si grabaste una melodía en vivo y notas que algunas notas quedaron ligeramente fuera de tiempo, selecciónalas todas y dale a <strong>Control + Q</strong> para aplicar una cuantización rápida que ajuste el ritmo de inmediato a la rejilla. Además, si necesitas experimentar con las frecuencias o cambiar el rango de una melodía, presionar <strong>Control + Flecha arriba</strong> subirá todas las notas seleccionadas una octava completa en un solo segundo.
-                    </p>
-
-                    <div class="grid-shortcuts">
-                        <img src="imagenes/ctrl-b.jpg" alt="Comando CTRL+B en FL Studio">
-                        <img src="imagenes/ctrl.q.jpg" alt="Comando CTRL+Q">
-                        <img src="imagenes/ctrl-l%20%282%29.jpg" alt="Comando ALT Click Derecho">
-                    </div>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Fluidez Absoluta en el Playlist</h3>
-                    <p style="margin-top: 15px;">
-                        Aunque las funciones tradicionales de copiar y pegar operan de forma correcta en el Playlist, existe una alternativa mucho más inteligente para explicar tus canciones de forma rápida.
-                    </p>
-                    <p>
-                        Al usar <strong>Control + B</strong> en el Playlist, FL Studio pegará el clip seleccionado exactamente al final del original, garantizando que no existan solapamientos incómodos ni desfases en el tiempo. Asimismo, si te encuentras estructurando y quieres realizar una escucha rápida de un sample individual sin la molestia de mutear el resto de los canales, mantén presionado <strong>Alt + Clic derecho</strong> sobre el archivo para reproducirlo en solitario al instante.
-                    </p>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Gestión Eficiente del Canal y Mezcla</h3>
-                    <p style="margin-top: 15px;">
-                        Mantener la sesión organizada desde el principio evita dolores de cabeza en las etapas finales de la producción. Un proceso clave es el enrutamiento al Mixer. Si tienes seleccionado un canal en el Channel Rack, simplemente presiona <strong>Control + L</strong> y el software lo asignará automáticamente al primer canal libre que encuentre en el mezclador, ahorrándote la tarea de asignarlo manualmente.
-                    </p>
-                    <p style="margin-bottom: 20px;">
-                        Una vez que estés trabajando directamente dentro del Mixer, puedes aprovechar la tecla <strong>S</strong> de forma individual para poner en "Solo" el track en el que te encuentras posicionado. Si necesitas consolidar tu trabajo, la combinación <strong>Alt + R</strong> ejecutará la función de renderizado, exportando rápidamente todos los tracks que tengas armados en la sesión.
-                    </p>
-
-                    <div class="grid-shortcuts">
-                        <img src="imagenes/ctrl-l.jpg" alt="Comando CTRL+L Enrutamiento">
-                        <img src="imagenes/tecla-s.jpg" alt="Tecla S Solo Mixer">
-                        <img src="imagenes/alt-shift.-.jpg" alt="Comando Adicional">
-                    </div>
-
                     <div class="box-tip pink">
-                        <p style="margin: 0; font-weight: bold; color: #ffffff;">🚨 El botón de emergencia (Panic Button):</p>
-                        <p style="margin: 10px 0 0 0; color: #cccccc;">
-                            ¿Alguna vez se te ha quedado un sonido de sintetizador o un efecto atascado sonando en un bucle infinito que no se detiene con nada? No entres en pánico. Presiona <strong>Control + H</strong>. Esta combinación activa la función de pánico del sistema, cortando absolutamente todo el audio en el acto. Es, literalmente, el botón de respiración artificial para tus proyectos.
-                        </p>
+                        <p style="margin: 0; font-weight: bold; color: #ffffff;">🚨 El botón de emergencia:</p>
+                        <p style="margin: 10px 0 0 0; color: #cccccc;">Presiona <strong>Control + H</strong> para cortar todo el audio al instante.</p>
                     </div>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Bonus Track: Personalización Total de tus Atajos</h3>
-                    <p style="margin-top: 15px;">
-                        Si vienes de usar otro secuenciador de audio o simplemente encuentras incómodas las combinaciones que vienen configuradas por defecto, no te preocupes. FL Studio te ofrece la libertad de moldear la interfaz a tu gusto.
-                    </p>
-                    <p style="margin-bottom: 25px;">
-                        Para hacerlo, dirígete al menú superior en <strong>Options</strong>, luego ingresa a <strong>General Settings</strong> and localiza la sección exclusiva dedicada a los atajos de teclado. Desde allí podrás reasignar las combinaciones de teclas según tus preferencias personales y llevar la personalización al máximo nivel.
-                    </p>
-
                     <div class="box-tip blue">
-                        <p style="margin: 0; font-weight: bold; color: #ffffff;">💡 Consejo Final para el Éxito:</p>
-                        <p style="margin: 10px 0 0 0; color: #cccccc;">
-                            Implementar estos comandos va a ahorrarte cientos (e incluso miles) de clics en cada sesión de producción. Al principio puede resultar un poco difícil recordar cada combinación y tu memoria muscular intentará guiarte de vuelta al ratón de manera automática. El secreto está en forzarte: en tu próximo proyecto, proponte firmemente no tocar el mouse para abrir las herramientas principales. Con un par de días de práctica notarás que tus manos vuelan solas.
-                        </p>
+                        <p style="margin: 0; font-weight: bold; color: #ffffff;">💡 Consejo Final:</p>
+                        <p style="margin: 10px 0 0 0; color: #cccccc;">Practica estos atajos en tu próximo proyecto y verás cómo tu velocidad se multiplica.</p>
                     </div>
-
-                    <p style="margin-top: 25px; font-style: italic; color: #aaaaaa;">
-                        Si te ha servido esta guía, no olvides guardar este artículo en tus marcadores y compartirlo con otros productores que necesiten acelerar su ritmo de trabajo. ¡Nos vemos en el próximo tutorial!
-                    </p>
-
-                    <!-- CAJA DE CTA ENLAZADA AL SCRIPT DE GOOGLE PUBLISHER CENTER -->
-                    <div class="cta-google-news">
-                        <div class="cta-texto">
-                            <h5>¿Te gusta nuestro contenido técnico?</h5>
-                            <p>Sigue a <strong>RVC Studio</strong> en Google News para no perderte ningún tutorial de producción musical.</p>
-                        </div>
-                        <button class="btn-cta-news" onclick="self.SWG_BASIC.push(b=>b.showOffers())">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M12 2L2 22H22L12 2Z" fill="#4285F4"/></svg>
-                            Seguir en Google News
-                        </button>
-                    </div>
-
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 45px; border-bottom: 1px solid #333; padding-bottom: 8px;">Video Tutorial: Del Mapa Mental a la Estructura de Contenido</h3>
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/hEquOaPtTHQ" title="Multiplica tu velocidad en FL Studio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/hEquOaPtTHQ" title="Multiplica tu velocidad en FL Studio" allowfullscreen></iframe>
                     </div>
                 `
             },
-            // ✅ CORREGIDA LA COMA FALTANTE
+            // TUTORIAL 2: EXTERNO (carga desde archivo HTML)
             {
                 id: "configuracion-audio",
                 titulo: "Guía Paso a Paso: Configuración de Audio desde Cero en Ableton Live",
                 categoria: "Configuración & Audio Engineering | Por: RVC Studio",
-                resumen: "Configurar Ableton Live para grabar audio de forma óptima es un proceso universal. No importa si el objetivo es capturar la voz para una producción de reggaetón o una línea de guitarra acústica; los fundamentos técnicos de la interfaz, los canales y el monitoreo siguen las mismas reglas.",
+                resumen: "Configurar Ableton Live para grabar audio de forma óptima es un proceso universal. No importa si el objetivo es capturar la voz para una producción de reggaetón o una línea de guitarra acústica.",
                 imagenCover: "imagenes/hardware config.JPG",
                 esExterno: true,
                 archivoUrl: "posts/configuracion-audio.html"
-            }, // ✅ COMA CORREGIDA (antes tenía una comilla invertida)
+            },
+            // TUTORIAL 3: INTERNO
             {
                 id: "orden-maqueta",
                 titulo: "La Importancia del Orden al Hacer una Maqueta: Guía Paso a Paso",
                 categoria: "Producción Musical & Audio | Por: RVC Studio",
-                resumen: "El orden al momento de hacer una maqueta es un factor crucial que suele pasarse por alto. El desorden en las primeras etapas de producción afecta negativamente el resultado final, complicando el cierre del proyecto y retrasando la transición hacia la etapa de mezcla.",
+                resumen: "El orden al momento de hacer una maqueta es un factor crucial que suele pasarse por alto. El desorden en las primeras etapas de producción afecta negativamente el resultado final.",
                 imagenCover: "imagenes/tutorial 1 img 1.jpg",
                 esExterno: false,
                 htmlCompleto: `
-                    <h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">La Importancia del Orden al Hacer una Maqueta: Guía Paso a Paso</h2>
+                    <h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">La Importancia del Orden al Hacer una Maqueta</h2>
                     <p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Producción Musical & Audio | Por: RVC Studio</p>
                     <p style="font-size: 1.1em; color: #cccccc; margin-bottom: 20px;">
-                        El orden al momento de hacer una maqueta es un factor crucial que suele pasarse por alto. El desorden en las primeras etapas de producción afecta negativamente el resultado final, complicando el cierre del proyecto y retrasando la transición hacia la etapa de mezcla.
+                        El orden al momento de hacer una maqueta es un factor crucial que suele pasarse por alto.
                     </p>
                     <div style="margin: 35px 0; text-align: center;">
                         <img src="imagenes/tutorial 1 img 1.jpg" alt="Orden Maqueta" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #222;">
                     </div>
                     <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">Uso Eficiente de Plantillas</h3>
-                    <p style="margin-top: 15px;">Contar con canales pre-configurados para tu voz principal (Lead), Voces Secundarias (Adlibs) y Dobles te ahorrará horas muertas en el estudio y mantendrá al artista enfocado y con el ritmo de trabajo a tope.</p>
+                    <p style="margin-top: 15px;">Contar con canales pre-configurados para tu voz principal (Lead), Voces Secundarias (Adlibs) y Dobles te ahorrará horas muertas.</p>
                     <div class="box-tip blue">
-                        <p style="margin-top: 0; font-weight: bold; color: #ffffff;">🚀 Tip de Production en Ableton:</p>
-                        <p style="margin: 0; color: #cccccc;">Agrupa canales con <strong>Control + G</strong> y nombra tus bloques para aplicar compresión o ecualización conjunta, ahorrando procesos a tu procesador.</p>
+                        <p style="margin-top: 0; font-weight: bold; color: #ffffff;">🚀 Tip de Producción:</p>
+                        <p style="margin: 0; color: #cccccc;">Agrupa canales con <strong>Control + G</strong> y nombra tus bloques.</p>
                     </div>
-                    <h3 style="font-size: 1.6em; color: #ffffff; margin-top: 45px; border-bottom: 1px solid #333; padding-bottom: 8px;">Video Tutorial: Flujo de Trabajo Completo</h3>
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/NGVofZGkvbA" title="Como comenzar y terminar un proyecto" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/NGVofZGkvbA" title="Flujo de Trabajo Completo" allowfullscreen></iframe>
                     </div>
                 `
             },
+            // TUTORIAL 4: EXTERNO
             {
                 id: "tutorial-4",
-                titulo: "Plantilla para grabar voces en fl studio con plugins nativos",
+                titulo: "Plantilla para grabar voces en FL Studio con plugins nativos",
                 categoria: "Producción Musical & Workflow | Por: RVC Studio",
-                resumen: "Descubre cómo organizar tus maquetas de audio de manera limpia y profesional antes de enviarlas a mezcla. Optimizando tus bloques de voces e instrumentos.",
+                resumen: "Descubre cómo organizar tus maquetas de audio de manera limpia y profesional antes de enviarlas a mezcla.",
                 imagenCover: "imagenes/tutorial-4-img/portada.jpg",
                 esExterno: true,
                 archivoUrl: "posts/tutorial-4.html"
             }
         ];
 
-        // Función mejorada para cargar contenido externo
+        // ============================================================
+        // FUNCIÓN PARA CARGAR CONTENIDO EXTERNO
+        // ============================================================
         async function cargarContenidoExterno(post) {
             const contenedor = document.getElementById("contenido-del-tutorial");
             
             // Mostrar spinner de carga
             contenedor.innerHTML = `<div class="loading-spinner">Cargando tutorial...</div>`;
 
-            // Definir rutas a probar dinámicamente basadas en el ID
+            // Definir rutas a probar dinámicamente
             const rutas = [
-                post.archivoUrl,                                    // "posts/tutorial-4.html"
-                post.archivoUrl.replace('posts/', ''),             // "tutorial-4.html"
-                'posts/' + post.id + '.html',                      // "posts/tutorial-4.html"
-                'post/' + post.id + '.html',                       // "post/tutorial-4.html"
-                './' + post.archivoUrl,                            // "./posts/tutorial-4.html"
-                post.id + '.html'                                  // "tutorial-4.html"
+                post.archivoUrl,
+                post.archivoUrl.replace('posts/', ''),
+                'posts/' + post.id + '.html',
+                'post/' + post.id + '.html',
+                './' + post.archivoUrl,
+                post.id + '.html'
             ];
 
             // Eliminar duplicados
@@ -468,19 +425,104 @@
                 }
             }
 
-            // Si todas las rutas fallaron, mostrar error
+            // Si todas fallaron, mostrar error
             contenedor.innerHTML = `
                 <div class="error-container">
                     <h2>❌ Error al cargar el tutorial</h2>
                     <p>No hemos podido localizar el archivo del tutorial en tu repositorio.</p>
                     <div class="debug-info">
                         <strong>🔍 Verifica en tu GitHub:</strong><br>
-                        1. Que creaste una carpeta llamada <code>posts</code> en tu repositorio principal.<br>
+                        1. Que creaste una carpeta llamada <code>posts</code>.<br>
                         2. Que dentro de esa carpeta subiste el archivo <code>${post.id}.html</code>.<br>
-                        3. Que el nombre del archivo coincide exactamente (incluye mayúsculas/minúsculas).<br>
-                        4. Rutas intentadas:
+                        3. Rutas intentadas:
                         <ul>
                             ${rutasUnicas.map(r => `<li>• ${r}</li>`).join('')}
                         </ul>
                     </div>
-                    <button class="btn-retry" onclick
+                    <button class="btn-retry" onclick="location.reload()">🔄 Intentar de nuevo</button>
+                </div>
+            `;
+            return false;
+        }
+
+        // ============================================================
+        // FUNCIÓN PARA MOSTRAR UN TUTORIAL
+        // ============================================================
+        function mostrarTutorial(id) {
+            const postSeleccionado = tutoriales.find(p => p.id === id);
+            if (!postSeleccionado) {
+                console.error("❌ Tutorial no encontrado:", id);
+                return;
+            }
+
+            // Actualizar título de la página
+            document.title = postSeleccionado.titulo + " | Record Very Clean";
+
+            const contenedorContenido = document.getElementById("contenido-del-tutorial");
+
+            // Si es externo, cargar con fetch
+            if (postSeleccionado.esExterno) {
+                cargarContenidoExterno(postSeleccionado);
+            } else {
+                // Si es interno, mostrar el HTML directamente
+                contenedorContenido.innerHTML = `<div class="articulo-cargado">${postSeleccionado.htmlCompleto}</div>`;
+            }
+
+            // Renderizar la lista de recomendados (todos menos el activo)
+            const restantes = tutoriales.filter(p => p.id !== id);
+            const contenedorRestantes = document.getElementById("contenedor-lista-recomendados");
+            contenedorRestantes.innerHTML = "";
+
+            if (restantes.length === 0) {
+                contenedorRestantes.innerHTML = `
+                    <div style="text-align: center; padding: 30px; color: #666;">
+                        <p>No hay más tutoriales disponibles.</p>
+                    </div>
+                `;
+            } else {
+                restantes.forEach(post => {
+                    const tarjeta = document.createElement('div');
+                    tarjeta.className = 'tarjeta-tutorial';
+                    tarjeta.onclick = () => mostrarTutorial(post.id);
+                    tarjeta.innerHTML = `
+                        <div class="info-tarjeta">
+                            <h3>${post.titulo}</h3>
+                            <p>${post.resumen}</p>
+                        </div>
+                        <div class="img-tarjeta" style="background-image: url('${post.imagenCover}'); background-size: cover; background-position: center;"></div>
+                    `;
+                    contenedorRestantes.appendChild(tarjeta);
+                });
+            }
+
+            // Scroll suave al inicio
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ============================================================
+        // INICIALIZACIÓN AL CARGAR LA PÁGINA
+        // ============================================================
+        window.onload = function() {
+            if (tutoriales.length > 0) {
+                // Cargar el último tutorial de la lista por defecto
+                const ultimoTutorial = tutoriales[tutoriales.length - 1];
+                mostrarTutorial(ultimoTutorial.id);
+            } else {
+                document.getElementById("contenido-del-tutorial").innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px;">
+                        <h2 style="color: #ff0055;">No hay tutoriales disponibles</h2>
+                        <p style="color: #888; margin-top: 15px;">Pronto añadiremos nuevo contenido.</p>
+                    </div>
+                `;
+            }
+        };
+
+        // Exponer la función globalmente
+        window.mostrarTutorial = mostrarTutorial;
+
+        console.log("🚀 Motor de tutoriales cargado correctamente");
+        console.log(`📚 Tutoriales disponibles: ${tutoriales.length}`);
+        console.log("📋 IDs:", tutoriales.map(t => t.id).join(', '));
+    </script>
+</body>
+</html>
