@@ -258,30 +258,33 @@
             <!-- FORMULARIO DE MENSAJE -->
             <section class="form-bloque">
                 <h2>Envíanos un mensaje</h2>
-                <form action="mailto:recordveryclean@gmail.com" method="POST" onsubmit="alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.'); return false;">
-                    
-                    <div class="grupo-campo">
-                        <label for="nombre">Record Very Clean</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
-                    </div>
+              <form action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+    
+    <div class="grupo-campo">
+        <label for="nombre">Tu nombre</label>
+        <input type="text" id="nombre" name="Nombre" placeholder="Ej: Juan Pérez" required>
+    </div>
 
-                    <div class="grupo-campo">
-                        <label for="email">recordveryclean@gmail.com</label>
-                        <input type="email" id="recordveryclean@gmail.com" name="email" placeholder="Ej: juan@gmail.com" required>
-                    </div>
+    <div class="grupo-campo">
+        <label for="email">Tu correo electrónico</label>
+        <input type="email" id="email" name="_replyto" placeholder="Ej: juan@gmail.com" required>
+    </div>
 
-                    <div class="grupo-campo">
-                        <label for="asunto">Ofrecemos servios de mezcla y mastering profesional en el genero urbano, Adquisicion de licencias de beats, MidiPacks, Plantillas de grabacion, SamplePacks, DrumKits y Servicios de grabacion </label>
-                        <input type="text" id="asunto" name="asunto" placeholder="Ej: Consulta sobre mezcla o servicios" required>
-                    </div>
+    <div class="grupo-campo">
+        <label for="asunto">Asunto</label>
+        <input type="text" id="asunto" name="Asunto" placeholder="Ej: Consulta sobre mezcla" required>
+    </div>
 
-                    <div class="grupo-campo">
-                        <label for="mensaje">Cuéntanos los detalles de tu proyecto: número de pistas, género musical, influencias, ETC</label>
-                        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí detalladamente..." required></textarea>
-                    </div>
+    <div class="grupo-campo">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="Mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+    </div>
 
-                    <button type="submit" class="btn-enviar">Enviar Mensaje</button>
-                </form>
+    <!-- Campo oculto para el correo destino -->
+    <input type="hidden" name="_to" value="recordveryclean@gmail.com">
+
+    <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+</form>
             </section>
 
             <!-- INFORMACIÓN LATERAL DE CONTACTO -->
