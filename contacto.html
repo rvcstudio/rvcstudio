@@ -258,30 +258,27 @@
             <!-- FORMULARIO DE MENSAJE -->
             <section class="form-bloque">
                 <h2>Envíanos un mensaje</h2>
-              <form action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+              <form action="enviar.php" method="POST">
     
     <div class="grupo-campo">
         <label for="nombre">Tu nombre</label>
-        <input type="text" id="nombre" name="Nombre" placeholder="Ej: Juan Pérez" required>
+        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
     </div>
 
     <div class="grupo-campo">
         <label for="email">Tu correo electrónico</label>
-        <input type="email" id="email" name="_replyto" placeholder="Ej: juan@gmail.com" required>
+        <input type="email" id="email" name="email" placeholder="Ej: juan@gmail.com" required>
     </div>
 
     <div class="grupo-campo">
         <label for="asunto">Asunto</label>
-        <input type="text" id="asunto" name="Asunto" placeholder="Ej: Consulta sobre mezcla" required>
+        <input type="text" id="asunto" name="asunto" placeholder="Ej: Consulta sobre mezcla" required>
     </div>
 
     <div class="grupo-campo">
         <label for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="Mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
     </div>
-
-    <!-- Campo oculto para el correo destino -->
-    <input type="hidden" name="_to" value="recordveryclean@gmail.com">
 
     <button type="submit" class="btn-enviar">Enviar Mensaje</button>
 </form>
