@@ -1,0 +1,132 @@
+<h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">Los 5 mejores sintetizadores analógicos del mercado para empezar en el mundo del sonido analógico</h2>
+<p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Sintetizadores & Hardware Analógico | Por: RVC Studio</p>
+
+<!-- PORTADA -->
+<div style="margin: 25px 0; text-align: center;">
+    <img src="imagenes/los-5-sintetizadores-analogos/korg-vocal.jpg" alt="Korg Volca FM - Sintetizador digital FM compacto" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #222;" onerror="this.src='https://placehold.co/800x450/1a1a1a/ffffff?text=Korg+Volca+FM'">
+</div>
+
+<p style="font-size: 1.1em; color: #cccccc; margin-bottom: 20px;">
+    Adentrarse en el mundo de los sintetizadores analógicos puede resultar abrumador. Entre terminología técnica, precios elevados y una oferta cada vez más amplia, es fácil perderse. Por eso hemos seleccionado los 5 modelos que consideramos ideales para dar tus primeros pasos en este fascinante universo sonoro. Desde opciones económicas y compactas hasta equipos semimodulares que te permitirán explorar sin límites, aquí tienes una guía pensada para que elijas con criterio.
+</p>
+
+<!-- ============================================ -->
+<!-- 1. KORG VOLCA FM -->
+<!-- ============================================ -->
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">1. Korg Volca FM</h3>
+<p style="margin-top: 15px;">
+    El <strong>Korg Volca FM</strong> es un sintetizador digital de modulación de frecuencia (FM) compacto que emula el motor sonoro tradicional del legendario Yamaha DX7. Posee 32 algoritmos, un secuenciador de 16 pasos, efectos integrados y entre 3 y 6 voces polifónicas como máximo, según la generación. Su precio aproximado es de unos <strong>150 EUR</strong>.
+</p>
+
+<h4 style="font-size: 1.2em; color: #ffffff; margin-top: 20px;">Características Principales:</h4>
+<ul style="color: #cccccc; line-height: 1.8; list-style-type: disc; padding-left: 25px;">
+    <li><strong>Motor FM:</strong> Arquitectura de 6 operadores y 32 algoritmos, compatible con parches SysEx del clásico Yamaha DX7.</li>
+    <li><strong>Secuenciador:</strong> Secuenciador de 16 pasos potente que incluye funciones como Warp Active Step y Motion Sequence (para grabar en tiempo real los movimientos de los potenciómetros).</li>
+    <li><strong>Conectividad:</strong> Entradas y salidas MIDI, conectores de sincronización (Sync In/Out) para enlazar con otros equipos de la serie Volca y salida de audio estéreo.</li>
+    <li><strong>Alimentación:</strong> Funciona mediante 6 pilas AA o adaptador de corriente.</li>
+</ul>
+
+<!-- IMAGEN YAMAHA REFACE CS (colocada aquí para mantener el flujo visual) -->
+<div style="margin: 30px 0; text-align: center; background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
+    <img src="imagenes/los-5-sintetizadores-analogos/yamaha-reface-cs.jpg" alt="Yamaha Reface CS - Sintetizador analógico virtual" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" onerror="this.src='https://placehold.co/800x350/1a1a1a/ffffff?text=Yamaha+Reface+CS'">
+    <p style="margin-top: 10px; font-size: 0.85rem; color: #aaaaaa; font-style: italic;">Yamaha Reface CS: polifonía y portabilidad en un solo equipo</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 2. ARTURIA MICROFREAK -->
+<!-- ============================================ -->
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">2. Arturia MicroFreak</h3>
+<p style="margin-top: 15px;">
+    El <strong>Arturia MicroFreak</strong> es un sintetizador híbrido de carácter experimental que combina motores de osciladores digitales con gran versatilidad y un filtro analógico SEM cálido. Se distingue por su potente secuenciador generativo y su teclado capacitivo exclusivo, sensible a la presión. Su precio aproximado es de unos <strong>289 EUR</strong>.
+</p>
+
+<h4 style="font-size: 1.2em; color: #ffffff; margin-top: 20px;">Características Principales:</h4>
+<ul style="color: #cccccc; line-height: 1.8; list-style-type: disc; padding-left: 25px;">
+    <li><strong>Motor híbrido:</strong> Combina filtros analógicos multimodo (Paso Bajo, Paso Banda y Paso Alto) con 12 dB/octava tipo SEM y osciladores digitales que incluyen varias técnicas, como tablas de ondas y modelado físico.</li>
+    <li><strong>Teclado capacitivo:</strong> Se distingue por su teclado plano sin componentes móviles, que es sensible a la velocidad y tiene aftertouch polifónico.</li>
+    <li><strong>Matriz de modulación:</strong> Su matriz modular hace posible que establezcas conexiones creativas entre parámetros y fuentes (como envolventes y LFOs) sin tener que usar cables físicos.</li>
+    <li><strong>Arpegiador y secuenciador:</strong> Incorpora un potente secuenciador con automatización de parámetros y hasta 64 pasos, además de un arpegiador con modos aleatorios.</li>
+</ul>
+
+<!-- IMAGEN ARTURIA MICROFREAK -->
+<div style="margin: 30px 0; text-align: center; background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
+    <img src="imagenes/los-5-sintetizadores-analogos/arturia-microfreak.jpg" alt="Arturia MicroFreak - Sintetizador híbrido experimental" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" onerror="this.src='https://placehold.co/800x350/1a1a1a/ffffff?text=Arturia+MicroFreak'">
+    <p style="margin-top: 10px; font-size: 0.85rem; color: #aaaaaa; font-style: italic;">Arturia MicroFreak: teclado capacitivo y matriz de modulación sin cables</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 3. YAMAHA REFACE CS -->
+<!-- ============================================ -->
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">3. Yamaha Reface CS</h3>
+<p style="margin-top: 15px;">
+    El <strong>Yamaha Reface CS</strong> es un sintetizador analógico virtual (AN) que cuenta con 37 teclas mini, 8 voces polifónicas y controles de modelado físico. Este modelo necesita baterías de zinc-carbono, recargables de NiMH o alcalinas cuando se utiliza en su versión portátil con pilas; sin embargo, las alcalinas son las más recomendadas por su mayor duración. Su precio es de unos <strong>400 EUR</strong>.
+</p>
+
+<h4 style="font-size: 1.2em; color: #ffffff; margin-top: 20px;">Descripción General del Sintetizador:</h4>
+<ul style="color: #cccccc; line-height: 1.8; list-style-type: disc; padding-left: 25px;">
+    <li><strong>Estructura y Materiales:</strong> Su chasis exterior es de plástico resistente y ligero. Tiene un peso de solo 1.9 kg, lo que facilita transportarlo a cualquier lado.</li>
+    <li><strong>Teclado:</strong> Cuenta con 37 miniteclas con tecnología HQ (High Quality) que ofrecen un tacto rápido y cómodo, aunque no tienen sensibilidad a la presión profunda.</li>
+    <li><strong>Motor de Sonido:</strong> Ofrece 8 voces de polifonía. Esto te permite tocar acordes complejos, a diferencia de los sintetizadores monofónicos antiguos que solo reproducían una nota a la vez.</li>
+    <li><strong>Osciladores:</strong> Incorpora un control deslizante para seleccionar entre cinco variedades de ondas básicas: Multi-sierra, pulso y oscilador Sync, Ring Modulation.</li>
+    <li><strong>Controles físicos:</strong> No tiene menús internos ni pantallas. Al desplazar sus potenciómetros deslizantes, todo el sonido se transforma en tiempo real.</li>
+    <li><strong>Efectos y otros elementos:</strong> Incluye un looper de frases musicales, altavoces estéreo integrados en el propio cuerpo del teclado y una sección con cuatro efectos seleccionables: delay, chorus/flanger, distorsión y phaser.</li>
+</ul>
+
+<!-- ============================================ -->
+<!-- 4. NOVATION BASS STATION -->
+<!-- ============================================ -->
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">4. Novation Bass Station</h3>
+<p style="margin-top: 15px;">
+    El sintetizador monofónico <strong>Novation Bass Station</strong> es legendario. Este equipo se caracteriza por brindar circuitos analógicos puros junto con control digital para guardar presets. Su precio: <strong>399 EUR</strong>.
+</p>
+
+<ul style="color: #cccccc; line-height: 1.8; list-style-type: disc; padding-left: 25px;">
+    <li><strong>Arquitectura del sonido:</strong> Tiene dos osciladores principales y uno secundario, lo cual le posibilita emitir sonidos graves extraordinariamente ricos.</li>
+    <li><strong>Filtros analógicos:</strong> Cuenta con un filtro multimodo (de paso banda, paso bajo y paso alto) que puede saturarse naturalmente para incorporar aspereza y agresividad al sonido.</li>
+    <li><strong>Impactos integrales:</strong> Contiene una distorsión analógica y un circuito de overdrive extra que se incorpora directamente en la etapa del filtro.</li>
+    <li><strong>Interfaz práctica:</strong> Su diseño ordena de manera lógica los controles en el panel, lo cual permite la modulación del tono en tiempo real mediante el uso de envolventes (ADSR) y LFOs.</li>
+    <li><strong>Modo parafónico:</strong> Ofrece opciones parafónicas de dos voces que proporcionan más flexibilidad a las melodías y los acordes.</li>
+    <li><strong>Conectividad y Energía:</strong> Se conecta fácilmente mediante puerto USB o su adaptador de corriente CC de 9 V, e incluye opciones MIDI y CV/Gate.</li>
+</ul>
+
+<!-- IMAGEN NOVATION BASS STATION -->
+<div style="margin: 30px 0; text-align: center; background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
+    <img src="imagenes/los-5-sintetizadores-analogos/novation-bass station.jpg" alt="Novation Bass Station - Sintetizador monofónico legendario" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" onerror="this.src='https://placehold.co/800x350/1a1a1a/ffffff?text=Novation+Bass+Station'">
+    <p style="margin-top: 10px; font-size: 0.85rem; color: #aaaaaa; font-style: italic;">Novation Bass Station: potencia analógica para bajos y leads contundentes</p>
+</div>
+
+<!-- ============================================ -->
+<!-- 5. ARTURIA MINIBRUTE 2 -->
+<!-- ============================================ -->
+<h3 style="font-size: 1.6em; color: #ffffff; margin-top: 40px; border-bottom: 1px solid #333; padding-bottom: 8px;">5. Arturia MiniBrute 2</h3>
+<p style="margin-top: 15px;">
+    El <strong>Arturia MiniBrute 2</strong> es un sintetizador analógico monofónico y semimodular de 25 teclas, creado para que sea muy fácil integrarlo al Eurorack, para que el diseño del sonido sea flexible y para que el control manual sea óptimo. Combina la generación de sonido "Brute" clásica con una matriz de modulación física CV/Gate de 48 puntos, lo que va mucho más allá del diseño inicial. Esta disposición suprime todas las pantallas digitales y las memorias de parches para garantizar una experiencia analógica puramente inmediata y exploratoria. Su precio es de unos <strong>429 EUR</strong>.
+</p>
+
+<h4 style="font-size: 1.2em; color: #ffffff; margin-top: 20px;">Arquitectura y Motores de Sonido:</h4>
+<ul style="color: #cccccc; line-height: 1.8; list-style-type: disc; padding-left: 25px;">
+    <li><strong>Osciladores duales:</strong> VCO1 tiene formas de Triángulo, Cuadrado y Saw mezclables, con modificadores únicos como Metalizer y UltraSaw. VCO2 funciona como una fuente secundaria flexible con formas de onda seleccionables y tres rangos de ajuste diferentes.</li>
+    <li><strong>Filtro Steiner-Parker:</strong> Un filtro multicanal de 12 dB, con dos polos, que es capaz de generar texturas ácidas, barridos suaves y sonidos agresivos con auto-oscilación.</li>
+    <li><strong>Factor Brute:</strong> Un circuito de retroalimentación de audio integrado y localizado que transforma tus ondas limpias en una saturación intensa o en distorsión armónica total.</li>
+    <li><strong>Sobres dobles:</strong> Construido con un sobre ADSR tradicional, que está conectado directamente al filtro, y un segundo sobre AD que se puede hacer en bucle para obtener modulaciones continuas.</li>
+</ul>
+
+<!-- IMAGEN ARTURIA MINIBRUTE 2 -->
+<div style="margin: 30px 0; text-align: center; background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
+    <img src="imagenes/los-5-sintetizadores-analogos/arturia-minibrute2.jpg" alt="Arturia MiniBrute 2 - Sintetizador semimodular" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" onerror="this.src='https://placehold.co/800x350/1a1a1a/ffffff?text=Arturia+MiniBrute+2'">
+    <p style="margin-top: 10px; font-size: 0.85rem; color: #aaaaaa; font-style: italic;">Arturia MiniBrute 2: semimodular, sin pantallas y con pura experiencia analógica</p>
+</div>
+
+<!-- ============================================ -->
+<!-- BOX FINAL / CONCLUSIÓN -->
+<!-- ============================================ -->
+<div class="box-tip pink" style="background-color: #1e1e1e; border-left: 4px solid #ff0055; padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0;">
+    <p style="margin: 0; font-weight: bold; color: #ffffff;">🎹 ¿Cuál elegir?</p>
+    <p style="margin: 10px 0 0 0; color: #cccccc; line-height: 1.6;">
+        La elección dependerá de tu presupuesto y de lo que busques: si quieres algo económico y portátil, el <strong>Volca FM</strong> es imbatible. Si prefieres experimentar con texturas híbridas, el <strong>MicroFreak</strong> te sorprenderá. Para quienes valoran la polifonía y la portabilidad, el <strong>Reface CS</strong> es una opción sólida. Si tu objetivo son los graves contundentes, el <strong>Bass Station</strong> es legendario. Y si quieres adentrarte en el mundo modular sin renunciar al control inmediato, el <strong>MiniBrute 2</strong> es tu mejor aliado. ¡Todos ellos te abrirán las puertas al fascinante mundo del sonido analógico!
+    </p>
+</div>
+
+<p style="margin-top: 25px; font-style: italic; color: #aaaaaa;">
+    El sonido analógico no es solo una moda: es una forma de entender la música desde la materia, el voltaje y la imperfección creativa. Cada uno de estos sintetizadores te ofrece una puerta de entrada distinta a ese universo. Elige el que más resuene contigo, siéntate frente a él y empieza a explorar. ¡El viaje acaba de comenzar!
+</p>
