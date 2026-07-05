@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutoriales de Production Musical | Record Very Clean Music</title>
+    <title>Ultimas noticias en el mundo del audio y la produccion musical</title>
     
     <link rel="icon" type="image/png" href="imagenes/favicon.png">
 
-    <!-- GOOGLE ANALYTICS -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-04WYB34N23"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -16,13 +15,12 @@
       gtag('config', 'G-04WYB34N23');
     </script>
 
-    <!-- GOOGLE ADSENSE -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415" crossorigin="anonymous"></script>
    
     <style>
         /* --- ESTILOS GENERALES Y RESET --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #121212; color: #e0e0e0; font-family: sans-serif; line-height: 1.6; }
+        body { background-color: #121212; color: #e0e0e0; font-family: sans-serif; line-height: 1.6; overflow-x: hidden; }
         
         /* --- ESTILOS DE LA CABECERA --- */
         .cabecera-novedades {
@@ -36,15 +34,16 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            box-sizing: border-box;
         }
-        .logo-nav img { max-height: 50px; width: auto; }
+        .logo-nav img { max-height: 40px; width: auto; display: block; }
 
-        .nav-menu { display: flex; gap: 25px; align-items: center; }
-        .nav-menu a { color: #ffffff; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-menu { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+        .nav-menu a { color: #ffffff; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
         .nav-menu a:hover { color: #ff0055; }
 
         /* --- CONTENEDOR PRINCIPAL --- */
-        .contenedor-blog { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .contenedor-blog { max-width: 900px; margin: 0 auto; padding: 40px 20px; width: 100%; box-sizing: border-box; }
 
         /* --- ESTILOS DE LAS TARJETAS / FRANJAS DE LISTADO --- */
         .lista-tutoriales { display: flex; flex-direction: column; gap: 20px; }
@@ -71,7 +70,7 @@
         .img-tarjeta { width: 20%; min-width: 120px; background-size: cover; background-position: center; }
 
         /* --- CONTENEDOR DE ARTÍCULO ABIERTO --- */
-        .articulo-completo { margin-bottom: 40px; }
+        .articulo-completo { margin-bottom: 40px; width: 100%; }
 
         /* --- ELEMENTOS INTERNOS DE LOS TUTORIALES --- */
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px; margin: 30px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.7); }
@@ -118,46 +117,90 @@
         }
 
         /* --- SECCIÓN RECOMENDADOS (DEBAJO DEL POST) --- */
-        .seccion-recomendados { margin-top: 50px; border-top: 2px solid #252525; padding-top: 35px; }
+        .seccion-recomendados { margin-top: 50px; border-top: 2px solid #252525; padding-top: 35px; width: 100%; }
         .seccion-recomendados h4 { font-size: 1.4rem; color: #ffffff; margin-bottom: 25px; border-left: 4px solid #ff0055; padding-left: 12px; }
 
         /* --- FOOTER CENTRADO --- */
-        .footer-legal { width: 100%; background-color: #070707; border-top: 1px solid #1a1a1a; padding: 40px 20px; text-align: center; margin-top: 60px; }
+        .footer-legal { width: 100%; background-color: #070707; border-top: 1px solid #1a1a1a; padding: 40px 20px; text-align: center; margin-top: 60px; box-sizing: border-box; }
         .links-legales { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; }
         .links-legales a { color: #888888; text-decoration: none; font-size: 0.85rem; cursor: pointer; transition: color 0.3s ease; }
         .links-legales a:hover { color: #ff0055; }
         .footer-legal p { color: #555555; font-size: 0.8rem; margin: 0; }
 
-        /* --- ADAPTABILIDAD SMARTPHONES --- */
+        /* --- ESTILOS PARA EL CONTENIDO DINÁMICO --- */
+        .articulo-cargado { width: 100%; display: block; text-align: left; }
+        .articulo-cargado img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px auto; display: block; }
+        .articulo-cargado h1 { color: #ffffff; font-size: 2rem; margin-bottom: 15px; line-height: 1.3; }
+        .articulo-cargado h2 { color: #ff0055; margin-top: 30px; margin-bottom: 15px; font-size: 1.5rem; }
+        .articulo-cargado p { color: #cccccc; margin-bottom: 15px; line-height: 1.8; font-size: 1rem; text-align: justify; }
+        .articulo-cargado ul, .articulo-cargado ol { color: #cccccc; margin-left: 20px; margin-bottom: 15px; }
+        .articulo-cargado li { margin-bottom: 8px; }
+
+        .loading-spinner { text-align: center; padding: 60px 20px; color: #888888; }
+        .loading-spinner::after { content: "⏳"; display: block; font-size: 3rem; margin-top: 10px; animation: pulse 1.5s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+        /* Error styling */
+        .error-container { padding: 40px; text-align: center; background: #1a1a1a; border: 1px solid #333; border-radius: 8px; }
+        .error-container h2 { color: #ff0055; margin-bottom: 15px; }
+        .error-container p { color: #aaaaaa; max-width: 500px; margin: 0 auto; line-height: 1.6; margin-bottom: 15px; }
+        .error-container code { color: #ff0055; background: #222; padding: 2px 6px; border-radius: 3px; }
+        .error-container .debug-info { color: #cccccc; font-size: 0.9em; text-align: left; max-width: 500px; margin: 0 auto; background: #222; padding: 15px; border-radius: 6px; }
+        .btn-retry { margin-top: 20px; padding: 10px 30px; background: #ff0055; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+        .btn-retry:hover { background: #cc0044; }
+
+        /* --- ADAPTABILIDAD SMARTPHONES (RESPONSIVE) --- */
         @media (max-width: 768px) {
-            .cabecera-novedades { padding: 15px 20px; }
+            .cabecera-novedades { padding: 15px 20px; flex-direction: column; gap: 15px; text-align: center; justify-content: center; }
+            .nav-menu { justify-content: center; gap: 12px; }
+            .nav-menu a { font-size: 0.8rem; }
+            .contenedor-blog { padding: 25px 15px; }
+            .articulo-cargado h1 { font-size: 1.6rem; }
+            .articulo-cargado h2 { font-size: 1.3rem; }
             .tarjeta-tutorial { flex-direction: column-reverse; }
-            .img-tarjeta { width: 100%; height: 120px; }
+            .img-tarjeta { width: 100%; height: 140px; }
             .links-legales { gap: 15px; }
             .cta-google-news { flex-direction: column; text-align: center; gap: 15px; }
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
-    <!-- CABECERA -->
     <header class="cabecera-novedades">
         <div class="logo-nav">
             <a href="index.html">
-        <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
-    </a>
+                <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
+            </a>
         </div>
-
+        
         <nav class="nav-menu">
             <a href="index.html">Inicio</a>
             <a href="novedades.html">Novedades</a>
+            <a href="arsenal.html">Arsenal</a>
             <a href="tutoriales.html">Tutoriales</a>
             <a href="sobre-nosotros.html">Nosotros</a>
             <a href="contacto.html">Contacto</a>
         </nav>
     </header>
-    
-  <footer class="footer-legal">
+
+    <main class="contenedor-blog">
+        
+        <section id="vista-lector-articulo" class="articulo-completo">
+            <div id="contenido-del-tutorial">
+                <div class="loading-spinner">Cargando novedad...</div>
+            </div>
+            
+            <div id="modulo-recomendados" class="seccion-recomendados">
+                <h4>Otras Novedades que te pueden interesar</h4>
+                <div id="contenedor-lista-recomendados" class="lista-tutoriales">
+                    </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer-legal">
         <div class="links-legales">
             <a href="terminos-condiciones.html">Terminos y Condiciones</a>
             <a href="politica-privacidad.html">Política de Privacidad</a>
@@ -165,3 +208,265 @@
         </div>
         <p>© 2026 Record Very Clean Music. Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        // BASE DE DATOS DE NOVEDADES INTERNAS
+       const novedades = [
+    {
+        id: "d-mini-behringer",
+        titulo: "D MINI de Behringer: Minimoog de bolsillo con un secuenciador, filtro ladder y tres osciladores analógicos",
+        categoria: "Ultimas noticias en el mundo del audio y la produccion musical",
+        resumen: "Behringer inicia la preventa de su D MINI, una versión compacta del Model D que cuenta con tres osciladores analógicos, un filtro escalera paso-bajo, un secuenciador de 16 pasos y 27 teclas táctiles. Se espera que esté disponible en agosto de 2026 a un precio estimado de 99€ o 99$.",
+        imagenCover: "imagenes/Behringer-Model-D-Soul@2000x1500.jpg",
+        archivoUrl: "posts/d-mini-behringer.html",
+        esExterno: true
+    },
+    {
+        id: "abletonlive-live-12-4",
+        titulo: "Ableton Live 12.4: Revolución en Workflow, Plugins y Separación de Stems",
+        categoria: "Categoría: Novedades & Software Update | Por: RVC Studio",
+        resumen: "La llegada de Ableton Live 12.4 marca un paso adelante decisivo en la optimización del flujo de trabajo y el procesamiento nativo.",
+        imagenCover: "imagenes/ableton-live-12-4/stem-seperation-in-live.jpg",
+        esExterno: true,
+        archivoUrl: "posts/ableton-live-12-4.html"
+    },
+    {
+        id: "compresion-de-voces",
+        titulo: "Compresion de Voces: Tecnicas Pro para Lograr Voces Al Frente en tu Mezcla", 
+        categoria: "Mezcla & Procesamiento | Por: RVC Studio",
+        resumen: "La voz es el elemento mas importante de casi cualquier produccion musical. Sin embargo, lograr que suene potente, consistente, intima y que corte a traves de una mezcla instrumental densa es uno de los mayores desafios para los ingenieros de sonido.",
+        imagenCover: "imagenes/compresion-de-voces/1176-tipo-fet.jpg",
+        esExterno: true,
+        archivoUrl: "posts/compresion-de-voces.html"
+    },
+    {
+        id: "cpu-cuanticos-y-audio-digital",
+        titulo: "Procesadores Cuánticos y el Audio Digital: La Próxima Revolución del Sonido", 
+        categoria: "Categoría: Tecnología & Futuro del Audio | Por: RVC Studio",
+        resumen: "La llegada de los procesadores cuánticos al campo del audio digital no sustituirá inmediatamente tu equipo de estudio actual, pero transformará la industria desde sus cimientos musicales y técnicos.",
+        imagenCover: "imagenes/cpu-cuanticos-y-el-audio-digital/tech-cuantica.jpg",
+        esExterno: true,
+        archivoUrl: "posts/cpu-cuanticos-y-el-audio-digital.html"
+    },
+    {
+        id: "hz-profundidad-bits",
+        titulo: "Frecuencia de Muestreo y Calidad de Audio: Lo que Realmente Debes Entender", 
+        categoria: "Categoría: Teoría del Audio & Conceptos Clave | Por: RVC Studio",
+        resumen: "Imaginemos el proceso de fabricación de unas baquetas. Supongamos que queremos crear unas baquetas resistentes y duraderas. Si utilizamos una madera de mala calidad o una madera hinchada y húmeda, difícilmente obtendremos un producto final confiable, independientemente del esfuerzo, maquinaria o barniz que pongamos en su fabricación. La razón es sencilla: la calidad del producto final depende directamente de la calidad de la materia prima.",
+        imagenCover: "imagenes/hz-profundidad-bits/portada.jpg",
+        esExterno: true,
+        archivoUrl: "posts/hz-profundidad-bits.html"
+    },
+    {
+        id: "cadena-plugins-urbana",
+        titulo: "La Cadena de Plugins Urbana: El Secreto del Sonido Vocal de la Industria", 
+        resumen: "Para lograr ese sonido vocal urbano clásico de la industria —brillante, al frente, controlado y con esa textura costosa que escuchas en el Reggaeton, Trap o R&B actual— necesitas una combinación precisa de corrección de tono, control dinámico estricto, ecualización quirúrgica y saturación analógica sutil. No es magia; es estructura de señal.",
+        imagenCover: "imagenes/cadena-plugins-urbana/waves-ssl-ev2.jpg",
+        esExterno: true,
+        archivoUrl: "posts/cadena-plugins-urbana.html"
+    },
+    {
+        id: "acondicionamiento-acustico-asero",
+        titulo: "Acondicionamiento Acústico Casero: Cómo Mejorar tu Sala sin Presupuesto Profesional", 
+        categoria: "Categoría: Acústica & Home Studio | Por: RVC Studio",
+        resumen: " Qué tal, amigos? Yo soy el Mzbbeat y hoy vamos a hablar de uno de los pilares más descuidados en los estudios caseros: la acústica de tu habitación.",
+        imagenCover: "imagenes/acondicionamiento-acustico-casero/home-acustic.jpg",
+        esExterno: true,
+        archivoUrl: "posts/acondicionamiento-acustico-asero.html"
+    }, 
+    {
+        id: "console-one-compact",
+        titulo: "El Softube Console 1 Compact, la consola de mezcla híbrida que está dando que hablar en el mundo del audio procesado por hardware", 
+        categoria: "Categoría: Consolas Analógicas & Hardware | Por: RVC Studio",
+        resumen: "Antes de empezar a hablar de este nuevo dispositivo tecnológico para el audio, debemos dejar claro qué es exactamente y para qué sirve: ¿se trata solo de un controlador o de un preamplificador analógico para mezclar canciones? La Console 1 Compact de Softube es un dispositivo híbrido (hardware y software) que permite manejar tu DAW mediante tecnología táctil.",
+        imagenCover: "imagenes/console-one-compact/muestra-lateral.jpg",
+        esExterno: true,
+        archivoUrl: "posts/console-one-compact.html"
+    },
+    {
+        id: "los-5-sintetizadores-analogos",
+        titulo: "Los 5 mejores sintetizadores analógicos del mercado para empezar en el mundo del sonido analógico", 
+        categoria: "Categoría: Sintetizadores & Hardware Analógico | Por: RVC Studio",
+        resumen: " Adentrarse en el mundo de los sintetizadores analógicos puede resultar abrumador. Entre terminología técnica, precios elevados y una oferta cada vez más amplia, es fácil perderse. Por eso hemos seleccionado los 5 modelos que consideramos ideales para dar tus primeros pasos en este fascinante universo sonoro.",
+        imagenCover: "imagenes/los-5-sintetizadores-analogos/korg-vocal.jpg",
+        esExterno: true,
+        archivoUrl: "los-5-sintetizadores-analogos.html"
+    },
+    {
+        id: "melodyne-autotune",
+        titulo: "Técnica profesional para afinar voces con Melodyne y Auto‑Tune", 
+        categoria: "Categoría: Mezcla & Producción Vocal | Por: RVC Studio",
+        resumen: "En el proceso de mezcla, es habitual recibir pistas vocales grabadas en estudios remotos o caseros, con condiciones técnicas muy variables.",
+        imagenCover: "imagenes/melodyne-autotune/melodyne.jpg",
+        esExterno: true,
+        archivoUrl: "melodyne-autotune.html"
+    },
+    {
+        id: "tipos-de-sataturacion",
+        titulo: "Los 4 Tipos Principales de Saturación en la Producción Musical", 
+        categoria: "Categoría: Mezcla & Procesamiento | Por: RVC Studio",
+        resumen: " En la producción musical, la <strong>saturación</strong> y la <strong>distorsión</strong> son herramientas creativas que se utilizan para añadir carácter, calidez o agresividad a un sonido. Aunque a menudo se usan como sinónimos, la saturación se considera un tipo de distorsión armónica más sutil, mientras que la distorsión abarca un espectro más amplio de efectos.",
+        imagenCover: "imagenes/tipos-de-sataturacion/sat-de-cinta-tape.jpg",
+        esExterno: true,
+        archivoUrl: "tipos-de-sataturacion.html"
+    },
+    {
+        id: "tipos-compresion",
+        titulo: "Los 5 Tipos Principales de Compresores en la Producción Musical", 
+        categoria: "Categoría: Mezcla & Procesamiento | Por: RVC Studio",
+        resumen: "En la producción musical, los compresores son herramientas esenciales para controlar la dinámica y dar carácter a tus pistas. Sin embargo, no todos los compresores son iguales.",
+        imagenCover: "imagenes/tipos-compresion/vca.jpg",
+        esExterno: true,
+        archivoUrl: "tipos-compresion.html"
+    },
+    {
+        id: "tipos-eq",
+        titulo: "Los Tipos de Ecualización en la Producción Musical", 
+        categoria: "Categoría: Mezcla & Procesamiento | Por: RVC Studio",
+        resumen: "En el mundo de la producción musical, la ecualización es una de las herramientas más fundamentales y poderosas para dar forma al sonido. Sin embargo, no todos los ecualizadores son iguales. Cada tipo ofrece un <strong>nivel diferente de precisión, control y coloración</strong>, y conocer sus diferencias es clave para elegir la herramienta adecuada en cada situación.",
+        imagenCover: "imagenes/tipos-eq/grafico.jpg",
+        esExterno: true,
+        archivoUrl: "tipos-eq.html"
+    }
+                              
+    // ✅ Eliminado el comentario que causaba error
+];
+
+        // Función mejorada para cargar contenido con más opciones de ruta
+        async function cargarContenido(post) {
+            const contenedor = document.getElementById("contenido-del-tutorial");
+            
+            // Si no hay archivo externo, mostrar mensaje
+            if (!post.esExterno || !post.archivoUrl) {
+                contenedor.innerHTML = `
+                    <div class="error-container">
+                        <h2>⚠️ Contenido no disponible</h2>
+                        <p>Este artículo no tiene contenido asociado.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Definir rutas a probar (priorizando la ruta configurada)
+            const rutas = [
+                post.archivoUrl,  // "posts/novedad.html"
+                post.archivoUrl.replace('posts/', ''),  // "novedad.html"
+                './' + post.archivoUrl,
+                'posts/' + post.id + '.html',
+                post.id + '.html'
+            ];
+
+            // Intentar cargar desde las diferentes rutas
+            for (const ruta of rutas) {
+                try {
+                    console.log(`🔄 Intentando cargar: ${ruta}`);
+                    const response = await fetch(ruta);
+                    
+                    if (response.ok) {
+                        const html = await response.text();
+                        contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
+                        console.log(`✅ Cargado exitosamente desde: ${ruta}`);
+                        return;
+                    }
+                } catch (error) {
+                    console.warn(`❌ Falló ruta: ${ruta}`, error.message);
+                }
+            }
+
+            // Si todas las rutas fallaron, mostrar error detallado
+            contenedor.innerHTML = `
+                <div class="error-container">
+                    <h2>❌ Error al cargar el artículo</h2>
+                    <p>No hemos podido localizar el archivo del artículo en tu repositorio.</p>
+                    <div class="debug-info">
+                        <strong>🔍 Verifica en tu GitHub:</strong><br>
+                        1. Que creaste una carpeta llamada <code>posts</code> en tu repositorio principal.<br>
+                        2. Que dentro de esa carpeta subiste el archivo <code>${post.id}.html</code>.<br>
+                        3. Que el nombre del archivo coincide exactamente (incluye mayúsculas/minúsculas).<br>
+                        4. Rutas intentadas:
+                        <ul style="margin-top: 10px; list-style: none; padding: 0;">
+                            ${rutas.map(r => `<li style="padding: 4px 0; color: #888;">• ${r}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <button class="btn-retry" onclick="location.reload()">🔄 Intentar de nuevo</button>
+                </div>
+            `;
+        }
+
+        // FUNCIÓN QUE RENDERIZA EL ARTÍCULO Y SUS RECOMENDADOS
+        function mostrarNovedad(id) {
+            const postSeleccionado = novedades.find(p => p.id === id);
+            if (!postSeleccionado) {
+                console.error("❌ Novedad no encontrada con ID:", id);
+                return;
+            }
+
+            // Actualizar título de la página
+            document.title = postSeleccionado.titulo + " | Record Very Clean";
+
+            // Cargar el contenido del artículo
+            cargarContenido(postSeleccionado);
+
+            // Renderizar la sección de recomendados
+            renderizarRecomendados(id);
+
+            // Scroll suave al inicio
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Función para renderizar los artículos recomendados
+        function renderizarRecomendados(idActual) {
+            const restantes = novedades.filter(p => p.id !== idActual);
+            const contenedor = document.getElementById("contenedor-lista-recomendados");
+            contenedor.innerHTML = "";
+
+            if (restantes.length === 0) {
+                contenedor.innerHTML = `
+                    <div style="text-align: center; padding: 30px; color: #666;">
+                        <p>No hay más novedades disponibles en este momento.</p>
+                        <p style="font-size: 0.8rem; margin-top: 10px;">Vuelve pronto para más contenido.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            restantes.forEach(post => {
+                const tarjeta = document.createElement('div');
+                tarjeta.className = 'tarjeta-tutorial';
+                tarjeta.onclick = () => mostrarNovedad(post.id);
+                tarjeta.innerHTML = `
+                    <div class="info-tarjeta">
+                        <h3>${post.titulo}</h3>
+                        <p>${post.resumen}</p>
+                    </div>
+                    <div class="img-tarjeta" style="background-image: url('${post.imagenCover}'); background-size: cover; background-position: center;"></div>
+                `;
+                contenedor.appendChild(tarjeta);
+            });
+        }
+
+        // LÓGICA AUTOMÁTICA EN LA CARGA DE LA PÁGINA
+        window.onload = function() {
+            if (novedades.length > 0) {
+                // Carga el último elemento del array
+                const ultimaNovedad = novedades[novedades.length - 1];
+                mostrarNovedad(ultimaNovedad.id);
+            } else {
+                document.getElementById("contenido-del-tutorial").innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px;">
+                        <h2 style="color: #ff0055;">No hay novedades disponibles</h2>
+                        <p style="color: #888; margin-top: 15px;">Pronto añadiremos nuevo contenido.</p>
+                    </div>
+                `;
+            }
+        };
+
+        // Exponer la función globalmente
+        window.mostrarNovedad = mostrarNovedad;
+
+        console.log("🚀 Motor de novedades cargado correctamente");
+        console.log(`📰 Novedades disponibles: ${novedades.length}`);
+        console.log("📋 Lista de novedades:", novedades.map(n => n.id).join(', '));
+    </script>
+</body>
+</html>
