@@ -20,7 +20,7 @@
     <style>
         /* --- ESTILOS GENERALES Y RESET --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #121212; color: #e0e0e0; font-family: sans-serif; line-height: 1.6; }
+        body { background-color: #121212; color: #e0e0e0; font-family: sans-serif; line-height: 1.6; overflow-x: hidden; }
         
         /* --- ESTILOS DE LA CABECERA --- */
         .cabecera-novedades {
@@ -34,15 +34,16 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            box-sizing: border-box;
         }
-        .logo-nav img { max-height: 50px; width: auto; }
+        .logo-nav img { max-height: 40px; width: auto; display: block; }
 
-        .nav-menu { display: flex; gap: 25px; align-items: center; }
-        .nav-menu a { color: #ffffff; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-menu { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+        .nav-menu a { color: #ffffff; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
         .nav-menu a:hover { color: #ff0055; }
 
         /* --- CONTENEDOR PRINCIPAL --- */
-        .contenedor-blog { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .contenedor-blog { max-width: 900px; margin: 0 auto; padding: 40px 20px; width: 100%; box-sizing: border-box; }
 
         /* --- ESTILOS DE LAS TARJETAS / FRANJAS DE LISTADO --- */
         .lista-tutoriales { display: flex; flex-direction: column; gap: 20px; }
@@ -69,7 +70,7 @@
         .img-tarjeta { width: 20%; min-width: 120px; background-size: cover; background-position: center; }
 
         /* --- CONTENEDOR DE ARTÍCULO ABIERTO --- */
-        .articulo-completo { margin-bottom: 40px; }
+        .articulo-completo { margin-bottom: 40px; width: 100%; }
 
         /* --- ELEMENTOS INTERNOS DE LOS TUTORIALES --- */
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px; margin: 30px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.7); }
@@ -116,119 +117,50 @@
         }
 
         /* --- SECCIÓN RECOMENDADOS (DEBAJO DEL POST) --- */
-        .seccion-recomendados { margin-top: 50px; border-top: 2px solid #252525; padding-top: 35px; }
+        .seccion-recomendados { margin-top: 50px; border-top: 2px solid #252525; padding-top: 35px; width: 100%; }
         .seccion-recomendados h4 { font-size: 1.4rem; color: #ffffff; margin-bottom: 25px; border-left: 4px solid #ff0055; padding-left: 12px; }
 
         /* --- FOOTER CENTRADO --- */
-        .footer-legal { width: 100%; background-color: #070707; border-top: 1px solid #1a1a1a; padding: 40px 20px; text-align: center; margin-top: 60px; }
+        .footer-legal { width: 100%; background-color: #070707; border-top: 1px solid #1a1a1a; padding: 40px 20px; text-align: center; margin-top: 60px; box-sizing: border-box; }
         .links-legales { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; }
         .links-legales a { color: #888888; text-decoration: none; font-size: 0.85rem; cursor: pointer; transition: color 0.3s ease; }
         .links-legales a:hover { color: #ff0055; }
         .footer-legal p { color: #555555; font-size: 0.8rem; margin: 0; }
 
-        /* --- ADAPTABILIDAD SMARTPHONES --- */
-        @media (max-width: 768px) {
-            .cabecera-novedades { padding: 15px 20px; }
-            .tarjeta-tutorial { flex-direction: column-reverse; }
-            .img-tarjeta { width: 100%; height: 120px; }
-            .links-legales { gap: 15px; }
-            .cta-google-news { flex-direction: column; text-align: center; gap: 15px; }
-        }
+        /* --- ESTILOS PARA EL CONTENIDO DINÁMICO --- */
+        .articulo-cargado { width: 100%; display: block; text-align: left; }
+        .articulo-cargado img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px auto; display: block; }
+        .articulo-cargado h1 { color: #ffffff; font-size: 2rem; margin-bottom: 15px; line-height: 1.3; }
+        .articulo-cargado h2 { color: #ff0055; margin-top: 30px; margin-bottom: 15px; font-size: 1.5rem; }
+        .articulo-cargado p { color: #cccccc; margin-bottom: 15px; line-height: 1.8; font-size: 1rem; text-align: justify; }
+        .articulo-cargado ul, .articulo-cargado ol { color: #cccccc; margin-left: 20px; margin-bottom: 15px; }
+        .articulo-cargado li { margin-bottom: 8px; }
 
-        /* Estilos para el contenido del artículo cargado */
-        .articulo-cargado img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .articulo-cargado h1 {
-            color: #ffffff;
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-        .articulo-cargado h2 {
-            color: #ff0055;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        .articulo-cargado p {
-            color: #cccccc;
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-        .articulo-cargado ul, .articulo-cargado ol {
-            color: #cccccc;
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        .articulo-cargado li {
-            margin-bottom: 8px;
-        }
-        .loading-spinner {
-            text-align: center;
-            padding: 60px 20px;
-            color: #888888;
-        }
-        .loading-spinner::after {
-            content: "⏳";
-            display: block;
-            font-size: 3rem;
-            margin-top: 10px;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
+        .loading-spinner { text-align: center; padding: 60px 20px; color: #888888; }
+        .loading-spinner::after { content: "⏳"; display: block; font-size: 3rem; margin-top: 10px; animation: pulse 1.5s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
 
         /* Error styling */
-        .error-container {
-            padding: 40px;
-            text-align: center;
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 8px;
-        }
-        .error-container h2 {
-            color: #ff0055;
-            margin-bottom: 15px;
-        }
-        .error-container p {
-            color: #aaaaaa;
-            max-width: 500px;
-            margin: 0 auto;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        .error-container code {
-            color: #ff0055;
-            background: #222;
-            padding: 2px 6px;
-            border-radius: 3px;
-        }
-        .error-container .debug-info {
-            color: #cccccc;
-            font-size: 0.9em;
-            text-align: left;
-            max-width: 500px;
-            margin: 0 auto;
-            background: #222;
-            padding: 15px;
-            border-radius: 6px;
-        }
-        .btn-retry {
-            margin-top: 20px;
-            padding: 10px 30px;
-            background: #ff0055;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .btn-retry:hover {
-            background: #cc0044;
+        .error-container { padding: 40px; text-align: center; background: #1a1a1a; border: 1px solid #333; border-radius: 8px; }
+        .error-container h2 { color: #ff0055; margin-bottom: 15px; }
+        .error-container p { color: #aaaaaa; max-width: 500px; margin: 0 auto; line-height: 1.6; margin-bottom: 15px; }
+        .error-container code { color: #ff0055; background: #222; padding: 2px 6px; border-radius: 3px; }
+        .error-container .debug-info { color: #cccccc; font-size: 0.9em; text-align: left; max-width: 500px; margin: 0 auto; background: #222; padding: 15px; border-radius: 6px; }
+        .btn-retry { margin-top: 20px; padding: 10px 30px; background: #ff0055; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+        .btn-retry:hover { background: #cc0044; }
+
+        /* --- ADAPTABILIDAD SMARTPHONES (RESPONSIVE) --- */
+        @media (max-width: 768px) {
+            .cabecera-novedades { padding: 15px 20px; flex-direction: column; gap: 15px; text-align: center; justify-content: center; }
+            .nav-menu { justify-content: center; gap: 12px; }
+            .nav-menu a { font-size: 0.8rem; }
+            .contenedor-blog { padding: 25px 15px; }
+            .articulo-cargado h1 { font-size: 1.6rem; }
+            .articulo-cargado h2 { font-size: 1.3rem; }
+            .tarjeta-tutorial { flex-direction: column-reverse; }
+            .img-tarjeta { width: 100%; height: 140px; }
+            .links-legales { gap: 15px; }
+            .cta-google-news { flex-direction: column; text-align: center; gap: 15px; }
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
