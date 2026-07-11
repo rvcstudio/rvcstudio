@@ -307,61 +307,54 @@
     <script src="datos-novedades.js"></script>
     <script src="datos-samples-y-drum-kit.js"></script>
     
-    <script>
-        // BASE DE DATOS DE NOVEDADES INTERNAS
-       
-       // 2. FUNCIÓN PARA CARGAR EL POST
-    async function cargarArticulo(idPost) {
-        const contenedor = document.getElementById("contenido-del-tutorial");
-        const post = novedades.find(n => n.id === idPost);
+   <script>
+        // Aquí pegas todo el bloque que me pasaste antes
+        async function cargarArticulo(idPost) {
+            const contenedor = document.getElementById("contenido-del-tutorial");
+            const post = novedades.find(n => n.id === idPost);
 
-        if (!post) {
-            contenedor.innerHTML = "<h2>Artículo no encontrado</h2>";
-            return;
+            if (!post) {
+                contenedor.innerHTML = "<h2>Artículo no encontrado</h2>";
+                return;
+            }
+
+            try {
+                const response = await fetch(post.archivoUrl);
+                const html = await response.text();
+                contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
+                document.title = post.titulo + " | RVC Studio";
+            } catch (e) {
+                contenedor.innerHTML = "<h2>Error al cargar el tutorial</h2>";
+            }
+            
+            renderizarRecomendados(idPost);
         }
 
-        try {
-            const response = await fetch(post.archivoUrl);
-            const html = await response.text();
-            contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
-            document.title = post.titulo + " | RVC Studio";
-        } catch (e) {
-            contenedor.innerHTML = "<h2>Error al cargar el tutorial</h2>";
+        function renderizarRecomendados(idActual) {
+            const contenedor = document.getElementById("contenedor-lista-recomendados");
+            contenedor.innerHTML = ""; 
+            novedades.filter(p => p.id !== idActual).forEach(post => {
+                const tarjeta = document.createElement('a');
+                tarjeta.className = 'tarjeta-tutorial';
+                tarjeta.href = "tutoriales.html?post=" + post.id; 
+                tarjeta.innerHTML = `
+                    <div class="info-tarjeta"><h3>${post.titulo}</h3></div>
+                    <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
+                `;
+                contenedor.appendChild(tarjeta);
+            });
         }
-        
-        // Renderizar recomendados quitando el actual
-        renderizarRecomendados(idPost);
-    }
 
-    // 3. FUNCIÓN RECOMENDADOS (Sin repetir código)
-    function renderizarRecomendados(idActual) {
-        const contenedor = document.getElementById("contenedor-lista-recomendados");
-        contenedor.innerHTML = ""; 
-        novedades.filter(p => p.id !== idActual).forEach(post => {
-            const tarjeta = document.createElement('a');
-            tarjeta.className = 'tarjeta-tutorial';
-            // ESTO ES LO IMPORTANTE: Enlace a la misma página con nuevo ID
-            tarjeta.href = "tutoriales.html?post=" + post.id; 
-            tarjeta.innerHTML = `
-                <div class="info-tarjeta"><h3>${post.titulo}</h3></div>
-                <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
-            `;
-            contenedor.appendChild(tarjeta);
-        });
-    }
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const postID = params.get('post');
 
-    // 4. LÓGICA DE INICIO (El "cerebro" que detecta la URL)
-    window.onload = function() {
-        const params = new URLSearchParams(window.location.search);
-        const postID = params.get('post'); // Detecta ?post=ID en la URL
-
-        if (postID) {
-            cargarArticulo(postID);
-        } else {
-            // Si no hay nada, carga el primero por defecto
-            cargarArticulo(novedades[0].id);
-        }
-    };
+            if (postID) {
+                cargarArticulo(postID);
+            } else if (novedades.length > 0) {
+                cargarArticulo(novedades[0].id);
+            }
+        };
     </script>
     
     <div id="cookie-banner" class="cookie-banner">
