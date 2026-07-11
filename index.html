@@ -360,130 +360,69 @@
         <h1>Todo lo relacionado con el mundo del audio profesional y la producción musical</h1>
     </div>
 </div>
+<main class="contenedor-principal">
+    <aside class="columna-izquierda" id="contenedor-verticales">
+        <h2>Lo más nuevo</h2>
+    </aside>
 
-    <main class="contenedor-blog">
-    <!-- Contenedor de Tutoriales -->
-    <h2>Tutoriales</h2>
-    <section class="lista-tutoriales" id="contenedor-lista-tutoriales"></section>
-
-    <!-- Contenedor de Novedades -->
-    <h2 style="margin-top: 40px;">Novedades</h2>
-    <section class="lista-novedades" id="contenedor-lista-novedades"></section>
-
-        <section class="columna-derecha">
-        <h2>Samples y Drum Kits</h2>
-        <div class="lista-tutoriales" id="contenedor-horizontales">
-            </div>
+    <section class="columna-derecha">
+        <h2>Más Tutoriales y Samples</h2>
+        <div class="lista-tutoriales" id="contenedor-horizontales"></div>
     </section>
-        
 </main>
-            
-            <div id="modulo-recomendados" class="seccion-recomendados">
-                <h4>Otras Novedades que te pueden interesar</h4>
-                <div id="contenedor-lista-recomendados" class="lista-tutoriales">
-                    </div>
-            </div>
-        </section>
 
+<footer class="footer-legal">
+    <div class="links-legales">
+        <a href="terminos-condiciones.html">Terminos y Condiciones</a>
+        <a href="politica-privacidad.html">Política de Privacidad</a>
+        <a href="aviso-legal.html">Aviso Legal</a>
+        <a href="sobre-nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+    </div>
+    <p>© 2026 Record Very Clean Music. Todos los derechos reservados.</p>
+</footer>
 
-    <footer class="footer-legal">
-        <div class="links-legales">
-            <a href="terminos-condiciones.html">Terminos y Condiciones</a>
-            <a href="politica-privacidad.html">Política de Privacidad</a>
-            <a href="aviso-legal.html">Aviso Legal</a>
-            <a href="sobre-nosotros.html">Nosotros</a>
-            <a href="contacto.html">Contacto</a>
-        </div>
-        <p>© 2026 Record Very Clean Music. Todos los derechos reservados.</p>
-    </footer>
-    
-    <script src="datos-tutoriales.js"></script>
-    <script src="datos-novedades.js"></script>
-    <script src="datos-samples-y-drum-kit.js"></script>
-    
- <script>
-    // Función genérica para renderizar cualquier lista
-    function renderizarLista(contenedorId, listaDatos) {
-        const contenedor = document.getElementById(contenedorId);
-        if (!contenedor) return;
-        
-        contenedor.innerHTML = ""; // Limpiar antes de llenar
-
-        if (!listaDatos || listaDatos.length === 0) {
-            contenedor.innerHTML = "<p style='padding: 20px; color: #666;'>No hay contenido disponible aquí.</p>";
-            return;
-        }
-
-        listaDatos.forEach(post => {
-            const tarjeta = document.createElement('a');
-            tarjeta.className = 'tarjeta-tutorial';
-            tarjeta.href = "tutoriales.html?post=" + post.id;
-            tarjeta.style.textDecoration = "none";
-            
-            tarjeta.innerHTML = `
-                <div class="info-tarjeta">
-                    <h3>${post.titulo}</h3>
-                    <p>${post.resumen}</p>
-                </div>
-                <div class="img-tarjeta" style="background-image: url('${post.imagenCover}'); background-size: cover; background-position: center;"></div>
-            `;
-            contenedor.appendChild(tarjeta);
-        });
-    }
-
-    // Ejecutar cuando la página cargue
-    window.onload = function() {
-        // Renderizar Tutoriales (si la variable 'tutoriales' existe en algún archivo .js)
-        if (typeof tutoriales !== 'undefined') {
-            renderizarLista("contenedor-lista-tutoriales", tutoriales);
-        }
-
-        // Renderizar Novedades (si la variable 'novedades' existe en algún archivo .js)
-        if (typeof novedades !== 'undefined') {
-            renderizarLista("contenedor-lista-novedades", novedades);
-        }
-        
-        console.log("✅ Motor de catálogo cargado correctamente.");
-    };
-</script>
-    
-    <div id="cookie-banner" class="cookie-banner">
+<div id="cookie-banner" class="cookie-banner">
     <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia. 
        <a href="politica-privacidad.html">Más información</a>.</p>
     <button id="accept-cookies" class="btn-aceptar">Aceptar</button>
 </div>
-    
-    <script>
-    const banner = document.getElementById('cookie-banner');
-    const btn = document.getElementById('accept-cookies');
 
-    // Verificar si el usuario ya aceptó antes
-    if (localStorage.getItem('cookiesAceptadas') === 'true') {
-        banner.style.display = 'none';
-    }
-
-    // Acción al hacer clic
-    btn.addEventListener('click', () => {
-        localStorage.setItem('cookiesAceptadas', 'true');
-        banner.style.display = 'none';
-    });
-</script>
+<script src="datos-tutoriales.js"></script>
+<script src="datos-novedades.js"></script>
+<script src="datos-samples-y-drum-kit.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <script>
-    function renderizarPaginaPrincipal() {
-        // 1. Unimos todas tus bases de datos en una sola lista
-        const todosLosPosts = [...tutoriales, ...novedades, ...samples];
+
+<script>
+    window.onload = function() {
+        // 1. Lógica de Cookies
+        const banner = document.getElementById('cookie-banner');
+        const btn = document.getElementById('accept-cookies');
+        if (localStorage.getItem('cookiesAceptadas') === 'true') {
+            banner.style.display = 'none';
+        }
+        btn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAceptadas', 'true');
+            banner.style.display = 'none';
+        });
+
+        // 2. Motor de Renderizado de Tarjetas
+        // Unimos los arrays de forma segura
+        const todosLosPosts = [
+            ...(typeof tutoriales !== 'undefined' ? tutoriales : []),
+            ...(typeof novedades !== 'undefined' ? novedades : []),
+            ...(typeof samples !== 'undefined' ? samples : [])
+        ];
         
         const contVertical = document.getElementById('contenedor-verticales');
         const contHorizontal = document.getElementById('contenedor-horizontales');
 
         todosLosPosts.forEach((post, index) => {
-            // Lógica: Los 3 primeros van a la izquierda (Vertical)
             if (index < 3) {
+                // Tarjetas verticales (Izquierda)
                 const tarjetaV = document.createElement('a');
                 tarjetaV.className = 'tarjeta-vertical';
-                tarjetaV.href = "tutoriales.html?post=" + post.id; // Ajusta si es otra página
+                tarjetaV.href = "tutoriales.html?post=" + post.id;
                 tarjetaV.innerHTML = `
                     <div class="img-vertical" style="background-image: url('${post.imagenCover}');"></div>
                     <div class="info-vertical">
@@ -492,9 +431,8 @@
                     </div>
                 `;
                 contVertical.appendChild(tarjetaV);
-            } 
-            // El resto van a la derecha (Horizontal)
-            else {
+            } else {
+                // Tarjetas horizontales (Derecha)
                 const tarjetaH = document.createElement('a');
                 tarjetaH.className = 'tarjeta-tutorial';
                 tarjetaH.href = "tutoriales.html?post=" + post.id;
@@ -508,10 +446,7 @@
                 contHorizontal.appendChild(tarjetaH);
             }
         });
-    }
-
-    // Ejecutar al cargar la página
-    window.onload = renderizarPaginaPrincipal;
+    };
 </script>
     
 </body>
