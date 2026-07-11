@@ -285,6 +285,41 @@
     border-radius: 4px;
     cursor: pointer;
 }
+        /* --- NUEVO DISEÑO DE DOS COLUMNAS --- */
+.contenedor-principal {
+    display: grid;
+    grid-template-columns: 320px 1fr; /* Columna izq fija, col der flexible */
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    align-items: start;
+}
+
+/* Columna Izquierda: Tarjetas Verticales */
+.columna-izquierda { display: flex; flex-direction: column; gap: 20px; }
+.tarjeta-vertical {
+    background-color: #1a1a1a;
+    border: 1px solid #252525;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+.tarjeta-vertical:hover { transform: translateY(-5px); border-color: #ff0055; }
+.img-vertical { width: 100%; height: 180px; background-size: cover; background-position: center; }
+.info-vertical { padding: 15px; }
+.info-vertical h3 { font-size: 1rem; margin-bottom: 8px; }
+.info-vertical p { font-size: 0.8rem; color: #aaa; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Columna Derecha: Tus tarjetas horizontales actuales */
+.columna-derecha { display: flex; flex-direction: column; gap: 20px; }
+
+/* Ajuste Responsive */
+@media (max-width: 850px) {
+    .contenedor-principal { grid-template-columns: 1fr; }
+}
         
     </style>
     
