@@ -216,19 +216,36 @@
         .btn-retry { margin-top: 20px; padding: 10px 30px; background: #ff0055; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
         .btn-retry:hover { background: #cc0044; }
 
-        /* --- ADAPTABILIDAD SMARTPHONES (RESPONSIVE) --- */
-        @media (max-width: 768px) {
-            .cabecera-novedades { padding: 15px 20px; flex-direction: column; gap: 15px; text-align: center; justify-content: center; }
-            .nav-menu { justify-content: center; gap: 12px; }
-            .nav-menu a { font-size: 0.8rem; }
-            .contenedor-blog { padding: 25px 15px; }
-            .articulo-cargado h1 { font-size: 1.6rem; }
-            .articulo-cargado h2 { font-size: 1.3rem; }
-            .tarjeta-tutorial { flex-direction: column-reverse; }
-            .img-tarjeta { width: 100%; height: 140px; }
-            .links-legales { gap: 15px; }
-            .cta-google-news { flex-direction: column; text-align: center; gap: 15px; }
-        }
+       /* Estilo base para escritorio */
+.cabecera-novedades {
+    display: flex;
+    justify-content: space-between; /* Empuja elementos a los lados */
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #070707;
+}
+
+/* --- ADAPTABILIDAD SMARTPHONES --- */
+@media (max-width: 768px) {
+    .cabecera-novedades {
+        padding: 10px 15px;
+        flex-direction: row; /* Mantiene la fila horizontal */
+        justify-content: space-between; /* Logo (izq) y Menú (der) */
+        align-items: center;
+    }
+
+    /* Ajuste de logo para móvil */
+    .logo-nav a img {
+        height: 35px; /* Ajusta este valor al tamaño que desees */
+        width: auto;
+    }
+
+    /* Asegura que el botón de menú no sea gigante */
+    .dropbtn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
         /* --- Estilos para el Dropdown --- */
 /* --- Estilos para el Dropdown (Versión Adaptada a tu Web) --- */
 .dropdown {
