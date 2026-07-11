@@ -17,74 +17,7 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415" crossorigin="anonymous"></script>
    
-       <style>
-/* --- ESTILOS DEL BANNER CENTRADO --- */
-.banner-novedades {
-    width: 100%;
-    height: 350px;
-    /* Degradado oscuro para que el texto sea legible sobre la imagen */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url('imagenes/banner.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    /* ESTA ES LA CLAVE PARA CENTRAR */
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center;     /* Centra verticalmente */
-    text-align: center;      /* Asegura que el texto se alinee al centro */
-    padding: 20px;
-    box-sizing: border-box;
-}
-.barra-navegacion-secundaria {
-    width: 100%;
-    background-color: #ff0055;
-    padding: 10px 20px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(255, 0, 85, 0.2);
-    display: flex;        /* Esto alinea los elementos en fila */
-    justify-content: center;
-    gap: 30px;            /* Espacio entre cada enlace */
-}
-
-.barra-navegacion-secundaria a {
-    color: #ffffff !important;      /* Fuerza el blanco */
-    text-decoration: none !important; /* Elimina la línea inferior */
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-transform: uppercase;      /* Opcional: para que se vea como menú */
-    transition: opacity 0.3s;
-}
-
-.barra-navegacion-secundaria a:hover {
-    opacity: 0.7;                   /* Un efecto sutil al pasar el mouse */
-}
-
-.contenido-banner {
-    width: 100%;
-    max-width: 800px;
-    animation: fadeIn 1.5s ease-out forwards;
-}
-
-.contenido-banner h1 {
-    font-size: 2.2rem;
-    color: #ffffff;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    margin: 0; /* Elimina márgenes extra que desplazan el texto */
-    line-height: 1.2;
-}
-
-/* Ajuste para celulares */
-@media (max-width: 768px) {
-    .banner-novedades {
-        height: 250px; /* Un poco más pequeño en móvil */
-    }
-    .contenido-banner h1 {
-        font-size: 1.5rem; /* Fuente más pequeña para que no se corte */
-    }
-}
+    <style>
         /* --- ESTILOS GENERALES Y RESET --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #121212; color: #e0e0e0; font-family: sans-serif; line-height: 1.6; overflow-x: hidden; }
@@ -216,36 +149,19 @@
         .btn-retry { margin-top: 20px; padding: 10px 30px; background: #ff0055; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
         .btn-retry:hover { background: #cc0044; }
 
-       /* Estilo base para escritorio */
-.cabecera-novedades {
-    display: flex;
-    justify-content: space-between; /* Empuja elementos a los lados */
-    align-items: center;
-    padding: 15px 50px;
-    background-color: #070707;
-}
-
-/* --- ADAPTABILIDAD SMARTPHONES --- */
-@media (max-width: 768px) {
-    .cabecera-novedades {
-        padding: 10px 15px;
-        flex-direction: row; /* Mantiene la fila horizontal */
-        justify-content: space-between; /* Logo (izq) y Menú (der) */
-        align-items: center;
-    }
-
-    /* Ajuste de logo para móvil */
-    .logo-nav a img {
-        height: 35px; /* Ajusta este valor al tamaño que desees */
-        width: auto;
-    }
-
-    /* Asegura que el botón de menú no sea gigante */
-    .dropbtn {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
-}
+        /* --- ADAPTABILIDAD SMARTPHONES (RESPONSIVE) --- */
+        @media (max-width: 768px) {
+            .cabecera-novedades { padding: 15px 20px; flex-direction: column; gap: 15px; text-align: center; justify-content: center; }
+            .nav-menu { justify-content: center; gap: 12px; }
+            .nav-menu a { font-size: 0.8rem; }
+            .contenedor-blog { padding: 25px 15px; }
+            .articulo-cargado h1 { font-size: 1.6rem; }
+            .articulo-cargado h2 { font-size: 1.3rem; }
+            .tarjeta-tutorial { flex-direction: column-reverse; }
+            .img-tarjeta { width: 100%; height: 140px; }
+            .links-legales { gap: 15px; }
+            .cta-google-news { flex-direction: column; text-align: center; gap: 15px; }
+        }
         /* --- Estilos para el Dropdown --- */
 /* --- Estilos para el Dropdown (Versión Adaptada a tu Web) --- */
 .dropdown {
@@ -325,19 +241,38 @@
     border-radius: 4px;
     cursor: pointer;
 }
-        /* --- NUEVO DISEÑO DE DOS COLUMNAS --- */
-.contenedor-principal {
-    display: grid;
-    grid-template-columns: 320px 1fr; /* Columna izq fija, col der flexible */
+        .tarjeta-lateral {
+    display: block;
+    padding: 10px;
+    margin-bottom: 5px;
+    background: #1a1a1a;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 3px solid #ff0055;
+}
+.tarjeta-lateral:hover {
+    background: #333;
+}
+        /* Contenedor principal que une todo */
+.contenedor-blog {
+    display: flex;
+    flex-direction: row;
     gap: 30px;
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-    align-items: start;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Columna Izquierda: Tarjetas Verticales */
-.columna-izquierda { display: flex; flex-direction: column; gap: 20px; }
+/* El Aside de la izquierda (el que tiene tus verticales) */
+.columna-izquierda {
+    flex: 0 0 300px; /* Ancho fijo para la columna */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilos de tus tarjetas verticales (copiados del index) */
 .tarjeta-vertical {
     background-color: #1a1a1a;
     border: 1px solid #252525;
@@ -351,121 +286,10 @@
 .img-vertical { width: 100%; height: 180px; background-size: cover; background-position: center; }
 .info-vertical { padding: 15px; }
 .info-vertical h3 { font-size: 1rem; margin-bottom: 8px; }
-.info-vertical p { font-size: 0.8rem; color: #aaa; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-/* Columna Derecha: Tus tarjetas horizontales actuales */
-.columna-derecha { display: flex; flex-direction: column; gap: 20px; }
-
-/* Ajuste Responsive */
-@media (max-width: 850px) {
-    .contenedor-principal { grid-template-columns: 1fr; }
-}
-        /* Corrección Global para evitar el scroll horizontal */
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-/* Estilo base para el banner de cookies */
-.cookie-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #070707 !important; /* Fondo negro para que resalte */
-    color: #ffffff !important;           /* Texto blanco obligatorio */
-    padding: 15px;
-    box-sizing: border-box;
-    border-top: 3px solid #ff0055;       /* Línea rosa superior */
-    z-index: 9999;
-    text-align: center;
-    display: flex;
-    flex-direction: column;              /* Apila el texto y el botón */
-    align-items: center;
-    gap: 10px;
-}
-
-/* Asegurar que el texto dentro del párrafo sea visible */
-.cookie-banner p {
-    color: #ffffff !important;
-    margin: 0;
-    font-size: 0.85rem;
-}
-
-/* Asegurar que el enlace dentro del banner sea visible */
-.cookie-banner a {
-    color: #ff0055 !important;
-    text-decoration: underline;
-}
-
-/* Estilo del botón */
-.btn-aceptar {
-    background-color: #ff0055;
-    color: #ffffff;
-    border: none;
-    padding: 8px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 4px;
-}
-        .barra-navegacion-secundaria {
-    width: 100%;
-    background-color: #ff0055;
-    padding: 10px 0;
-    overflow: hidden; /* Esto es vital: esconde lo que se sale de la pantalla */
-    white-space: nowrap; /* Evita que las palabras bajen de renglón */
-}
-
-.scroll-container {
-    display: inline-block;
-    animation: marquee 15s linear infinite; /* Ajusta los segundos para la velocidad */
-}
-
-.scroll-container a {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: 700;
-    margin: 0 20px; /* Separación entre cada enlace */
-    text-transform: uppercase;
-    font-size: 0.9rem;
-}
-
-/* Animación de movimiento */
-@keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-}
-        .scroll-container:hover {
-    animation-play-state: paused;
-}
-        /* Redes Sociales css */
-        .sidebar-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Espacio entre tarjetas y redes */
-}
-
-.social-footer {
-  padding-top: 15px;
-  border-top: 1px solid #333; /* Una línea divisoria sutil queda muy profesional */
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px; /* Espacio entre los iconos */
-  margin-top: 10px;
-}
-
-.social-icons a {
-  color: #ffffff;
-  font-size: 1.5rem;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #007bff; /* Color de acento de tu marca */
-  transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el mouse */
+/* Sección derecha (donde va el artículo) */
+.articulo-completo {
+    flex: 1; /* Ocupa todo el espacio restante */
 }
         
     </style>
@@ -480,23 +304,27 @@ html, body {
             </a>
         </div>
     
+    <div class="dropdown">
+        <button class="dropbtn">RVC MUSIC ▾</button>
+        <div class="dropdown-content">
+            <a href="servicios.html">Servicios</a>
+            <a href="samples-y-drum-kit.html">Samples & Drum Kit</a> 
+        </div>
+    </div>
+    <!-- AQUÍ EMPIEZA EL DROPDOWN -->
+    <div class="dropdown">
+        <button class="dropbtn">ARTÍCULOS ▾</button>
+        <div class="dropdown-content">
+            <a href="noticias.html">Noticias</a>
+            <a href="tutoriales.html">Tutoriales</a>
+            <a href="reviews.html">Grabacion</a>
+            <a href="reportajes.html">Reportajes</a>
+        </div>
+    </div>
+    <!-- AQUÍ TERMINA EL DROPDOWN -->
+
 </nav>
     </header>
-    
-     <div class="banner-novedades">
-    <div class="contenido-banner">
-        <h1>Todo lo relacionado con el mundo del audio profesional y la producción musical</h1>
-    </div> 
-</div>
-
-<nav class="barra-navegacion-secundaria">
-     <div class="scroll-container">
-         <a href="servicios.html">Servicios</a>
-         <a href="samples-y-drum-kit.html">Samples & Drum Kit</a>
-         <a href="tutoriales.html">Tutoriales</a>
-         <a href="novedades.html">Novedades</a>
-    </div>
-</nav>
 
     <main class="contenedor-blog">
         <aside class="columna-izquierda" id="contenedor-verticales">
