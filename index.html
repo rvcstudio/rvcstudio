@@ -468,6 +468,33 @@ html, body {
   color: #007bff; /* Color de acento de tu marca */
   transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el mouse */
 }
+        /* Contenedor padre del menú */
+.dropdown-container {
+    position: relative; /* Esto es vital para que el menú se quede "anclado" al botón */
+    display: inline-block;
+}
+
+/* El menú desplegable en sí */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Justo debajo del botón */
+    left: 0;
+    min-width: 160px;
+    max-width: 90vw; /* El menú nunca será más ancho que el 90% de la pantalla */
+    z-index: 1000;
+    overflow: hidden; /* Corta contenido si se sale */
+    background: #1a1a1a;
+}
+
+/* Ajuste específico para celulares */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        left: 5px;    /* Margen pequeño a la izquierda */
+        right: 5px;   /* Margen pequeño a la derecha */
+        width: auto;  /* Se adapta al espacio disponible */
+        max-width: none;
+    }
+}
         
     </style>
     
