@@ -1,4 +1,4 @@
-// datos.js
+// datos-tutoriales.js
 const tutoriales = [
     {
         id: "compresion-de-voces",
