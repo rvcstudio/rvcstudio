@@ -1,4 +1,4 @@
-    const novedades = [
+    const samples = [
     {
         id: "free-guaracha-sample-pack",
         titulo: "FREE GUARACHA SAMPLE PACK 2026 🔥 FULL RECOPILACIÓN | Drum Kit, Loops, One Shots, Vocals, MIDI & FX",
