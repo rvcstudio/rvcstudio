@@ -412,18 +412,29 @@
         });
     }
 
-    // 4. NUEVA FUNCIÓN: Cargar columna izquierda (Lo más nuevo)
+    // 4. COLUMNA IZQUIERDA: Usando el diseño del Index
     function cargarColumnaIzquierda() {
         const contenedor = document.getElementById("contenedor-verticales");
         if (!contenedor) return;
         
-        const posts = obtenerPostsPorPagina().slice(0, 5); // Tomamos los 5 más recientes
+        // Limpiamos el contenedor manteniendo el título H2
+        const titulo = contenedor.querySelector('h2');
+        contenedor.innerHTML = "";
+        if (titulo) contenedor.appendChild(titulo);
+        
+        const posts = obtenerPostsPorPagina().slice(0, 5);
         
         posts.forEach(post => {
             const tarjeta = document.createElement('a');
-            tarjeta.className = 'tarjeta-lateral';
+            tarjeta.className = 'tarjeta-vertical'; // Clase del Index
             tarjeta.href = "tutoriales.html?post=" + post.id;
-            tarjeta.innerHTML = `<p>${post.titulo}</p>`;
+            
+            tarjeta.innerHTML = `
+                <div class="img-vertical" style="background-image: url('${post.imagenCover}');"></div>
+                <div class="info-vertical">
+                    <h3>${post.titulo}</h3>
+                </div>
+            `;
             contenedor.appendChild(tarjeta);
         });
     }
@@ -439,7 +450,7 @@
             cargarArticulo(postsActuales[0].id);
         }
         
-        cargarColumnaIzquierda(); // Llamamos a la nueva columna
+        cargarColumnaIzquierda();
     };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
