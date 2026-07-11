@@ -163,39 +163,54 @@
             .cta-google-news { flex-direction: column; text-align: center; gap: 15px; }
         }
         /* --- Estilos para el Dropdown --- */
+/* --- Estilos para el Dropdown (Versión Adaptada a tu Web) --- */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
 .dropbtn {
-  background-color: transparent; /* Ajusta esto al color de tu web */
+  background-color: transparent;
+  color: #ffffff; /* Texto blanco */
   border: none;
   cursor: pointer;
   padding: 10px;
-  font-size: 16px;
+  font-size: 0.9rem; /* Ajustado al tamaño de tu nav */
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.dropbtn:hover {
+  color: #ff0055; /* Color rosa al pasar el mouse */
 }
 
 .dropdown-content {
   position: absolute;
-  background-color: #ffffff;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  background-color: #141414; /* Fondo oscuro (coherente con tu web) */
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s;
-  z-index: 1000; /* Asegura que el menú esté siempre encima de todo */
+  z-index: 1000;
+  border-radius: 6px;
+  border: 1px solid #222; /* Borde sutil para separar del fondo */
+  margin-top: 5px; /* Espacio pequeño entre el botón y el menú */
 }
 
 .dropdown-content a {
   display: block;
-  padding: 10px;
+  padding: 12px 16px;
   text-decoration: none;
-  color: black;
+  color: #cccccc; /* Gris claro para el texto */
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: #1a1a1a;
+  color: #ff0055; /* El texto cambia a rosa al pasar el mouse */
 }
 
 /* Activación al pasar el mouse */
