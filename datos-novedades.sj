@@ -1,4 +1,5 @@
- const novedades = [
+// datos-novedades.js
+const novedades = [
     {
         id: "d-mini-behringer",
         titulo: "D MINI de Behringer: Minimoog de bolsillo con un secuenciador, filtro ladder y tres osciladores analógicos",
