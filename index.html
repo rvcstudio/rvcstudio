@@ -218,8 +218,32 @@
   opacity: 1;
   visibility: visible;
 }
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #141414;
+    border-top: 1px solid #ff0055;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.btn-aceptar {
+    background-color: #ff0055;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+        
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
 </head>
 <body>
 
@@ -570,5 +594,29 @@
         console.log(`📰 Novedades disponibles: ${novedades.length}`);
         console.log("📋 Lista de novedades:", novedades.map(n => n.id).join(', '));
     </script>
+    
+    <div id="cookie-banner" class="cookie-banner">
+    <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia. 
+       <a href="politica-privacidad.html">Más información</a>.</p>
+    <button id="accept-cookies" class="btn-aceptar">Aceptar</button>
+</div>
+    
+    <script>
+    const banner = document.getElementById('cookie-banner');
+    const btn = document.getElementById('accept-cookies');
+
+    // Verificar si el usuario ya aceptó antes
+    if (localStorage.getItem('cookiesAceptadas') === 'true') {
+        banner.style.display = 'none';
+    }
+
+    // Acción al hacer clic
+    btn.addEventListener('click', () => {
+        localStorage.setItem('cookiesAceptadas', 'true');
+        banner.style.display = 'none';
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
 </body>
 </html>
