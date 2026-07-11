@@ -360,6 +360,53 @@
 @media (max-width: 850px) {
     .contenedor-principal { grid-template-columns: 1fr; }
 }
+        /* Corrección Global para evitar el scroll horizontal */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+        /* 2. Banner de Cookies */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px;
+    box-sizing: border-box; /* Asegura que el padding no añada ancho extra */
+    border-top: 2px solid #ff0055;
+    z-index: 9999;
+    text-align: center;
+}
+        .barra-navegacion-secundaria {
+    width: 100%;
+    background-color: #ff0055;
+    padding: 10px 0;
+    overflow: hidden; /* Esto es vital: esconde lo que se sale de la pantalla */
+    white-space: nowrap; /* Evita que las palabras bajen de renglón */
+}
+
+.scroll-container {
+    display: inline-block;
+    animation: marquee 15s linear infinite; /* Ajusta los segundos para la velocidad */
+}
+
+.scroll-container a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 700;
+    margin: 0 20px; /* Separación entre cada enlace */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+/* Animación de movimiento */
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
         
     </style>
     
@@ -398,10 +445,12 @@
 </div>
 
 <nav class="barra-navegacion-secundaria">
-    <a href="servicios.html">Servicios</a>
-    <a href="samples-y-drum-kit.html">Samples & Drum Kit</a>
-    <a href="tutoriales.html">Tutoriales</a>
-    <a href="novedades.html">Novedades</a>
+     <div class="scroll-container">
+         <a href="servicios.html">Servicios</a>
+         <a href="samples-y-drum-kit.html">Samples & Drum Kit</a>
+         <a href="tutoriales.html">Tutoriales</a>
+         <a href="novedades.html">Novedades</a>
+    </div>
 </nav>
     
 <main class="contenedor-principal">
