@@ -254,6 +254,43 @@
 .tarjeta-lateral:hover {
     background: #333;
 }
+        /* Contenedor principal que une todo */
+.contenedor-blog {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* El Aside de la izquierda (el que tiene tus verticales) */
+.columna-izquierda {
+    flex: 0 0 300px; /* Ancho fijo para la columna */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilos de tus tarjetas verticales (copiados del index) */
+.tarjeta-vertical {
+    background-color: #1a1a1a;
+    border: 1px solid #252525;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+.tarjeta-vertical:hover { transform: translateY(-5px); border-color: #ff0055; }
+.img-vertical { width: 100%; height: 180px; background-size: cover; background-position: center; }
+.info-vertical { padding: 15px; }
+.info-vertical h3 { font-size: 1rem; margin-bottom: 8px; }
+
+/* Sección derecha (donde va el artículo) */
+.articulo-completo {
+    flex: 1; /* Ocupa todo el espacio restante */
+}
         
     </style>
     
