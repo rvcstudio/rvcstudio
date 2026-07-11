@@ -94,6 +94,6 @@ const novedades = [
         resumen: "En el mundo de la producción musical, la ecualización es una de las herramientas más fundamentales y poderosas para dar forma al sonido. Sin embargo, no todos los ecualizadores son iguales. Cada tipo ofrece un <strong>nivel diferente de precisión, control y coloración</strong>, y conocer sus diferencias es clave para elegir la herramienta adecuada en cada situación.",
         imagenCover: "imagenes/tipos-eq/grafico.jpg",
         archivoUrl: "tipos-eq.html"
-    },
+    }
          
 ];
