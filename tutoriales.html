@@ -241,6 +241,19 @@
     border-radius: 4px;
     cursor: pointer;
 }
+        .tarjeta-lateral {
+    display: block;
+    padding: 10px;
+    margin-bottom: 5px;
+    background: #1a1a1a;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 3px solid #ff0055;
+}
+.tarjeta-lateral:hover {
+    background: #333;
+}
         
     </style>
     
@@ -308,29 +321,14 @@
     <script src="datos-samples-y-drum-kit.js"></script>
     
 <script>
-    // 1. Esta función ahora es inteligente: detecta en qué página estás
+    // 1. Obtiene solo los tutoriales
     function obtenerPostsPorPagina() {
-        const listaTutoriales = (typeof tutoriales !== 'undefined') ? tutoriales : [];
-        const listaNovedades = (typeof novedades !== 'undefined') ? novedades : [];
-        const listaSamples = (typeof samples !== 'undefined') ? samples : [];
-        
-        // Detectamos la página actual
-        const urlActual = window.location.href;
-
-        if (urlActual.includes("tutoriales.html")) return listaTutoriales;
-        if (urlActual.includes("noticias.html")) return listaNovedades;
-        if (urlActual.includes("samples-y-drum-kit.html")) return listaSamples;
-
-        // Si no estamos en ninguna de esas, devolvemos todo (para la home o casos generales)
-        return [...listaTutoriales, ...listaNovedades, ...listaSamples];
+        return (typeof tutoriales !== 'undefined') ? tutoriales : [];
     }
 
-    // 2. Modificamos las funciones para que usen la nueva lista filtrada
+    // 2. Cargar artículo principal
     async function cargarArticulo(idPost) {
         const contenedor = document.getElementById("contenido-del-tutorial");
-        
-        // IMPORTANTE: Ahora usamos obtenerPostsPorPagina()
-        // NOTA: Para buscar el post, sí necesitamos buscar en TODO (por si el link viene de otra sección)
         const todosLosPosts = [...(typeof tutoriales !== 'undefined' ? tutoriales : []), 
                                ...(typeof novedades !== 'undefined' ? novedades : []), 
                                ...(typeof samples !== 'undefined' ? samples : [])];
@@ -354,12 +352,12 @@
         renderizarRecomendados(idPost);
     }
 
+    // 3. Renderizar Recomendados (Derecha)
     function renderizarRecomendados(idActual) {
         const contenedor = document.getElementById("contenedor-lista-recomendados");
         if (!contenedor) return;
         contenedor.innerHTML = ""; 
         
-        // Aquí usamos la lista filtrada para que solo recomiende cosas de la misma categoría
         const postsFiltrados = obtenerPostsPorPagina();
         
         postsFiltrados.filter(p => p.id !== idActual).forEach(post => {
@@ -374,6 +372,22 @@
         });
     }
 
+    // 4. NUEVA FUNCIÓN: Cargar columna izquierda (Lo más nuevo)
+    function cargarColumnaIzquierda() {
+        const contenedor = document.getElementById("contenedor-verticales");
+        if (!contenedor) return;
+        
+        const posts = obtenerPostsPorPagina().slice(0, 5); // Tomamos los 5 más recientes
+        
+        posts.forEach(post => {
+            const tarjeta = document.createElement('a');
+            tarjeta.className = 'tarjeta-lateral';
+            tarjeta.href = "tutoriales.html?post=" + post.id;
+            tarjeta.innerHTML = `<p>${post.titulo}</p>`;
+            contenedor.appendChild(tarjeta);
+        });
+    }
+
     window.onload = function() {
         const params = new URLSearchParams(window.location.search);
         const postID = params.get('post');
@@ -384,29 +398,9 @@
         } else if (postsActuales.length > 0) {
             cargarArticulo(postsActuales[0].id);
         }
+        
+        cargarColumnaIzquierda(); // Llamamos a la nueva columna
     };
-</script>
-    
-    <div id="cookie-banner" class="cookie-banner">
-    <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia. 
-       <a href="politica-privacidad.html">Más información</a>.</p>
-    <button id="accept-cookies" class="btn-aceptar">Aceptar</button>
-</div>
-    
-    <script>
-    const banner = document.getElementById('cookie-banner');
-    const btn = document.getElementById('accept-cookies');
-
-    // Verificar si el usuario ya aceptó antes
-    if (localStorage.getItem('cookiesAceptadas') === 'true') {
-        banner.style.display = 'none';
-    }
-
-    // Acción al hacer clic
-    btn.addEventListener('click', () => {
-        localStorage.setItem('cookiesAceptadas', 'true');
-        banner.style.display = 'none';
-    });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
