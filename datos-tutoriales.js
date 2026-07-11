@@ -1,5 +1,5 @@
 // datos.js
-const novedades = [
+const tutoriales = [
     {
         id: "compresion-de-voces",
         titulo: "Compresion de Voces: Tecnicas Pro para Lograr Voces Al Frente en tu Mezcla",
