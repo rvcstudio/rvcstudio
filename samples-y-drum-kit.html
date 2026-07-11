@@ -211,14 +211,35 @@
     <script src="datos-novedades.js"></script>
     <script src="datos-samples-y-drum-kit.js"></script>
     
-   <script>
-    // 2. FUNCIÓN PARA CARGAR EL POST
+ <script>
+    // 1. Esta función ahora es inteligente: detecta en qué página estás
+    function obtenerPostsPorPagina() {
+        const listaTutoriales = (typeof tutoriales !== 'undefined') ? tutoriales : [];
+        const listaNovedades = (typeof novedades !== 'undefined') ? novedades : [];
+        const listaSamples = (typeof samples !== 'undefined') ? samples : [];
+        
+        // Detectamos la página actual
+        const urlActual = window.location.href;
+
+        if (urlActual.includes("tutoriales.html")) return listaTutoriales;
+        if (urlActual.includes("noticias.html")) return listaNovedades;
+        if (urlActual.includes("samples-y-drum-kit.html")) return listaSamples;
+
+        // Si no estamos en ninguna de esas, devolvemos todo (para la home o casos generales)
+        return [...listaTutoriales, ...listaNovedades, ...listaSamples];
+    }
+
+    // 2. Modificamos las funciones para que usen la nueva lista filtrada
     async function cargarArticulo(idPost) {
-        // CORRECCIÓN: El ID correcto en tu HTML es "contenido-del-tutorial"
         const contenedor = document.getElementById("contenido-del-tutorial");
         
-        // CORRECCIÓN: Buscamos en el array 'samples'
-        const post = samples.find(n => n.id === idPost);
+        // IMPORTANTE: Ahora usamos obtenerPostsPorPagina()
+        // NOTA: Para buscar el post, sí necesitamos buscar en TODO (por si el link viene de otra sección)
+        const todosLosPosts = [...(typeof tutoriales !== 'undefined' ? tutoriales : []), 
+                               ...(typeof novedades !== 'undefined' ? novedades : []), 
+                               ...(typeof samples !== 'undefined' ? samples : [])];
+        
+        const post = todosLosPosts.find(n => n.id === idPost);
 
         if (!post) {
             contenedor.innerHTML = "<h2>Artículo no encontrado</h2>";
@@ -231,26 +252,24 @@
             contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
             document.title = post.titulo + " | RVC Studio";
         } catch (e) {
-            contenedor.innerHTML = "<h2>Error al cargar el contenido</h2>";
+            contenedor.innerHTML = "<h2>Error al cargar el tutorial</h2>";
         }
         
-        // Renderizar recomendados quitando el actual
         renderizarRecomendados(idPost);
     }
 
-    // 3. FUNCIÓN RECOMENDADOS
     function renderizarRecomendados(idActual) {
         const contenedor = document.getElementById("contenedor-lista-recomendados");
+        if (!contenedor) return;
         contenedor.innerHTML = ""; 
         
-        // CORRECCIÓN: Filtramos sobre el array 'samples'
-        samples.filter(p => p.id !== idActual).forEach(post => {
+        // Aquí usamos la lista filtrada para que solo recomiende cosas de la misma categoría
+        const postsFiltrados = obtenerPostsPorPagina();
+        
+        postsFiltrados.filter(p => p.id !== idActual).forEach(post => {
             const tarjeta = document.createElement('a');
             tarjeta.className = 'tarjeta-tutorial';
-            
-            // CORRECCIÓN: Enlace a la misma página samples-y-drum-kit.html
-            tarjeta.href = "samples-y-drum-kit.html?post=" + post.id; 
-            
+            tarjeta.href = "tutoriales.html?post=" + post.id; 
             tarjeta.innerHTML = `
                 <div class="info-tarjeta"><h3>${post.titulo}</h3></div>
                 <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
@@ -259,19 +278,18 @@
         });
     }
 
-    // 4. LÓGICA DE INICIO
     window.onload = function() {
         const params = new URLSearchParams(window.location.search);
-        const postID = params.get('post'); 
+        const postID = params.get('post');
+        const postsActuales = obtenerPostsPorPagina();
 
-        // Verificamos que 'samples' tenga datos y cargamos
         if (postID) {
             cargarArticulo(postID);
-        } else if (typeof samples !== 'undefined' && samples.length > 0) {
-            cargarArticulo(samples[0].id);
+        } else if (postsActuales.length > 0) {
+            cargarArticulo(postsActuales[0].id);
         }
     };
 </script>
-    
+     
 </body>
 </html>
