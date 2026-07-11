@@ -367,18 +367,47 @@ html, body {
     margin: 0;
     padding: 0;
 }
-        /* 2. Banner de Cookies */
+/* Estilo base para el banner de cookies */
 .cookie-banner {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #070707 !important; /* Fondo negro para que resalte */
+    color: #ffffff !important;           /* Texto blanco obligatorio */
     padding: 15px;
-    box-sizing: border-box; /* Asegura que el padding no añada ancho extra */
-    border-top: 2px solid #ff0055;
+    box-sizing: border-box;
+    border-top: 3px solid #ff0055;       /* Línea rosa superior */
     z-index: 9999;
     text-align: center;
+    display: flex;
+    flex-direction: column;              /* Apila el texto y el botón */
+    align-items: center;
+    gap: 10px;
+}
+
+/* Asegurar que el texto dentro del párrafo sea visible */
+.cookie-banner p {
+    color: #ffffff !important;
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* Asegurar que el enlace dentro del banner sea visible */
+.cookie-banner a {
+    color: #ff0055 !important;
+    text-decoration: underline;
+}
+
+/* Estilo del botón */
+.btn-aceptar {
+    background-color: #ff0055;
+    color: #ffffff;
+    border: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
 }
         .barra-navegacion-secundaria {
     width: 100%;
