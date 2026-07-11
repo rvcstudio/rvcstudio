@@ -470,5 +470,49 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
+    <script>
+    function renderizarPaginaPrincipal() {
+        // 1. Unimos todas tus bases de datos en una sola lista
+        const todosLosPosts = [...tutoriales, ...novedades, ...samples];
+        
+        const contVertical = document.getElementById('contenedor-verticales');
+        const contHorizontal = document.getElementById('contenedor-horizontales');
+
+        todosLosPosts.forEach((post, index) => {
+            // Lógica: Los 3 primeros van a la izquierda (Vertical)
+            if (index < 3) {
+                const tarjetaV = document.createElement('a');
+                tarjetaV.className = 'tarjeta-vertical';
+                tarjetaV.href = "tutoriales.html?post=" + post.id; // Ajusta si es otra página
+                tarjetaV.innerHTML = `
+                    <div class="img-vertical" style="background-image: url('${post.imagenCover}');"></div>
+                    <div class="info-vertical">
+                        <h3>${post.titulo}</h3>
+                        <p>${post.resumen || ''}</p>
+                    </div>
+                `;
+                contVertical.appendChild(tarjetaV);
+            } 
+            // El resto van a la derecha (Horizontal)
+            else {
+                const tarjetaH = document.createElement('a');
+                tarjetaH.className = 'tarjeta-tutorial';
+                tarjetaH.href = "tutoriales.html?post=" + post.id;
+                tarjetaH.innerHTML = `
+                    <div class="info-tarjeta">
+                        <h3>${post.titulo}</h3>
+                        <p>${post.resumen || ''}</p>
+                    </div>
+                    <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
+                `;
+                contHorizontal.appendChild(tarjetaH);
+            }
+        });
+    }
+
+    // Ejecutar al cargar la página
+    window.onload = renderizarPaginaPrincipal;
+</script>
+    
 </body>
 </html>
