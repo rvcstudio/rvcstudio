@@ -355,41 +355,50 @@
     <script src="datos-novedades.js"></script>
     <script src="datos-samples-y-drum-kit.js"></script>
     
-   <script>
-    // 1. LÓGICA PARA RENDERIZAR EL CATÁLOGO COMPLETO
-    window.onload = function() {
-        const contenedor = document.getElementById("contenedor-lista-tutoriales");
+ <script>
+    // Función genérica para renderizar cualquier lista
+    function renderizarLista(contenedorId, listaDatos) {
+        const contenedor = document.getElementById(contenedorId);
+        if (!contenedor) return;
         
-        if (!contenedor) {
-            console.error("❌ No se encontró el elemento con ID 'contenedor-lista-novedades'");
+        contenedor.innerHTML = ""; // Limpiar antes de llenar
+
+        if (!listaDatos || listaDatos.length === 0) {
+            contenedor.innerHTML = "<p style='padding: 20px; color: #666;'>No hay contenido disponible aquí.</p>";
             return;
         }
 
-        if (typeof novedades !== 'undefined' && novedades.length > 0) {
-            contenedor.innerHTML = ""; // Limpiar antes de renderizar
+        listaDatos.forEach(post => {
+            const tarjeta = document.createElement('a');
+            tarjeta.className = 'tarjeta-tutorial';
+            tarjeta.href = "tutoriales.html?post=" + post.id;
+            tarjeta.style.textDecoration = "none";
+            
+            tarjeta.innerHTML = `
+                <div class="info-tarjeta">
+                    <h3>${post.titulo}</h3>
+                    <p>${post.resumen}</p>
+                </div>
+                <div class="img-tarjeta" style="background-image: url('${post.imagenCover}'); background-size: cover; background-position: center;"></div>
+            `;
+            contenedor.appendChild(tarjeta);
+        });
+    }
 
-            novedades.forEach(post => {
-                // Creamos un enlace <a> para que sea clicable y amigable para SEO
-                const tarjeta = document.createElement('a');
-                tarjeta.className = 'tarjeta-tutorial';
-                tarjeta.href = "tutoriales.html?post=" + post.id; // Redirige al visor
-                
-                tarjeta.innerHTML = `
-                    <div class="info-tarjeta">
-                        <h3>${post.titulo}</h3>
-                        <p>${post.resumen}</p>
-                    </div>
-                    <div class="img-tarjeta" style="background-image: url('${post.imagenCover}'); background-size: cover; background-position: center;"></div>
-                `;
-                contenedor.appendChild(tarjeta);
-            });
-            console.log("🚀 Catálogo cargado con " + novedades.length + " artículos.");
-        } else {
-            contenedor.innerHTML = "<p>No hay artículos disponibles en este momento.</p>";
+    // Ejecutar cuando la página cargue
+    window.onload = function() {
+        // Renderizar Tutoriales (si la variable 'tutoriales' existe en algún archivo .js)
+        if (typeof tutoriales !== 'undefined') {
+            renderizarLista("contenedor-lista-tutoriales", tutoriales);
         }
-    };
 
-    console.log("✅ Motor de catálogo listo.");
+        // Renderizar Novedades (si la variable 'novedades' existe en algún archivo .js)
+        if (typeof novedades !== 'undefined') {
+            renderizarLista("contenedor-lista-novedades", novedades);
+        }
+        
+        console.log("✅ Motor de catálogo cargado correctamente.");
+    };
 </script>
     
     <div id="cookie-banner" class="cookie-banner">
