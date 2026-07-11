@@ -307,55 +307,70 @@
     <script src="datos-novedades.js"></script>
     <script src="datos-samples-y-drum-kit.js"></script>
     
-   <script>
-        // Aquí pegas todo el bloque que me pasaste antes
-        async function cargarArticulo(idPost) {
-            const contenedor = document.getElementById("contenido-del-tutorial");
-            const post = novedades.find(n => n.id === idPost);
+ <script>
+    // 1. Unificamos todos los datos que tienes en tus archivos .js
+    function obtenerTodosLosPosts() {
+        // Asegúrate de que estos nombres de variables coincidan con los 
+        // que pusiste dentro de tus archivos datos-tutoriales.js, etc.
+        const listaTutoriales = (typeof tutoriales !== 'undefined') ? tutoriales : [];
+        const listaNovedades = (typeof novedades !== 'undefined') ? novedades : [];
+        const listaSamples = (typeof samples !== 'undefined') ? samples : [];
+        
+        return [...listaTutoriales, ...listaNovedades, ...listaSamples];
+    }
 
-            if (!post) {
-                contenedor.innerHTML = "<h2>Artículo no encontrado</h2>";
-                return;
-            }
+    async function cargarArticulo(idPost) {
+        const contenedor = document.getElementById("contenido-del-tutorial");
+        const todosLosPosts = obtenerTodosLosPosts();
+        const post = todosLosPosts.find(n => n.id === idPost);
 
-            try {
-                const response = await fetch(post.archivoUrl);
-                const html = await response.text();
-                contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
-                document.title = post.titulo + " | RVC Studio";
-            } catch (e) {
-                contenedor.innerHTML = "<h2>Error al cargar el tutorial</h2>";
-            }
-            
-            renderizarRecomendados(idPost);
+        if (!post) {
+            contenedor.innerHTML = "<h2>Artículo no encontrado</h2>";
+            console.log("No se encontró el ID:", idPost);
+            return;
         }
 
-        function renderizarRecomendados(idActual) {
-            const contenedor = document.getElementById("contenedor-lista-recomendados");
-            contenedor.innerHTML = ""; 
-            novedades.filter(p => p.id !== idActual).forEach(post => {
-                const tarjeta = document.createElement('a');
-                tarjeta.className = 'tarjeta-tutorial';
-                tarjeta.href = "tutoriales.html?post=" + post.id; 
-                tarjeta.innerHTML = `
-                    <div class="info-tarjeta"><h3>${post.titulo}</h3></div>
-                    <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
-                `;
-                contenedor.appendChild(tarjeta);
-            });
+        try {
+            const response = await fetch(post.archivoUrl);
+            const html = await response.text();
+            contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
+            document.title = post.titulo + " | RVC Studio";
+        } catch (e) {
+            contenedor.innerHTML = "<h2>Error al cargar el tutorial</h2>";
         }
+        
+        renderizarRecomendados(idPost);
+    }
 
-        window.onload = function() {
-            const params = new URLSearchParams(window.location.search);
-            const postID = params.get('post');
+    function renderizarRecomendados(idActual) {
+        const contenedor = document.getElementById("contenedor-lista-recomendados");
+        contenedor.innerHTML = ""; 
+        const todos = obtenerTodosLosPosts();
+        
+        todos.filter(p => p.id !== idActual).forEach(post => {
+            const tarjeta = document.createElement('a');
+            tarjeta.className = 'tarjeta-tutorial';
+            tarjeta.href = "tutoriales.html?post=" + post.id; 
+            tarjeta.innerHTML = `
+                <div class="info-tarjeta"><h3>${post.titulo}</h3></div>
+                <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
+            `;
+            contenedor.appendChild(tarjeta);
+        });
+    }
 
-            if (postID) {
-                cargarArticulo(postID);
-            } else if (tutoriales.length > 0) {
-                cargarArticulo(tutoriales[0].id);
-            }
-        };
-    </script>
+    window.onload = function() {
+        const params = new URLSearchParams(window.location.search);
+        const postID = params.get('post');
+        const todos = obtenerTodosLosPosts();
+
+        if (postID) {
+            cargarArticulo(postID);
+        } else if (todos.length > 0) {
+            cargarArticulo(todos[0].id);
+        }
+    };
+</script>
     
     <div id="cookie-banner" class="cookie-banner">
     <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia. 
