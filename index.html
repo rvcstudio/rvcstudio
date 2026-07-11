@@ -439,6 +439,34 @@ html, body {
         .scroll-container:hover {
     animation-play-state: paused;
 }
+        /* Redes Sociales css */
+        .sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacio entre tarjetas y redes */
+}
+
+.social-footer {
+  padding-top: 15px;
+  border-top: 1px solid #333; /* Una línea divisoria sutil queda muy profesional */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px; /* Espacio entre los iconos */
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff; /* Color de acento de tu marca */
+  transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el mouse */
+}
         
     </style>
     
@@ -487,8 +515,21 @@ html, body {
     
 <main class="contenedor-principal">
     <aside class="columna-izquierda" id="contenedor-verticales">
-        <h2>Lo más nuevo</h2>
-    </aside>
+    <h2>Lo más nuevo</h2>
+    
+    <div class="card">Tarjeta 1</div>
+    <div class="card">Tarjeta 2</div>
+    <div class="card">Tarjeta 3</div>
+
+    <div class="social-footer">
+        <p>Síguenos en:</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</aside>
 
     <section class="columna-derecha">
         <h2>Tutoriales, Samples, Plantillas, Drum Kits, etc</h2>
