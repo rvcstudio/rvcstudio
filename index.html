@@ -355,109 +355,25 @@
     <script src="datos-novedades.js"></script>
     <script src="datos-samples-y-drum-kit.js"></script>
     
-    <script>
-   // Función mejorada para cargar contenido con más opciones de ruta
-        async function cargarContenido(post) {
-            const contenedor = document.getElementById("contenido-del-tutorial");
-            
-            // Si no hay archivo externo, mostrar mensaje
-            if (!post.esExterno || !post.archivoUrl) {
-                contenedor.innerHTML = `
-                    <div class="error-container">
-                        <h2>⚠️ Contenido no disponible</h2>
-                        <p>Este artículo no tiene contenido asociado.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            // Definir rutas a probar (priorizando la ruta configurada)
-            const rutas = [
-                post.archivoUrl,  // "posts/novedad.html"
-                post.archivoUrl.replace('posts/', ''),  // "novedad.html"
-                './' + post.archivoUrl,
-                'posts/' + post.id + '.html',
-                post.id + '.html'
-            ];
-
-            // Intentar cargar desde las diferentes rutas
-            for (const ruta of rutas) {
-                try {
-                    console.log(`🔄 Intentando cargar: ${ruta}`);
-                    const response = await fetch(ruta);
-                    
-                    if (response.ok) {
-                        const html = await response.text();
-                        contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
-                        console.log(`✅ Cargado exitosamente desde: ${ruta}`);
-                        return;
-                    }
-                } catch (error) {
-                    console.warn(`❌ Falló ruta: ${ruta}`, error.message);
-                }
-            }
-
-            // Si todas las rutas fallaron, mostrar error detallado
-            contenedor.innerHTML = `
-                <div class="error-container">
-                    <h2>❌ Error al cargar el artículo</h2>
-                    <p>No hemos podido localizar el archivo del artículo en tu repositorio.</p>
-                    <div class="debug-info">
-                        <strong>🔍 Verifica en tu GitHub:</strong><br>
-                        1. Que creaste una carpeta llamada <code>posts</code> en tu repositorio principal.<br>
-                        2. Que dentro de esa carpeta subiste el archivo <code>${post.id}.html</code>.<br>
-                        3. Que el nombre del archivo coincide exactamente (incluye mayúsculas/minúsculas).<br>
-                        4. Rutas intentadas:
-                        <ul style="margin-top: 10px; list-style: none; padding: 0;">
-                            ${rutas.map(r => `<li style="padding: 4px 0; color: #888;">• ${r}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <button class="btn-retry" onclick="location.reload()">🔄 Intentar de nuevo</button>
-                </div>
-            `;
+   <script>
+    // 1. LÓGICA PARA RENDERIZAR EL CATÁLOGO COMPLETO
+    window.onload = function() {
+        const contenedor = document.getElementById("contenedor-lista-novedades");
+        
+        if (!contenedor) {
+            console.error("❌ No se encontró el elemento con ID 'contenedor-lista-novedades'");
+            return;
         }
 
-        // FUNCIÓN QUE RENDERIZA EL ARTÍCULO Y SUS RECOMENDADOS
-        function mostrarNovedad(id) {
-            const postSeleccionado = novedades.find(p => p.id === id);
-            if (!postSeleccionado) {
-                console.error("❌ Novedad no encontrada con ID:", id);
-                return;
-            }
+        if (typeof novedades !== 'undefined' && novedades.length > 0) {
+            contenedor.innerHTML = ""; // Limpiar antes de renderizar
 
-            // Actualizar título de la página
-            document.title = postSeleccionado.titulo + " | Record Very Clean";
-
-            // Cargar el contenido del artículo
-            cargarContenido(postSeleccionado);
-
-            // Renderizar la sección de recomendados
-            renderizarRecomendados(id);
-
-            // Scroll suave al inicio
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Función para renderizar los artículos recomendados
-        function renderizarRecomendados(idActual) {
-            const restantes = novedades.filter(p => p.id !== idActual);
-            const contenedor = document.getElementById("contenedor-lista-recomendados");
-            contenedor.innerHTML = "";
-
-            if (restantes.length === 0) {
-                contenedor.innerHTML = `
-                    <div style="text-align: center; padding: 30px; color: #666;">
-                        <p>No hay más novedades disponibles en este momento.</p>
-                        <p style="font-size: 0.8rem; margin-top: 10px;">Vuelve pronto para más contenido.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            restantes.forEach(post => {
-                const tarjeta = document.createElement('div');
+            novedades.forEach(post => {
+                // Creamos un enlace <a> para que sea clicable y amigable para SEO
+                const tarjeta = document.createElement('a');
                 tarjeta.className = 'tarjeta-tutorial';
-                tarjeta.onclick = () => mostrarNovedad(post.id);
+                tarjeta.href = "tutoriales.html?post=" + post.id; // Redirige al visor
+                
                 tarjeta.innerHTML = `
                     <div class="info-tarjeta">
                         <h3>${post.titulo}</h3>
@@ -467,31 +383,14 @@
                 `;
                 contenedor.appendChild(tarjeta);
             });
+            console.log("🚀 Catálogo cargado con " + novedades.length + " artículos.");
+        } else {
+            contenedor.innerHTML = "<p>No hay artículos disponibles en este momento.</p>";
         }
+    };
 
-        // LÓGICA AUTOMÁTICA EN LA CARGA DE LA PÁGINA
-        window.onload = function() {
-            if (novedades.length > 0) {
-                // Carga el último elemento del array
-                const ultimaNovedad = novedades[novedades.length - 1];
-                mostrarNovedad(ultimaNovedad.id);
-            } else {
-                document.getElementById("contenido-del-tutorial").innerHTML = `
-                    <div style="text-align: center; padding: 60px 20px;">
-                        <h2 style="color: #ff0055;">No hay novedades disponibles</h2>
-                        <p style="color: #888; margin-top: 15px;">Pronto añadiremos nuevo contenido.</p>
-                    </div>
-                `;
-            }
-        };
-
-        // Exponer la función globalmente
-        window.mostrarNovedad = mostrarNovedad;
-
-        console.log("🚀 Motor de novedades cargado correctamente");
-        console.log(`📰 Novedades disponibles: ${novedades.length}`);
-        console.log("📋 Lista de novedades:", novedades.map(n => n.id).join(', '));
-    </script>
+    console.log("✅ Motor de catálogo listo.");
+</script>
     
     <div id="cookie-banner" class="cookie-banner">
     <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia. 
