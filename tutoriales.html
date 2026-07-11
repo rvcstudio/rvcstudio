@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ultimas noticias en el mundo del audio y la produccion musical</title>
@@ -291,6 +292,34 @@
 .articulo-completo {
     flex: 1; /* Ocupa todo el espacio restante */
 }
+            /* Redes Sociales css */
+        .sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacio entre tarjetas y redes */
+}
+
+.social-footer {
+  padding-top: 15px;
+  border-top: 1px solid #333; /* Una línea divisoria sutil queda muy profesional */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px; /* Espacio entre los iconos */
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff; /* Color de acento de tu marca */
+  transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el mouse */
+}
         
     </style>
     
@@ -327,9 +356,18 @@
     </header>
 
     <main class="contenedor-blog">
-        <aside class="columna-izquierda" id="contenedor-verticales">
+    <aside class="columna-izquierda" id="contenedor-verticales">
     <h2>Lo más nuevo</h2>
-    </aside>
+      
+        <div class="social-footer">
+          <p>Síguenos en:</p>
+            <div class="social-icons">
+              <a href="imagenes/images-3.jpg"><i class="fab fa-instagram"></i></a>
+              <a href="imagenes/descarga-2.jpg"><i class="fab fa-youtube"></i></a>
+              <a href="imagenes/fb.png"><i class="fab fa-facebook"></i></a>
+        </div>
+    </div>
+</aside>
         
         <section id="vista-lector-articulo" class="articulo-completo">
             <div id="contenido-del-tutorial">
