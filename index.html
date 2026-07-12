@@ -241,68 +241,6 @@
         width: auto;
     }
 
-    /* Asegura que el botón de menú no sea gigante */
-    .dropbtn {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
-}
-        /* --- Estilos para el Dropdown --- */
-/* --- Estilos para el Dropdown (Versión Adaptada a tu Web) --- */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropbtn {
-  background-color: transparent;
-  color: #ffffff; /* Texto blanco */
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  font-size: 0.9rem; /* Ajustado al tamaño de tu nav */
-  font-weight: 500;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-.dropbtn:hover {
-  color: #ff0055; /* Color rosa al pasar el mouse */
-}
-
-.dropdown-content {
-  position: absolute;
-  background-color: #141414; /* Fondo oscuro (coherente con tu web) */
-  min-width: 180px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s;
-  z-index: 1000;
-  border-radius: 6px;
-  border: 1px solid #222; /* Borde sutil para separar del fondo */
-  margin-top: 5px; /* Espacio pequeño entre el botón y el menú */
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 12px 16px;
-  text-decoration: none;
-  color: #cccccc; /* Gris claro para el texto */
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-}
-
-.dropdown-content a:hover {
-  background-color: #1a1a1a;
-  color: #ff0055; /* El texto cambia a rosa al pasar el mouse */
-}
-
-/* Activación al pasar el mouse */
-.dropdown:hover .dropdown-content {
-  opacity: 1;
-  visibility: visible;
-}
 .cookie-banner {
     position: fixed;
     bottom: 0;
@@ -468,42 +406,56 @@ html, body {
   color: #007bff; /* Color de acento de tu marca */
   transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el mouse */
 }
-/* 1. Contenedor padre */
-.dropdown-container {
-    position: relative; 
-    display: inline-block;
+    /* --- Bloque Único y Limpio --- */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-/* 2. El menú desplegable */
-.dropdown-menu {
-    position: absolute;
-    /* Cambiamos el top y left para que se despliegue a la derecha del botón */
-    top: 0; 
-    left: 100%; 
-    min-width: 160px;
-    z-index: 1000;
-    background: #1a1a1a;
-    /* Evita que el menú crezca infinito */
-    max-width: 250px; 
+.dropbtn {
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
-/* 3. Ajuste para Móvil (Pantallas pequeñas) */
+.dropdown-content {
+  position: absolute;
+  top: 100%; /* Despliega abajo del botón */
+  left: 0;   /* Alineado a la izquierda */
+  background-color: #141414;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+  border-radius: 6px;
+  border: 1px solid #222;
+}
+
+/* Efecto hover para mostrar */
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Ajuste para Móvil (Sin conflictos) --- */
 @media (max-width: 768px) {
-    .dropdown-container {
-        /* Para que el menú se despliegue hacia abajo en móvil */
-        display: block;
-    }
-
-    .dropdown-menu {
-        position: static; /* Sale del flujo absoluto para que no se desborde */
-        left: auto;
-        top: auto;
-        width: 100%; /* Ocupa todo el ancho disponible */
-        max-width: 100%;
-        background: #2a2a2a; /* Un color ligeramente distinto para diferenciar */
-    }
+  .dropdown-content {
+    position: absolute; /* Mantiene la posición */
+    width: 200px;       /* Ancho fijo para móvil */
+    left: 0;            /* Se mantiene a la izquierda */
+    right: auto;        /* Evita que se estire fuera de pantalla */
+    max-width: 90vw;    /* Nunca será más ancho que la pantalla */
+  }
 }
-        
+       
     </style>
     
 </head>
