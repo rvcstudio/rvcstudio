@@ -62,7 +62,7 @@ body {
     gap: 20px;
     align-items: center;
     flex-wrap: wrap;
-    order: 1; /* Menú primero (izquierda) */
+    order: 1;
 }
 
 .nav-menu a {
@@ -82,8 +82,8 @@ body {
 
 /* LOGO A LA DERECHA */
 .logo-nav {
-    order: 2; /* Logo después (derecha) */
-    margin-left: auto; /* Empuja el logo a la derecha */
+    order: 2;
+    margin-left: auto;
 }
 
 .logo-nav img { 
@@ -126,8 +126,6 @@ body {
     border-radius: 6px;
     border: 1px solid #222;
     margin-top: 5px;
-    
-    /* ALINEAR A LA IZQUIERDA DEL BOTÓN */
     left: 0;
     right: auto;
 }
@@ -146,13 +144,12 @@ body {
     color: #ff0055;
 }
 
-/* Activación al pasar el mouse */
 .dropdown:hover .dropdown-content {
     opacity: 1;
     visibility: visible;
 }
 
-/* --- BARRA PROMOCIONAL ROSA (Cinta giratoria) --- */
+/* --- BARRA PROMOCIONAL ROSA (Cinta giratoria CENTRADA) --- */
 .barra-navegacion-secundaria {
     width: 100%;
     background-color: #ff0055;
@@ -160,7 +157,7 @@ body {
     overflow: hidden;
     white-space: nowrap;
     box-shadow: 0 2px 10px rgba(255, 0, 85, 0.3);
-    position: relative;
+    text-align: center; /* <--- CENTRADO */
 }
 
 .scroll-container {
@@ -182,13 +179,11 @@ body {
     opacity: 0.7;
 }
 
-/* Animación de cinta giratoria (movimiento hacia la izquierda) */
 @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
-/* Pausar al pasar el mouse */
 .scroll-container:hover {
     animation-play-state: paused;
 }
@@ -296,7 +291,7 @@ body {
     gap: 20px;
 }
 
-/* --- TARJETAS HORIZONTALES (Lista de tutoriales) --- */
+/* --- TARJETAS HORIZONTALES --- */
 .lista-tutoriales {
     display: flex;
     flex-direction: column;
@@ -355,7 +350,7 @@ body {
     background-position: center;
 }
 
-/* --- CONTENEDOR DE ARTÍCULO --- */
+/* --- ARTÍCULO --- */
 .articulo-completo {
     margin-bottom: 40px;
     width: 100%;
@@ -712,7 +707,6 @@ body {
 
 /* --- RESPONSIVE (MÓVIL) --- */
 @media (max-width: 768px) {
-    /* CABECERA: Logo a la derecha, Menú a la izquierda */
     .cabecera-novedades {
         padding: 10px 15px;
         flex-direction: row;
@@ -737,7 +731,6 @@ body {
         max-width: 90vw;
     }
 
-    /* BANNER */
     .banner-novedades {
         height: 200px;
     }
@@ -746,7 +739,6 @@ body {
         font-size: 1.3rem;
     }
 
-    /* BARRA PROMOCIONAL (Cinta giratoria en móvil) */
     .barra-navegacion-secundaria {
         padding: 10px 0;
     }
@@ -760,7 +752,6 @@ body {
         margin: 0 15px;
     }
 
-    /* CONTENEDOR PRINCIPAL (Una columna en móvil) */
     .contenedor-principal {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -768,7 +759,6 @@ body {
         margin: 20px auto;
     }
 
-    /* Tarjetas verticales se convierten en horizontales en móvil */
     .tarjeta-vertical {
         display: flex;
         align-items: center;
@@ -794,7 +784,6 @@ body {
         -webkit-line-clamp: 1;
     }
 
-    /* Tarjetas horizontales en móvil */
     .tarjeta-tutorial {
         flex-direction: column;
     }
@@ -813,7 +802,6 @@ body {
         font-size: 1rem;
     }
 
-    /* Redes Sociales en móvil */
     .social-icons {
         justify-content: center;
     }
@@ -822,7 +810,6 @@ body {
         font-size: 1.8rem;
     }
 
-    /* Footer */
     .links-legales {
         gap: 12px;
         flex-direction: column;
@@ -833,7 +820,6 @@ body {
         font-size: 0.8rem;
     }
 
-    /* Cookie banner */
     .cookie-banner {
         padding: 12px;
     }
@@ -847,7 +833,6 @@ body {
         font-size: 0.8rem;
     }
 
-    /* CTA Google News */
     .cta-google-news {
         flex-direction: column;
         text-align: center;
@@ -860,7 +845,6 @@ body {
         justify-content: center;
     }
 
-    /* Artículo */
     .articulo-cargado h1 {
         font-size: 1.5rem;
     }
@@ -880,7 +864,6 @@ body {
     }
 }
 
-/* --- RESPONSIVE PARA PANTALLAS MUY PEQUEÑAS --- */
 @media (max-width: 480px) {
     .cabecera-novedades {
         padding: 8px 10px;
@@ -929,8 +912,7 @@ body {
     .info-vertical p {
         font-size: 0.7rem;
     }
-}
-        
+}     
     </style>
     
 </head>
