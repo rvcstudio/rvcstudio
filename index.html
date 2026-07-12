@@ -241,14 +241,8 @@
         width: auto;
     }
 
-    /* Asegura que el botón de menú no sea gigante */
-    .dropbtn {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
-}
-        /* --- Estilos para el Dropdown --- */
-/* --- Estilos para el Dropdown (Versión Adaptada a tu Web) --- */
+    /* --- Bloque Menu Único y Limpio --- */
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -256,23 +250,21 @@
 
 .dropbtn {
   background-color: transparent;
-  color: #ffffff; /* Texto blanco */
+  color: #ffffff;
   border: none;
   cursor: pointer;
   padding: 10px;
-  font-size: 0.9rem; /* Ajustado al tamaño de tu nav */
+  font-size: 0.9rem;
   font-weight: 500;
   text-transform: uppercase;
   transition: color 0.3s ease;
 }
 
-.dropbtn:hover {
-  color: #ff0055; /* Color rosa al pasar el mouse */
-}
-
 .dropdown-content {
   position: absolute;
-  background-color: #141414; /* Fondo oscuro (coherente con tu web) */
+  top: 100%; 
+  left: 0; /* Por defecto abre hacia la derecha */
+  background-color: #141414;
   min-width: 180px;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
   opacity: 0;
@@ -280,29 +272,39 @@
   transition: opacity 0.3s ease, visibility 0.3s;
   z-index: 1000;
   border-radius: 6px;
-  border: 1px solid #222; /* Borde sutil para separar del fondo */
-  margin-top: 5px; /* Espacio pequeño entre el botón y el menú */
+  border: 1px solid #222;
+  margin-top: 5px;
+  
+  /* ESTA ES LA CLAVE PARA EL DESBORDE: */
+  max-width: 95vw; /* Nunca supera el ancho de la pantalla */
 }
 
-.dropdown-content a {
-  display: block;
-  padding: 12px 16px;
-  text-decoration: none;
-  color: #cccccc; /* Gris claro para el texto */
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+/* Si el menú toca el borde derecho, cambiamos la alineación */
+/* Esto hace que el menú se "estire" hacia la izquierda si no hay espacio a la derecha */
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-content {
+        left: auto;
+        right: 0; 
+    }
 }
 
-.dropdown-content a:hover {
-  background-color: #1a1a1a;
-  color: #ff0055; /* El texto cambia a rosa al pasar el mouse */
-}
-
-/* Activación al pasar el mouse */
+/* Efecto hover */
 .dropdown:hover .dropdown-content {
   opacity: 1;
   visibility: visible;
 }
+
+/* --- Ajuste para Móvil (Android) --- */
+@media (max-width: 768px) {
+  .dropdown-content {
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    /* Evita que sea más grande que la altura de la pantalla del móvil */
+    max-height: 80vh; 
+    overflow-y: auto; 
+  }
 .cookie-banner {
     position: fixed;
     bottom: 0;
