@@ -356,18 +356,9 @@
     </header>
 
     <main class="contenedor-blog">
-         <aside class="columna-izquierda" id="contenedor-verticales">
-         <h2>Lo más nuevo</h2>
-      
-        <div class="social-footer">
-          <p>Síguenos en:</p>
-            <div class="social-icons">
-              <a href="imagenes/images-3.jpg"><i class="fab fa-instagram"></i></a>
-              <a href="imagenes/descarga-2.jpg"><i class="fab fa-youtube"></i></a>
-              <a href="imagenes/fb.png"><i class="fab fa-facebook"></i></a>
-        </div>
-    </div>
-</aside>
+          <aside class="columna-izquierda" id="contenedor-verticales">
+                <h2>Lo más nuevo</h2>
+          </aside>
         
         <section id="vista-lector-articulo" class="articulo-completo">
             <div id="contenido-del-tutorial">
@@ -448,6 +439,19 @@
             `;
             contenedor.appendChild(tarjeta);
         });
+        const redesSociales = document.createElement('div');
+        redesSociales.className = 'social-footer';
+        redesSociales.innerHTML = `
+            <p>Síguenos en:</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/r.v.c_studio" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@rvc_studio" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61590301659913" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+        `;
+        contenedor.appendChild(redesSociales);
+        
+    }
     }
 
     // 4. COLUMNA IZQUIERDA: Usando el diseño del Index
