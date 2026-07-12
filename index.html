@@ -25,7 +25,7 @@
     height: 350px;
     /* Degradado oscuro para que el texto sea legible sobre la imagen */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url('imagenes/backgroun.jpg');
+                url('imagenes/banner.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -241,6 +241,68 @@
         width: auto;
     }
 
+    /* Asegura que el botón de menú no sea gigante */
+    .dropbtn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+        /* --- Estilos para el Dropdown --- */
+/* --- Estilos para el Dropdown (Versión Adaptada a tu Web) --- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: #ffffff; /* Texto blanco */
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 0.9rem; /* Ajustado al tamaño de tu nav */
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.dropbtn:hover {
+  color: #ff0055; /* Color rosa al pasar el mouse */
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #141414; /* Fondo oscuro (coherente con tu web) */
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+  z-index: 1000;
+  border-radius: 6px;
+  border: 1px solid #222; /* Borde sutil para separar del fondo */
+  margin-top: 5px; /* Espacio pequeño entre el botón y el menú */
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #cccccc; /* Gris claro para el texto */
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #1a1a1a;
+  color: #ff0055; /* El texto cambia a rosa al pasar el mouse */
+}
+
+/* Activación al pasar el mouse */
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+}
 .cookie-banner {
     position: fixed;
     bottom: 0;
@@ -406,56 +468,34 @@ html, body {
   color: #007bff; /* Color de acento de tu marca */
   transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el mouse */
 }
-    /* --- Bloque Único y Limpio --- */
-
-.dropdown {
-  position: relative;
-  display: inline-block;
+        /* Contenedor padre del menú */
+.dropdown-container {
+    position: relative; /* Esto es vital para que el menú se quede "anclado" al botón */
+    display: inline-block;
 }
 
-.dropbtn {
-  background-color: transparent;
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-transform: uppercase;
+/* El menú desplegable en sí */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Justo debajo del botón */
+    left: 0;
+    min-width: 160px;
+    max-width: 90vw; /* El menú nunca será más ancho que el 90% de la pantalla */
+    z-index: 1000;
+    overflow: hidden; /* Corta contenido si se sale */
+    background: #1a1a1a;
 }
 
-.dropdown-content {
-  position: absolute;
-  top: 100%; /* Despliega abajo del botón */
-  left: 0;   /* Alineado a la izquierda */
-  background-color: #141414;
-  min-width: 180px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  z-index: 1000;
-  border-radius: 6px;
-  border: 1px solid #222;
-}
-
-/* Efecto hover para mostrar */
-.dropdown:hover .dropdown-content {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* --- Ajuste para Móvil (Sin conflictos) --- */
+/* Ajuste específico para celulares */
 @media (max-width: 768px) {
-  .dropdown-content {
-    position: absolute; /* Mantiene la posición */
-    width: 200px;       /* Ancho fijo para móvil */
-    left: 0;            /* Se mantiene a la izquierda */
-    right: auto;        /* Evita que se estire fuera de pantalla */
-    max-width: 90vw;    /* Nunca será más ancho que la pantalla */
-  }
+    .dropdown-menu {
+        left: 5px;    /* Margen pequeño a la izquierda */
+        right: 5px;   /* Margen pequeño a la derecha */
+        width: auto;  /* Se adapta al espacio disponible */
+        max-width: none;
+    }
 }
-       
+        
     </style>
     
 </head>
