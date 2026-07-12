@@ -235,74 +235,116 @@
         align-items: center;
     }
 
-  /* Ajuste de logo para móvil */
-    .logo-nav a img {
-        height: 35px; /* Ajusta este valor al tamaño que desees */
-        width: auto;
-    }
-
-    /* Asegura que el botón de menú no sea gigante */
-    .dropbtn {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-    }
+  /* HEADER con logo y menú alineados a la izquierda */
+header {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: flex-start; /* Todo a la izquierda */
+    padding: 10px 20px;
+    background-color: #0a0a0a; /* O el color de tu header */
 }
-        /* --- Estilos para el Dropdown --- */
-/* --- Estilos para el Dropdown (Versión Adaptada a tu Web) --- */
+
+/* Logo a la izquierda */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 30px; /* Espacio entre logo y menú */
+}
+
+.logo img {
+    height: 40px; /* Ajusta según tu logo */
+    width: auto;
+}
+
+/* Contenedor del menú - al lado del logo */
+.nav-menu-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos del dropdown (ajustados) */
 .dropdown {
-  position: relative;
-  display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .dropbtn {
-  background-color: transparent;
-  color: #ffffff; /* Texto blanco */
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  font-size: 0.9rem; /* Ajustado al tamaño de tu nav */
-  font-weight: 500;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
 .dropbtn:hover {
-  color: #ff0055; /* Color rosa al pasar el mouse */
+    color: #ff0055;
 }
 
 .dropdown-content {
-  position: absolute;
-  background-color: #141414; /* Fondo oscuro (coherente con tu web) */
-  min-width: 180px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s;
-  z-index: 1000;
-  border-radius: 6px;
-  border: 1px solid #222; /* Borde sutil para separar del fondo */
-  margin-top: 5px; /* Espacio pequeño entre el botón y el menú */
+    position: absolute;
+    background-color: #141414;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+    z-index: 1000;
+    border-radius: 6px;
+    border: 1px solid #222;
+    margin-top: 5px;
+    
+    /* IMPORTANTE: Alinear a la izquierda del botón */
+    left: 0;
+    right: auto;
 }
 
 .dropdown-content a {
-  display: block;
-  padding: 12px 16px;
-  text-decoration: none;
-  color: #cccccc; /* Gris claro para el texto */
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #cccccc;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .dropdown-content a:hover {
-  background-color: #1a1a1a;
-  color: #ff0055; /* El texto cambia a rosa al pasar el mouse */
+    background-color: #1a1a1a;
+    color: #ff0055;
 }
 
-/* Activación al pasar el mouse */
+/* Mostrar menú al pasar el mouse */
 .dropdown:hover .dropdown-content {
-  opacity: 1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
+
+/* --- Ajustes para móvil --- */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap; /* Permite que logo y menú se acomoden */
+        padding: 10px;
+    }
+    
+    .logo {
+        margin-right: 15px;
+    }
+    
+    .logo img {
+        height: 30px;
+    }
+    
+    .dropdown-content {
+        left: 0;
+        right: auto;
+        width: 100%;
+        max-width: 300px; /* Ancho máximo en móvil */
+        max-height: 80vh;
+        overflow-y: auto;
+    }
 .cookie-banner {
     position: fixed;
     bottom: 0;
