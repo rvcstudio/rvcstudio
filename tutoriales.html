@@ -18,7 +18,8 @@
     </script>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415" crossorigin="anonymous"></script>
-  <style>
+    
+    <style>
 /* --- ESTILOS GENERALES Y RESET --- */
 * { 
     box-sizing: border-box; 
@@ -930,44 +931,66 @@ body {
         font-size: 0.8rem;
     }
 }  
-    </style>
-    
+   </style>
 </head>
 <body>
 
+    <!-- ===== CABECERA ===== -->
     <header class="cabecera-tutriales">
         <div class="logo-nav">
             <a href="index.html">
                 <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
             </a>
         </div>
-    
-    <div class="dropdown">
-        <button class="dropbtn">RVC MUSIC ▾</button>
-        <div class="dropdown-content">
-            <a href="servicios.html">Servicios</a>
-            <a href="samples-y-drum-kit.html">Samples & Drum Kit</a> 
+        
+        <div class="nav-menu-container">
+            <div class="dropdown">
+                <button class="dropbtn">RVC MUSIC ▾</button>
+                <div class="dropdown-content">
+                    <a href="servicios.html">Servicios</a>
+                    <a href="samples-y-drum-kit.html">Samples & Drum Kit</a> 
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="dropbtn">ARTÍCULOS ▾</button>
+                <div class="dropdown-content">
+                    <a href="noticias.html">Noticias</a>
+                    <a href="tutoriales.html">Tutoriales</a>
+                    <a href="reviews.html">Grabacion</a>
+                    <a href="reportajes.html">Reportajes</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- AQUÍ EMPIEZA EL DROPDOWN -->
-    <div class="dropdown">
-        <button class="dropbtn">ARTÍCULOS ▾</button>
-        <div class="dropdown-content">
-            <a href="noticias.html">Noticias</a>
-            <a href="tutoriales.html">Tutoriales</a>
-            <a href="reviews.html">Grabacion</a>
-            <a href="reportajes.html">Reportajes</a>
-        </div>
-    </div>
-    <!-- AQUÍ TERMINA EL DROPDOWN -->
-
-</nav>
     </header>
 
+    <!-- ===== BANNER ===== -->
+    <section class="banner-tutoriales">
+        <div class="contenido-banner-tutoriales">
+            <h1>Tutoriales</h1>
+        </div>
+    </section>
+
+    <!-- ===== BARRA PROMOCIONAL ROSA ===== -->
+    <div class="barra-navegacion-secundaria">
+        <div class="scroll-container">
+            <a href="index.html">🔥 Inicio</a>
+            <a href="samples-y-drum-kit.html">📀 Samples & Drum Kit</a>
+            <a href="novedades.html">📰 Novedades</a>
+            <a href="contacto.html">📧 Contacto</a>
+            <!-- Repetido para efecto infinito -->
+            <a href="index.html">🔥 Inicio</a>
+            <a href="samples-y-drum-kit.html">📀 Samples & Drum Kit</a>
+            <a href="novedades.html">📰 Novedades</a>
+            <a href="contacto.html">📧 Contacto</a>
+        </div>
+    </div>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
     <main class="contenedor-blog">
-          <aside class="columna-izquierda" id="contenedor-verticales">
-                <h2>Lo más nuevo</h2>
-          </aside>
+        <aside class="columna-izquierda" id="contenedor-verticales">
+            <h2>Lo más nuevo</h2>
+        </aside>
         
         <section id="vista-lector-articulo" class="articulo-completo">
             <div id="contenido-del-tutorial">
@@ -977,12 +1000,12 @@ body {
             <div id="modulo-recomendados" class="seccion-recomendados">
                 <h4>Otros Tutoriales que te pueden interesar</h4>
                 <div id="contenedor-lista-recomendados" class="lista-tutoriales">
-                    </div>
+                </div>
             </div>
         </section>
-
     </main>
 
+    <!-- ===== FOOTER ===== -->
     <footer class="footer-legal">
         <div class="links-legales">
             <a href="terminos-condiciones.html">Terminos y Condiciones</a>
@@ -998,111 +1021,111 @@ body {
     <script src="datos-novedades.js"></script>
     <script src="datos-samples-y-drum-kit.js"></script>
     
-<script>
-    // 1. Obtiene solo los tutoriales
-    function obtenerPostsPorPagina() {
-        return (typeof tutoriales !== 'undefined') ? tutoriales : [];
-    }
-
-    // 2. Cargar artículo principal
-    async function cargarArticulo(idPost) {
-        const contenedor = document.getElementById("contenido-del-tutorial");
-        const todosLosPosts = [...(typeof tutoriales !== 'undefined' ? tutoriales : []), 
-                               ...(typeof novedades !== 'undefined' ? novedades : []), 
-                               ...(typeof samples !== 'undefined' ? samples : [])];
-        
-        const post = todosLosPosts.find(n => n.id === idPost);
-
-        if (!post) {
-            contenedor.innerHTML = "<h2>Artículo no encontrado</h2>";
-            return;
+    <script>
+        // 1. Obtiene solo los tutoriales
+        function obtenerPostsPorPagina() {
+            return (typeof tutoriales !== 'undefined') ? tutoriales : [];
         }
 
-        try {
-            const response = await fetch(post.archivoUrl);
-            const html = await response.text();
-            contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
-            document.title = post.titulo + " | RVC Studio";
-        } catch (e) {
-            contenedor.innerHTML = "<h2>Error al cargar el tutorial</h2>";
-        }
-        
-        renderizarRecomendados(idPost);
-    }
-
-    // 3. Renderizar Recomendados (Derecha)
-    function renderizarRecomendados(idActual) {
-        const contenedor = document.getElementById("contenedor-lista-recomendados");
-        if (!contenedor) return;
-        contenedor.innerHTML = ""; 
-        
-        const postsFiltrados = obtenerPostsPorPagina();
-        
-        postsFiltrados.filter(p => p.id !== idActual).forEach(post => {
-            const tarjeta = document.createElement('a');
-            tarjeta.className = 'tarjeta-tutorial';
-            tarjeta.href = "tutoriales.html?post=" + post.id; 
-            tarjeta.innerHTML = `
-                <div class="info-tarjeta"><h3>${post.titulo}</h3></div>
-                <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
-            `;
-            contenedor.appendChild(tarjeta);
-        });
-        const redesSociales = document.createElement('div');
-        redesSociales.className = 'social-footer';
-        redesSociales.innerHTML = `
-            <p>Síguenos en:</p>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/r.v.c_studio" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@rvc_studio" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61590301659913" target="_blank"><i class="fab fa-facebook"></i></a>
-            </div>
-        `;
-        contenedor.appendChild(redesSociales);       
-    }
-
-    // 4. COLUMNA IZQUIERDA: Usando el diseño del Index
-    function cargarColumnaIzquierda() {
-        const contenedor = document.getElementById("contenedor-verticales");
-        if (!contenedor) return;
-        
-        // Limpiamos el contenedor manteniendo el título H2
-        const titulo = contenedor.querySelector('h2');
-        contenedor.innerHTML = "";
-        if (titulo) contenedor.appendChild(titulo);
-        
-        const posts = obtenerPostsPorPagina().slice(0, 5);
-        
-        posts.forEach(post => {
-            const tarjeta = document.createElement('a');
-            tarjeta.className = 'tarjeta-vertical'; // Clase del Index
-            tarjeta.href = "tutoriales.html?post=" + post.id;
+        // 2. Cargar artículo principal
+        async function cargarArticulo(idPost) {
+            const contenedor = document.getElementById("contenido-del-tutorial");
+            const todosLosPosts = [...(typeof tutoriales !== 'undefined' ? tutoriales : []), 
+                                   ...(typeof novedades !== 'undefined' ? novedades : []), 
+                                   ...(typeof samples !== 'undefined' ? samples : [])];
             
-            tarjeta.innerHTML = `
-                <div class="img-vertical" style="background-image: url('${post.imagenCover}');"></div>
-                <div class="info-vertical">
-                    <h3>${post.titulo}</h3>
+            const post = todosLosPosts.find(n => n.id === idPost);
+
+            if (!post) {
+                contenedor.innerHTML = "<h2>Artículo no encontrado</h2>";
+                return;
+            }
+
+            try {
+                const response = await fetch(post.archivoUrl);
+                const html = await response.text();
+                contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
+                document.title = post.titulo + " | RVC Studio";
+            } catch (e) {
+                contenedor.innerHTML = "<h2>Error al cargar el tutorial</h2>";
+            }
+            
+            renderizarRecomendados(idPost);
+        }
+
+        // 3. Renderizar Recomendados (Derecha)
+        function renderizarRecomendados(idActual) {
+            const contenedor = document.getElementById("contenedor-lista-recomendados");
+            if (!contenedor) return;
+            contenedor.innerHTML = ""; 
+            
+            const postsFiltrados = obtenerPostsPorPagina();
+            
+            postsFiltrados.filter(p => p.id !== idActual).forEach(post => {
+                const tarjeta = document.createElement('a');
+                tarjeta.className = 'tarjeta-tutorial';
+                tarjeta.href = "tutoriales.html?post=" + post.id; 
+                tarjeta.innerHTML = `
+                    <div class="info-tarjeta"><h3>${post.titulo}</h3></div>
+                    <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
+                `;
+                contenedor.appendChild(tarjeta);
+            });
+            
+            const redesSociales = document.createElement('div');
+            redesSociales.className = 'social-footer';
+            redesSociales.innerHTML = `
+                <p>Síguenos en:</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/r.v.c_studio" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@rvc_studio" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61590301659913" target="_blank"><i class="fab fa-facebook"></i></a>
                 </div>
             `;
-            contenedor.appendChild(tarjeta);
-        });
-    }
-
-    window.onload = function() {
-        const params = new URLSearchParams(window.location.search);
-        const postID = params.get('post');
-        const postsActuales = obtenerPostsPorPagina();
-
-        if (postID) {
-            cargarArticulo(postID);
-        } else if (postsActuales.length > 0) {
-            cargarArticulo(postsActuales[0].id);
+            contenedor.appendChild(redesSociales);       
         }
-        
-        cargarColumnaIzquierda();
-    };
-</script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+        // 4. COLUMNA IZQUIERDA: Usando el diseño del Index
+        function cargarColumnaIzquierda() {
+            const contenedor = document.getElementById("contenedor-verticales");
+            if (!contenedor) return;
+            
+            const titulo = contenedor.querySelector('h2');
+            contenedor.innerHTML = "";
+            if (titulo) contenedor.appendChild(titulo);
+            
+            const posts = obtenerPostsPorPagina().slice(0, 5);
+            
+            posts.forEach(post => {
+                const tarjeta = document.createElement('a');
+                tarjeta.className = 'tarjeta-vertical';
+                tarjeta.href = "tutoriales.html?post=" + post.id;
+                
+                tarjeta.innerHTML = `
+                    <div class="img-vertical" style="background-image: url('${post.imagenCover}');"></div>
+                    <div class="info-vertical">
+                        <h3>${post.titulo}</h3>
+                    </div>
+                `;
+                contenedor.appendChild(tarjeta);
+            });
+        }
+
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const postID = params.get('post');
+            const postsActuales = obtenerPostsPorPagina();
+
+            if (postID) {
+                cargarArticulo(postID);
+            } else if (postsActuales.length > 0) {
+                cargarArticulo(postsActuales[0].id);
+            }
+            
+            cargarColumnaIzquierda();
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
 </body>
 </html>
