@@ -948,7 +948,7 @@ body {
     <!-- ===== BANNER ===== -->
     <section class="banner-tutoriales">
         <div class="contenido-banner-tutoriales">
-            <h1>Tutoriales</h1>
+            <h1>Novedades</h1>
         </div>
     </section>
 
@@ -981,7 +981,7 @@ body {
             </div>
             
             <div id="modulo-recomendados" class="seccion-recomendados">
-                <h4>Otros Tutoriales que te pueden interesar</h4>
+                <h4>Esto tambien te puede interesar</h4>
                 <div id="contenedor-lista-recomendados" class="lista-novedades">
                 </div>
             </div>
@@ -1012,7 +1012,7 @@ body {
 
         // 2. Cargar artículo principal
         async function cargarArticulo(idPost) {
-            const contenedor = document.getElementById("contenido-del-tutorial");
+            const contenedor = document.getElementById("contenido-del-tutoriales");
             const todosLosPosts = [...(typeof tutoriales !== 'undefined' ? tutoriales : []), 
                                    ...(typeof novedades !== 'undefined' ? novedades : []), 
                                    ...(typeof samples !== 'undefined' ? samples : [])];
@@ -1028,7 +1028,7 @@ body {
                 const response = await fetch(post.archivoUrl);
                 const html = await response.text();
                 contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
-                document.title = post.titulo + " | RVC Studio";
+                document.title = post.titulo + " | Novedades";
             } catch (e) {
                 contenedor.innerHTML = "<h2>Error al cargar el tutorial</h2>";
             }
