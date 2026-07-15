@@ -25,7 +25,16 @@
         imagenCover: "arsenal-img/free-dancehall-drum-kit/dancehall-drum-kit.png",
         archivoUrl: "samples-y-drum-kits/dancehall-drum-kit.html",
         esExterno: true
-    },       
+    },
+    {
+        id: "edm-sample-pack",
+        titulo: "🎹 Magix Soundpool EDM Sample Pack WAV | Colección Profesional",
+        categoria: "Sample Packs y Drum Kits",
+        resumen: "Este pack reúne una colección profesional de los mejores sonidos del famoso genero<strong>EDM</strong>, cuidadosamente seleccionados y convertidos en un super <strong>SAMPLE PACK</strong> de alta calidad para ofrecer un flujo de trabajo mucho más rápido y creativo.",
+        imagenCover: "arsenal-img/edm-pack/edm-pack.png",
+        archivoUrl: "samples-y-drum-kits/edm-sample-pack.html",
+        esExterno: true
+    },    
                               
     // ✅ Eliminado el comentario que causaba error
 ];
