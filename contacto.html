@@ -60,7 +60,7 @@
         <div class="grid-contacto">
             <section class="form-bloque">
                 <h2>Envíanos un mensaje</h2>
-                <!-- FORMULARIO CORREGIDO -->
+                <!-- FORMULARIO CORREGIDO - REEMPLAZA "TU_ID" con tu ID de Formspree -->
                 <form method="POST" action="https://formspree.io/f/TU_ID">
                     <div class="grupo-campo">
                         <label for="nombre">Tu nombre</label>
@@ -78,8 +78,10 @@
                         <label for="mensaje">Mensaje</label>
                         <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
                     </div>
-                    <!-- REDIRECCIÓN -->
-                    <input type="hidden" name="_next" value="gracias.html">
+                    <!-- REDIRECCIÓN - Asegúrate que "gracias.html" existe en el mismo directorio -->
+                    <input type="hidden" name="_next" value="https://tudominio.com/gracias.html">
+                    <!-- O si está en el mismo directorio: -->
+                    <!-- <input type="hidden" name="_next" value="gracias.html"> -->
                     <button type="submit" class="btn-enviar">Enviar Mensaje</button>
                 </form>
             </section>
