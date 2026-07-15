@@ -1031,17 +1031,45 @@ body {
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <script>
-    window.onload = function() {
-        // 1. Lógica de Cookies
-        const banner = document.getElementById('cookie-banner');
-        const btn = document.getElementById('accept-cookies');
-        if (localStorage.getItem('cookiesAceptadas') === 'true') {
-            banner.style.display = 'none';
+  window.onload = function() {
+    // ============================================
+    // 1. LÓGICA DE COOKIES (MEJORADA)
+    // ============================================
+    const banner = document.getElementById('cookie-banner');
+    const btn = document.getElementById('accept-cookies');
+    
+    // Verificar si ya aceptó las cookies
+    const cookiesAceptadas = localStorage.getItem('cookiesAceptadas');
+    
+    if (cookiesAceptadas === 'true') {
+        // Ocultar el banner si ya aceptó
+        banner.classList.add('oculto');
+    } else {
+        // Mostrar el banner con animación
+        banner.classList.remove('oculto');
+        banner.style.transform = 'translateY(100%)';
+        setTimeout(() => {
+            banner.style.transform = 'translateY(0)';
+        }, 100);
+    }
+    
+    // Evento para aceptar cookies
+    btn.addEventListener('click', function() {
+        localStorage.setItem('cookiesAceptadas', 'true');
+        
+        // Animación de salida
+        banner.style.transform = 'translateY(100%)';
+        setTimeout(() => {
+            banner.classList.add('oculto');
+        }, 500);
+        
+        // Activar Google Analytics después del consentimiento
+        if (typeof gtag !== 'undefined') {
+            gtag('consent', 'update', {
+                'analytics_storage': 'granted'
+            });
         }
-        btn.addEventListener('click', () => {
-            localStorage.setItem('cookiesAceptadas', 'true');
-            banner.style.display = 'none';
-        });
+    });
 
         // 2. Motor de Renderizado de Tarjetas
         // Unimos los arrays de forma segura
