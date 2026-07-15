@@ -556,60 +556,41 @@ body {
     width: 100%;
     background-color: #070707 !important;
     color: #ffffff !important;
-    padding: 20px 30px;
+    padding: 15px;
     box-sizing: border-box;
     border-top: 3px solid #ff0055;
     z-index: 9999;
-    display: flex !important; /* Forzamos display flex */
-    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.8);
-    transition: transform 0.5s ease-in-out;
+    gap: 10px;
 }
 
 .cookie-banner p {
     color: #ffffff !important;
     margin: 0;
-    font-size: 0.95rem;
-    flex: 1;
+    font-size: 0.85rem;
 }
 
 .cookie-banner a {
     color: #ff0055 !important;
     text-decoration: underline;
-    font-weight: 500;
-}
-
-.cookie-banner a:hover {
-    color: #ff3377 !important;
 }
 
 .btn-aceptar {
     background-color: #ff0055;
     color: #ffffff;
     border: none;
-    padding: 10px 30px;
+    padding: 8px 20px;
     cursor: pointer;
     font-weight: bold;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    flex-shrink: 0;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 .btn-aceptar:hover {
     background-color: #cc0044;
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 0, 85, 0.3);
-}
-
-/* Estado oculto del banner */
-.cookie-banner.oculto {
-    display: none !important;
 }
 
 /* --- FOOTER --- */
@@ -1017,11 +998,8 @@ body {
 </footer>
 
 <div id="cookie-banner" class="cookie-banner">
-    <p>
-        🍪 Utilizamos cookies propias y de terceros para mejorar tu experiencia, 
-        analizar el tráfico y personalizar contenido. 
-        <a href="politica-privacidad.html">Más información</a>.
-    </p>
+    <p>Utilizamos cookies propias y de terceros para mejorar tu experiencia. 
+       <a href="politica-privacidad.html">Más información</a>.</p>
     <button id="accept-cookies" class="btn-aceptar">Aceptar</button>
 </div>
 
@@ -1031,45 +1009,17 @@ body {
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <script>
-  window.onload = function() {
-    // ============================================
-    // 1. LÓGICA DE COOKIES (MEJORADA)
-    // ============================================
-    const banner = document.getElementById('cookie-banner');
-    const btn = document.getElementById('accept-cookies');
-    
-    // Verificar si ya aceptó las cookies
-    const cookiesAceptadas = localStorage.getItem('cookiesAceptadas');
-    
-    if (cookiesAceptadas === 'true') {
-        // Ocultar el banner si ya aceptó
-        banner.classList.add('oculto');
-    } else {
-        // Mostrar el banner con animación
-        banner.classList.remove('oculto');
-        banner.style.transform = 'translateY(100%)';
-        setTimeout(() => {
-            banner.style.transform = 'translateY(0)';
-        }, 100);
-    }
-    
-    // Evento para aceptar cookies
-    btn.addEventListener('click', function() {
-        localStorage.setItem('cookiesAceptadas', 'true');
-        
-        // Animación de salida
-        banner.style.transform = 'translateY(100%)';
-        setTimeout(() => {
-            banner.classList.add('oculto');
-        }, 500);
-        
-        // Activar Google Analytics después del consentimiento
-        if (typeof gtag !== 'undefined') {
-            gtag('consent', 'update', {
-                'analytics_storage': 'granted'
-            });
+    window.onload = function() {
+        // 1. Lógica de Cookies
+        const banner = document.getElementById('cookie-banner');
+        const btn = document.getElementById('accept-cookies');
+        if (localStorage.getItem('cookiesAceptadas') === 'true') {
+            banner.style.display = 'none';
         }
-    });
+        btn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAceptadas', 'true');
+            banner.style.display = 'none';
+        });
 
         // 2. Motor de Renderizado de Tarjetas
         // Unimos los arrays de forma segura
