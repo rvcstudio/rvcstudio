@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rvcstudio.lat/</loc>
+    <loc>https://rvcstudio.lat/index.html</loc>
   </url>
   <url>
     <loc>https://rvcstudio.lat/novedades.html</loc>
@@ -10,12 +10,21 @@
     <loc>https://rvcstudio.lat/tutoriales.html</loc>
   </url>
   <url>
-    <loc>https://rvcstudio.lat/arsenal.html</loc>
+    <loc>https://rvcstudio.lat/samples-y-drum-kit.html</loc>
   </url>
    <url>
     <loc>https://rvcstudio.lat/contacto.html</loc>
   </url>
    <url>
     <loc>https://rvcstudio.lat/sobre-nosotros.html</loc>
+  </url>
+   <url>
+    <loc>https://rvcstudio.lat/terminos-condiciones.html</loc>
+  </url>
+  <url>
+    <loc>https://rvcstudio.lat/politica-privacidad.html</loc>
+  </url>
+  <url>
+    <loc>https://rvcstudio.lat/aviso-legal.html</loc>
   </url>
 </urlset>
