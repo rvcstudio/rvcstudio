@@ -34,6 +34,15 @@
         imagenCover: "arsenal-img/edm-pack/edm-pack.png",
         archivoUrl: "samples-y-drum-kits/edm-sample-pack.html",
         esExterno: true
+    },
+     {
+        id: "rap-drum-kit",
+        titulo: "🥁 Rap Drum Kit | Colección Profesional",
+        categoria: "Sample Packs y Drum Kits",
+        resumen: "Este pack reúne una colección profesional de los mejores sonidos de batería y percusión para <strong>Rap</strong>, <strong>Trap</strong>, <strong>Drill</strong> y <strong>Boom Bap</strong>, cuidadosamente seleccionados y convertidos en <strong>One Shots</strong> de alta calidad para ofrecer un flujo de trabajo mucho más rápido y creativo. Está diseñado especialmente para productores que buscan golpes secos, graves contundentes y texturas vintage listas para usar.",
+        imagenCover: "arsenal-img/rap-drum-kit/rap-drum-kit.png",
+        archivoUrl: "samples-y-drum-kits/rap-drum-kit.html",
+        esExterno: true
     },    
                               
     // ✅ Eliminado el comentario que causaba error
