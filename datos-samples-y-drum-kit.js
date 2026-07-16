@@ -43,6 +43,15 @@
         imagenCover: "arsenal-img/rap-drum-kit/rap-drum-kit.png",
         archivoUrl: "samples-y-drum-kits/rap-drum-kit.html",
         esExterno: true
+    },
+    {
+        id: "uk-drill-loop-kit",
+        titulo: "🔫 UK Drill Loop Kit | Colección Profesional",
+        categoria: "Sample Packs y Drum Kits",
+        resumen: "Este pack reúne una colección profesional de los mejores <strong>Loops</strong> y <strong>Melodías</strong> inspirados en el sonido característico del <strong>UK Drill</strong>, cuidadosamente seleccionados y grabados en alta calidad para ofrecer un flujo de trabajo mucho más rápido y creativo. Está diseñado especialmente para productores que buscan atmósferas oscuras, pianos melódicos, cuerdas tensas y bajos graves característicos del género.",
+        imagenCover: "arsenal-img/uk-drill-loop-kit/uk-drill-loop-kit.png",
+        archivoUrl: "samples-y-drum-kits/uk-drill-loop-kit.html",
+        esExterno: true
     },    
                               
     // ✅ Eliminado el comentario que causaba error
