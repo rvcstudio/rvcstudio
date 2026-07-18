@@ -52,7 +52,16 @@
         imagenCover: "arsenal-img/uk-drill-loop-kit/uk-drill-loop-kit.png",
         archivoUrl: "samples-y-drum-kits/uk-drill-loop-kit.html",
         esExterno: true
-    },    
+    },
+    {
+        id: "template-xl",
+        titulo: "🎹 Template XL Ableton Live | La Solución de Grabación Definitiva",
+        categoria: "Categoría: Ableton Templates | Por: mzbbeat",
+        resumen: "Lleva tus sesiones de estudio al siguiente nivel con el nuevo <strong>Template XL para Ableton Live</strong>. Esta plantilla profesional ha sido diseñada minuciosamente para ofrecerte un flujo de trabajo ultra rápido, limpio y creativo a la hora de estructurar y grabar tus canciones.",
+        imagenCover: "arsenal-img/template-xl/template-xl.png",
+        archivoUrl: "samples-y-drum-kits/template-xl.html",
+        esExterno: true
+    },      
                               
     // ✅ Eliminado el comentario que causaba error
 ];
