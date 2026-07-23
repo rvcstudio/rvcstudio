@@ -1,60 +1,465 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta name="google-adsense-account" content="ca-pub-7103017241533415">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aviso Legal | RVC Studio</title>
     <style>
-        body { background-color: #0b0b0b; font-family: 'Segoe UI', sans-serif; color: #ffffff; padding: 60px 20px; line-height: 1.8; }
-        .contenedor-legal { max-width: 800px; margin: 0 auto; background: #141414; padding: 40px; border-radius: 12px; border: 1px solid #222; }
-        h1 { color: #ff0055; font-size: 2rem; margin-bottom: 30px; text-transform: uppercase; }
-        h2 { color: #ffffff; font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; }
-        p { color: #cccccc; font-size: 1rem; margin-bottom: 15px; }
-        .btn-volver { display: inline-block; color: #ffffff; text-decoration: none; font-weight: 600; border: 1px solid #ff0055; padding: 10px 20px; border-radius: 6px; margin-top: 30px; transition: all 0.3s; }
-        .btn-volver:hover { background: #ff0055; box-shadow: 0 0 15px rgba(255, 0, 85, 0.4); }
+        /* ===== RESET Y ESTILOS GLOBALES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0b0b;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== HEADER / CABECERA ===== */
+        .cabecera-novedades {
+            background: #0f0f0f;
+            padding: 15px 20px;
+            border-bottom: 2px solid #ff0055;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-nav img {
+            max-height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background: #ff0055;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
+        }
+
+        /* ===== CONTENEDOR PRINCIPAL ===== */
+        .contenedor-legal {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #141414;
+            padding: 40px 45px;
+            border-radius: 12px;
+            border: 1px solid #222;
+            flex: 1;
+            width: 90%;
+        }
+
+        h1 {
+            color: #ff0055;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: #dddddd;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #cccccc;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            color: #cccccc;
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        .destacado {
+            background: #1a1a1a;
+            border-left: 4px solid #ff0055;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .destacado p {
+            margin-bottom: 0;
+        }
+
+        .btn-volver {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #ff0055;
+            padding: 12px 25px;
+            border-radius: 6px;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-volver:hover {
+            background: #ff0055;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+            transform: scale(1.02);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-legal {
+            background: #0f0f0f;
+            text-align: center;
+            padding: 30px 20px 20px;
+            border-top: 1px solid #222;
+            margin-top: auto;
+        }
+
+        .links-legales {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .links-legales a {
+            color: #aaaaaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .links-legales a:hover {
+            color: #ff0055;
+        }
+
+        .footer-legal p {
+            color: #666666;
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+
+        /* ===== BANNER DE COOKIES (obligatorio) ===== */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            border-top: 3px solid #ff0055;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            z-index: 9999;
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .cookie-banner p {
+            color: #cccccc;
+            font-size: 0.95rem;
+            margin: 0;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .cookie-banner a {
+            color: #ff0055;
+            text-decoration: underline;
+        }
+
+        .cookie-btn {
+            background: #ff0055;
+            color: #ffffff;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .cookie-btn:hover {
+            background: #cc0044;
+            transform: scale(1.03);
+        }
+
+        .cookie-btn-secundario {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #444;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .cookie-btn-secundario:hover {
+            border-color: #ff0055;
+            color: #ff0055;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .cabecera-novedades {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 12px 15px;
+            }
+
+            .logo-nav img {
+                max-height: 40px;
+            }
+
+            .nav-menu {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .nav-menu a {
+                font-size: 0.9rem;
+                padding: 6px 10px;
+            }
+
+            .contenedor-legal {
+                padding: 25px 20px;
+                width: 95%;
+                margin: 15px auto;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            .cookie-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px 20px;
+            }
+
+            .cookie-banner p {
+                font-size: 0.85rem;
+            }
+
+            .cookie-btn, .cookie-btn-secundario {
+                width: 100%;
+                text-align: center;
+            }
+
+            .links-legales {
+                gap: 15px;
+            }
+
+            .links-legales a {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cabecera-novedades {
+                padding: 10px 10px;
+            }
+
+            .logo-nav img {
+                max-height: 35px;
+            }
+
+            .nav-menu a {
+                font-size: 0.8rem;
+                padding: 5px 8px;
+            }
+
+            .contenedor-legal {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 <body>
-    
+
+    <!-- ===== HEADER ===== -->
     <header class="cabecera-novedades">
         <div class="logo-nav">
             <a href="index.html">
-                <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
+                <img src="imagenes/rvc%20new%20logo.png" alt="RVC Studio - Producción Musical">
             </a>
         </div>
-
         <nav class="nav-menu">
             <a href="index.html">Inicio</a>
-            <a href="servicios.html">Servicos</a>
+            <a href="novedades.html">Novedades</a>
             <a href="samples-y-drum-kit.html">Samples & Drum Kit</a>
         </nav>
     </header>
 
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
     <div class="contenedor-legal">
         <h1>Aviso Legal</h1>
-        <p>En cumplimiento del deber de información general, a continuación se reflejan los siguientes datos del titular de este sitio web:</p>
-        
-        <h2>1. Datos Identificativos</h2>
-        <p>El sitio web <strong>rvcstudio.lat</strong> es gestionado por RVC Studio, con correo electrónico de contacto disponible para soporte del sitio web.</p>
-        
-        <h2>2. Usuarios y Uso del Sitio</h2>
-        <p>El acceso y/o uso de este portal le atribuye la condición de USUARIO, que acepta, desde dicho acceso y/o uso, las Condiciones Generales de Uso aquí reflejadas.</p>
-        
-        <h2>3. Propiedad Intelectual</h2>
-        <p>RVC Studio es titular de todos los derechos de propiedad intelectual e industrial de su página web, así como de los elementos contenidos en la misma (títulos, artículos de novedades, guías de tutoriales, imágenes, estructura de diseño y logotipos).</p>
-        
+        <p><strong>Última actualización:</strong> 22 de julio de 2026</p>
+        <p>En cumplimiento del deber de información general establecido en la legislación aplicable, a continuación se reflejan los datos del titular de este sitio web, así como las condiciones generales de uso.</p>
+
+        <h2>1. Datos Identificativos del Titular</h2>
+        <p>En cumplimiento de la Ley de Servicios de la Sociedad de la Información y de Comercio Electrónico, se informa que el presente sitio web <strong>rvcstudio.lat</strong> es gestionado por:</p>
+        <ul>
+            <li><strong>Titular:</strong> RVC Studio</li>
+            <li><strong>Correo electrónico:</strong> <a href="mailto:contacto@rvcstudio.lat" style="color: #ff0055;">contacto@rvcstudio.lat</a></li>
+            <li><strong>Ubicación:</strong> Bogotá, Colombia</li>
+            <li><strong>Actividad:</strong> Producción musical, educación y contenido sobre música</li>
+        </ul>
+
+        <h2>2. Condiciones de Uso del Sitio</h2>
+        <p>El acceso y/o uso de este portal le atribuye la condición de <strong>USUARIO</strong>, que acepta, desde dicho acceso y/o uso, las presentes Condiciones Generales de Uso. Si no estás de acuerdo con alguna de estas condiciones, te rogamos que no utilices este sitio.</p>
+        <p>El usuario se compromete a hacer un uso adecuado del sitio y de los contenidos, de conformidad con la ley, la moral, el orden público y las presentes condiciones.</p>
+
+        <h2>3. Propiedad Intelectual e Industrial</h2>
+        <p><strong>RVC Studio</strong> es titular de todos los derechos de propiedad intelectual e industrial de su página web, así como de los elementos contenidos en la misma, incluyendo pero no limitado a:</p>
+        <ul>
+            <li>Títulos y textos de artículos y novedades.</li>
+            <li>Guías y tutoriales.</li>
+            <li>Imágenes, gráficos y diseños.</li>
+            <li>Estructura y código fuente.</li>
+            <li>Logotipos y marcas comerciales.</li>
+        </ul>
+        <p>Queda prohibida la reproducción, distribución, comunicación pública, transformación o cualquier otra actividad que pueda realizarse con los contenidos de este sitio sin la autorización expresa por escrito de RVC Studio.</p>
+
+        <h2>4. Responsabilidad y Exención de Garantías</h2>
+        <p>RVC Studio no se hace responsable de:</p>
+        <ul>
+            <li>Los daños o perjuicios derivados del uso de la información publicada en este sitio.</li>
+            <li>Las decisiones de compra o técnicas basadas en las opiniones expresadas.</li>
+            <li>El mal uso de software o hardware recomendado.</li>
+            <li>Los errores u omisiones en el contenido.</li>
+            <li>Los daños causados por virus informáticos o fallos técnicos.</li>
+        </ul>
+        <p>Todo el contenido se proporciona "tal cual" y "según disponibilidad", sin garantías de ningún tipo, ya sean expresas o implícitas.</p>
+
+        <h2>5. Enlaces a Terceros</h2>
+        <p>Este sitio puede contener enlaces a sitios web de terceros (tiendas de música, plataformas de software, etc.). RVC Studio no asume ninguna responsabilidad por el contenido, las políticas de privacidad o las prácticas de dichos sitios. La inclusión de estos enlaces no implica ningún tipo de asociación, respaldo o recomendación.</p>
+
+        <h2>6. Legislación Aplicable y Jurisdicción</h2>
+        <p>Las presentes condiciones de uso se rigen por las leyes de <strong>Colombia</strong>. Cualquier controversia que pudiera derivarse del uso de este sitio web se someterá a los tribunales de <strong>Bogotá, Colombia</strong>, renunciando expresamente a cualquier otro fuero que pudiera corresponderles.</p>
+
+        <h2>7. Modificaciones del Aviso Legal</h2>
+        <p>Nos reservamos el derecho de actualizar, modificar o eliminar el contenido de este Aviso Legal en cualquier momento y sin previo aviso. Te recomendamos revisar periódicamente esta página para estar al tanto de cualquier cambio. La fecha de la última actualización se indica al inicio de este documento.</p>
+
+        <h2>8. Contacto</h2>
+        <p>Para cualquier consulta, sugerencia o solicitud relacionada con este Aviso Legal o con el funcionamiento del sitio, puedes contactarnos a través de:</p>
+        <ul>
+            <li><strong>Correo electrónico:</strong> <a href="mailto:contacto@rvcstudio.lat" style="color: #ff0055;">contacto@rvcstudio.lat</a></li>
+            <li><strong>Formulario de contacto:</strong> Disponible en nuestra página <a href="contacto.html" style="color: #ff0055;">Contacto</a></li>
+        </ul>
+
+        <div class="destacado">
+            <p><strong>📌 Importante:</strong> Este Aviso Legal forma parte integral de los <a href="terminos-y-condiciones.html" style="color: #ff0055;">Términos y Condiciones</a> y la <a href="politica-privacidad.html" style="color: #ff0055;">Política de Privacidad</a> de RVC Studio. Al utilizar este sitio, aceptas todas estas condiciones en su totalidad.</p>
+        </div>
+
         <a href="novedades.html" class="btn-volver">← Volver a Novedades</a>
     </div>
-    
+
+    <!-- ===== FOOTER ===== -->
     <footer class="footer-legal">
         <div class="links-legales">
+            <a href="terminos-y-condiciones.html">Términos y Condiciones</a>
             <a href="politica-privacidad.html">Política de Privacidad</a>
-            <a href="terminos-condiciones.html">Términos y Condiciones</a>
+            <a href="aviso-legal.html">Aviso Legal</a>
             <a href="sobre-nosotros.html">Nosotros</a>
             <a href="contacto.html">Contacto</a>
         </div>
-        <p>&copy; 2026 RVC Studio. Todos los derechos reservados.</p>
+        <p>&copy; 2026 RVC Studio. Todos los derechos reservados. | Hecho con ❤️ para la música</p>
     </footer>
-    
+
+    <!-- ===== BANNER DE COOKIES (OBLIGATORIO PARA ADSENSE) ===== -->
+    <div id="cookieBanner" class="cookie-banner" style="display: flex;">
+        <p>
+            🍪 Este sitio utiliza cookies propias y de terceros (incluyendo Google AdSense) para mejorar tu experiencia, mostrar anuncios personalizados y analizar el tráfico. 
+            Al hacer clic en "Aceptar todas", consientes su uso. Puedes obtener más información en nuestra 
+            <a href="politica-privacidad.html">Política de Privacidad</a>.
+        </p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="cookie-btn-secundario" onclick="configurarCookies()">Configurar</button>
+            <button class="cookie-btn" onclick="aceptarCookies()">Aceptar todas</button>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPT PARA COOKIES ===== -->
+    <script>
+        // Función para aceptar cookies
+        function aceptarCookies() {
+            document.getElementById('cookieBanner').style.display = 'none';
+            localStorage.setItem('cookiesAceptadas', 'true');
+            console.log('Cookies aceptadas');
+        }
+
+        // Función para configurar cookies (abre la política de privacidad)
+        function configurarCookies() {
+            window.location.href = 'politica-privacidad.html';
+        }
+
+        // Comprobar si ya se aceptaron las cookies para ocultar el banner
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('cookiesAceptadas') === 'true') {
+                document.getElementById('cookieBanner').style.display = 'none';
+            }
+        });
+    </script>
+
 </body>
 </html>
