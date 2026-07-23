@@ -1,25 +1,346 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <meta name="google-adsense-account" content="ca-pub-7103017241533415">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad | RVC Studio</title>
     <style>
-        body { background-color: #0b0b0b; font-family: 'Segoe UI', sans-serif; color: #ffffff; padding: 60px 20px; line-height: 1.8; }
-        .contenedor-legal { max-width: 800px; margin: 0 auto; background: #141414; padding: 40px; border-radius: 12px; border: 1px solid #222; }
-        h1 { color: #ff0055; font-size: 2rem; margin-bottom: 30px; text-transform: uppercase; }
-        h2 { color: #ffffff; font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; }
-        p { color: #cccccc; font-size: 1rem; margin-bottom: 15px; }
-        .btn-volver { display: inline-block; color: #ffffff; text-decoration: none; font-weight: 600; border: 1px solid #ff0055; padding: 10px 20px; border-radius: 6px; margin-top: 30px; transition: all 0.3s; }
-        .btn-volver:hover { background: #ff0055; box-shadow: 0 0 15px rgba(255, 0, 85, 0.4); }
+        /* ===== RESET Y ESTILOS GLOBALES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0b0b;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== HEADER / CABECERA ===== */
+        .cabecera-novedades {
+            background: #0f0f0f;
+            padding: 15px 20px;
+            border-bottom: 2px solid #ff0055;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-nav img {
+            max-height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background: #ff0055;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
+        }
+
+        /* ===== CONTENEDOR PRINCIPAL ===== */
+        .contenedor-legal {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #141414;
+            padding: 40px 45px;
+            border-radius: 12px;
+            border: 1px solid #222;
+            flex: 1;
+            width: 90%;
+        }
+
+        h1 {
+            color: #ff0055;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: #dddddd;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #cccccc;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            color: #cccccc;
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        .destacado {
+            background: #1a1a1a;
+            border-left: 4px solid #ff0055;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .destacado p {
+            margin-bottom: 0;
+        }
+
+        .btn-volver {
+            display: inline-block;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #ff0055;
+            padding: 12px 25px;
+            border-radius: 6px;
+            margin-top: 30px;
+            transition: all 0.3s;
+        }
+
+        .btn-volver:hover {
+            background: #ff0055;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+            transform: scale(1.02);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-legal {
+            background: #0f0f0f;
+            text-align: center;
+            padding: 30px 20px 20px;
+            border-top: 1px solid #222;
+            margin-top: auto;
+        }
+
+        .links-legales {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .links-legales a {
+            color: #aaaaaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .links-legales a:hover {
+            color: #ff0055;
+        }
+
+        .footer-legal p {
+            color: #666666;
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+
+        /* ===== BANNER DE COOKIES (obligatorio) ===== */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            border-top: 3px solid #ff0055;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            z-index: 9999;
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .cookie-banner p {
+            color: #cccccc;
+            font-size: 0.95rem;
+            margin: 0;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .cookie-banner a {
+            color: #ff0055;
+            text-decoration: underline;
+        }
+
+        .cookie-btn {
+            background: #ff0055;
+            color: #ffffff;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .cookie-btn:hover {
+            background: #cc0044;
+            transform: scale(1.03);
+        }
+
+        .cookie-btn-secundario {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #444;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .cookie-btn-secundario:hover {
+            border-color: #ff0055;
+            color: #ff0055;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .cabecera-novedades {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 12px 15px;
+            }
+
+            .logo-nav img {
+                max-height: 40px;
+            }
+
+            .nav-menu {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .nav-menu a {
+                font-size: 0.9rem;
+                padding: 6px 10px;
+            }
+
+            .contenedor-legal {
+                padding: 25px 20px;
+                width: 95%;
+                margin: 15px auto;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            .cookie-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px 20px;
+            }
+
+            .cookie-banner p {
+                font-size: 0.85rem;
+            }
+
+            .cookie-btn, .cookie-btn-secundario {
+                width: 100%;
+                text-align: center;
+            }
+
+            .links-legales {
+                gap: 15px;
+            }
+
+            .links-legales a {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cabecera-novedades {
+                padding: 10px 10px;
+            }
+
+            .logo-nav img {
+                max-height: 35px;
+            }
+
+            .nav-menu a {
+                font-size: 0.8rem;
+                padding: 5px 8px;
+            }
+
+            .contenedor-legal {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 <body>
-    
+
+    <!-- ===== HEADER ===== -->
     <header class="cabecera-novedades">
         <div class="logo-nav">
             <a href="index.html">
-                <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
+                <img src="imagenes/rvc%20new%20logo.png" alt="RVC Studio - Producción Musical">
             </a>
         </div>
         <nav class="nav-menu">
@@ -27,34 +348,136 @@
             <a href="novedades.html">Novedades</a>
             <a href="samples-y-drum-kit.html">Samples & Drum Kit</a>
         </nav>
-    </header> 
-    
+    </header>
+
+    <!-- ===== CONTENIDO PRINCIPAL ===== -->
     <div class="contenedor-legal">
         <h1>Política de Privacidad</h1>
-        <p>Garantizar la privacidad de nuestros visitantes es una de nuestras máximas prioridades en RVC Studio.</p>
-        
-        <h2>1. Recopilación de Información</h2>
-        <p>Este sitio web utiliza tecnologías de análisis de datos como Google Analytics y Google Tag Manager para entender el comportamiento de navegación general. No recopilamos datos personales sensibles sin el consentimiento expreso del usuario.</p>
-        
-        <h2>2. Cookies y Publicidad</h2>
-        <p>Utilizamos cookies propias y de terceros (incluyendo servicios de Google) para personalizar anuncios, funciones de medios sociales y analizar nuestro tráfico corporativo. Puedes configurar tu navegador para rechazar las cookies si así lo deseas.</p>
-        
-        <h2>3. Enlaces a Terceros</h2>
-        <p>Nuestras publicaciones pueden contener enlaces a tiendas de música y equipamiento técnico o plataformas externas. No somos responsables de las políticas de privacidad de dichos sitios.</p>
-        
+        <p><strong>Última actualización:</strong> 22 de julio de 2026</p>
+        <p>En <strong>RVC Studio</strong>, garantizar la privacidad y seguridad de nuestros visitantes es una de nuestras máximas prioridades. Esta Política de Privacidad explica qué información recopilamos, cómo la utilizamos y qué derechos tienes sobre tus datos.</p>
+
+        <h2>1. Responsable del Tratamiento de Datos</h2>
+        <p>El responsable del tratamiento de tus datos personales es:</p>
+        <ul>
+            <li><strong>Titular:</strong> RVC Studio</li>
+            <li><strong>Correo electrónico:</strong> <a href="mailto:contacto@rvcstudio.lat" style="color: #ff0055;">contacto@rvcstudio.lat</a></li>
+            <li><strong>Ubicación:</strong> Bogotá, Colombia</li>
+        </ul>
+
+        <h2>2. Recopilación de Información</h2>
+        <p>Este sitio web utiliza tecnologías de análisis de datos para entender el comportamiento de navegación general. Específicamente:</p>
+        <ul>
+            <li><strong>Google Analytics:</strong> Para analizar el tráfico y el comportamiento de los usuarios en el sitio.</li>
+            <li><strong>Google Tag Manager:</strong> Para gestionar etiquetas y scripts de seguimiento.</li>
+            <li><strong>Google AdSense:</strong> Para mostrar anuncios personalizados basados en tus intereses.</li>
+        </ul>
+        <p>No recopilamos datos personales sensibles (como nombre, dirección o número de teléfono) sin el consentimiento expreso del usuario a través de formularios de contacto.</p>
+
+        <h2>3. Base Legal para el Tratamiento de Datos</h2>
+        <p>La base legal para el tratamiento de tus datos personales es el <strong>consentimiento explícito</strong> que nos otorgas al:</p>
+        <ul>
+            <li>Aceptar nuestra política de cookies al navegar por este sitio.</li>
+            <li>Rellenar formularios de contacto o suscripción.</li>
+            <li>Interactuar con nuestro contenido.</li>
+        </ul>
+
+        <h2>4. Cookies y Publicidad</h2>
+        <p>Utilizamos cookies propias y de terceros para:</p>
+        <ul>
+            <li>Personalizar anuncios y contenido.</li>
+            <li>Ofrecer funciones de medios sociales.</li>
+            <li>Analizar nuestro tráfico y mejorar la experiencia del usuario.</li>
+        </ul>
+
+        <div class="destacado">
+            <p><strong>📢 Información sobre Google AdSense:</strong> Este sitio utiliza <strong>Google AdSense</strong> para mostrar anuncios. Google utiliza cookies DART para mostrar anuncios a nuestros usuarios basándose en sus visitas a este sitio y a otros sitios en Internet. Los usuarios pueden optar por no utilizar la cookie DART visitando la <a href="https://policies.google.com/technologies/ads" target="_blank" style="color: #ff0055;">Política de privacidad de la red de contenido y anuncios de Google</a>.</p>
+        </div>
+
+        <p>Puedes configurar tu navegador para rechazar las cookies si así lo deseas. Sin embargo, ten en cuenta que esto puede afectar la funcionalidad de algunas partes del sitio.</p>
+
+        <h2>5. Derechos del Usuario (ARCO + RGPD)</h2>
+        <p>Como usuario, tienes los siguientes derechos sobre tus datos personales:</p>
+        <ul>
+            <li><strong>Acceso:</strong> Saber qué datos tenemos sobre ti.</li>
+            <li><strong>Rectificación:</strong> Corregir datos inexactos o incompletos.</li>
+            <li><strong>Cancelación / Supresión:</strong> Solicitar la eliminación de tus datos.</li>
+            <li><strong>Oposición:</strong> Oponerte al tratamiento de tus datos para fines específicos.</li>
+            <li><strong>Portabilidad:</strong> Recibir tus datos en un formato estructurado.</li>
+        </ul>
+        <p>Para ejercer cualquiera de estos derechos, puedes enviarnos un correo electrónico a <a href="mailto:contacto@rvcstudio.lat" style="color: #ff0055;">contacto@rvcstudio.lat</a> con el asunto "Protección de Datos". Te atenderemos en un plazo máximo de 30 días.</p>
+
+        <h2>6. Enlaces a Terceros</h2>
+        <p>Nuestras publicaciones pueden contener enlaces a tiendas de música, equipamiento técnico u otras plataformas externas. No somos responsables de las políticas de privacidad ni del contenido de dichos sitios. Te recomendamos leer las políticas de privacidad de cada sitio que visites.</p>
+
+        <h2>7. Seguridad de los Datos</h2>
+        <p>Implementamos medidas de seguridad técnicas y organizativas para proteger tus datos personales contra accesos no autorizados, alteración, divulgación o destrucción. Sin embargo, ningún método de transmisión por Internet es 100% seguro, por lo que no podemos garantizar la seguridad absoluta.</p>
+
+        <h2>8. Conservación de Datos</h2>
+        <p>Conservaremos tus datos personales durante el tiempo necesario para cumplir con los fines descritos en esta política, a menos que la ley exija o permita un período de retención más largo.</p>
+
+        <h2>9. Cambios en esta Política de Privacidad</h2>
+        <p>Nos reservamos el derecho de actualizar esta Política de Privacidad en cualquier momento. Te recomendamos revisar esta página periódicamente para estar al tanto de cualquier cambio. La fecha de la última actualización se indica al principio de esta página.</p>
+
+        <h2>10. Contacto</h2>
+        <p>Si tienes alguna pregunta, inquietud o solicitud relacionada con esta Política de Privacidad, puedes contactarnos a través de:</p>
+        <ul>
+            <li><strong>Correo electrónico:</strong> <a href="mailto:contacto@rvcstudio.lat" style="color: #ff0055;">contacto@rvcstudio.lat</a></li>
+            <li><strong>Formulario de contacto:</strong> Disponible en nuestra página <a href="contacto.html" style="color: #ff0055;">Contacto</a></li>
+        </ul>
+
+        <div class="destacado">
+            <p><strong>🔒 Compromiso con tu privacidad:</strong> En RVC Studio nos tomamos muy en serio la protección de tus datos. Esta política cumple con el Reglamento General de Protección de Datos (RGPD) y la legislación aplicable en Colombia.</p>
+        </div>
+
         <a href="novedades.html" class="btn-volver">← Volver a Novedades</a>
-    </div> 
-    
+    </div>
+
+    <!-- ===== FOOTER ===== -->
     <footer class="footer-legal">
         <div class="links-legales">
-            <a href="aviso-legal.html">Aviso Legal</a>
+            <a href="terminos-y-condiciones.html">Términos y Condiciones</a>
             <a href="politica-privacidad.html">Política de Privacidad</a>
-            <a href="terminos-condiciones.html">Términos y Condiciones</a>
+            <a href="aviso-legal.html">Aviso Legal</a>
             <a href="sobre-nosotros.html">Nosotros</a>
             <a href="contacto.html">Contacto</a>
         </div>
-        <p>&copy; 2026 RVC Studio. Todos los derechos reservados.</p>
+        <p>&copy; 2026 RVC Studio. Todos los derechos reservados. | Hecho con ❤️ para la música</p>
     </footer>
-    
+
+    <!-- ===== BANNER DE COOKIES (OBLIGATORIO PARA ADSENSE) ===== -->
+    <div id="cookieBanner" class="cookie-banner" style="display: flex;">
+        <p>
+            🍪 Este sitio utiliza cookies propias y de terceros (incluyendo Google AdSense) para mejorar tu experiencia, mostrar anuncios personalizados y analizar el tráfico. 
+            Al hacer clic en "Aceptar todas", consientes su uso. Puedes obtener más información en nuestra 
+            <a href="politica-privacidad.html">Política de Privacidad</a>.
+        </p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="cookie-btn-secundario" onclick="configurarCookies()">Configurar</button>
+            <button class="cookie-btn" onclick="aceptarCookies()">Aceptar todas</button>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPT PARA COOKIES ===== -->
+    <script>
+        // Función para aceptar cookies
+        function aceptarCookies() {
+            document.getElementById('cookieBanner').style.display = 'none';
+            localStorage.setItem('cookiesAceptadas', 'true');
+            console.log('Cookies aceptadas');
+        }
+
+        // Función para configurar cookies (abre la política de privacidad)
+        function configurarCookies() {
+            window.location.href = 'politica-privacidad.html';
+        }
+
+        // Comprobar si ya se aceptaron las cookies para ocultar el banner
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('cookiesAceptadas') === 'true') {
+                document.getElementById('cookieBanner').style.display = 'none';
+            }
+        });
+    </script>
+
 </body>
 </html>
