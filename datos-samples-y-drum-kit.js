@@ -61,7 +61,7 @@
         imagenCover: "arsenal-img/template-xl/template-xl.png",
         archivoUrl: "samples-y-drum-kits/template-xl.html",
         esExterno: true
-    },      
+    }     
                               
     // ✅ Eliminado el comentario que causaba error
 ];
