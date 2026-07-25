@@ -1,5 +1,13 @@
 // datos-novedades.js
-const novedades = [
+const novedades = [ 
+    {
+        id: "template-xl",
+        titulo: "  Plantilla XL – La lógica definitiva para grabar voces sin perder el flow", 
+        categoria: " Categoría: Producción Musical & Grabación | Por: <strong>mzbbeat</strong>",
+        resumen: " <strong>Hace 6 años</strong> empecé en esto de la producción musical, trabajando independientemente. Mi primer año se basó solo en el aprendizaje como beatmaker, creando distintos tipos de ritmos tales como trap, rap, reggaeton, EDM, etc., y los conceptos básicos de la mezcla de los ritmos. En mi tercer año como productor empecé a desarrollar las técnicas de grabación de voces e instrumentos. Mucho gusto, yo soy <strong>Isai Meza</strong>, más conocido como <strong>mzbbeat</strong> en el mundo de la producción musical, con más de 6 años de experiencia.",
+        imagenCover: "arsenal-img/template-xl/template-xl.png",
+        archivoUrl: "posts/template-xl.html"
+    },
     {
         id: "d-mini-behringer",
         titulo: "D MINI de Behringer: Minimoog de bolsillo con un secuenciador, filtro ladder y tres osciladores analógicos",
@@ -94,14 +102,6 @@ const novedades = [
         resumen: "En el mundo de la producción musical, la ecualización es una de las herramientas más fundamentales y poderosas para dar forma al sonido. Sin embargo, no todos los ecualizadores son iguales. Cada tipo ofrece un <strong>nivel diferente de precisión, control y coloración</strong>, y conocer sus diferencias es clave para elegir la herramienta adecuada en cada situación.",
         imagenCover: "imagenes/tipos-eq/grafico.jpg",
         archivoUrl: "tipos-eq.html"
-    },
-    {
-        id: "template-xl",
-        titulo: "  Plantilla XL – La lógica definitiva para grabar voces sin perder el flow", 
-        categoria: " Categoría: Producción Musical & Grabación | Por: <strong>mzbbeat</strong>",
-        resumen: " <strong>Hace 6 años</strong> empecé en esto de la producción musical, trabajando independientemente. Mi primer año se basó solo en el aprendizaje como beatmaker, creando distintos tipos de ritmos tales como trap, rap, reggaeton, EDM, etc., y los conceptos básicos de la mezcla de los ritmos. En mi tercer año como productor empecé a desarrollar las técnicas de grabación de voces e instrumentos. Mucho gusto, yo soy <strong>Isai Meza</strong>, más conocido como <strong>mzbbeat</strong> en el mundo de la producción musical, con más de 6 años de experiencia.",
-        imagenCover: "arsenal-img/template-xl/template-xl.png",
-        archivoUrl: "posts/template-xl.html"
     }
          
 ];
