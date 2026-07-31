@@ -184,6 +184,16 @@
             text-transform: uppercase;
             border-left: 4px solid #ff0055;
             padding-left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .titulo-principal img {
+            max-height: 60px;
+            width: auto;
+            border-radius: 8px;
+            border: 1px solid #222;
         }
         .titulo-principal span { color: #ff0055; }
 
@@ -277,6 +287,8 @@
             .cabecera-novedades { padding: 15px; }
             .social-links { gap: 8px; }
             .social-btn { padding: 6px 14px; font-size: 0.7rem; }
+            .titulo-principal { font-size: 1.8rem; }
+            .titulo-principal img { max-height: 45px; }
         }
     </style>
     <!-- íconos (Font Awesome) -->
@@ -318,7 +330,10 @@
 </header>
 
 <main class="contenedor-contacto">
-    <h1 class="titulo-principal">Contacto <span>RVC Studio</span></h1>
+    <h1 class="titulo-principal">
+        <span>MZBBEAT</span> LINKS
+        <img src="imagenes/mzbbeat.jpg" alt="MZBBEAT">
+    </h1>
 
     <!-- BOTONES SOCIALES (frajanjas) -->
     <div class="social-links">
