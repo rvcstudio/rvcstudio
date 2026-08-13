@@ -1,4 +1,13 @@
     const samples = [
+     {
+        id: "arsenal-tools-1",
+        titulo: "FREE GUARACHA SAMPLE PACK 2026 🔥 FULL RECOPILACIÓN | Drum Kit, Loops, One Shots, Vocals, MIDI & FX",
+        categoria: "Herramientas de Producción",
+        resumen: "Aquí están las herramientas más utilizadas y famosas en la industria de la producción musical para que tú también puedas lograr ese sonido que tanto anhelas.",
+        imagenCover: "arsenal-img/free-guaracha/guaracha.png",
+        archivoUrl: "samples-y-drum-kits/arsenal-tools-1.html",
+        esExterno: true
+    },
     {
         id: "free-guaracha-sample-pack",
         titulo: "FREE GUARACHA SAMPLE PACK 2026 🔥 FULL RECOPILACIÓN | Drum Kit, Loops, One Shots, Vocals, MIDI & FX",
