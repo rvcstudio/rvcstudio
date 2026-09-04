@@ -672,7 +672,6 @@ body {
                 <button class="dropbtn">RVC MUSIC ▾</button>
                 <div class="dropdown-content">
                     <a href="servicios.html">Servicios</a>
-                    <a href="samples-y-drum-kit.html">Samples & Drum Kit</a> 
                 </div>
             </div>
             
@@ -743,7 +742,6 @@ body {
     
     <script src="datos-tutoriales.js"></script>
     <script src="datos-novedades.js"></script>
-    <script src="datos-samples-y-drum-kit.js"></script>
     
     <script>
         // 1. Obtiene solo las novedades
@@ -756,7 +754,6 @@ body {
             const contenedor = document.getElementById("contenido-del-articulo");
             const todosLosPosts = [...(typeof tutoriales !== 'undefined' ? tutoriales : []), 
                                    ...(typeof novedades !== 'undefined' ? novedades : []), 
-                                   ...(typeof samples !== 'undefined' ? samples : [])];
             
             const post = todosLosPosts.find(n => n.id === idPost);
 
