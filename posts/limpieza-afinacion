@@ -1,0 +1,74 @@
+<h2 style="font-size: 2.2em; color: #ffffff; margin-bottom: 10px;">Limpieza por afinación con ecualización sustractiva</h2>
+<p style="color: #aaaaaa; font-size: 0.9em; margin-bottom: 30px;">Categoría: Mezcla & Procesamiento de Voces | Por: RVC Studio</p>
+
+<p style="font-size: 1.1em; color: #cccccc; margin-bottom: 20px;">
+    Hace un par de días atrás estaba mezclando unas voces para un tema de trap del cliente Banny Mont; ya las voces habían pasado por un proceso sencillo de mezcla y hasta el momento yo dije: «¡suena bien así!».
+</p>
+
+<p style="color: #cccccc; margin-bottom: 25px;">
+    Pero, como ustedes ya saben, en esto de la ingeniería de sonido y, más específicamente, en la parte de mezcla y máster, una canción por lo general lleva varios días en ese proceso de mezcla, ya que el oído del ingeniero necesita breves descansos de 30, 40 o hasta 60 minutos después de cada 90 minutos de mezcla en la canción, y un día después, pues de cada 6 horas invertidas, ya que el oído humano necesita este intervalo para poder recuperarse de la fatiga auditiva y otra vez poder hacer una escucha crítica para identificar los errores de mezcla.
+</p>
+
+<p style="color: #cccccc; margin-bottom: 25px;">
+    Bueno, resulta y acontece que me encontraba ya en mi tercer día de mezcla de esta canción y percaté de que las voces estaban abarcando mucho espacio en la mezcla, lo que hacía que las melodías del beat no se percataran casi; así que me las ingenié para abrir espacio en estas voces, pero sin quitarles sus características armónicas.
+</p>
+
+<p style="color: #cccccc; margin-bottom: 25px;">
+    Todos sabemos que el Parametric EQ2 del FL Studio trae la opción de ecualizar por frecuencia; entonces la técnica fue la siguiente: empecé a excluir todas las notas musicales que no pertenecían a la escala musical en la que estaba el proyecto. En este caso yo estaba trabajando sobre la escala de Sol menor.
+</p>
+
+<!-- IMAGEN: EQ2 FL Studio -->
+<div style="margin: 30px 0; text-align: center; background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
+    <img src="imagenes/limpieza-por-afinacion/eq2-fl-studio.png" alt="Parametric EQ2 de FL Studio" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" onerror="this.src='https://placehold.co/800x350/1a1a1a/ffffff?text=Parametric+EQ2'">
+    <p style="margin-top: 10px; font-size: 0.85rem; color: #aaaaaa; font-style: italic;">Parametric EQ2 de FL Studio, herramienta clave para la limpieza por frecuencias</p>
+</div>
+
+<p style="color: #cccccc; margin-bottom: 15px;">
+    Yo sé que ya ustedes saben cuáles son las notas de la escala Sol menor, pero aquí les dejo el ejemplo:
+</p>
+
+<!-- LISTA DE NOTAS -->
+<div style="background: #141414; padding: 15px 20px; border-radius: 8px; border: 1px solid #222; margin: 15px 0; color: #cccccc;">
+    <p style="margin: 5px 0; font-weight: bold; color: #ffffff;">Notas de la escala Sol Menor:</p>
+    <p style="margin: 5px 0; font-family: monospace; font-size: 1.1em;">G, A, A#, C, D, D#, F, G</p>
+    <p style="margin: 15px 0 5px 0; font-weight: bold; color: #ffffff;">Y las notas excluidas de la escala son:</p>
+    <p style="margin: 5px 0; font-family: monospace; font-size: 1.1em;">B, E, F#, C#, G#</p>
+</div>
+
+<!-- IMAGEN: Block de Notas -->
+<div style="margin: 30px 0; text-align: center; background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
+    <img src="imagenes/limpieza-por-afinacion/block-notas.png" alt="Bloque de notas musicales" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" onerror="this.src='https://placehold.co/800x300/1a1a1a/ffffff?text=Block+de+Notas'">
+    <p style="margin-top: 10px; font-size: 0.85rem; color: #aaaaaa; font-style: italic;">Anotación de las frecuencias excluidas según la escala</p>
+</div>
+
+<p style="color: #cccccc; margin-bottom: 25px;">
+    Entonces, con la ayuda del Parametric EQ2 del FL Studio me guié para sacarle las frecuencias exactas de cada nota negativa o excluida de la escala.
+</p>
+
+<p style="color: #cccccc; margin-bottom: 25px;">
+    Y empecé a anotar, ya que yo no estaba usando el FL Studio para mezclar el tema, y además, necesita un ecualizador dinámico para solo hacer el corte quirúrgico cuando sea necesario o cuando esas frecuencias quieran sobresalir en la mezcla.
+</p>
+
+<p style="color: #cccccc; margin-bottom: 25px;">
+    Tampoco es que vamos a usar 10 bandas para hacer limpieza sustractiva; la idea es tomar una nota negativa en los graves y hacer el corte quirúrgico con una banda tipo bell en modo dinámico, y así con los medios y agudos.
+</p>
+
+<p style="color: #cccccc; margin-bottom: 25px;">
+    Esta técnica también la puedes aplicar usando el preset de comb filter del Autotune Vocal EQ, pero ya queda a tu gusto si lo quieres hacer con el Pro EQ4 o el EQ de Antares.
+</p>
+
+<!-- IMAGENES FINALES: Pro EQ4 y Antares EQ -->
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 30px 0; justify-content: center;">
+    <div style="flex: 1; min-width: 280px; text-align: center; background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
+        <img src="imagenes/limpieza-por-afinacion/proeq4.png" alt="Pro EQ4" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" onerror="this.src='https://placehold.co/400x250/1a1a1a/ffffff?text=Pro+EQ4'">
+        <p style="margin-top: 10px; font-size: 0.85rem; color: #aaaaaa; font-style: italic;">Pro EQ4 - Una de las alternativas para la limpieza sustractiva</p>
+    </div>
+    <div style="flex: 1; min-width: 280px; text-align: center; background: #141414; padding: 15px; border-radius: 8px; border: 1px solid #222;">
+        <img src="imagenes/limpieza-por-afinacion/antares-eq.jpg" alt="Antares Vocal EQ" style="max-width: 100%; height: auto; border-radius: 6px; border: 1px solid #333; box-shadow: 0 4px 10px rgba(0,0,0,0.4);" onerror="this.src='https://placehold.co/400x250/1a1a1a/ffffff?text=Antares+Vocal+EQ'">
+        <p style="margin-top: 10px; font-size: 0.85rem; color: #aaaaaa; font-style: italic;">Autotune Vocal EQ con preset de comb filter</p>
+    </div>
+</div>
+
+<p style="margin-top: 25px; font-style: italic; color: #aaaaaa;">
+    Esta técnica de limpieza por afinación te permite despejar el espectro de frecuencias sin perder el carácter armónico de la voz, logrando que el beat respire y las melodías luzcan en su máximo esplendor. ¡Ponla en práctica en tu próxima mezcla!
+</p>
