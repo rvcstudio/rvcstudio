@@ -1,5 +1,13 @@
 // datos-novedades.js
 const novedades = [ 
+     {
+        id: "limpieza-afinacion",
+        titulo: "Limpieza por afinación con ecualización sustractiva", 
+        categoria: " Mezcla & Procesamiento de Voces | Por: RVC Studio",
+        resumen: "Hace un par de días atrás estaba mezclando unas voces para un tema de trap del cliente Banny Mont; ya las voces habían pasado por un proceso sencillo de mezcla y hasta el momento yo dije: «¡suena bien así!».",
+        imagenCover: "imagenes/limpieza-por-afinacion/proeq4.png",
+        archivoUrl: "posts/limpieza-afinacion.html"
+    },
     {
         id: "template-xl",
         titulo: "  Plantilla XL – La lógica definitiva para grabar voces sin perder el flow", 
