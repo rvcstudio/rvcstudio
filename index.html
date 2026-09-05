@@ -1000,8 +1000,8 @@ body {
     <button id="accept-cookies" class="btn-aceptar">Aceptar</button>
 </div>
 
+<script src="datos-novedades.js"></script>    
 <script src="datos-tutoriales.js"></script>
-<script src="datos-novedades.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <script>
@@ -1020,8 +1020,9 @@ body {
         // 2. Motor de Renderizado de Tarjetas
         // Unimos los arrays de forma segura
         const todosLosPosts = [
-            ...(typeof tutoriales !== 'undefined' ? tutoriales : []),
             ...(typeof novedades !== 'undefined' ? novedades : []),
+            ...(typeof tutoriales !== 'undefined' ? tutoriales : []),
+            
         ];
         
         const contVertical = document.getElementById('contenedor-verticales');
