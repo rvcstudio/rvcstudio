@@ -1000,79 +1000,10 @@ body {
     <button id="accept-cookies" class="btn-aceptar">Aceptar</button>
 </div>
 
-<script src="datos-novedades.js"></script>    
+<script src="datos-novedades.js"></script>
 <script src="datos-tutoriales.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-<script>
-    window.onload = function() {
-        // 1. Lógica de Cookies (CORREGIDA: con validación de existencia)
-        const banner = document.getElementById('cookie-banner');
-        const btn = document.getElementById('accept-cookies');
-
-        // Solo si existe el banner, ocultamos si ya aceptó
-        if (banner) {
-            if (localStorage.getItem('cookiesAceptadas') === 'true') {
-                banner.style.display = 'none';
-            }
-        }
-
-        // Solo si existe el botón, le asignamos el evento
-        if (btn) {
-            btn.addEventListener('click', () => {
-                localStorage.setItem('cookiesAceptadas', 'true');
-                if (banner) {
-                    banner.style.display = 'none';
-                }
-            });
-        }
-
-        // 2. Motor de Renderizado de Tarjetas (sin cambios, pero seguro)
-        const todosLosPosts = [
-            ...(typeof novedades !== 'undefined' ? novedades : []),
-            ...(typeof tutoriales !== 'undefined' ? tutoriales : [])
-        ];
-        
-        const contVertical = document.getElementById('contenedor-verticales');
-        const contHorizontal = document.getElementById('contenedor-horizontales');
-
-        // Si por alguna falta no existen los contenedores, salimos para no generar errores
-        if (!contVertical || !contHorizontal) {
-            console.warn('No se encontraron los contenedores #contenedor-verticales o #contenedor-horizontales');
-            return;
-        }
-
-        todosLosPosts.forEach((post, index) => {
-            if (index < 3) {
-                // Tarjetas verticales (Izquierda)
-                const tarjetaV = document.createElement('a');
-                tarjetaV.className = 'tarjeta-vertical';
-                tarjetaV.href = "novedades.html?post=" + post.id;
-                tarjetaV.innerHTML = `
-                    <div class="img-vertical" style="background-image: url('${post.imagenCover}');"></div>
-                    <div class="info-vertical">
-                        <h3>${post.titulo}</h3>
-                        <p>${post.resumen || ''}</p>
-                    </div>
-                `;
-                contVertical.appendChild(tarjetaV);
-            } else {
-                // Tarjetas horizontales (Derecha)
-                const tarjetaH = document.createElement('a');
-                tarjetaH.className = 'tarjeta-novedades';
-                tarjetaH.href = "novedades.html?post=" + post.id;
-                tarjetaH.innerHTML = `
-                    <div class="info-tarjeta">
-                        <h3>${post.titulo}</h3>
-                        <p>${post.resumen || ''}</p>
-                    </div>
-                    <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
-                `;
-                contHorizontal.appendChild(tarjetaH);
-            }
-        });
-    };
-</script>
+<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>    
     
 </body>
 </html>
