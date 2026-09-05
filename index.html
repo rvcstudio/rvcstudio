@@ -1006,27 +1006,41 @@ body {
 
 <script>
     window.onload = function() {
-        // 1. Lógica de Cookies
+        // 1. Lógica de Cookies (CORREGIDA: con validación de existencia)
         const banner = document.getElementById('cookie-banner');
         const btn = document.getElementById('accept-cookies');
-        if (localStorage.getItem('cookiesAceptadas') === 'true') {
-            banner.style.display = 'none';
-        }
-        btn.addEventListener('click', () => {
-            localStorage.setItem('cookiesAceptadas', 'true');
-            banner.style.display = 'none';
-        });
 
-        // 2. Motor de Renderizado de Tarjetas
-        // Unimos los arrays de forma segura
+        // Solo si existe el banner, ocultamos si ya aceptó
+        if (banner) {
+            if (localStorage.getItem('cookiesAceptadas') === 'true') {
+                banner.style.display = 'none';
+            }
+        }
+
+        // Solo si existe el botón, le asignamos el evento
+        if (btn) {
+            btn.addEventListener('click', () => {
+                localStorage.setItem('cookiesAceptadas', 'true');
+                if (banner) {
+                    banner.style.display = 'none';
+                }
+            });
+        }
+
+        // 2. Motor de Renderizado de Tarjetas (sin cambios, pero seguro)
         const todosLosPosts = [
             ...(typeof novedades !== 'undefined' ? novedades : []),
-            ...(typeof tutoriales !== 'undefined' ? tutoriales : []),
-            
+            ...(typeof tutoriales !== 'undefined' ? tutoriales : [])
         ];
         
         const contVertical = document.getElementById('contenedor-verticales');
         const contHorizontal = document.getElementById('contenedor-horizontales');
+
+        // Si por alguna falta no existen los contenedores, salimos para no generar errores
+        if (!contVertical || !contHorizontal) {
+            console.warn('No se encontraron los contenedores #contenedor-verticales o #contenedor-horizontales');
+            return;
+        }
 
         todosLosPosts.forEach((post, index) => {
             if (index < 3) {
