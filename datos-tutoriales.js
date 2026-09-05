@@ -1,5 +1,5 @@
 // datos-tutoriales.js
-const tutoriales = [
+window. tutoriales = [
     {
         id: "compresion-de-voces",
         titulo: "Compresion de Voces: Tecnicas Pro para Lograr Voces Al Frente en tu Mezcla",
