@@ -956,13 +956,11 @@ body {
     <div class="barra-navegacion-secundaria">
         <div class="scroll-container">
             <a href="index.html">🔥 Inicio</a>
-            <a href="samples-y-drum-kit.html">📀 Samples & Drum Kit</a>
             <a href="novedades.html">📰 Novedades</a>
             <a href="servicios.html">🎛️ Servicios</a>
             <a href="contacto.html">📧 Contacto</a>
             <!-- Repetido para efecto infinito -->
-            <a href="index.html">🔥 Inicio</a>
-            <a href="samples-y-drum-kit.html">📀 Samples & Drum Kit</a>
+            <a href="index.html">🔥 Inicio</a>>
             <a href="novedades.html">📰 Novedades</a>
             <a href="servicios.html">🎛️ Servicios</a>
             <a href="contacto.html">📧 Contacto</a>
@@ -1015,7 +1013,6 @@ body {
             const contenedor = document.getElementById("contenido-del-tutorial");
             const todosLosPosts = [...(typeof tutoriales !== 'undefined' ? tutoriales : []), 
                                    ...(typeof novedades !== 'undefined' ? novedades : []), 
-                                   ...(typeof samples !== 'undefined' ? samples : [])];
             
             const post = todosLosPosts.find(n => n.id === idPost);
 
