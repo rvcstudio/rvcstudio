@@ -1,5 +1,5 @@
 // datos-novedades.js
-const novedades = [ 
+window. novedades = [ 
      {
         id: "limpieza-afinacion",
         titulo: "Limpieza por afinación con ecualización sustractiva", 
