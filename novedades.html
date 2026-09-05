@@ -745,109 +745,115 @@ body {
     
     
     <script>
-        // 1. Obtiene solo las novedades
-        function obtenerPostsPorPagina() {
-            return (typeof novedades !== 'undefined') ? novedades : [];
+    // 1. Obtiene solo las novedades
+    function obtenerPostsPorPagina() {
+        return (typeof novedades !== 'undefined') ? novedades : [];
+    }
+
+    // 2. Cargar artículo principal (CORREGIDO)
+    async function cargarArticulo(idPost) {
+        const contenedor = document.getElementById("contenido-del-articulo");
+        
+        // ✅ Aquí está la corrección: el array está BIEN CERRADO
+        const todosLosPosts = [
+            ...(typeof novedades !== 'undefined' ? novedades : []),
+            ...(typeof tutoriales !== 'undefined' ? tutoriales : [])
+        ];
+
+        const post = todosLosPosts.find(n => n.id === idPost);
+
+        if (!post) {
+            contenedor.innerHTML = "<h2 style='color:#fff;'>Artículo no encontrado</h2>";
+            return;
         }
 
-        // 2. Cargar artículo principal
-        async function cargarArticulo(idPost) {
-            const contenedor = document.getElementById("contenido-del-articulo");
-            const todosLosPosts = [...(typeof novedades !== 'undefined' ? novedades : []), 
-                                   ...(typeof tutoriales !== 'undefined' ? tutoriales : []), 
-                                  
-            
-            const post = todosLosPosts.find(n => n.id === idPost);
-
-            if (!post) {
-                contenedor.innerHTML = "<h2>Artículo no encontrado</h2>";
-                return;
-            }
-
-            try {
-                const response = await fetch(post.archivoUrl);
-                const html = await response.text();
-                contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
-                document.title = post.titulo + " | Novedades";
-            } catch (e) {
-                contenedor.innerHTML = "<h2>Error al cargar el artículo</h2>";
-            }
-            
-            renderizarRecomendados(idPost);
+        try {
+            const response = await fetch(post.archivoUrl);
+            if (!response.ok) throw new Error('Error al cargar el archivo');
+            const html = await response.text();
+            contenedor.innerHTML = `<div class="articulo-cargado">${html}</div>`;
+            document.title = post.titulo + " | Novedades";
+        } catch (e) {
+            console.error(e);
+            contenedor.innerHTML = "<h2 style='color:#fff;'>Error al cargar el artículo</h2>";
         }
+        
+        renderizarRecomendados(idPost);
+    }
 
-        // 3. Renderizar Recomendados (Derecha)
-        function renderizarRecomendados(idActual) {
-            const contenedor = document.getElementById("contenedor-lista-recomendados");
-            if (!contenedor) return;
-            contenedor.innerHTML = ""; 
+    // 3. Renderizar Recomendados (Derecha)
+    function renderizarRecomendados(idActual) {
+        const contenedor = document.getElementById("contenedor-lista-recomendados");
+        if (!contenedor) return;
+        contenedor.innerHTML = ""; 
+        
+        const postsFiltrados = obtenerPostsPorPagina();
+        
+        postsFiltrados.filter(p => p.id !== idActual).forEach(post => {
+            const tarjeta = document.createElement('a');
+            tarjeta.className = 'tarjeta-novedades';
+            tarjeta.href = "novedades.html?post=" + post.id; 
+            tarjeta.innerHTML = `
+                <div class="info-tarjeta"><h3>${post.titulo}</h3></div>
+                <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
+            `;
+            contenedor.appendChild(tarjeta);
+        });
+        
+        const redesSociales = document.createElement('div');
+        redesSociales.className = 'social-footer';
+        redesSociales.innerHTML = `
+            <p>Síguenos en:</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/r.v.c_studio" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@rvc_studio" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61590301659913" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+        `;
+        contenedor.appendChild(redesSociales);       
+    }
+
+    // 4. COLUMNA IZQUIERDA: Tarjetas verticales de novedades
+    function cargarColumnaIzquierda() {
+        const contenedor = document.getElementById("contenedor-verticales");
+        if (!contenedor) return;
+        
+        const titulo = contenedor.querySelector('h2');
+        contenedor.innerHTML = "";
+        if (titulo) contenedor.appendChild(titulo);
+        
+        const posts = obtenerPostsPorPagina().slice(0, 5);
+        
+        posts.forEach(post => {
+            const tarjeta = document.createElement('a');
+            tarjeta.className = 'tarjeta-vertical';
+            tarjeta.href = "novedades.html?post=" + post.id;
             
-            const postsFiltrados = obtenerPostsPorPagina();
-            
-            postsFiltrados.filter(p => p.id !== idActual).forEach(post => {
-                const tarjeta = document.createElement('a');
-                tarjeta.className = 'tarjeta-novedades';
-                tarjeta.href = "novedades.html?post=" + post.id; 
-                tarjeta.innerHTML = `
-                    <div class="info-tarjeta"><h3>${post.titulo}</h3></div>
-                    <div class="img-tarjeta" style="background-image: url('${post.imagenCover}');"></div>
-                `;
-                contenedor.appendChild(tarjeta);
-            });
-            
-            const redesSociales = document.createElement('div');
-            redesSociales.className = 'social-footer';
-            redesSociales.innerHTML = `
-                <p>Síguenos en:</p>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/r.v.c_studio" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@rvc_studio" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61590301659913" target="_blank"><i class="fab fa-facebook"></i></a>
+            tarjeta.innerHTML = `
+                <div class="img-vertical" style="background-image: url('${post.imagenCover}');"></div>
+                <div class="info-vertical">
+                    <h3>${post.titulo}</h3>
                 </div>
             `;
-            contenedor.appendChild(redesSociales);       
+            contenedor.appendChild(tarjeta);
+        });
+    }
+
+    // 5. INICIO
+    window.onload = function() {
+        const params = new URLSearchParams(window.location.search);
+        const postID = params.get('post');
+        const postsActuales = obtenerPostsPorPagina();
+
+        if (postID) {
+            cargarArticulo(postID);
+        } else if (postsActuales.length > 0) {
+            cargarArticulo(postsActuales[0].id);
         }
-
-        // 4. COLUMNA IZQUIERDA: Tarjetas verticales de novedades
-        function cargarColumnaIzquierda() {
-            const contenedor = document.getElementById("contenedor-verticales");
-            if (!contenedor) return;
-            
-            const titulo = contenedor.querySelector('h2');
-            contenedor.innerHTML = "";
-            if (titulo) contenedor.appendChild(titulo);
-            
-            const posts = obtenerPostsPorPagina().slice(0, 5);
-            
-            posts.forEach(post => {
-                const tarjeta = document.createElement('a');
-                tarjeta.className = 'tarjeta-vertical';
-                tarjeta.href = "novedades.html?post=" + post.id;
-                
-                tarjeta.innerHTML = `
-                    <div class="img-vertical" style="background-image: url('${post.imagenCover}');"></div>
-                    <div class="info-vertical">
-                        <h3>${post.titulo}</h3>
-                    </div>
-                `;
-                contenedor.appendChild(tarjeta);
-            });
-        }
-
-        window.onload = function() {
-            const params = new URLSearchParams(window.location.search);
-            const postID = params.get('post');
-            const postsActuales = obtenerPostsPorPagina();
-
-            if (postID) {
-                cargarArticulo(postID);
-            } else if (postsActuales.length > 0) {
-                cargarArticulo(postsActuales[0].id);
-            }
-            
-            cargarColumnaIzquierda();
-        };
-    </script>
+        
+        cargarColumnaIzquierda();
+    };
+</script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
 </body>
