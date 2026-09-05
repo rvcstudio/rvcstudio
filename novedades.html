@@ -739,9 +739,10 @@ body {
         </div>
         <p>© 2026 Record Very Clean Music. Todos los derechos reservados.</p>
     </footer>
-    
-    <script src="datos-tutoriales.js"></script>
+
     <script src="datos-novedades.js"></script>
+    <script src="datos-tutoriales.js"></script>
+    
     
     <script>
         // 1. Obtiene solo las novedades
@@ -752,8 +753,9 @@ body {
         // 2. Cargar artículo principal
         async function cargarArticulo(idPost) {
             const contenedor = document.getElementById("contenido-del-articulo");
-            const todosLosPosts = [...(typeof tutoriales !== 'undefined' ? tutoriales : []), 
-                                   ...(typeof novedades !== 'undefined' ? novedades : []), 
+            const todosLosPosts = [...(typeof novedades !== 'undefined' ? novedades : []), 
+                                   ...(typeof tutoriales !== 'undefined' ? tutoriales : []), 
+                                  
             
             const post = todosLosPosts.find(n => n.id === idPost);
 
