@@ -1033,7 +1033,7 @@ body {
                 // Tarjetas verticales (Izquierda)
                 const tarjetaV = document.createElement('a');
                 tarjetaV.className = 'tarjeta-vertical';
-                tarjetaV.href = "tutoriales.html?post=" + post.id;
+                tarjetaV.href = "novedades.html?post=" + post.id;
                 tarjetaV.innerHTML = `
                     <div class="img-vertical" style="background-image: url('${post.imagenCover}');"></div>
                     <div class="info-vertical">
@@ -1045,8 +1045,8 @@ body {
             } else {
                 // Tarjetas horizontales (Derecha)
                 const tarjetaH = document.createElement('a');
-                tarjetaH.className = 'tarjeta-tutorial';
-                tarjetaH.href = "tutoriales.html?post=" + post.id;
+                tarjetaH.className = 'tarjeta-novedades';
+                tarjetaH.href = "novedades.html?post=" + post.id;
                 tarjetaH.innerHTML = `
                     <div class="info-tarjeta">
                         <h3>${post.titulo}</h3>
