@@ -14,467 +14,211 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Record Very Clean Music | RVC Studio - Tus canciones, nuestro sonido</title>
-
-    <link rel="icon" type="favicon.png" href="imagenes/favicon.png">
-
-    <meta property="og:title" content="Record Very Clean Music | RVC Studio">
-    <meta property="og:description" content="Tus canciones, nuestro sonido. Nuestra tarea: tu mejor calidad.">
-    <meta property="og:image" content="https://rvcstudio.lat/wp-content/uploads/2026/06/1781025371768-1.png">
-    <meta property="og:url" content="https://rvcstudio.lat">
-    <meta property="og:type" content="website">
-
+    <title>RVC Studio | Mix y Mastering Profesional</title>
+    <meta name="description" content="Professional Mixing & Mastering Service. Clean, powerful and industry-ready sound for your song.">
     <style>
-        /* RESET BÁSICO */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body, html {
-            width: 100%;
-            background-color: #0b0b0b;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f0f1a;
             color: #ffffff;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* 1. CABEZAL SUPERIOR DE NAVEGACIÓN */
-        .cabezal-superior {
-            width: 100%;
-            background-color: #070707;
-            border-bottom: 1px solid #1a1a1a;
-            padding: 12px 50px;
+            min-height: 100vh;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
-        .links-paginas {
-            display: flex;
-            gap: 25px;
-        }
-
-        .links-paginas a {
-            color: #aaaaaa;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        .links-paginas a:hover {
-            color: #ff0055;
-        }
-
-        /* 2. BARRA DE ANUNCIOS / OFERTAS */
-        .barra-promocional {
+        .container {
+            max-width: 900px;
             width: 100%;
-            background-color: #ff0055;
-            color: #ffffff;
             text-align: center;
-            padding: 10px 20px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 10px rgba(255, 0, 85, 0.2);
+            padding: 40px 20px;
         }
 
-        /* ANIMACIÓN DE DIFUSIÓN (FADE IN) */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -40%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
-        }
-
-        /* BANNER HORIZONTAL (PORTADA AJUSTADA) */
-        .banner-horizontal {
+        /* Banner con la imagen de fondo */
+        .banner {
+            position: relative;
             width: 100%;
-            height: 400px;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
-                              url('imagenes/banner.jpg');
+            height: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            background-image: url('imagenes/backgroun.jpg');
             background-size: cover;
-            background-position: center 35%;
+            background-position: center;
             background-repeat: no-repeat;
-            position: relative;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .fila-superior {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
             align-items: center;
-            width: 100%;
-            padding: 20px 50px;
-            z-index: 10;
+            justify-content: center;
         }
 
-        .bloque-logo img {
-            max-height: 70px;
-            width: auto;
-            display: block;
-        }
-
-        .bloque-redes {
-            display: flex;
-            flex-direction: row;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .bloque-redes img {
-            height: 35px;
-            width: 35px;
-            display: block;
-            object-fit: cover;
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-
-        .bloque-redes a:hover img { transform: scale(1.1); }
-
-        .bloque-eslogan {
-            position: absolute;
-            top: 55%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 800px;
-            text-align: center;
-            z-index: 5;
-            animation: fadeIn 1.5s ease-out forwards;
-        }
-
-        .bloque-eslogan h1 {
-            color: #ffffff;
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.9);
-            line-height: 1.3;
-            letter-spacing: 0.5px;
-        }
-
-        /* SECCIÓN DE ARGUMENTO NARRATIVO SEO */
-        .seccion-narrativa {
-            max-width: 850px;
-            margin: 60px auto 20px auto;
-            padding: 0 20px;
-            line-height: 1.8;
-            font-size: 1.05rem;
-            color: #cccccc;
-        }
-
-        .seccion-narrativa h2 {
-            font-size: 1.8rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .seccion-narrativa h2 span {
-            border-bottom: 2px solid #ff0055;
-            padding-bottom: 8px;
-        }
-
-        .seccion-narrativa p {
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        .seccion-narrativa em {
-            color: #ff0055;
-            font-style: normal;
-            font-weight: 600;
-        }
-
-        /* SECCIÓN DE SERVICIOS */
-        .seccion-servicios {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px 120px 20px;
-            text-align: center;
-        }
-
-        .titulo-seccion {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .titulo-seccion::after {
+        .banner::before {
             content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: #ff0055;
-            margin: 10px auto 0 auto;
-            border-radius: 2px;
-        }
-
-        .grid-servicios {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .tarjeta-servicio {
-            background-color: #141414;
-            border: 1px solid #222;
-            border-radius: 12px;
-            padding: 40px 30px;
-            width: 320px;
-            min-height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .tarjeta-servicio:hover {
-            transform: translateY(-10px);
-            border-color: #ff0055;
-            box-shadow: 0 10px 20px rgba(255, 0, 85, 0.1);
-        }
-
-        .icono-servicio { font-size: 3rem; margin-bottom: 20px; }
-        .tarjeta-servicio h3 { font-size: 1.4rem; margin-bottom: 15px; font-weight: 600; }
-        .tarjeta-servicio p { color: #aaaaaa; font-size: 0.95rem; line-height: 1.6; }
-
-        /* BOTÓN FLOTANTE DE WHATSAPP */
-        .btn-whatsapp {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: #25d366;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(37, 211, 102, 0.3);
-            z-index: 999;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-        }
-
-        .btn-whatsapp:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(37, 211, 102, 0.5);
-        }
-
-        .btn-whatsapp svg { width: 34px; height: 34px; fill: #ffffff; }
-
-        /* PIE DE PÁGINA (FOOTER ENLACES LEGALES) */
-        .footer-legal {
-            background-color: #070707;
-            border-top: 1px solid #1a1a1a;
-            padding: 30px 20px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #666666;
-        }
-
-        .links-legales {
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .links-legales a {
-            color: #aaaaaa;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .links-legales a:hover { color: #ff0055; }
-
-        /* AVISO DE COOKIES */
-        .banner-cookies {
-            position: fixed;
-            bottom: 0;
+            position: absolute;
+            top: 0;
             left: 0;
             width: 100%;
-            background-color: #141414;
-            border-top: 2px solid #ff0055;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 10000;
-            box-shadow: 0 -5px 25px rgba(0,0,0,0.8);
-            transition: all 0.5s ease;
-            transform: translateY(100%);
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
         }
 
-        .banner-cookies.activo { transform: translateY(0); }
-        .texto-cookies { font-size: 0.9rem; color: #cccccc; max-width: 80%; line-height: 1.4; }
-        .texto-cookies a { color: #ff0055; text-decoration: none; }
-        .btn-cookies {
-            background-color: #ff0055;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            font-weight: 600;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            white-space: nowrap;
+        .banner-text {
+            position: relative;
+            z-index: 2;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            background: linear-gradient(90deg, #00d4ff, #7b2ff7, #ff2e93);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(123, 47, 247, 0.5);
+            padding: 0 20px;
         }
-        .btn-cookies:hover { background-color: #d60048; }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .cabezal-superior { padding: 12px 20px; flex-direction: column; gap: 8px; text-align: center; }
-            .links-paginas { gap: 15px; }
-            .links-paginas a { font-size: 0.8rem; }
-            .barra-promocional { font-size: 0.85rem; padding: 8px 15px; }
-            .banner-horizontal { height: 350px; }
-            .fila-superior { padding: 15px 20px; flex-direction: column; gap: 10px; }
-            .bloque-logo img { max-height: 50px; }
-            .bloque-eslogan { top: 60%; }
-            .bloque-eslogan h1 { font-size: 1.3rem; }
-            .seccion-narrativa h2 { font-size: 1.5rem; }
-            .seccion-servicios { padding: 30px 20px; }
-            .tarjeta-servicio { width: 100%; min-height: auto; }
-            .btn-whatsapp { bottom: 20px; right: 20px; width: 55px; height: 55px; }
-            .banner-cookies { flex-direction: column; gap: 15px; padding: 20px; text-align: center; }
-            .texto-cookies { max-width: 100%; }
+        /* Tarjeta de descripción */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 35px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            text-align: left;
         }
-    </style>
-    <link rel="canonical" href="https://rvcstudio.lat/" />
-</head>
-<body>
 
-    <div class="cabezal-superior">
-        <div class="links-paginas">
-            <a href="index.html">Inicio</a>
-            <a href="novedades.html">Novedades</a>
-            <a href="tutoriales.html">Tutoriales</a>
-            <a href="contacto.html">Contacto</a>
-        </div>
-    </div>
+        .card h2 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #00d4ff;
+            text-align: center;
+        }
 
-    <div class="barra-promocional">
-        Contrata nuestro servicio y accede a nuestras ofertas exclusivas
-    </div>
+        .card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #d0d0e0;
+            margin-bottom: 20px;
+        }
 
-    <div class="banner-horizontal">
-        <header class="fila-superior">
-            <div class="bloque-logo">
-              <a href="index.html">
-        <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
-    </a>
-            </div>
-            
-            <div class="bloque-redes">
-                <a href="https://www.youtube.com/@rvc_studio" target="_blank" rel="noopener">
-                    <img src="imagenes/descarga-2.jpg" alt="YouTube">
-                </a>
-                <a href="https://www.instagram.com/r.v.c_studio?igsh=YWs4N2RkMGFqNnJu" target="_blank" rel="noopener">
-                    <img src="imagenes/images-3.jpg" alt="Instagram">
-                </a>
-            </div>
-        </header>
+        .card strong {
+            color: #ffffff;
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
 
-        <div class="bloque-eslogan">
-            <h1>RECORD VERY CLEAN<br>Tus canciones, nuestro sonido.<br>Nuestra tarea: tu mejor calidad.</h1>
-        </div>
-    </div>
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
 
-    <section class="seccion-narrativa">
-        <h2><span>El Sonido Detrás de la Identidad Urbana y Regional</span></h2>
-        
-        <p>
-            En <strong>Record Very Clean</strong> entendemos que una canción es mucho más que una simple secuencia de acordes; es la representación pura del esfuerzo, la cultura y la visión de un artista. Nos especializamos en la <strong>producción musical, mezcla y masterización</strong> dentro de los géneros más exigentes de la escena actual, incluyendo la <strong>música urbana y la música regional</strong>. Nuestro objetivo es claro: transformar maquetas crudas en piezas de nivel internacional competitivas en cualquier plataforma de streaming.
-        </p>
-        
-        <p>
-            Utilizando <strong>Ableton Live</strong> como nuestra estación de trabajo central, desarrollamos un flujo de ingeniería de audio optimizado que respeta la dinámica original y potencia el impacto de cada frecuencia. Desde el diseño de instrumentales personalizadas y el procesamiento avanzado de voces (adlibs, armónicos y dobles), hasta el pulido final mediante herramientas de alta gama, nos aseguramos de que cada canal mantenga la máxima claridad técnica.
-        </p>
-        
-        <p>
-            No creemos en las fórmulas genéricas. En <strong>Record Very Clean</strong> construimos un argumento narrativo sonoro único para cada proyecto, brindándole a productores y compositores las bases técnicas necesarias para llevar sus capturas al siguiente nivel. Tu creatividad merece ser escuchada con la mayor fidelidad posible: <em>tus canciones merecen nuestro sonido</em>.
-        </p>
-    </section>
+        .card ul li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            color: #d0d0e0;
+            line-height: 1.6;
+        }
 
-    <section class="seccion-servicios">
-        <h2 class="titulo-seccion">Nuestros Servicios</h2>
-        <div class="grid-servicios">
-            <div class="tarjeta-servicio">
-                <div class="icono-servicio">🎛️</div>
-                <h3>Producción Musical</h3>
-                <p>Creación de beats exclusivos, arreglos y dirección artística adaptada a tu estilo para llevar tu idea al siguiente nivel.</p>
-            </div>
-            <div class="tarjeta-servicio">
-                <div class="icono-servicio">🎙️</div>
-                <h3>Grabación y Edición</h3>
-                <p>Captura de voces e instrumentos con la máxima claridad, limpieza de ruidos, afinación profesional (Autotune/Melodyne) y sincronización.</p>
-            </div>
-            <div class="tarjeta-servicio">
-                <div class="icono-servicio">🔊</div>
-                <h3>Mezcla & Mastering</h3>
-                <p>Balance de frecuencias, dinámica y pegada competitiva para que tus canciones suenen perfectas en cualquier plataforma de streaming.</p>
-            </div>
-        </div>
-    </section>
+        .card ul li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-weight: bold;
+        }
 
-    <footer class="footer-legal">
-        <div class="links-legales">
-            <a href="aviso-legal.html">Aviso Legal</a>
-            <a href="politica-privacidad.html">Política de Privacidad</a>
-            <a href="terminos-condiciones.html">Términos y Condiciones</a>
-            <a href="sobre-nosotros.html">Nosotros</a>
-            <a href="contacto.html">Contacto</a>
-        </div>
-        <p>&copy; 2026 RVC Studio. Todos los derechos reservados.</p>
-    </footer>
+        .card a {
+            color: #00d4ff;
+            text-decoration: none;
+            word-break: break-all;
+        }
 
-    <div id="cookies-banner" class="banner-cookies">
-        <p class="texto-cookies">
-            Utilizamos cookies propias para mejorar tu experiencia de navegación y mostrarte contenido personalizado relacionado con nuestras producciones musicales. Puedes leer más en nuestra <a href="politica-privacidad.html">Política de Privacidad</a>.
-        </p>
-        <button class="btn-cookies" onclick="aceptarCookies()">Aceptar Cookies</button>
-    </div>
+        .card a:hover {
+            text-decoration: underline;
+        }
 
-    <a href="https://wa.me/573234739393?text=Hola%20RVC%20Studio!%20Me%20interesa%20obtener%20información%20sobre%20sus%20servicios%20musicales." class="btn-whatsapp" target="_blank" rel="noopener" title="Contáctanos por WhatsApp">
-        <svg viewBox="0 0 448 512">
-            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-        </svg>
-    </a>
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #606080;
+            text-align: center;
+        }
 
-    <script>
-        window.onload = function() {
-            if (!localStorage.getItem('cookiesAceptadas')) {
-                setTimeout(() => {
-                    document.getElementById('cookies-banner').classList.add('activo');
-                }, 1000);
+        @media (max-width: 600px) {
+            .banner {
+                height: 220px;
+            }
+
+            .banner-text {
+                font-size: 1.8rem;
+            }
+
+            .card {
+                padding: 25px 20px;
+            }
+
+            .card h2 {
+                font-size: 1.3rem;
+            }
+
+            .card p,
+            .card ul li {
+                font-size: 0.95rem;
             }
         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Banner con imagen y texto encima -->
+        <div class="banner">
+            <div class="banner-text">Mix y Mastering Profesional</div>
+        </div>
 
-        function aceptarCookies() {
-            document.getElementById('cookies-banner').classList.remove('activo');
-            localStorage.setItem('cookiesAceptadas', 'true');
-        }
-    </script>
+        <!-- Descripción -->
+        <div class="card">
+            <h2>🎚️ Professional Mixing &amp; Mastering Service</h2>
 
+            <p>
+                Get clean, powerful, and industry-ready sound for your song.
+                I deliver crispy vocals, punchy drums, balanced low-end, and a polished mix that translates perfectly on all platforms — from streaming to clubs.
+            </p>
+
+            <strong>What you'll get:</strong>
+            <ul>
+                <li>Professional Mix &amp; Master (Industry Standard)</li>
+                <li>Crispy, upfront vocals</li>
+                <li>Clean balance &amp; modern loudness</li>
+                <li>Optimized for Spotify, Apple Music &amp; more</li>
+            </ul>
+
+            <strong>Submission:</strong>
+            <p>
+                Please send a download link with your high-quality WAV stems / track-outs to:<br>
+                📩 <a href="mailto:bannymont@gmail.com">bannymont@gmail.com</a>
+            </p>
+
+            <strong>Revisions:</strong>
+            <p>1 free revision is included if you're not fully satisfied with the final mix.</p>
+
+            <strong>Delivery Time:</strong>
+            <p>Please allow up to 72 hours for delivery after submission.</p>
+        </div>
+
+        <footer>
+            &copy; 2025 RVC Studio. Todos los derechos reservados.
+        </footer>
+    </div>
 </body>
 </html>
