@@ -80,7 +80,7 @@
 
         .dropbtn {
             background-color: transparent;
-            color: #ff0055;
+            color: #ffffff;
             border: none;
             cursor: pointer;
             padding: 10px;
@@ -91,8 +91,9 @@
             transition: color 0.3s ease;
         }
 
+        /* MENÚ SE PONE FUCSIA AL PASAR EL PUNTERO */
         .dropbtn:hover {
-            color: #cc0044;
+            color: #ff0055;
         }
 
         .dropdown-content {
@@ -161,12 +162,18 @@
             font-size: 3.5rem;
             font-weight: 800;
             letter-spacing: 2px;
-            color: #ff0055;
+            color: #ffffff;
             text-align: center;
             padding: 0 20px;
             text-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
             opacity: 0;
             animation: fadeIn 2s ease-in forwards;
+            transition: color 0.3s ease;
+        }
+
+        /* TÍTULO DEL BANNER SE PONE FUCSIA AL PASAR EL PUNTERO */
+        .banner-text:hover {
+            color: #ff0055;
         }
 
         @keyframes fadeIn {
@@ -198,6 +205,7 @@
             text-align: left;
         }
 
+        /* TÍTULOS EN FUCSIA */
         .card h2 {
             font-size: 1.6rem;
             margin-bottom: 20px;
@@ -205,13 +213,15 @@
             text-align: center;
         }
 
+        /* PÁRRAFOS EN COLOR ORIGINAL */
         .card p {
             font-size: 1.05rem;
             line-height: 1.8;
-            color: #ff0055;
+            color: #d0d0e0;
             margin-bottom: 20px;
         }
 
+        /* SUBTÍTULOS (STRONG) EN FUCSIA */
         .card strong {
             color: #ff0055;
             display: block;
@@ -229,7 +239,7 @@
         .card ul li {
             padding: 8px 0 8px 30px;
             position: relative;
-            color: #ff0055;
+            color: #d0d0e0;
             line-height: 1.6;
         }
 
@@ -241,6 +251,7 @@
             font-weight: bold;
         }
 
+        /* CORREO EN FUCSIA */
         .card a {
             color: #ff0055;
             text-decoration: none;
@@ -263,12 +274,13 @@
 
         .price-box .price-label {
             font-size: 0.95rem;
-            color: #ff0055;
+            color: #a0a0b8;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 8px;
         }
 
+        /* PRECIO EN FUCSIA */
         .price-box .price-value {
             font-size: 3rem;
             font-weight: 800;
@@ -278,7 +290,7 @@
 
         .price-box .price-note {
             font-size: 0.9rem;
-            color: #ff0055;
+            color: #a0a0b8;
             margin-top: 8px;
         }
 
@@ -286,7 +298,7 @@
             margin-top: 40px;
             padding: 25px 20px;
             font-size: 0.9rem;
-            color: #ff0055;
+            color: #606080;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
