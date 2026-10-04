@@ -23,34 +23,89 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #0f0f1a;
             color: #ffffff;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
         }
 
-        .container {
-            max-width: 900px;
+        /* ===== CABECERA DE NAVEGACIÓN ===== */
+        .navbar {
             width: 100%;
-            text-align: center;
-            padding: 40px 20px;
+            background: rgba(15, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 30px;
         }
 
-        /* Banner con la imagen de fondo */
+        .navbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #00d4ff, #7b2ff7, #ff2e93);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: #d0d0e0;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #00d4ff;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00d4ff, #7b2ff7);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== BANNER ANCHO COMPLETO ===== */
         .banner {
             position: relative;
             width: 100%;
-            height: 320px;
-            border-radius: 20px;
+            height: 420px;
             overflow: hidden;
-            margin-bottom: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             background-image: url('imagenes/backgroun.jpg');
             background-size: cover;
             background-position: center;
@@ -67,24 +122,42 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.55);
         }
 
         .banner-text {
             position: relative;
             z-index: 2;
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            letter-spacing: 1.5px;
-            background: linear-gradient(90deg, #00d4ff, #7b2ff7, #ff2e93);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 0 40px rgba(123, 47, 247, 0.5);
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-align: center;
             padding: 0 20px;
+            text-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
         }
 
-        /* Tarjeta de descripción */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== CONTENIDO ===== */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
         .card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -148,20 +221,100 @@
             text-decoration: underline;
         }
 
+        /* ===== PRECIO ===== */
+        .price-box {
+            margin: 30px 0;
+            padding: 25px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(123, 47, 247, 0.15));
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 15px;
+        }
+
+        .price-box .price-label {
+            font-size: 0.95rem;
+            color: #a0a0b8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .price-box .price-value {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00d4ff, #7b2ff7, #ff2e93);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .price-box .price-note {
+            font-size: 0.9rem;
+            color: #a0a0b8;
+            margin-top: 8px;
+        }
+
         footer {
             margin-top: 40px;
+            padding: 25px 20px;
             font-size: 0.9rem;
             color: #606080;
             text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        @media (max-width: 600px) {
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .nav-menu {
+                gap: 15px;
+            }
+
+            .nav-menu a {
+                font-size: 0.9rem;
+            }
+
             .banner {
-                height: 220px;
+                height: 300px;
             }
 
             .banner-text {
-                font-size: 1.8rem;
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-inner {
+                height: 60px;
+            }
+
+            .nav-logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-menu {
+                gap: 12px;
+            }
+
+            .nav-menu a {
+                font-size: 0.8rem;
+            }
+
+            .banner {
+                height: 240px;
+            }
+
+            .banner-text {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+
+            .container {
+                padding: 30px 15px;
             }
 
             .card {
@@ -176,18 +329,37 @@
             .card ul li {
                 font-size: 0.95rem;
             }
+
+            .price-box .price-value {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Banner con imagen y texto encima -->
-        <div class="banner">
-            <div class="banner-text">Mix y Mastering Profesional</div>
-        </div>
 
-        <!-- Descripción -->
-        <div class="card">
+    <!-- ===== CABECERA DE NAVEGACIÓN ===== -->
+    <header class="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="nav-logo">RVC Studio</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#servicio">Servicio</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== BANNER ANCHO COMPLETO ===== -->
+    <section class="banner">
+        <div class="banner-text">Mix y Mastering Profesional</div>
+    </section>
+
+    <!-- ===== CONTENIDO ===== -->
+    <main class="container">
+        <div class="card" id="servicio">
             <h2>🎚️ Professional Mixing &amp; Mastering Service</h2>
 
             <p>
@@ -203,8 +375,15 @@
                 <li>Optimized for Spotify, Apple Music &amp; more</li>
             </ul>
 
+            <!-- ===== PRECIO ===== -->
+            <div class="price-box">
+                <div class="price-label">Precio del Servicio</div>
+                <div class="price-value">200 USD</div>
+                <div class="price-note">Mix &amp; Master profesional completo</div>
+            </div>
+
             <strong>Submission:</strong>
-            <p>
+            <p id="contacto">
                 Please send a download link with your high-quality WAV stems / track-outs to:<br>
                 📩 <a href="mailto:bannymont@gmail.com">bannymont@gmail.com</a>
             </p>
@@ -215,10 +394,11 @@
             <strong>Delivery Time:</strong>
             <p>Please allow up to 72 hours for delivery after submission.</p>
         </div>
+    </main>
 
-        <footer>
-            &copy; 2025 RVC Studio. Todos los derechos reservados.
-        </footer>
-    </div>
+    <footer>
+        &copy; 2025 RVC Studio. Todos los derechos reservados.
+    </footer>
+
 </body>
 </html>
