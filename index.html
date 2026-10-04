@@ -28,61 +28,31 @@
             overflow-x: hidden;
         }
 
-        /* ===== FONDO GALAXIA ANIMADO ===== */
+        /* ===== FONDO CON TU IMAGEN (se mueve con el scroll) ===== */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #0a0a14;
+            background-image: url('imagenes/galaxy.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            background-repeat: no-repeat;
             color: #ffffff;
             min-height: 100vh;
             position: relative;
         }
 
-        /* Capa de degradados galaxia */
+        /* Capa oscura encima del fondo para que el texto se lea bien */
         body::before {
             content: '';
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
-            background: 
-                radial-gradient(ellipse at 20% 30%, rgba(123, 47, 247, 0.25) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(255, 0, 85, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.12) 0%, transparent 60%),
-                #0a0a14;
-            pointer-events: none;
-        }
-
-        /* Capa de dibujos doodle animados */
-        body::after {
-            content: '';
-            position: fixed;
-            top: -300px;
-            left: -300px;
-            width: calc(100% + 600px);
-            height: calc(100% + 600px);
+            background: rgba(0, 0, 0, 0.55);
             z-index: -1;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='white' stroke-width='1.8' opacity='0.22' stroke-linecap='round' stroke-linejoin='round'%3E%3C!-- Nota doble --%3E%3Cpath d='M50 60 v30 a10 10 0 1 1 -10 -10 h10 M50 60 l20 -5 v30 a10 10 0 1 1 -10 -10 h10'/%3E%3C!-- Nota simple --%3E%3Cpath d='M320 40 v25 a8 8 0 1 1 -8 -8 h8'/%3E%3C!-- Auricular --%3E%3Cpath d='M120 280 a25 25 0 0 1 50 0 v15 h-10 v-15 a15 15 0 0 0 -30 0 v15 h-10 z'/%3E%3C!-- Micrófono --%3E%3Crect x='220' y='100' width='14' height='34' rx='7'/%3E%3Cpath d='M214 122 a20 20 0 0 0 40 0 M234 142 v12 M224 154 h20'/%3E%3C!-- Estrella 1 --%3E%3Cpath d='M100 180 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 z'/%3E%3C!-- Onda de sonido --%3E%3Cpath d='M340 200 a20 20 0 0 1 0 30 M352 190 a35 35 0 0 1 0 50 M364 180 a50 50 0 0 1 0 70'/%3E%3C!-- Ecualizador --%3E%3Crect x='40' y='320' width='6' height='20' rx='3'/%3E%3Crect x='52' y='305' width='6' height='35' rx='3'/%3E%3Crect x='64' y='315' width='6' height='25' rx='3'/%3E%3C!-- Vinilo --%3E%3Ccircle cx='330' cy='320' r='24'/%3E%3Ccircle cx='330' cy='320' r='7'/%3E%3Ccircle cx='330' cy='320' r='1.8' fill='white'/%3E%3C!-- Nota doble 2 --%3E%3Cpath d='M180 40 v25 a8 8 0 1 1 -8 -8 h8 M180 40 l15 -4 v25 a8 8 0 1 1 -8 -8 h8'/%3E%3C!-- Teclas piano --%3E%3Cpath d='M10 380 h50 v18 h-50 z M22 380 v18 M34 380 v18 M46 380 v18'/%3E%3C!-- Estrella 2 --%3E%3Cpath d='M200 240 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 z'/%3E%3C!-- Altavoz --%3E%3Cpath d='M280 40 l-10 0 -12 10 0 -20 12 10 10 0 z M286 38 a12 12 0 0 1 0 14 M292 33 a20 20 0 0 1 0 24'/%3E%3C!-- Nota simple 2 --%3E%3Cpath d='M15 130 v30 a8 8 0 1 1 -8 -8 h8'/%3E%3C!-- Estrella 3 --%3E%3Cpath d='M370 130 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 z'/%3E%3C!-- Clave de sol --%3E%3Cpath d='M160 200 a12 12 0 1 1 -12 -12 a18 18 0 0 0 18 -18 a22 22 0 0 0 -22 -22 c-8 0 -14 4 -18 10'/%3E%3C!-- Bafle / amp --%3E%3Crect x='240' y='300' width='40' height='50' rx='4'/%3E%3Ccircle cx='260' cy='318' r='8'/%3E%3Ccircle cx='260' cy='338' r='6'/%3E%3C!-- Estrella 4 --%3E%3Cpath d='M60 240 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 z'/%3E%3C!-- Nota con corchete --%3E%3Cpath d='M130 130 v30 a9 9 0 1 1 -9 -9 h9 M130 130 q15 -8 25 0'/%3E%3C!-- Onda pequeña --%3E%3Cpath d='M300 250 a10 10 0 0 1 0 15 M310 245 a18 18 0 0 1 0 25'/%3E%3C!-- Auricular 2 --%3E%3Cpath d='M10 200 a18 18 0 0 1 36 0 v10 h-8 v-10 a10 10 0 0 0 -20 0 v10 h-8 z'/%3E%3C!-- Estrella 5 --%3E%3Cpath d='M380 380 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 z'/%3E%3C!-- Pentagrama --%3E%3Cpath d='M180 340 h50 M180 348 h50 M180 356 h50 M180 364 h50 M180 372 h50'/%3E%3C/g%3E%3C/svg%3E");
-            background-size: 400px 400px;
-            background-repeat: repeat;
-            animation: moverFondo 60s linear infinite;
             pointer-events: none;
-        }
-
-        /* Animación de scroll diagonal del fondo */
-        @keyframes moverFondo {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(400px, 400px);
-            }
-        }
-
-        /* Pausa la animación al pasar el puntero por cualquier parte del body */
-        body:hover::after {
-            animation-play-state: paused;
         }
 
         /* ===== CABECERA DE NAVEGACIÓN ===== */
@@ -377,15 +347,6 @@
             .banner-text {
                 font-size: 2.2rem;
             }
-
-            body::after {
-                background-size: 300px 300px;
-            }
-
-            @keyframes moverFondo {
-                0% { transform: translate(0, 0); }
-                100% { transform: translate(300px, 300px); }
-            }
         }
 
         @media (max-width: 480px) {
@@ -439,15 +400,6 @@
 
             .price-box .price-value {
                 font-size: 2.2rem;
-            }
-
-            body::after {
-                background-size: 250px 250px;
-            }
-
-            @keyframes moverFondo {
-                0% { transform: translate(0, 0); }
-                100% { transform: translate(250px, 250px); }
             }
         }
     </style>
