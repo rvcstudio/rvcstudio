@@ -83,19 +83,27 @@ body {
 }
 
 .nav-menu a:hover { 
-    color: #ff0055; 
+    color: #4da6ff; 
 }
 
-/* LOGO A LA DERECHA */
+/* LOGO DE TEXTO A LA DERECHA */
 .logo-nav {
     order: 2;
     margin-left: auto;
 }
 
-.logo-nav img { 
-    max-height: 40px; 
-    width: auto; 
-    display: block;
+.logo-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.logo-nav a:hover {
+    color: #4da6ff;
 }
 
 /* --- DROPDOWN MENÚ (A la izquierda) --- */
@@ -117,7 +125,7 @@ body {
 }
 
 .dropbtn:hover {
-    color: #ff0055;
+    color: #4da6ff;
 }
 
 .dropdown-content {
@@ -147,7 +155,7 @@ body {
 
 .dropdown-content a:hover {
     background-color: #1a1a1a;
-    color: #ff0055;
+    color: #4da6ff;
 }
 
 .dropdown:hover .dropdown-content {
@@ -155,14 +163,14 @@ body {
     visibility: visible;
 }
 
-/* --- BARRA PROMOCIONAL ROSA (Cinta giratoria CENTRADA) --- */
+/* --- BARRA PROMOCIONAL AZUL GALAXIA (Cinta giratoria CENTRADA) --- */
 .barra-navegacion-secundaria {
     width: 100%;
-    background-color: #ff0055;
+    background-color: #4da6ff;
     padding: 12px 0;
     overflow: hidden;
     white-space: nowrap;
-    box-shadow: 0 2px 10px rgba(255, 0, 85, 0.3);
+    box-shadow: 0 2px 10px rgba(77, 166, 255, 0.4);
     text-align: center;
 }
 
@@ -199,7 +207,7 @@ body {
     width: 100%;
     height: 350px;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url('imagenes/banner.jpg');
+                url('imagenes/backgroun.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -224,6 +232,12 @@ body {
     text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
     margin: 0;
     line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+/* TÍTULO DEL BANNER CAMBIA A AZUL GALAXIA AL HOVER */
+.contenido-banner h1:hover {
+    color: #4da6ff;
 }
 
 @keyframes fadeIn {
@@ -265,7 +279,7 @@ body {
 
 .tarjeta-vertical:hover {
     transform: translateY(-5px);
-    border-color: #ff0055;
+    border-color: #4da6ff;
 }
 
 .img-vertical {
@@ -323,7 +337,7 @@ body {
 
 .tarjeta-tutorial:hover {
     transform: translateY(-3px);
-    border-color: #ff0055;
+    border-color: #4da6ff;
 }
 
 .info-tarjeta {
@@ -342,7 +356,7 @@ body {
 }
 
 .tarjeta-tutorial:hover .info-tarjeta h3 {
-    color: #ff0055;
+    color: #4da6ff;
 }
 
 .info-tarjeta p {
@@ -395,7 +409,7 @@ body {
 }
 
 .articulo-cargado h2 {
-    color: #ff0055;
+    color: #4da6ff;
     margin-top: 30px;
     margin-bottom: 15px;
     font-size: 1.5rem;
@@ -468,14 +482,14 @@ body {
     background-color: rgba(30, 30, 30, 0.85);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    border-left: 4px solid #0076ff;
+    border-left: 4px solid #4da6ff;
 }
 
 .box-tip.pink {
     background-color: rgba(30, 30, 30, 0.85);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    border-left: 4px solid #ff0055;
+    border-left: 4px solid #4da6ff;
 }
 
 /* --- CTA GOOGLE NEWS --- */
@@ -487,7 +501,7 @@ body {
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     border: 1px solid #333;
-    border-left: 4px solid #4285F4;
+    border-left: 4px solid #4da6ff;
     padding: 20px;
     border-radius: 6px;
     margin: 35px 0;
@@ -521,9 +535,9 @@ body {
 }
 
 .btn-cta-news:hover {
-    background-color: #4285F4;
+    background-color: #4da6ff;
     color: #ffffff;
-    box-shadow: 0 0 10px rgba(66, 133, 244, 0.4);
+    box-shadow: 0 0 10px rgba(77, 166, 255, 0.4);
 }
 
 /* --- SECCIÓN RECOMENDADOS --- */
@@ -538,7 +552,7 @@ body {
     font-size: 1.4rem;
     color: #ffffff;
     margin-bottom: 25px;
-    border-left: 4px solid #ff0055;
+    border-left: 4px solid #4da6ff;
     padding-left: 12px;
 }
 
@@ -550,12 +564,10 @@ body {
 }
 
 .social-footer {
-    padding-top: 15px;
-    border-top: 1px solid #333;
+    padding: 15px;
     background-color: rgba(26, 26, 26, 0.85);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    padding: 15px;
     border-radius: 8px;
     border: 1px solid #252525;
 }
@@ -573,7 +585,7 @@ body {
 }
 
 .social-icons a:hover {
-    color: #ff0055;
+    color: #4da6ff;
     transform: translateY(-5px);
 }
 
@@ -589,7 +601,7 @@ body {
     color: #ffffff !important;
     padding: 15px;
     box-sizing: border-box;
-    border-top: 3px solid #ff0055;
+    border-top: 3px solid #4da6ff;
     z-index: 9999;
     text-align: center;
     display: flex;
@@ -605,12 +617,12 @@ body {
 }
 
 .cookie-banner a {
-    color: #ff0055 !important;
+    color: #4da6ff !important;
     text-decoration: underline;
 }
 
 .btn-aceptar {
-    background-color: #ff0055;
+    background-color: #4da6ff;
     color: #ffffff;
     border: none;
     padding: 8px 20px;
@@ -621,7 +633,7 @@ body {
 }
 
 .btn-aceptar:hover {
-    background-color: #cc0044;
+    background-color: #2d8ee6;
 }
 
 /* --- FOOTER --- */
@@ -656,7 +668,7 @@ body {
 }
 
 .links-legales a:hover {
-    color: #ff0055;
+    color: #4da6ff;
 }
 
 .footer-legal p {
@@ -697,7 +709,7 @@ body {
 }
 
 .error-container h2 {
-    color: #ff0055;
+    color: #4da6ff;
     margin-bottom: 15px;
 }
 
@@ -710,7 +722,7 @@ body {
 }
 
 .error-container code {
-    color: #ff0055;
+    color: #4da6ff;
     background: #222;
     padding: 2px 6px;
     border-radius: 3px;
@@ -730,7 +742,7 @@ body {
 .btn-retry {
     margin-top: 20px;
     padding: 10px 30px;
-    background: #ff0055;
+    background: #4da6ff;
     color: white;
     border: none;
     border-radius: 4px;
@@ -739,7 +751,7 @@ body {
 }
 
 .btn-retry:hover {
-    background: #cc0044;
+    background: #2d8ee6;
 }
 
 /* --- RESPONSIVE (MÓVIL) --- */
@@ -751,9 +763,9 @@ body {
         align-items: center;
     }
 
-    .logo-nav img {
-        height: 35px;
-        width: auto;
+    .logo-nav a {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
     }
 
     .dropbtn {
@@ -906,8 +918,9 @@ body {
         padding: 8px 10px;
     }
 
-    .logo-nav img {
-        height: 28px;
+    .logo-nav a {
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
     }
 
     .dropbtn {
@@ -958,9 +971,7 @@ body {
 
    <header class="cabecera-novedades">
     <div class="logo-nav">
-        <a href="index.html">
-            <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
-        </a>
+        <a href="index.html">RVC STUDIO</a>
     </div>
 
     <nav class="nav-menu-container">
