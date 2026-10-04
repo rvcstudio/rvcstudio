@@ -37,7 +37,6 @@
             position: relative;
         }
 
-        /* Capa de estrellas fija (no se mueve al hacer scroll) */
         body::before {
             content: '';
             position: fixed;
@@ -48,7 +47,6 @@
             z-index: -1;
             background-color: #000000;
             background-image: 
-                /* Estrellas grandes y brillantes */
                 radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
                 radial-gradient(2px 2px at 60px 70px, #ffffff, transparent),
                 radial-gradient(1.5px 1.5px at 120px 40px, #ffffff, transparent),
@@ -61,7 +59,6 @@
                 radial-gradient(2px 2px at 640px 250px, #ffffff, transparent),
                 radial-gradient(1.5px 1.5px at 720px 150px, #ffffff, transparent),
                 radial-gradient(2px 2px at 800px 50px, #ffffff, transparent),
-                /* Estrellas medianas */
                 radial-gradient(1px 1px at 40px 140px, #ffffff, transparent),
                 radial-gradient(1px 1px at 100px 200px, #ffffff, transparent),
                 radial-gradient(1px 1px at 160px 60px, #ffffff, transparent),
@@ -74,7 +71,6 @@
                 radial-gradient(1px 1px at 680px 220px, #ffffff, transparent),
                 radial-gradient(1px 1px at 760px 300px, #ffffff, transparent),
                 radial-gradient(1px 1px at 840px 180px, #ffffff, transparent),
-                /* Estrellas pequeñas (polvo estelar) */
                 radial-gradient(0.8px 0.8px at 10px 80px, #ffffff, transparent),
                 radial-gradient(0.8px 0.8px at 70px 180px, #ffffff, transparent),
                 radial-gradient(0.8px 0.8px at 130px 260px, #ffffff, transparent),
@@ -90,7 +86,6 @@
                 radial-gradient(0.8px 0.8px at 730px 90px, #ffffff, transparent),
                 radial-gradient(0.8px 0.8px at 790px 230px, #ffffff, transparent),
                 radial-gradient(0.8px 0.8px at 850px 120px, #ffffff, transparent),
-                /* Destellos grandes (estrellas tipo brillo) */
                 radial-gradient(3px 3px at 150px 320px, #ffffff, transparent),
                 radial-gradient(3px 3px at 450px 380px, #ffffff, transparent),
                 radial-gradient(3px 3px at 750px 350px, #ffffff, transparent);
@@ -99,7 +94,6 @@
             pointer-events: none;
         }
 
-        /* Capa extra de estrellas con pequeño halo (para dar profundidad) */
         body::after {
             content: '';
             position: fixed;
@@ -145,15 +139,24 @@
             height: 70px;
         }
 
+        /* ===== LOGO DE TEXTO A LA DERECHA ===== */
         .logo-nav {
             order: 2;
             margin-left: auto;
         }
 
-        .logo-nav img {
-            max-height: 40px;
-            width: auto;
-            display: block;
+        .logo-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .logo-nav a:hover {
+            color: #4da6ff;
         }
 
         .nav-menu-container {
@@ -179,7 +182,7 @@
         }
 
         .dropbtn:hover {
-            color: #ff0055;
+            color: #4da6ff;
         }
 
         .dropdown-content {
@@ -209,7 +212,7 @@
 
         .dropdown-content a:hover {
             background-color: #1a1a1a;
-            color: #ff0055;
+            color: #4da6ff;
         }
 
         .dropdown:hover .dropdown-content {
@@ -258,7 +261,7 @@
         }
 
         .banner-text:hover {
-            color: #ff0055;
+            color: #4da6ff;
         }
 
         @keyframes fadeIn {
@@ -293,10 +296,11 @@
             text-align: left;
         }
 
+        /* TÍTULOS EN BLANCO (sin empachar) */
         .card h2 {
             font-size: 1.6rem;
             margin-bottom: 20px;
-            color: #ff0055;
+            color: #ffffff;
             text-align: center;
         }
 
@@ -308,7 +312,7 @@
         }
 
         .card strong {
-            color: #ff0055;
+            color: #ffffff;
             display: block;
             margin-top: 20px;
             margin-bottom: 8px;
@@ -328,22 +332,26 @@
             line-height: 1.6;
         }
 
+        /* CHECK EN AZUL (detalle sutil) */
         .card ul li::before {
             content: '✔';
             position: absolute;
             left: 0;
-            color: #ff0055;
+            color: #4da6ff;
             font-weight: bold;
         }
 
+        /* CORREO EN AZUL */
         .card a {
-            color: #ff0055;
+            color: #4da6ff;
             text-decoration: none;
             word-break: break-all;
+            transition: color 0.3s ease;
         }
 
         .card a:hover {
             text-decoration: underline;
+            color: #7bbfff;
         }
 
         /* ===== PRECIO ===== */
@@ -351,8 +359,8 @@
             margin: 30px 0;
             padding: 25px 20px;
             text-align: center;
-            background: linear-gradient(135deg, rgba(255, 0, 85, 0.1), rgba(255, 0, 85, 0.15));
-            border: 1px solid rgba(255, 0, 85, 0.3);
+            background: linear-gradient(135deg, rgba(77, 166, 255, 0.08), rgba(77, 166, 255, 0.12));
+            border: 1px solid rgba(77, 166, 255, 0.25);
             border-radius: 15px;
         }
 
@@ -367,7 +375,7 @@
         .price-box .price-value {
             font-size: 3rem;
             font-weight: 800;
-            color: #ff0055;
+            color: #ffffff;
             line-height: 1;
         }
 
@@ -394,8 +402,8 @@
                 padding: 0 15px;
             }
 
-            .logo-nav img {
-                height: 35px;
+            .logo-nav a {
+                font-size: 1.1rem;
             }
 
             .dropbtn {
@@ -424,8 +432,9 @@
                 height: 60px;
             }
 
-            .logo-nav img {
-                height: 28px;
+            .logo-nav a {
+                font-size: 0.95rem;
+                letter-spacing: 1px;
             }
 
             .dropbtn {
@@ -496,9 +505,7 @@
             </nav>
 
             <div class="logo-nav">
-                <a href="index.html">
-                    <img src="imagenes/rvc%20new%20logo.png" alt="Record Very Clean Logo">
-                </a>
+                <a href="index.html">RVC Studio</a>
             </div>
         </div>
     </header>
