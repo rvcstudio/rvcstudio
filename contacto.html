@@ -112,46 +112,6 @@
         }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* REDES SOCIALES al estilo "frajanjas" */
-        .social-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin: 30px 0 20px;
-        }
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: rgba(20, 20, 20, 0.85);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            border: 1px solid #2a2a2a;
-            border-radius: 40px;
-            padding: 8px 18px;
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: 0.25s ease;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.6);
-        }
-        .social-btn i { font-size: 1.2rem; }
-        .social-btn:hover {
-            transform: translateY(-3px);
-            border-color: #4da6ff;
-            box-shadow: 0 0 15px rgba(77, 166, 255, 0.3);
-            background: rgba(10, 20, 30, 0.9);
-        }
-        .social-btn.instagram:hover { border-color: #E1306C; }
-        .social-btn.tiktok:hover { border-color: #00f2ea; }
-        .social-btn.youtube:hover { border-color: #FF0000; }
-        .social-btn.kick:hover { border-color: #53fc18; }
-        .social-btn.sample:hover { border-color: #4da6ff; }
-
         /* contenido principal */
         .contenedor-contacto {
             max-width: 900px;
@@ -160,25 +120,6 @@
             position: relative;
             z-index: 2;
         }
-        .titulo-principal {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            border-left: 4px solid #4da6ff;
-            padding-left: 15px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .titulo-principal img {
-            max-height: 60px;
-            width: auto;
-            border-radius: 8px;
-            border: 1px solid #222;
-        }
-        .titulo-principal span { color: #4da6ff; }
 
         .grid-contacto {
             display: grid;
@@ -250,6 +191,27 @@
             display: inline-block;
             margin-top: 10px;
         }
+
+        /* Botón Telegram */
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #229ED9;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-weight: 700;
+            margin-top: 14px;
+            transition: 0.3s ease;
+        }
+        .telegram-btn:hover {
+            background-color: #1b7fb0;
+            transform: translateY(-2px);
+        }
+
         .mensaje-form {
             padding: 15px;
             border-radius: 6px;
@@ -273,19 +235,16 @@
             .grid-contacto { grid-template-columns: 1fr; }
             .cabecera-novedades { padding: 15px; }
             .logo-nav a { font-size: 1.1rem; letter-spacing: 1px; }
-            .social-links { gap: 8px; }
-            .social-btn { padding: 6px 14px; font-size: 0.7rem; }
-            .titulo-principal { font-size: 1.8rem; }
-            .titulo-principal img { max-height: 45px; }
+            .form-bloque { padding: 30px 25px; }
         }
 
         @media (max-width: 480px) {
             .cabecera-novedades { padding: 10px 15px; }
             .logo-nav a { font-size: 0.95rem; letter-spacing: 0.5px; }
-            .titulo-principal { font-size: 1.5rem; }
             .form-bloque { padding: 25px 20px; }
         }
     </style>
+
     <!-- íconos (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -315,26 +274,12 @@
 </header>
 
 <main class="contenedor-contacto">
-    <h1 class="titulo-principal">
-        <span>RVC STUDIO</span> LINKS
-    </h1>
-
-    <!-- BOTONES SOCIALES (frajanjas) -->
-    <div class="social-links">
-        <a href="https://www.instagram.com/eli_xai/" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="https://www.tiktok.com/@recordveryclean" target="_blank" class="social-btn tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
-        <a href="https://www.youtube.com/@Beightbeat" target="_blank" class="social-btn youtube"><i class="fab fa-youtube"></i> Reggaeton Type Beats</a>
-        <a href="samples-y-drum-kit.html" class="social-btn sample"><i class="fas fa-drum"></i> Samples & Drum Kit</a>
-        <a href="https://www.youtube.com/@beightbeatz" target="_blank" class="social-btn youtube"><i class="fab fa-youtube"></i> Tutoriales</a>
-        <a href="https://kick.com/recordveryclean" target="_blank" class="social-btn kick"><i class="fas fa-bolt"></i> Kick</a>
-    </div>
-
     <div class="grid-contacto">
         <section class="form-bloque">
             <h2>Envíanos un mensaje</h2>
-            
+
             <div id="formStatus"></div>
-            
+
             <form 
                 id="contactForm"
                 action="https://formspree.io/f/mjgngkoz" 
@@ -356,10 +301,10 @@
                     <label for="mensaje">Mensaje</label>
                     <textarea id="mensaje" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
                 </div>
-                
+
                 <input type="hidden" name="_next" value="gracias.html">
                 <input type="hidden" name="_captcha" value="false">
-                
+
                 <button type="submit" id="submitBtn" class="btn-enviar">Enviar Mensaje</button>
             </form>
         </section>
@@ -369,6 +314,19 @@
                 <h3>✉️ Vía de Correo Directo</h3>
                 <p>Si prefieres escribirnos directamente:</p>
                 <span class="email-contacto">recordveryclean@gmail.com</span>
+            </div>
+
+            <div class="caja-info">
+                <h3>🎧 Envía tu stream de audio</h3>
+                <p>Los artistas pueden dejar sus streams de audio en nuestro canal de Telegram:</p>
+                <a 
+                    href="https://t.me/rvcstudio" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="telegram-btn"
+                >
+                    <i class="fab fa-telegram"></i> Ir al canal de Telegram
+                </a>
             </div>
         </aside>
     </div>
