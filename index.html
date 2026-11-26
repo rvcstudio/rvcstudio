@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta name="google-adsense-account" content="ca-pub-7103017241533415">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | RVC Studio</title>
+
+    <!-- Google Search Console & Analytics -->
+    <meta name="google-site-verification" content="TU_CODIGO_DE_VERIFICACION_GSC_AQUI" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-04WYB34N23"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -9,63 +14,39 @@
       gtag('js', new Date());
       gtag('config', 'G-04WYB34N23');
     </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7103017241533415"
-     crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RVC Studio | Mezcla y Masterización</title>
-    <meta name="description" content="Servicio profesional de Mezcla y Masterización. Sonido limpio, potente y listo para la industria para tu canción.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <!-- FONDO GALAXIA EXTERNO -->
     <link rel="stylesheet" href="fondo-galaxia.css">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        html, body {
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: transparent;
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            padding-bottom: 80px;
+            position: relative;
             overflow-x: hidden;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #000000;
-            color: #ffffff;
-            min-height: 100vh;
-            position: relative;
-        }
-
-        /* ===== CABECERA DE NAVEGACIÓN ===== */
-        .navbar {
+        /* header */
+        .cabecera-novedades {
             width: 100%;
-            background: rgba(0, 0, 0, 0.75);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1a1a1a;
+            background-color: rgba(7, 7, 7, 0.85);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 0 30px;
         }
 
-        .navbar-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 70px;
-        }
-
-        .logo-nav {
-            order: 2;
-            margin-left: auto;
-        }
-
+        /* LOGO DE TEXTO */
         .logo-nav a {
             color: #ffffff;
             text-decoration: none;
@@ -80,392 +61,405 @@
             color: #4da6ff;
         }
 
+        /* MENÚ DESPLEGABLE IZQUIERDA */
         .nav-menu-container {
-            order: 1;
+            display: flex;
+            align-items: center;
         }
-
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 10px 16px;
+            font-size: 1rem;
+            border: 1px solid #333;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .dropbtn:hover { border-color: #4da6ff; color: #4da6ff; }
         .dropdown {
             position: relative;
             display: inline-block;
         }
-
-        .dropbtn {
-            background-color: transparent;
-            color: #ffffff;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-        }
-
-        .dropbtn:hover {
-            color: #4da6ff;
-        }
-
         .dropdown-content {
+            display: none;
             position: absolute;
-            background-color: #0a0a0a;
-            min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.7);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s;
-            z-index: 1000;
-            border-radius: 6px;
-            border: 1px solid #222;
-            margin-top: 5px;
             left: 0;
-            right: auto;
+            top: 110%;
+            background-color: #111;
+            min-width: 220px;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 8px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+            z-index: 200;
         }
-
         .dropdown-content a {
-            display: block;
-            padding: 12px 16px;
+            color: #ddd;
+            padding: 10px 20px;
             text-decoration: none;
-            color: #cccccc;
+            display: block;
             font-size: 0.9rem;
-            transition: all 0.3s ease;
+            transition: 0.2s;
+            border-left: 3px solid transparent;
         }
-
         .dropdown-content a:hover {
             background-color: #1a1a1a;
             color: #4da6ff;
+            border-left-color: #4da6ff;
         }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        .dropdown:hover .dropdown-content {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* ===== BANNER ===== */
-        .banner {
-            position: relative;
-            width: 100%;
-            height: 420px;
-            overflow: hidden;
-            background-image: url('imagenes/backgroun.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.55);
-        }
-
-        .banner-text {
+        /* contenido principal */
+        .contenedor-contacto {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
             position: relative;
             z-index: 2;
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #ffffff;
-            text-align: center;
-            padding: 0 20px;
-            text-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-            opacity: 0;
-            animation: fadeIn 2s ease-in forwards;
-            transition: color 0.3s ease;
         }
 
-        .banner-text:hover {
-            color: #4da6ff;
+        .grid-contacto {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .form-bloque {
+            background-color: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 40px;
         }
-
-        /* ===== CONTENIDO ===== */
-        .container {
-            max-width: 900px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 50px 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card {
-            background: rgba(10, 10, 20, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px 35px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-            text-align: left;
-        }
-
-        .card h2 {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-            color: #ffffff;
-            text-align: center;
-        }
-
-        .card p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #d0d0e0;
-            margin-bottom: 20px;
-        }
-
-        .card strong {
-            color: #ffffff;
+        .grupo-campo { margin-bottom: 20px; }
+        .grupo-campo label {
             display: block;
-            margin-top: 20px;
             margin-bottom: 8px;
-            font-size: 1.05rem;
+            font-size: 0.9rem;
+            color: #aaaaaa;
+        }
+        .grupo-campo input, .grupo-campo textarea {
+            width: 100%;
+            background-color: rgba(11, 11, 11, 0.9);
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 12px 15px;
+            color: #ffffff;
+            transition: border-color 0.3s ease;
+        }
+        .grupo-campo input:focus, .grupo-campo textarea:focus {
+            outline: none;
+            border-color: #4da6ff;
+        }
+        .btn-enviar {
+            background-color: #4da6ff;
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+        .btn-enviar:hover { background-color: #2d8ee6; }
+        .btn-enviar:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
-        .card ul {
+        .caja-info {
+            background-color: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        .email-contacto {
+            font-family: monospace;
+            background-color: rgba(11, 11, 11, 0.9);
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #222;
+            color: #4da6ff;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Botón Telegram */
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #229ED9;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-weight: 700;
+            margin-top: 14px;
+            transition: 0.3s ease;
+        }
+        .telegram-btn:hover {
+            background-color: #1b7fb0;
+            transform: translateY(-2px);
+        }
+
+        /* Servicio destacado */
+        .servicio-paquete {
+            border: 1px solid #4da6ff;
+            box-shadow: 0 0 20px rgba(77, 166, 255, 0.15);
+        }
+        .servicio-paquete h3 {
+            color: #4da6ff;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .precio-servicio {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 10px 0;
+        }
+        .precio-servicio span {
+            font-size: 1rem;
+            color: #aaaaaa;
+            font-weight: 400;
+        }
+        .lista-servicios {
             list-style: none;
             padding: 0;
+            margin-top: 12px;
+        }
+        .lista-servicios li {
+            padding: 6px 0;
+            color: #cccccc;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed #222;
+        }
+        .lista-servicios li:last-child {
+            border-bottom: none;
+        }
+        .lista-servicios li::before {
+            content: "✔️";
+            margin-right: 8px;
+        }
+
+        .mensaje-form {
+            padding: 15px;
+            border-radius: 6px;
             margin-bottom: 20px;
+            display: none;
         }
-
-        .card ul li {
-            padding: 8px 0 8px 30px;
-            position: relative;
-            color: #d0d0e0;
-            line-height: 1.6;
+        .mensaje-exito {
+            background-color: #0a2a1a;
+            border: 1px solid #00ff88;
+            color: #66ffaa;
+            display: block;
         }
-
-        .card ul li::before {
-            content: '✔';
-            position: absolute;
-            left: 0;
-            color: #4da6ff;
-            font-weight: bold;
-        }
-
-        .card a {
-            color: #4da6ff;
-            text-decoration: none;
-            word-break: break-all;
-            transition: color 0.3s ease;
-        }
-
-        .card a:hover {
-            text-decoration: underline;
+        .mensaje-error {
+            background-color: #2a0a0a;
+            border: 1px solid #4da6ff;
             color: #7bbfff;
+            display: block;
         }
 
-        .price-box {
-            margin: 30px 0;
-            padding: 25px 20px;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(77, 166, 255, 0.08), rgba(77, 166, 255, 0.12));
-            border: 1px solid rgba(77, 166, 255, 0.25);
-            border-radius: 15px;
-        }
-
-        .price-box .price-label {
-            font-size: 0.95rem;
-            color: #a0a0b8;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-
-        .price-box .price-value {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1;
-        }
-
-        .price-box .price-note {
-            font-size: 0.9rem;
-            color: #a0a0b8;
-            margin-top: 8px;
-        }
-
-        footer {
-            margin-top: 40px;
-            padding: 25px 20px;
-            font-size: 0.9rem;
-            color: #606080;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .navbar { padding: 0 15px; }
-            .logo-nav a { font-size: 1.1rem; }
-            .dropbtn { padding: 8px 12px; font-size: 0.85rem; }
-            .dropdown-content { left: 0; right: auto; min-width: 180px; max-width: 90vw; }
-            .banner { height: 300px; }
-            .banner-text { font-size: 2.2rem; }
+            .grid-contacto { grid-template-columns: 1fr; }
+            .cabecera-novedades { padding: 15px; }
+            .logo-nav a { font-size: 1.1rem; letter-spacing: 1px; }
+            .form-bloque { padding: 30px 25px; }
         }
 
         @media (max-width: 480px) {
-            .navbar-inner { height: 60px; }
-            .logo-nav a { font-size: 0.95rem; letter-spacing: 1px; }
-            .dropbtn { font-size: 0.75rem; padding: 6px 10px; }
-            .dropdown-content { min-width: 150px; }
-            .dropdown-content a { padding: 10px 14px; font-size: 0.8rem; }
-            .banner { height: 240px; }
-            .banner-text { font-size: 1.6rem; letter-spacing: 1px; }
-            .container { padding: 30px 15px; }
-            .card { padding: 25px 20px; }
-            .card h2 { font-size: 1.3rem; }
-            .card p, .card ul li { font-size: 0.95rem; }
-            .price-box .price-value { font-size: 2.2rem; }
+            .cabecera-novedades { padding: 10px 15px; }
+            .logo-nav a { font-size: 0.95rem; letter-spacing: 0.5px; }
+            .form-bloque { padding: 25px 20px; }
         }
-        /* --- BARRA PROMOCIONAL AZUL GALAXIA (Cinta giratoria CENTRADA) --- */
-.barra-navegacion-secundaria {
-    width: 100%;
-    background-color: #4da6ff;
-    padding: 12px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    box-shadow: 0 2px 10px rgba(77, 166, 255, 0.4);
-    text-align: center;
-}
-
-.scroll-container {
-    display: inline-block;
-    animation: marquee 20s linear infinite;
-}
-
-.scroll-container a {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: 700;
-    margin: 0 25px;
-    text-transform: uppercase;
-    font-size: 0.95rem;
-    transition: opacity 0.3s ease;
-}
-
-.scroll-container a:hover {
-    opacity: 0.7;
-}
-
-@keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-.scroll-container:hover {
-    animation-play-state: paused;
-}
-
-/* Responsive para la barra */
-@media (max-width: 768px) {
-    .barra-navegacion-secundaria {
-        padding: 10px 0;
-    }
-    .scroll-container {
-        animation: marquee 15s linear infinite;
-    }
-    .scroll-container a {
-        font-size: 0.8rem;
-        margin: 0 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .scroll-container a {
-        font-size: 0.7rem;
-        margin: 0 10px;
-    }
-}
     </style>
+
+    <!-- íconos (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="navbar-inner">
-            <nav class="nav-menu-container">
-                <div class="dropdown">
-                    <button class="dropbtn">☰ MENÚ</button>
-                    <div class="dropdown-content">
-                        <a href="beats.html">Beats</a>
-                        <a href="novedades.html">Novedades</a>
-                        <a href="aviso-legal.html">Aviso Legal</a>
-                        <a href="politica-privacidad.html">Política de Privacidad</a>
-                        <a href="terminos-condiciones.html">Términos y Condiciones</a>
-                        <a href="sobre-nosotros.html">Nosotros</a>
-                        <a href="contacto.html">Contacto</a>
-                    </div>
-                </div>
-            </nav>
-            <div class="logo-nav">
-                <a href="index.html">RVC Studio</a>
+<header class="cabecera-novedades">
+    <!-- menú hamburguesa a la izquierda -->
+    <nav class="nav-menu-container">
+        <div class="dropdown">
+            <button class="dropbtn">☰ MENÚ</button>
+            <div class="dropdown-content">
+                <a href="servicios.html">Servicios</a>
+                <a href="samples-y-drum-kit.html">Samples & Drum Kit</a>
+                <a href="novedades.html">Novedades</a>
+                <a href="tutoriales.html">Tutoriales</a>
+                <a href="aviso-legal.html">Aviso Legal</a>
+                <a href="politica-privacidad.html">Política de Privacidad</a>
+                <a href="terminos-condiciones.html">Términos y Condiciones</a>
+                <a href="sobre-nosotros.html">Nosotros</a>
+                <a href="contacto.html">Contacto</a>
             </div>
-        </div>
-    </header>
-
-    <section class="banner">
-        <div class="banner-text">Mezcla y Masterización</div>
-    </section>
-    
-    <nav class="barra-navegacion-secundaria">
-        <div class="scroll-container">
-            <a href="beats.html">🎵 Beats</a>
-            <a href="novedades.html">📰 Novedades</a>
-            <a href="contacto.html">📧 Contacto</a>
-            <!-- Repetido para efecto infinito -->
-            <a href="beats.html">🎵 Beats</a>
-            <a href="novedades.html">📰 Novedades</a>
-            <a href="contacto.html">📧 Contacto</a>
         </div>
     </nav>
 
-    <main class="container">
-        <div class="card" id="servicio">
-            <h2>🎚️ Servicio Profesional de Mezcla y Masterización</h2>
-            <p>
-                Consigue un sonido limpio, potente y listo para la industria para tu canción.
-                Entrego voces nítidas, baterías con pegada, graves balanceados y una mezcla pulida que se traduce perfectamente en todas las plataformas — desde streaming hasta clubs.
-            </p>
-            <strong>Lo que obtendrás:</strong>
-            <ul>
-                <li>Mezcla y Master profesional (estándar de la industria)</li>
-                <li>Voces nítidas y al frente</li>
-                <li>Balance limpio y sonoridad moderna</li>
-                <li>Optimizado para Spotify, Apple Music y más</li>
-            </ul>
-            <div class="price-box">
-                <div class="price-label"></div>
-                <div class="price-value">100 USD</div>
-                <div class="price-note">Mezcla y Master profesional</div>
+    <!-- logo de texto a la derecha -->
+    <div class="logo-nav"><a href="index.html">RVC STUDIO</a></div>
+</header>
+
+<main class="contenedor-contacto">
+    <div class="grid-contacto">
+        <section class="form-bloque">
+            <h2>Envíanos un mensaje</h2>
+
+            <div id="formStatus"></div>
+
+            <form 
+                id="contactForm"
+                action="https://formspree.io/f/mjgngkoz" 
+                method="POST"
+            >
+                <div class="grupo-campo">
+                    <label for="nombre">Tu nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="email">Tu correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="Ej: juan@gmail.com" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="asunto">Asunto</label>
+                    <input type="text" id="asunto" name="asunto" placeholder="Ej: Consulta sobre mezcla" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+
+                <input type="hidden" name="_next" value="gracias.html">
+                <input type="hidden" name="_captcha" value="false">
+
+                <button type="submit" id="submitBtn" class="btn-enviar">Enviar Mensaje</button>
+            </form>
+        </section>
+
+        <aside class="info-soporte">
+            <!-- Correo directo -->
+            <div class="caja-info">
+                <h3>✉️ Vía de Correo Directo</h3>
+                <p>Si prefieres escribirnos directamente:</p>
+                <span class="email-contacto">recordveryclean@gmail.com</span>
             </div>
-            <strong>Envío:</strong>
-            <p id="contacto">
-                Por favor, envía un enlace de descarga con tus stems / pistas WAV de alta calidad a:<br>
-                📩 <a href="recordveryclean@gmail.com">recordveryclean@gmail.com</a>
-            </p>
-            <strong>Revisiones:</strong>
-            <p>Se incluye 1 revisión gratuita si no quedas completamente satisfecho con la mezcla final.</p>
-            <strong>Tiempo de entrega:</strong>
-            <p>Por favor, permite hasta 72 horas para la entrega después del envío.</p>
-        </div>
-    </main>
 
-    <footer>
-        &copy; 2025 RVC Studio. Todos los derechos reservados.
-    </footer>
+            <!-- Telegram para stems de audio -->
+            <div class="caja-info">
+                <h3>🎧 Envía tu stream de audio</h3>
+                <p>Los artistas pueden dejar sus streams de audio en nuestro canal de Telegram:</p>
+                <a 
+                    href="https://t.me/rvcstudio" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="telegram-btn"
+                >
+                    <i class="fab fa-telegram"></i> Ir al canal de Telegram
+                </a>
+            </div>
 
+            <!-- Servicio de $250 USD -->
+            <div class="caja-info servicio-paquete">
+                <h3>🚀 Pack Impulso Musical</h3>
+                <div class="precio-servicio">$250 <span>USD</span></div>
+                <p>Incluye:</p>
+                <ul class="lista-servicios">
+                    <li>Mezcla profesional</li>
+                    <li>Mastering</li>
+                    <li>Distribución digital</li>
+                    <li>Promoción mediante clipping (reels)</li>
+                </ul>
+                <p style="margin-top:12px; font-size:0.85rem; color:#aaaaaa;">
+                    Impulsamos tu audio o canción a través de páginas secundarias dedicadas al clipping.
+                </p>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<script>
+    // ============================================
+    // MANEJO DEL FORMULARIO CON VALIDACIÓN
+    // ============================================
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusDiv = document.getElementById('formStatus');
+
+    function mostrarMensaje(tipo, texto) {
+        statusDiv.className = `mensaje-form mensaje-${tipo}`;
+        statusDiv.textContent = texto;
+        statusDiv.style.display = 'block';
+    }
+
+    function ocultarMensaje() {
+        statusDiv.style.display = 'none';
+        statusDiv.className = 'mensaje-form';
+    }
+
+    function validarEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        ocultarMensaje();
+
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const asunto = document.getElementById('asunto').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        if (!nombre || !email || !asunto || !mensaje) {
+            mostrarMensaje('error', '⚠️ Por favor, completa todos los campos.');
+            return;
+        }
+        if (!validarEmail(email)) {
+            mostrarMensaje('error', '⚠️ Por favor, ingresa un correo electrónico válido.');
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                mostrarMensaje('exito', '✅ ¡Mensaje enviado con éxito! Te responderemos pronto.');
+                setTimeout(() => {
+                    window.location.href = 'gracias.html';
+                }, 2000);
+            } else {
+                const data = await response.json();
+                mostrarMensaje('error', `❌ Error: ${data.error || 'No se pudo enviar el mensaje. Intenta de nuevo.'}`);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar Mensaje';
+            }
+        } catch (error) {
+            mostrarMensaje('error', '❌ Error de conexión. Verifica tu internet e intenta de nuevo.');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar Mensaje';
+        }
+    });
+</script>
 </body>
 </html>
